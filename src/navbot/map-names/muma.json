@@ -1,0 +1,775 @@
+{
+  "version": 1,
+  "game": "muma",
+  "source": "ynolocations/muma/config.json",
+  "entries": [
+    {
+      "mapId": 73,
+      "name": "Above the Clouds"
+    },
+    {
+      "mapId": 92,
+      "name": "Another White"
+    },
+    {
+      "mapId": 93,
+      "name": "Another White"
+    },
+    {
+      "mapId": 136,
+      "name": "Bedroom"
+    },
+    {
+      "mapId": 77,
+      "name": "Black Waters"
+    },
+    {
+      "mapId": 142,
+      "name": "Black Waters"
+    },
+    {
+      "mapId": 131,
+      "name": "Block Galaxy"
+    },
+    {
+      "mapId": 132,
+      "name": "Block Galaxy"
+    },
+    {
+      "mapId": 84,
+      "name": "Blood n' Blood"
+    },
+    {
+      "mapId": 80,
+      "name": "Blue Flow"
+    },
+    {
+      "mapId": 162,
+      "name": "Broken Passageway"
+    },
+    {
+      "mapId": 214,
+      "name": "Bus Ride"
+    },
+    {
+      "mapId": 110,
+      "name": "Bus Stop"
+    },
+    {
+      "mapId": 111,
+      "name": "Bus Stop"
+    },
+    {
+      "mapId": 25,
+      "name": "Cave Game"
+    },
+    {
+      "mapId": 98,
+      "name": "Chicago"
+    },
+    {
+      "mapId": 99,
+      "name": "Chicago"
+    },
+    {
+      "mapId": 102,
+      "name": "Chicago"
+    },
+    {
+      "mapId": 222,
+      "name": "Chicago"
+    },
+    {
+      "mapId": 141,
+      "name": "Corridor"
+    },
+    {
+      "mapId": 43,
+      "name": "Dark Stairways"
+    },
+    {
+      "mapId": 89,
+      "name": "Decrepit Facility"
+    },
+    {
+      "mapId": 109,
+      "name": "Empty Museum"
+    },
+    {
+      "mapId": 119,
+      "name": "Ending"
+    },
+    {
+      "mapId": 125,
+      "name": "Faraway Place"
+    },
+    {
+      "mapId": 3,
+      "name": "First Steps"
+    },
+    {
+      "mapId": 76,
+      "name": "First Steps"
+    },
+    {
+      "mapId": 39,
+      "name": "Flesh n' Blood"
+    },
+    {
+      "mapId": 94,
+      "name": "Flower Field"
+    },
+    {
+      "mapId": 123,
+      "name": "Glitch"
+    },
+    {
+      "mapId": 144,
+      "name": "Glitch Grid"
+    },
+    {
+      "mapId": 48,
+      "name": "Glowing Meadow"
+    },
+    {
+      "mapId": 49,
+      "name": "Glowing Meadow"
+    },
+    {
+      "mapId": 79,
+      "name": "Great Rope"
+    },
+    {
+      "mapId": 90,
+      "name": "Greenhouse"
+    },
+    {
+      "mapId": 163,
+      "name": "House"
+    },
+    {
+      "mapId": 81,
+      "name": "Inversed Retro Dungeon"
+    },
+    {
+      "mapId": 58,
+      "name": "Isle of Seasons"
+    },
+    {
+      "mapId": 59,
+      "name": "Isle of Seasons"
+    },
+    {
+      "mapId": 60,
+      "name": "Isle of Seasons"
+    },
+    {
+      "mapId": 121,
+      "name": "Jail"
+    },
+    {
+      "mapId": 107,
+      "name": "Jarred Rose"
+    },
+    {
+      "mapId": 16,
+      "name": "Lamp World"
+    },
+    {
+      "mapId": 1,
+      "name": "Memory Room"
+    },
+    {
+      "mapId": 2,
+      "name": "Memory Room"
+    },
+    {
+      "mapId": 6,
+      "name": "Memory Room"
+    },
+    {
+      "mapId": 9,
+      "name": "Memory Room"
+    },
+    {
+      "mapId": 100,
+      "name": "Memory Room"
+    },
+    {
+      "mapId": 101,
+      "name": "Memory Room"
+    },
+    {
+      "mapId": 22,
+      "name": "Micro World"
+    },
+    {
+      "mapId": 24,
+      "name": "Micro World"
+    },
+    {
+      "mapId": 31,
+      "name": "Micro World"
+    },
+    {
+      "mapId": 215,
+      "name": "Micro World"
+    },
+    {
+      "mapId": 52,
+      "name": "Monochrome Building"
+    },
+    {
+      "mapId": 53,
+      "name": "Monochrome Building"
+    },
+    {
+      "mapId": 56,
+      "name": "Monochrome Building"
+    },
+    {
+      "mapId": 12,
+      "name": "Moon"
+    },
+    {
+      "mapId": 148,
+      "name": "Mushroom Cathedral"
+    },
+    {
+      "mapId": 149,
+      "name": "Mushroom Cathedral"
+    },
+    {
+      "mapId": 150,
+      "name": "Mushroom Cathedral"
+    },
+    {
+      "mapId": 220,
+      "name": "Music Room"
+    },
+    {
+      "mapId": 85,
+      "name": "Neon Zone"
+    },
+    {
+      "mapId": 87,
+      "name": "Neon Zone"
+    },
+    {
+      "mapId": 88,
+      "name": "Neon Zone"
+    },
+    {
+      "mapId": 45,
+      "name": "Occult Basement"
+    },
+    {
+      "mapId": 46,
+      "name": "Occult Basement"
+    },
+    {
+      "mapId": 47,
+      "name": "Occult Basement"
+    },
+    {
+      "mapId": 30,
+      "name": "Orange Mausoleum",
+      "regions": [
+        {
+          "x1": 18,
+          "y1": 0,
+          "x2": 69,
+          "y2": 315
+        }
+      ]
+    },
+    {
+      "mapId": 31,
+      "name": "Orange Mausoleum"
+    },
+    {
+      "mapId": 135,
+      "name": "Orange Mausoleum"
+    },
+    {
+      "mapId": 78,
+      "name": "Overgrown Rust"
+    },
+    {
+      "mapId": 13,
+      "name": "Owl Swamp"
+    },
+    {
+      "mapId": 95,
+      "name": "Particle World"
+    },
+    {
+      "mapId": 152,
+      "name": "Pink Block Sea"
+    },
+    {
+      "mapId": 30,
+      "name": "Pink Snowscape",
+      "regions": [
+        {
+          "x1": 1,
+          "y1": 301,
+          "x2": 18,
+          "y2": 313
+        }
+      ]
+    },
+    {
+      "mapId": 33,
+      "name": "Pink Snowscape"
+    },
+    {
+      "mapId": 66,
+      "name": "Projector Room"
+    },
+    {
+      "mapId": 8,
+      "name": "Puzzle Chamber"
+    },
+    {
+      "mapId": 11,
+      "name": "Puzzle Chamber"
+    },
+    {
+      "mapId": 54,
+      "name": "Puzzle Chamber"
+    },
+    {
+      "mapId": 32,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 35,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 36,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 164,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 165,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 166,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 167,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 168,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 169,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 170,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 171,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 172,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 173,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 174,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 175,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 176,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 177,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 178,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 179,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 180,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 181,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 182,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 183,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 184,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 185,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 186,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 187,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 188,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 189,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 190,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 191,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 192,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 193,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 194,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 195,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 196,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 197,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 198,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 199,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 200,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 201,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 202,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 203,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 204,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 205,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 206,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 207,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 208,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 209,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 210,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 211,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 212,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 213,
+      "name": "R-Maze"
+    },
+    {
+      "mapId": 86,
+      "name": "Rainforest Road"
+    },
+    {
+      "mapId": 55,
+      "name": "Realm of the Orb"
+    },
+    {
+      "mapId": 57,
+      "name": "Realm of the Orb"
+    },
+    {
+      "mapId": 68,
+      "name": "Realm of the Orb"
+    },
+    {
+      "mapId": 28,
+      "name": "Red Sands A"
+    },
+    {
+      "mapId": 17,
+      "name": "Red Sands B"
+    },
+    {
+      "mapId": 17,
+      "name": "Red Sands B Settlement",
+      "regions": [
+        {
+          "x1": 77,
+          "y1": 3,
+          "x2": 127,
+          "y2": 31
+        }
+      ]
+    },
+    {
+      "mapId": 30,
+      "name": "Red Sands B Settlement"
+    },
+    {
+      "mapId": 4,
+      "name": "Retro Dungeon"
+    },
+    {
+      "mapId": 155,
+      "name": "Reverse Space Station"
+    },
+    {
+      "mapId": 158,
+      "name": "Reverse Space Station"
+    },
+    {
+      "mapId": 159,
+      "name": "Reverse Space Station"
+    },
+    {
+      "mapId": 160,
+      "name": "Reverse Space Station"
+    },
+    {
+      "mapId": 161,
+      "name": "Reverse Space Station"
+    },
+    {
+      "mapId": 27,
+      "name": "Sands of Time"
+    },
+    {
+      "mapId": 103,
+      "name": "Secret Lab"
+    },
+    {
+      "mapId": 104,
+      "name": "Secret Lab"
+    },
+    {
+      "mapId": 67,
+      "name": "Sheet Music"
+    },
+    {
+      "mapId": 29,
+      "name": "Stare's Stairs"
+    },
+    {
+      "mapId": 70,
+      "name": "Succubus Grotto"
+    },
+    {
+      "mapId": 71,
+      "name": "Succubus Grotto"
+    },
+    {
+      "mapId": 72,
+      "name": "Succubus Grotto"
+    },
+    {
+      "mapId": 51,
+      "name": "SUGAR"
+    },
+    {
+      "mapId": 10,
+      "name": "Sugar Maze"
+    },
+    {
+      "mapId": 41,
+      "name": "Sugar Maze"
+    },
+    {
+      "mapId": 61,
+      "name": "Sunset Cliff"
+    },
+    {
+      "mapId": 62,
+      "name": "Sunset Cliff"
+    },
+    {
+      "mapId": 74,
+      "name": "Swimming Pool"
+    },
+    {
+      "mapId": 40,
+      "name": "The Depths"
+    },
+    {
+      "mapId": 82,
+      "name": "The Grinder"
+    },
+    {
+      "mapId": 83,
+      "name": "The Grinder"
+    },
+    {
+      "mapId": 151,
+      "name": "The Nothingness"
+    },
+    {
+      "mapId": 217,
+      "name": "The Rabbit Hole"
+    },
+    {
+      "mapId": 122,
+      "name": "Thorny Vine World"
+    },
+    {
+      "mapId": 124,
+      "name": "Thorny Vine World"
+    },
+    {
+      "mapId": 50,
+      "name": "Totem Hill"
+    },
+    {
+      "mapId": 63,
+      "name": "Tree Trunk Complex"
+    },
+    {
+      "mapId": 64,
+      "name": "Tree Trunk Complex"
+    },
+    {
+      "mapId": 65,
+      "name": "Tree Trunk Complex"
+    },
+    {
+      "mapId": 69,
+      "name": "Tree Trunk Complex"
+    },
+    {
+      "mapId": 7,
+      "name": "Undersea Expanse"
+    },
+    {
+      "mapId": 20,
+      "name": "Unicorn Woods"
+    },
+    {
+      "mapId": 41,
+      "name": "Unicorn Woods"
+    },
+    {
+      "mapId": 156,
+      "name": "Warped Void"
+    },
+    {
+      "mapId": 37,
+      "name": "Weird Forest"
+    },
+    {
+      "mapId": 23,
+      "name": "White Passage"
+    },
+    {
+      "mapId": 34,
+      "name": "White Passage"
+    },
+    {
+      "mapId": 5,
+      "name": "White Shores"
+    },
+    {
+      "mapId": 42,
+      "name": "Windy Canyon"
+    },
+    {
+      "mapId": 44,
+      "name": "Windy Canyon"
+    },
+    {
+      "mapId": 62,
+      "name": "Windy Canyon"
+    },
+    {
+      "mapId": 105,
+      "name": "Yin Yang Lake"
+    },
+    {
+      "mapId": 106,
+      "name": "Yin Yang Lake"
+    }
+  ]
+}

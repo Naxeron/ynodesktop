@@ -1,0 +1,905 @@
+{
+  "version": 1,
+  "game": "yume",
+  "source": "ynolocations/yume/config.json",
+  "entries": [
+    {
+      "mapId": 66,
+      "name": "Barracks Settlement"
+    },
+    {
+      "mapId": 68,
+      "name": "Barracks Settlement"
+    },
+    {
+      "mapId": 69,
+      "name": "Barracks Settlement"
+    },
+    {
+      "mapId": 81,
+      "name": "Big Red"
+    },
+    {
+      "mapId": 11,
+      "name": "Block World"
+    },
+    {
+      "mapId": 18,
+      "name": "Candle World"
+    },
+    {
+      "mapId": 39,
+      "name": "Checkered Tile Path"
+    },
+    {
+      "mapId": 40,
+      "name": "Checkered Tile Path"
+    },
+    {
+      "mapId": 115,
+      "name": "Crossover Garden"
+    },
+    {
+      "mapId": 116,
+      "name": "Crossover Garden"
+    },
+    {
+      "mapId": 117,
+      "name": "Crossover Garden"
+    },
+    {
+      "mapId": 86,
+      "name": "Dark Woods",
+      "regions": [
+        {
+          "x1": 34,
+          "y1": 11,
+          "x2": 79,
+          "y2": 17
+        }
+      ]
+    },
+    {
+      "mapId": 90,
+      "name": "Dark Woods"
+    },
+    {
+      "mapId": 13,
+      "name": "Dark World"
+    },
+    {
+      "mapId": 42,
+      "name": "Dense Woods A"
+    },
+    {
+      "mapId": 43,
+      "name": "Dense Woods A"
+    },
+    {
+      "mapId": 84,
+      "name": "Dense Woods B"
+    },
+    {
+      "mapId": 86,
+      "name": "Dense Woods B"
+    },
+    {
+      "mapId": 111,
+      "name": "Docks"
+    },
+    {
+      "mapId": 111,
+      "name": "Docks A",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 90,
+          "y2": 110
+        }
+      ]
+    },
+    {
+      "mapId": 111,
+      "name": "Docks B",
+      "regions": [
+        {
+          "x1": 91,
+          "y1": 0,
+          "x2": 201,
+          "y2": 77
+        },
+        {
+          "x1": 105,
+          "y1": 78,
+          "x2": 131,
+          "y2": 134
+        }
+      ]
+    },
+    {
+      "mapId": 17,
+      "name": "Eyeball World"
+    },
+    {
+      "mapId": 34,
+      "name": "FACE"
+    },
+    {
+      "mapId": 41,
+      "name": "Face Carpet Plaza"
+    },
+    {
+      "mapId": 140,
+      "name": "FC Demon's Room"
+    },
+    {
+      "mapId": 148,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 149,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 150,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 157,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 139,
+      "name": "FC Goblins' Room"
+    },
+    {
+      "mapId": 120,
+      "name": "FC House"
+    },
+    {
+      "mapId": 121,
+      "name": "FC House"
+    },
+    {
+      "mapId": 122,
+      "name": "FC House"
+    },
+    {
+      "mapId": 123,
+      "name": "FC House"
+    },
+    {
+      "mapId": 124,
+      "name": "FC House"
+    },
+    {
+      "mapId": 125,
+      "name": "FC House"
+    },
+    {
+      "mapId": 126,
+      "name": "FC House"
+    },
+    {
+      "mapId": 127,
+      "name": "FC House"
+    },
+    {
+      "mapId": 128,
+      "name": "FC House"
+    },
+    {
+      "mapId": 129,
+      "name": "FC House"
+    },
+    {
+      "mapId": 130,
+      "name": "FC House"
+    },
+    {
+      "mapId": 131,
+      "name": "FC House"
+    },
+    {
+      "mapId": 132,
+      "name": "FC House"
+    },
+    {
+      "mapId": 133,
+      "name": "FC House"
+    },
+    {
+      "mapId": 134,
+      "name": "FC House"
+    },
+    {
+      "mapId": 135,
+      "name": "FC House"
+    },
+    {
+      "mapId": 136,
+      "name": "FC House"
+    },
+    {
+      "mapId": 137,
+      "name": "FC House"
+    },
+    {
+      "mapId": 138,
+      "name": "FC House"
+    },
+    {
+      "mapId": 141,
+      "name": "FC House"
+    },
+    {
+      "mapId": 142,
+      "name": "FC House"
+    },
+    {
+      "mapId": 143,
+      "name": "FC House"
+    },
+    {
+      "mapId": 158,
+      "name": "FC World"
+    },
+    {
+      "mapId": 145,
+      "name": "FC World A"
+    },
+    {
+      "mapId": 147,
+      "name": "FC World A"
+    },
+    {
+      "mapId": 158,
+      "name": "FC World A",
+      "regions": [
+        {
+          "x1": 11,
+          "y1": 36,
+          "x2": 43,
+          "y2": 45
+        },
+        {
+          "x1": 11,
+          "y1": 46,
+          "x2": 58,
+          "y2": 79
+        },
+        {
+          "x1": 9,
+          "y1": 80,
+          "x2": 61,
+          "y2": 90
+        },
+        {
+          "x1": 14,
+          "y1": 91,
+          "x2": 36,
+          "y2": 93
+        },
+        {
+          "x1": 14,
+          "y1": 94,
+          "x2": 31,
+          "y2": 95
+        },
+        {
+          "x1": 17,
+          "y1": 96,
+          "x2": 23,
+          "y2": 100
+        }
+      ]
+    },
+    {
+      "mapId": 146,
+      "name": "FC World B"
+    },
+    {
+      "mapId": 151,
+      "name": "FC World B"
+    },
+    {
+      "mapId": 152,
+      "name": "FC World B"
+    },
+    {
+      "mapId": 154,
+      "name": "FC World B"
+    },
+    {
+      "mapId": 158,
+      "name": "FC World B",
+      "regions": [
+        {
+          "x1": 5,
+          "y1": 129,
+          "x2": 91,
+          "y2": 200
+        },
+        {
+          "x1": 92,
+          "y1": 159,
+          "x2": 100,
+          "y2": 195
+        }
+      ]
+    },
+    {
+      "mapId": 48,
+      "name": "Footprint Path"
+    },
+    {
+      "mapId": 49,
+      "name": "Footprint Path"
+    },
+    {
+      "mapId": 10,
+      "name": "Forest World"
+    },
+    {
+      "mapId": 114,
+      "name": "Ghost World"
+    },
+    {
+      "mapId": 16,
+      "name": "Graffiti World"
+    },
+    {
+      "mapId": 35,
+      "name": "Guillotine World"
+    },
+    {
+      "mapId": 36,
+      "name": "Guillotine World"
+    },
+    {
+      "mapId": 47,
+      "name": "Hell"
+    },
+    {
+      "mapId": 65,
+      "name": "Hot Spring House"
+    },
+    {
+      "mapId": 44,
+      "name": "Infinite Road"
+    },
+    {
+      "mapId": 45,
+      "name": "Infinite Road"
+    },
+    {
+      "mapId": 46,
+      "name": "Infinite Road"
+    },
+    {
+      "mapId": 86,
+      "name": "Infinite Road",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 35,
+          "x2": 79,
+          "y2": 59
+        },
+        {
+          "x1": 46,
+          "y1": 24,
+          "x2": 79,
+          "y2": 34
+        }
+      ]
+    },
+    {
+      "mapId": 31,
+      "name": "Lamp World"
+    },
+    {
+      "mapId": 4,
+      "name": "Madotsuki's Balcony"
+    },
+    {
+      "mapId": 7,
+      "name": "Madotsuki's Dream Balcony"
+    },
+    {
+      "mapId": 8,
+      "name": "Madotsuki's Dream Balcony"
+    },
+    {
+      "mapId": 6,
+      "name": "Madotsuki's Dream Room"
+    },
+    {
+      "mapId": 3,
+      "name": "Madotsuki's Room"
+    },
+    {
+      "mapId": 76,
+      "name": "Mall"
+    },
+    {
+      "mapId": 77,
+      "name": "Mall"
+    },
+    {
+      "mapId": 78,
+      "name": "Mall"
+    },
+    {
+      "mapId": 79,
+      "name": "Mall"
+    },
+    {
+      "mapId": 80,
+      "name": "Mall"
+    },
+    {
+      "mapId": 82,
+      "name": "Mall"
+    },
+    {
+      "mapId": 177,
+      "name": "Mall"
+    },
+    {
+      "mapId": 178,
+      "name": "Mall Rooftop"
+    },
+    {
+      "mapId": 168,
+      "name": "Mars"
+    },
+    {
+      "mapId": 169,
+      "name": "Mars"
+    },
+    {
+      "mapId": 170,
+      "name": "Mars"
+    },
+    {
+      "mapId": 171,
+      "name": "Mars"
+    },
+    {
+      "mapId": 172,
+      "name": "Mars"
+    },
+    {
+      "mapId": 173,
+      "name": "Mars Underground"
+    },
+    {
+      "mapId": 174,
+      "name": "Mars Underground"
+    },
+    {
+      "mapId": 67,
+      "name": "Mini Hell"
+    },
+    {
+      "mapId": 97,
+      "name": "Monoe's Void"
+    },
+    {
+      "mapId": 95,
+      "name": "Monoko's Tunnel"
+    },
+    {
+      "mapId": 15,
+      "name": "Mural World"
+    },
+    {
+      "mapId": 155,
+      "name": "NASU"
+    },
+    {
+      "mapId": 37,
+      "name": "Neon Tile Path"
+    },
+    {
+      "mapId": 38,
+      "name": "Neon Tile Path"
+    },
+    {
+      "mapId": 20,
+      "name": "Neon World"
+    },
+    {
+      "mapId": 9,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 21,
+      "name": "Number World"
+    },
+    {
+      "mapId": 29,
+      "name": "Number World"
+    },
+    {
+      "mapId": 30,
+      "name": "Number World"
+    },
+    {
+      "mapId": 108,
+      "name": "Pink Sea"
+    },
+    {
+      "mapId": 109,
+      "name": "Poniko's House"
+    },
+    {
+      "mapId": 12,
+      "name": "Puddle World"
+    },
+    {
+      "mapId": 70,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 71,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 72,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 73,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 74,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 75,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 19,
+      "name": "Shield-Folk World"
+    },
+    {
+      "mapId": 112,
+      "name": "Sky Garden"
+    },
+    {
+      "mapId": 113,
+      "name": "Sky Garden"
+    },
+    {
+      "mapId": 14,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 22,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 23,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 24,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 25,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 26,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 27,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 28,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 163,
+      "name": "Spaceship"
+    },
+    {
+      "mapId": 164,
+      "name": "Spaceship"
+    },
+    {
+      "mapId": 165,
+      "name": "Spaceship"
+    },
+    {
+      "mapId": 166,
+      "name": "Spaceship"
+    },
+    {
+      "mapId": 167,
+      "name": "Spaceship"
+    },
+    {
+      "mapId": 159,
+      "name": "Staircase of Hands"
+    },
+    {
+      "mapId": 64,
+      "name": "Staircase to the Sky"
+    },
+    {
+      "mapId": 32,
+      "name": "Stairway"
+    },
+    {
+      "mapId": 33,
+      "name": "Stairway"
+    },
+    {
+      "mapId": 118,
+      "name": "Static Maze"
+    },
+    {
+      "mapId": 144,
+      "name": "Static Tunnel"
+    },
+    {
+      "mapId": 110,
+      "name": "Teleport Maze"
+    },
+    {
+      "mapId": 87,
+      "name": "Traincar"
+    },
+    {
+      "mapId": 88,
+      "name": "Traincar"
+    },
+    {
+      "mapId": 89,
+      "name": "Traincar"
+    },
+    {
+      "mapId": 101,
+      "name": "Uboa's Trap"
+    },
+    {
+      "mapId": 160,
+      "name": "Underground World"
+    },
+    {
+      "mapId": 161,
+      "name": "Underground World"
+    },
+    {
+      "mapId": 162,
+      "name": "Underground World"
+    },
+    {
+      "mapId": 94,
+      "name": "White Desert A"
+    },
+    {
+      "mapId": 99,
+      "name": "White Desert A"
+    },
+    {
+      "mapId": 105,
+      "name": "White Desert B"
+    },
+    {
+      "mapId": 102,
+      "name": "White Desert Mountain Ring"
+    },
+    {
+      "mapId": 103,
+      "name": "White Desert Mountain Ring"
+    },
+    {
+      "mapId": 104,
+      "name": "White Desert Mountain Ring"
+    },
+    {
+      "mapId": 105,
+      "name": "White Desert Mountain Ring",
+      "regions": [
+        {
+          "x1": 25,
+          "y1": 40,
+          "x2": 25,
+          "y2": 40
+        },
+        {
+          "x1": 26,
+          "y1": 36,
+          "x2": 28,
+          "y2": 44
+        },
+        {
+          "x1": 29,
+          "y1": 32,
+          "x2": 30,
+          "y2": 46
+        },
+        {
+          "x1": 31,
+          "y1": 29,
+          "x2": 33,
+          "y2": 48
+        },
+        {
+          "x1": 34,
+          "y1": 29,
+          "x2": 37,
+          "y2": 49
+        },
+        {
+          "x1": 38,
+          "y1": 29,
+          "x2": 42,
+          "y2": 49
+        },
+        {
+          "x1": 43,
+          "y1": 29,
+          "x2": 45,
+          "y2": 50
+        },
+        {
+          "x1": 46,
+          "y1": 29,
+          "x2": 47,
+          "y2": 49
+        },
+        {
+          "x1": 48,
+          "y1": 30,
+          "x2": 51,
+          "y2": 48
+        },
+        {
+          "x1": 52,
+          "y1": 32,
+          "x2": 53,
+          "y2": 46
+        },
+        {
+          "x1": 54,
+          "y1": 33,
+          "x2": 54,
+          "y2": 45
+        },
+        {
+          "x1": 55,
+          "y1": 38,
+          "x2": 55,
+          "y2": 44
+        }
+      ]
+    },
+    {
+      "mapId": 96,
+      "name": "White Desert Path"
+    },
+    {
+      "mapId": 98,
+      "name": "White Desert Path"
+    },
+    {
+      "mapId": 100,
+      "name": "White Desert Path"
+    },
+    {
+      "mapId": 106,
+      "name": "White Desert Underground Lagoon"
+    },
+    {
+      "mapId": 107,
+      "name": "White Desert Underground Lagoon"
+    },
+    {
+      "mapId": 50,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 51,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 52,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 53,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 54,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 55,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 56,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 57,
+      "name": "Wilderness",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 25,
+          "x2": 9,
+          "y2": 29
+        },
+        {
+          "x1": 10,
+          "y1": 26,
+          "x2": 10,
+          "y2": 29
+        },
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 29,
+          "y2": 23
+        }
+      ]
+    },
+    {
+      "mapId": 58,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 59,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 60,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 61,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 62,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 63,
+      "name": "Wilderness"
+    },
+    {
+      "mapId": 83,
+      "name": "Windmill World"
+    },
+    {
+      "mapId": 179,
+      "name": "Witch Flight"
+    },
+    {
+      "mapId": 91,
+      "name": "Witch's Island"
+    },
+    {
+      "mapId": 92,
+      "name": "Witch's Island"
+    },
+    {
+      "mapId": 93,
+      "name": "Witch's Island"
+    }
+  ]
+}

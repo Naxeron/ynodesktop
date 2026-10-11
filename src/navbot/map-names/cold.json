@@ -1,0 +1,527 @@
+{
+  "version": 1,
+  "game": "cold",
+  "source": "ynolocations/cold/config.json",
+  "entries": [
+    {
+      "mapId": 133,
+      "name": "???"
+    },
+    {
+      "mapId": 125,
+      "name": "A"
+    },
+    {
+      "mapId": 126,
+      "name": "AAAAA"
+    },
+    {
+      "mapId": 7,
+      "name": "Begin"
+    },
+    {
+      "mapId": 8,
+      "name": "Begin"
+    },
+    {
+      "mapId": 9,
+      "name": "Begin"
+    },
+    {
+      "mapId": 97,
+      "name": "Brother's Ward"
+    },
+    {
+      "mapId": 99,
+      "name": "Brother's Ward"
+    },
+    {
+      "mapId": 100,
+      "name": "Brother's Ward"
+    },
+    {
+      "mapId": 62,
+      "name": "Cave Home"
+    },
+    {
+      "mapId": 3,
+      "name": "Choice"
+    },
+    {
+      "mapId": 105,
+      "name": "Classroom"
+    },
+    {
+      "mapId": 106,
+      "name": "Classroom"
+    },
+    {
+      "mapId": 107,
+      "name": "Classroom"
+    },
+    {
+      "mapId": 111,
+      "name": "Classroom"
+    },
+    {
+      "mapId": 11,
+      "name": "Crazy"
+    },
+    {
+      "mapId": 131,
+      "name": "Cries Path"
+    },
+    {
+      "mapId": 116,
+      "name": "Cries World"
+    },
+    {
+      "mapId": 10,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 15,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 16,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 17,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 32,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 33,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 41,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 48,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 49,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 50,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 51,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 91,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 92,
+      "name": "Cyan Building"
+    },
+    {
+      "mapId": 118,
+      "name": "ERROR"
+    },
+    {
+      "mapId": 36,
+      "name": "Fake FC World"
+    },
+    {
+      "mapId": 56,
+      "name": "Fake FC World"
+    },
+    {
+      "mapId": 57,
+      "name": "Fake FC World"
+    },
+    {
+      "mapId": 58,
+      "name": "Fake FC World"
+    },
+    {
+      "mapId": 35,
+      "name": "FC Enter"
+    },
+    {
+      "mapId": 37,
+      "name": "FC Enter"
+    },
+    {
+      "mapId": 30,
+      "name": "Garbage"
+    },
+    {
+      "mapId": 19,
+      "name": "Garbagebag"
+    },
+    {
+      "mapId": 21,
+      "name": "Garbagebag"
+    },
+    {
+      "mapId": 22,
+      "name": "Garbagebag"
+    },
+    {
+      "mapId": 23,
+      "name": "Garbagebag"
+    },
+    {
+      "mapId": 24,
+      "name": "Garbagebag"
+    },
+    {
+      "mapId": 25,
+      "name": "Garbagebag"
+    },
+    {
+      "mapId": 26,
+      "name": "Garbagebag"
+    },
+    {
+      "mapId": 27,
+      "name": "Garbagebag"
+    },
+    {
+      "mapId": 28,
+      "name": "Garbagebag"
+    },
+    {
+      "mapId": 29,
+      "name": "Garbagebag"
+    },
+    {
+      "mapId": 38,
+      "name": "Garbagebag"
+    },
+    {
+      "mapId": 42,
+      "name": "Green Grass"
+    },
+    {
+      "mapId": 20,
+      "name": "His Room"
+    },
+    {
+      "mapId": 2,
+      "name": "Home"
+    },
+    {
+      "mapId": 12,
+      "name": "I'm Good"
+    },
+    {
+      "mapId": 39,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 71,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 72,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 73,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 74,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 75,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 76,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 77,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 78,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 79,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 80,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 81,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 82,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 83,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 84,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 85,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 86,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 87,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 88,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 89,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 90,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 123,
+      "name": "Inside Box"
+    },
+    {
+      "mapId": 132,
+      "name": "Level"
+    },
+    {
+      "mapId": 103,
+      "name": "MAP Not Found"
+    },
+    {
+      "mapId": 98,
+      "name": "MAP4444"
+    },
+    {
+      "mapId": 5,
+      "name": "Masker"
+    },
+    {
+      "mapId": 102,
+      "name": "Office"
+    },
+    {
+      "mapId": 34,
+      "name": "Old Hospital"
+    },
+    {
+      "mapId": 96,
+      "name": "Old Hospital"
+    },
+    {
+      "mapId": 112,
+      "name": "Old Hospital"
+    },
+    {
+      "mapId": 113,
+      "name": "Old Hospital"
+    },
+    {
+      "mapId": 114,
+      "name": "Old Hospital"
+    },
+    {
+      "mapId": 40,
+      "name": "People"
+    },
+    {
+      "mapId": 44,
+      "name": "Plants Hell"
+    },
+    {
+      "mapId": 129,
+      "name": "Playground"
+    },
+    {
+      "mapId": 130,
+      "name": "Playground"
+    },
+    {
+      "mapId": 101,
+      "name": "Rainy"
+    },
+    {
+      "mapId": 93,
+      "name": "Rainy Street"
+    },
+    {
+      "mapId": 109,
+      "name": "Rooftop"
+    },
+    {
+      "mapId": 13,
+      "name": "Ruin"
+    },
+    {
+      "mapId": 95,
+      "name": "Ruin"
+    },
+    {
+      "mapId": 122,
+      "name": "Ruin"
+    },
+    {
+      "mapId": 104,
+      "name": "School"
+    },
+    {
+      "mapId": 110,
+      "name": "School"
+    },
+    {
+      "mapId": 127,
+      "name": "School"
+    },
+    {
+      "mapId": 128,
+      "name": "School"
+    },
+    {
+      "mapId": 94,
+      "name": "Shop"
+    },
+    {
+      "mapId": 61,
+      "name": "Smiling"
+    },
+    {
+      "mapId": 63,
+      "name": "Smiling"
+    },
+    {
+      "mapId": 64,
+      "name": "Smiling"
+    },
+    {
+      "mapId": 65,
+      "name": "Smiling"
+    },
+    {
+      "mapId": 66,
+      "name": "Smiling"
+    },
+    {
+      "mapId": 67,
+      "name": "Smiling"
+    },
+    {
+      "mapId": 68,
+      "name": "Smiling"
+    },
+    {
+      "mapId": 69,
+      "name": "Smiling"
+    },
+    {
+      "mapId": 70,
+      "name": "Smiling"
+    },
+    {
+      "mapId": 6,
+      "name": "Snowy"
+    },
+    {
+      "mapId": 52,
+      "name": "Snowy Inside"
+    },
+    {
+      "mapId": 14,
+      "name": "Snowy Nexus"
+    },
+    {
+      "mapId": 53,
+      "name": "Snowy Outside"
+    },
+    {
+      "mapId": 45,
+      "name": "Speak"
+    },
+    {
+      "mapId": 108,
+      "name": "Stage"
+    },
+    {
+      "mapId": 47,
+      "name": "Study"
+    },
+    {
+      "mapId": 59,
+      "name": "Study"
+    },
+    {
+      "mapId": 60,
+      "name": "Study Path"
+    },
+    {
+      "mapId": 18,
+      "name": "Toys"
+    },
+    {
+      "mapId": 117,
+      "name": "Trash Can"
+    },
+    {
+      "mapId": 134,
+      "name": "Trash Can"
+    },
+    {
+      "mapId": 135,
+      "name": "Trash Can"
+    },
+    {
+      "mapId": 136,
+      "name": "Trash Can"
+    },
+    {
+      "mapId": 137,
+      "name": "Trash Can"
+    },
+    {
+      "mapId": 54,
+      "name": "Tree Cave"
+    },
+    {
+      "mapId": 55,
+      "name": "Tree Cave"
+    },
+    {
+      "mapId": 46,
+      "name": "WIP"
+    },
+    {
+      "mapId": 121,
+      "name": "Workbook"
+    },
+    {
+      "mapId": 31,
+      "name": "XXXXXX"
+    }
+  ]
+}

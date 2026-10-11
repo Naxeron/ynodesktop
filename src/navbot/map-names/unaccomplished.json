@@ -1,0 +1,675 @@
+{
+  "version": 1,
+  "game": "unaccomplished",
+  "source": "ynolocations/unaccomplished/config.json",
+  "entries": [
+    {
+      "mapId": 54,
+      "name": "..."
+    },
+    {
+      "mapId": 155,
+      "name": "???"
+    },
+    {
+      "mapId": 16,
+      "name": "Abandoned Internet Cafe"
+    },
+    {
+      "mapId": 22,
+      "name": "Abandoned Internet Cafe"
+    },
+    {
+      "mapId": 127,
+      "name": "Abandoned Internet Cafe"
+    },
+    {
+      "mapId": 156,
+      "name": "Abandoned Internet Cafe"
+    },
+    {
+      "mapId": 52,
+      "name": "Abstruse Lie"
+    },
+    {
+      "mapId": 17,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 18,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 19,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 20,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 21,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 26,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 48,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 49,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 50,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 51,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 120,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 121,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 122,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 123,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 124,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 125,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 170,
+      "name": "B-W Room"
+    },
+    {
+      "mapId": 55,
+      "name": "Balcony"
+    },
+    {
+      "mapId": 146,
+      "name": "Balcony"
+    },
+    {
+      "mapId": 148,
+      "name": "Bedroom"
+    },
+    {
+      "mapId": 11,
+      "name": "Black-White"
+    },
+    {
+      "mapId": 61,
+      "name": "Black-White"
+    },
+    {
+      "mapId": 80,
+      "name": "Black-White"
+    },
+    {
+      "mapId": 132,
+      "name": "Black-White"
+    },
+    {
+      "mapId": 27,
+      "name": "Character Plate"
+    },
+    {
+      "mapId": 98,
+      "name": "Classroom"
+    },
+    {
+      "mapId": 3,
+      "name": "Corridor"
+    },
+    {
+      "mapId": 7,
+      "name": "Corridor"
+    },
+    {
+      "mapId": 69,
+      "name": "Corridor"
+    },
+    {
+      "mapId": 74,
+      "name": "Corridor"
+    },
+    {
+      "mapId": 93,
+      "name": "Corridor"
+    },
+    {
+      "mapId": 147,
+      "name": "Corridor"
+    },
+    {
+      "mapId": 62,
+      "name": "Dark Cave"
+    },
+    {
+      "mapId": 103,
+      "name": "Dark Cave"
+    },
+    {
+      "mapId": 104,
+      "name": "Dark Cave"
+    },
+    {
+      "mapId": 105,
+      "name": "Dark Cave"
+    },
+    {
+      "mapId": 58,
+      "name": "Deep Forest"
+    },
+    {
+      "mapId": 59,
+      "name": "Deep Forest"
+    },
+    {
+      "mapId": 102,
+      "name": "Deep Forest"
+    },
+    {
+      "mapId": 153,
+      "name": "Desktop"
+    },
+    {
+      "mapId": 12,
+      "name": "Emoticon Playground"
+    },
+    {
+      "mapId": 81,
+      "name": "Emoticon Playground"
+    },
+    {
+      "mapId": 28,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 29,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 30,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 32,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 33,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 34,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 35,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 36,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 37,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 38,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 39,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 40,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 41,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 42,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 43,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 44,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 45,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 46,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 130,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 157,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 158,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 167,
+      "name": "Exhibition Hall"
+    },
+    {
+      "mapId": 57,
+      "name": "Front of Door"
+    },
+    {
+      "mapId": 134,
+      "name": "GAME OVER"
+    },
+    {
+      "mapId": 9,
+      "name": "Grassland"
+    },
+    {
+      "mapId": 76,
+      "name": "Grassland"
+    },
+    {
+      "mapId": 14,
+      "name": "Graveyard"
+    },
+    {
+      "mapId": 82,
+      "name": "Graveyard"
+    },
+    {
+      "mapId": 126,
+      "name": "Happy Bithday"
+    },
+    {
+      "mapId": 166,
+      "name": "Hello Internet"
+    },
+    {
+      "mapId": 63,
+      "name": "Hexagonal Passage"
+    },
+    {
+      "mapId": 64,
+      "name": "Hexagonal Passage"
+    },
+    {
+      "mapId": 154,
+      "name": "Hexagonal Passage"
+    },
+    {
+      "mapId": 70,
+      "name": "His Balcony"
+    },
+    {
+      "mapId": 68,
+      "name": "His Bedroom"
+    },
+    {
+      "mapId": 72,
+      "name": "His Bedroom"
+    },
+    {
+      "mapId": 71,
+      "name": "His Desktop"
+    },
+    {
+      "mapId": 73,
+      "name": "His Dreamroom"
+    },
+    {
+      "mapId": 101,
+      "name": "Invisible Ink"
+    },
+    {
+      "mapId": 162,
+      "name": "Invisible Ink"
+    },
+    {
+      "mapId": 78,
+      "name": "Let's Paint"
+    },
+    {
+      "mapId": 15,
+      "name": "Long Staircase"
+    },
+    {
+      "mapId": 13,
+      "name": "Luxurious Hotel Room"
+    },
+    {
+      "mapId": 128,
+      "name": "Luxurious Hotel Room"
+    },
+    {
+      "mapId": 151,
+      "name": "Maou's Bedchamber"
+    },
+    {
+      "mapId": 152,
+      "name": "Maou's Bedchamber"
+    },
+    {
+      "mapId": 66,
+      "name": "Memorial Candle"
+    },
+    {
+      "mapId": 8,
+      "name": "Mind Nexus"
+    },
+    {
+      "mapId": 75,
+      "name": "Mind Nexus"
+    },
+    {
+      "mapId": 91,
+      "name": "Moonlit Sands"
+    },
+    {
+      "mapId": 165,
+      "name": "Moonlit Sands"
+    },
+    {
+      "mapId": 85,
+      "name": "Mossy Room"
+    },
+    {
+      "mapId": 87,
+      "name": "Mossy Room"
+    },
+    {
+      "mapId": 88,
+      "name": "Mossy Room"
+    },
+    {
+      "mapId": 4,
+      "name": "My Balcony"
+    },
+    {
+      "mapId": 47,
+      "name": "My Bathroom"
+    },
+    {
+      "mapId": 2,
+      "name": "My Bedroom"
+    },
+    {
+      "mapId": 56,
+      "name": "My Bedroom"
+    },
+    {
+      "mapId": 23,
+      "name": "My Desktop"
+    },
+    {
+      "mapId": 24,
+      "name": "My Documents"
+    },
+    {
+      "mapId": 5,
+      "name": "My Dreamroom"
+    },
+    {
+      "mapId": 131,
+      "name": "My Fu Designs"
+    },
+    {
+      "mapId": 25,
+      "name": "My Wallpapers"
+    },
+    {
+      "mapId": 60,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 83,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 106,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 107,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 108,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 109,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 110,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 111,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 112,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 113,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 114,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 115,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 116,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 117,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 118,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 119,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 135,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 136,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 137,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 138,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 139,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 140,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 141,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 142,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 143,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 144,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 145,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 149,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 150,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 160,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 161,
+      "name": "PC Game"
+    },
+    {
+      "mapId": 89,
+      "name": "Plants Aisle"
+    },
+    {
+      "mapId": 86,
+      "name": "Rainy Mosses"
+    },
+    {
+      "mapId": 164,
+      "name": "Rainy Mosses"
+    },
+    {
+      "mapId": 129,
+      "name": "Red World"
+    },
+    {
+      "mapId": 53,
+      "name": "Roof"
+    },
+    {
+      "mapId": 168,
+      "name": "Room"
+    },
+    {
+      "mapId": 99,
+      "name": "Runway"
+    },
+    {
+      "mapId": 100,
+      "name": "Runway"
+    },
+    {
+      "mapId": 133,
+      "name": "RVlFJ3MgYmFy"
+    },
+    {
+      "mapId": 159,
+      "name": "Shinu"
+    },
+    {
+      "mapId": 84,
+      "name": "Sketchbook"
+    },
+    {
+      "mapId": 31,
+      "name": "Street"
+    },
+    {
+      "mapId": 90,
+      "name": "Street"
+    },
+    {
+      "mapId": 10,
+      "name": "Sunset Grassland"
+    },
+    {
+      "mapId": 77,
+      "name": "Sunset Grassland"
+    },
+    {
+      "mapId": 65,
+      "name": "Tetris Puzzle"
+    },
+    {
+      "mapId": 79,
+      "name": "White Pixel"
+    },
+    {
+      "mapId": 163,
+      "name": "White Sand"
+    },
+    {
+      "mapId": 92,
+      "name": "Whose Balcony?"
+    },
+    {
+      "mapId": 94,
+      "name": "Whose Bedroom?"
+    },
+    {
+      "mapId": 95,
+      "name": "Whose Bedroom?"
+    },
+    {
+      "mapId": 96,
+      "name": "Whose Bedroom?"
+    },
+    {
+      "mapId": 97,
+      "name": "Whose Bedroom?"
+    },
+    {
+      "mapId": 67,
+      "name": "Wuqi"
+    }
+  ]
+}

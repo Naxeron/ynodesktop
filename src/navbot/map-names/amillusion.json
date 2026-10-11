@@ -1,0 +1,1459 @@
+{
+  "version": 1,
+  "game": "amillusion",
+  "source": "ynolocations/amillusion/config.json",
+  "entries": [
+    {
+      "mapId": 188,
+      "name": "..."
+    },
+    {
+      "mapId": 252,
+      "name": "80s Seaside"
+    },
+    {
+      "mapId": 253,
+      "name": "80s Seaside"
+    },
+    {
+      "mapId": 254,
+      "name": "80s Seaside"
+    },
+    {
+      "mapId": 255,
+      "name": "80s Seaside"
+    },
+    {
+      "mapId": 272,
+      "name": "80s Seaside"
+    },
+    {
+      "mapId": 273,
+      "name": "80s Seaside"
+    },
+    {
+      "mapId": 77,
+      "name": "Abstract Art World"
+    },
+    {
+      "mapId": 120,
+      "name": "Abyss"
+    },
+    {
+      "mapId": 63,
+      "name": "Aerobus"
+    },
+    {
+      "mapId": 140,
+      "name": "Artichoke Yard"
+    },
+    {
+      "mapId": 9,
+      "name": "Beach"
+    },
+    {
+      "mapId": 314,
+      "name": "Beach"
+    },
+    {
+      "mapId": 333,
+      "name": "Beach"
+    },
+    {
+      "mapId": 334,
+      "name": "Beach"
+    },
+    {
+      "mapId": 10,
+      "name": "Beach: Hives"
+    },
+    {
+      "mapId": 190,
+      "name": "Bedroom"
+    },
+    {
+      "mapId": 287,
+      "name": "Bedroom"
+    },
+    {
+      "mapId": 290,
+      "name": "Bedroom"
+    },
+    {
+      "mapId": 108,
+      "name": "Believers' Temple"
+    },
+    {
+      "mapId": 21,
+      "name": "Blanche's Spaceship"
+    },
+    {
+      "mapId": 112,
+      "name": "Blurred World"
+    },
+    {
+      "mapId": 114,
+      "name": "Bubble Forest"
+    },
+    {
+      "mapId": 276,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 278,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 279,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 280,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 281,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 306,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 322,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 323,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 324,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 325,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 326,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 327,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 328,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 330,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 331,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 332,
+      "name": "Chasers' Versailles"
+    },
+    {
+      "mapId": 116,
+      "name": "Clock Ladder World"
+    },
+    {
+      "mapId": 308,
+      "name": "Clothing Shop"
+    },
+    {
+      "mapId": 309,
+      "name": "Clothing Shop"
+    },
+    {
+      "mapId": 310,
+      "name": "Clothing Shop"
+    },
+    {
+      "mapId": 311,
+      "name": "Clothing Shop"
+    },
+    {
+      "mapId": 315,
+      "name": "Clothing Shop"
+    },
+    {
+      "mapId": 316,
+      "name": "Clothing Shop"
+    },
+    {
+      "mapId": 317,
+      "name": "Clothing Shop"
+    },
+    {
+      "mapId": 318,
+      "name": "Clothing Shop"
+    },
+    {
+      "mapId": 319,
+      "name": "Clothing Shop"
+    },
+    {
+      "mapId": 320,
+      "name": "Clothing Shop"
+    },
+    {
+      "mapId": 321,
+      "name": "Clothing Shop"
+    },
+    {
+      "mapId": 85,
+      "name": "Coco Desert"
+    },
+    {
+      "mapId": 86,
+      "name": "Coco Desert: Bus Stop"
+    },
+    {
+      "mapId": 248,
+      "name": "Colorful Jungle"
+    },
+    {
+      "mapId": 61,
+      "name": "Corrupted Notebook"
+    },
+    {
+      "mapId": 62,
+      "name": "Corrupted Notebook: Nightmare House"
+    },
+    {
+      "mapId": 145,
+      "name": "Crazy Maze"
+    },
+    {
+      "mapId": 159,
+      "name": "Crispbread Area"
+    },
+    {
+      "mapId": 141,
+      "name": "Dalí Phantasmagoric World"
+    },
+    {
+      "mapId": 143,
+      "name": "Danaë Scissorhands"
+    },
+    {
+      "mapId": 164,
+      "name": "Danaë Scissorhands"
+    },
+    {
+      "mapId": 189,
+      "name": "Danaë's Bad Hair Day"
+    },
+    {
+      "mapId": 3,
+      "name": "Danaë's Balcony"
+    },
+    {
+      "mapId": 5,
+      "name": "Danaë's Dream Balcony"
+    },
+    {
+      "mapId": 184,
+      "name": "Danaë's Dream Room"
+    },
+    {
+      "mapId": 181,
+      "name": "Danaë's Room"
+    },
+    {
+      "mapId": 185,
+      "name": "Danaë's Room"
+    },
+    {
+      "mapId": 69,
+      "name": "Dark Lands"
+    },
+    {
+      "mapId": 12,
+      "name": "Desolate Desert"
+    },
+    {
+      "mapId": 13,
+      "name": "Desolate Desert"
+    },
+    {
+      "mapId": 14,
+      "name": "Desolate Desert"
+    },
+    {
+      "mapId": 15,
+      "name": "Desolate Desert"
+    },
+    {
+      "mapId": 16,
+      "name": "Desolate Desert"
+    },
+    {
+      "mapId": 18,
+      "name": "Desolate Desert"
+    },
+    {
+      "mapId": 19,
+      "name": "Desolate Desert"
+    },
+    {
+      "mapId": 247,
+      "name": "Desolate Desert"
+    },
+    {
+      "mapId": 221,
+      "name": "Distant Lights"
+    },
+    {
+      "mapId": 78,
+      "name": "Dock"
+    },
+    {
+      "mapId": 70,
+      "name": "Dream Bedroom"
+    },
+    {
+      "mapId": 172,
+      "name": "Dreaming Lozère"
+    },
+    {
+      "mapId": 174,
+      "name": "Dreaming Lozère"
+    },
+    {
+      "mapId": 89,
+      "name": "EPACSE"
+    },
+    {
+      "mapId": 87,
+      "name": "EPACSE: Bus Stop"
+    },
+    {
+      "mapId": 200,
+      "name": "EPACSE: Launch Islands"
+    },
+    {
+      "mapId": 31,
+      "name": "Exil Planete"
+    },
+    {
+      "mapId": 202,
+      "name": "Exil Pond"
+    },
+    {
+      "mapId": 282,
+      "name": "Exil Room"
+    },
+    {
+      "mapId": 23,
+      "name": "Fantasy Bathroom"
+    },
+    {
+      "mapId": 94,
+      "name": "Fantasy Bathroom: Pipe Facility"
+    },
+    {
+      "mapId": 169,
+      "name": "Feathery Tundra"
+    },
+    {
+      "mapId": 285,
+      "name": "Final Sunset"
+    },
+    {
+      "mapId": 286,
+      "name": "Final Sunset"
+    },
+    {
+      "mapId": 249,
+      "name": "Fireflies Cycle Path"
+    },
+    {
+      "mapId": 84,
+      "name": "Fishing World"
+    },
+    {
+      "mapId": 90,
+      "name": "Flies Platform"
+    },
+    {
+      "mapId": 314,
+      "name": "Forest"
+    },
+    {
+      "mapId": 333,
+      "name": "Forest"
+    },
+    {
+      "mapId": 334,
+      "name": "Forest"
+    },
+    {
+      "mapId": 102,
+      "name": "Frozen Deposite"
+    },
+    {
+      "mapId": 95,
+      "name": "Frying Salt Pond"
+    },
+    {
+      "mapId": 144,
+      "name": "Gare Sépia"
+    },
+    {
+      "mapId": 146,
+      "name": "Gare Sépia"
+    },
+    {
+      "mapId": 156,
+      "name": "Gare Sépia"
+    },
+    {
+      "mapId": 257,
+      "name": "Givregel Village"
+    },
+    {
+      "mapId": 258,
+      "name": "Givregel Village"
+    },
+    {
+      "mapId": 259,
+      "name": "Givregel Village"
+    },
+    {
+      "mapId": 260,
+      "name": "Givregel Village"
+    },
+    {
+      "mapId": 261,
+      "name": "Givregel Village"
+    },
+    {
+      "mapId": 262,
+      "name": "Givregel Village"
+    },
+    {
+      "mapId": 263,
+      "name": "Givregel Village"
+    },
+    {
+      "mapId": 264,
+      "name": "Givregel Village"
+    },
+    {
+      "mapId": 265,
+      "name": "Givregel Village"
+    },
+    {
+      "mapId": 266,
+      "name": "Givregel Village"
+    },
+    {
+      "mapId": 267,
+      "name": "Givregel Village"
+    },
+    {
+      "mapId": 67,
+      "name": "Grassy Limbos"
+    },
+    {
+      "mapId": 138,
+      "name": "Greek Maze"
+    },
+    {
+      "mapId": 107,
+      "name": "Holy Sea"
+    },
+    {
+      "mapId": 71,
+      "name": "Holy Sea: Tower"
+    },
+    {
+      "mapId": 205,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 206,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 257,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 258,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 259,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 260,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 261,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 262,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 263,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 264,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 265,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 266,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 267,
+      "name": "Icy River Mountain"
+    },
+    {
+      "mapId": 207,
+      "name": "Icy River Mountain: Frozy Peak"
+    },
+    {
+      "mapId": 224,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 225,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 226,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 227,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 228,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 229,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 230,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 231,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 232,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 233,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 234,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 235,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 244,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 245,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 246,
+      "name": "Infinite Rooms"
+    },
+    {
+      "mapId": 163,
+      "name": "Japanese Area"
+    },
+    {
+      "mapId": 305,
+      "name": "Japanese Area: Bus Station"
+    },
+    {
+      "mapId": 166,
+      "name": "Japanese Area: Roxane's House"
+    },
+    {
+      "mapId": 168,
+      "name": "Japanese Area: Roxane's House"
+    },
+    {
+      "mapId": 17,
+      "name": "JB's Hideout"
+    },
+    {
+      "mapId": 330,
+      "name": "Kitchen"
+    },
+    {
+      "mapId": 331,
+      "name": "Kitchen"
+    },
+    {
+      "mapId": 332,
+      "name": "Kitchen"
+    },
+    {
+      "mapId": 65,
+      "name": "La Pigne"
+    },
+    {
+      "mapId": 175,
+      "name": "Le Jazzy Train Bleu"
+    },
+    {
+      "mapId": 79,
+      "name": "Life River"
+    },
+    {
+      "mapId": 80,
+      "name": "Life River"
+    },
+    {
+      "mapId": 81,
+      "name": "Life River"
+    },
+    {
+      "mapId": 83,
+      "name": "Life River"
+    },
+    {
+      "mapId": 88,
+      "name": "Life River"
+    },
+    {
+      "mapId": 92,
+      "name": "Life River"
+    },
+    {
+      "mapId": 96,
+      "name": "Life River"
+    },
+    {
+      "mapId": 99,
+      "name": "Life River"
+    },
+    {
+      "mapId": 101,
+      "name": "Life River"
+    },
+    {
+      "mapId": 237,
+      "name": "Lush Station"
+    },
+    {
+      "mapId": 238,
+      "name": "Lush Station"
+    },
+    {
+      "mapId": 239,
+      "name": "Lush Station"
+    },
+    {
+      "mapId": 240,
+      "name": "Lush Station"
+    },
+    {
+      "mapId": 241,
+      "name": "Lush Station"
+    },
+    {
+      "mapId": 243,
+      "name": "Lush Station"
+    },
+    {
+      "mapId": 139,
+      "name": "Magic Area"
+    },
+    {
+      "mapId": 308,
+      "name": "Midday Mall"
+    },
+    {
+      "mapId": 309,
+      "name": "Midday Mall"
+    },
+    {
+      "mapId": 310,
+      "name": "Midday Mall"
+    },
+    {
+      "mapId": 311,
+      "name": "Midday Mall"
+    },
+    {
+      "mapId": 315,
+      "name": "Midday Mall"
+    },
+    {
+      "mapId": 316,
+      "name": "Midday Mall"
+    },
+    {
+      "mapId": 317,
+      "name": "Midday Mall"
+    },
+    {
+      "mapId": 318,
+      "name": "Midday Mall"
+    },
+    {
+      "mapId": 319,
+      "name": "Midday Mall"
+    },
+    {
+      "mapId": 320,
+      "name": "Midday Mall"
+    },
+    {
+      "mapId": 321,
+      "name": "Midday Mall"
+    },
+    {
+      "mapId": 72,
+      "name": "Midnight Mall"
+    },
+    {
+      "mapId": 74,
+      "name": "Midnight Mall"
+    },
+    {
+      "mapId": 75,
+      "name": "Midnight Mall"
+    },
+    {
+      "mapId": 113,
+      "name": "Midnight Mall"
+    },
+    {
+      "mapId": 98,
+      "name": "Midnight Mall: Gateway to Jungle"
+    },
+    {
+      "mapId": 100,
+      "name": "Midnight Mall: Hairdresser"
+    },
+    {
+      "mapId": 82,
+      "name": "Midnight Mall: Organ Store"
+    },
+    {
+      "mapId": 280,
+      "name": "Ministerial Offices"
+    },
+    {
+      "mapId": 281,
+      "name": "Ministerial Offices"
+    },
+    {
+      "mapId": 147,
+      "name": "Mosquies' Village"
+    },
+    {
+      "mapId": 148,
+      "name": "Mosquies' Village"
+    },
+    {
+      "mapId": 149,
+      "name": "Mosquies' Village"
+    },
+    {
+      "mapId": 150,
+      "name": "Mosquies' Village"
+    },
+    {
+      "mapId": 151,
+      "name": "Mosquies' Village"
+    },
+    {
+      "mapId": 152,
+      "name": "Mosquies' Village"
+    },
+    {
+      "mapId": 153,
+      "name": "Mosquies' Village"
+    },
+    {
+      "mapId": 154,
+      "name": "Mosquies' Village"
+    },
+    {
+      "mapId": 155,
+      "name": "Mosquies' Village: The Wickedest Mosquy"
+    },
+    {
+      "mapId": 236,
+      "name": "Musical Orbs World"
+    },
+    {
+      "mapId": 6,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 323,
+      "name": "Nina's Apartments"
+    },
+    {
+      "mapId": 324,
+      "name": "Nina's Apartments"
+    },
+    {
+      "mapId": 325,
+      "name": "Nina's Apartments"
+    },
+    {
+      "mapId": 326,
+      "name": "Nina's Apartments"
+    },
+    {
+      "mapId": 327,
+      "name": "Nina's Apartments"
+    },
+    {
+      "mapId": 328,
+      "name": "Nina's Apartments"
+    },
+    {
+      "mapId": 177,
+      "name": "Nina's Boudoir"
+    },
+    {
+      "mapId": 103,
+      "name": "Nina's Outpost"
+    },
+    {
+      "mapId": 104,
+      "name": "Nina's Outpost: Secret Passage"
+    },
+    {
+      "mapId": 160,
+      "name": "Nursery"
+    },
+    {
+      "mapId": 93,
+      "name": "Nursery Rhyme World"
+    },
+    {
+      "mapId": 270,
+      "name": "Ocean"
+    },
+    {
+      "mapId": 97,
+      "name": "Ochre Cave"
+    },
+    {
+      "mapId": 1,
+      "name": "Old Bedroom"
+    },
+    {
+      "mapId": 11,
+      "name": "Old Desolate Desert"
+    },
+    {
+      "mapId": 2,
+      "name": "Old Dream Bedroom"
+    },
+    {
+      "mapId": 7,
+      "name": "Old Orb World"
+    },
+    {
+      "mapId": 8,
+      "name": "Old Semaphore World"
+    },
+    {
+      "mapId": 20,
+      "name": "Old Space"
+    },
+    {
+      "mapId": 176,
+      "name": "Olympic World"
+    },
+    {
+      "mapId": 68,
+      "name": "Ostrich Teleport Maze"
+    },
+    {
+      "mapId": 274,
+      "name": "Permian World"
+    },
+    {
+      "mapId": 312,
+      "name": "Permian World"
+    },
+    {
+      "mapId": 313,
+      "name": "Permian World"
+    },
+    {
+      "mapId": 304,
+      "name": "PL's Inner Sanctum"
+    },
+    {
+      "mapId": 199,
+      "name": "Pouleine Ride"
+    },
+    {
+      "mapId": 106,
+      "name": "Pure Creativity"
+    },
+    {
+      "mapId": 178,
+      "name": "Purple Mines"
+    },
+    {
+      "mapId": 180,
+      "name": "Purple Mines"
+    },
+    {
+      "mapId": 183,
+      "name": "Purple Mines: Boiler Room"
+    },
+    {
+      "mapId": 186,
+      "name": "Purple Mines: Dark Alley"
+    },
+    {
+      "mapId": 182,
+      "name": "Purple Mines: Entrepôt"
+    },
+    {
+      "mapId": 161,
+      "name": "Queen's Garden"
+    },
+    {
+      "mapId": 306,
+      "name": "Queen's Office"
+    },
+    {
+      "mapId": 105,
+      "name": "Quiet Path"
+    },
+    {
+      "mapId": 162,
+      "name": "Rails Sépia"
+    },
+    {
+      "mapId": 223,
+      "name": "Rails Sépia"
+    },
+    {
+      "mapId": 117,
+      "name": "Rainbow Screw Floor"
+    },
+    {
+      "mapId": 109,
+      "name": "Rapetisite Cure Center"
+    },
+    {
+      "mapId": 110,
+      "name": "Rapetisite Cure Center"
+    },
+    {
+      "mapId": 111,
+      "name": "Rapetisite Cure Center"
+    },
+    {
+      "mapId": 115,
+      "name": "Rapetisite Cure Center: Strange Corridor"
+    },
+    {
+      "mapId": 26,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 27,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 28,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 29,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 30,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 32,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 33,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 34,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 35,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 36,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 37,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 38,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 39,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 40,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 41,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 42,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 43,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 44,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 45,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 46,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 47,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 48,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 49,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 50,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 51,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 52,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 53,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 54,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 55,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 56,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 57,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 58,
+      "name": "Residential Corridor World"
+    },
+    {
+      "mapId": 279,
+      "name": "Royal Library"
+    },
+    {
+      "mapId": 60,
+      "name": "Ruby's Power Plant"
+    },
+    {
+      "mapId": 158,
+      "name": "Saturn Telecom World"
+    },
+    {
+      "mapId": 215,
+      "name": "Science Museum"
+    },
+    {
+      "mapId": 216,
+      "name": "Science Museum"
+    },
+    {
+      "mapId": 212,
+      "name": "Science Museum: Astronomy Hall"
+    },
+    {
+      "mapId": 219,
+      "name": "Science Museum: Geology Hall"
+    },
+    {
+      "mapId": 211,
+      "name": "Science Museum: Mechanics Hall"
+    },
+    {
+      "mapId": 242,
+      "name": "Science Museum: Medicine Hall"
+    },
+    {
+      "mapId": 292,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 293,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 294,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 295,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 296,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 297,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 298,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 299,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 300,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 301,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 302,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 303,
+      "name": "Secret Laboratory"
+    },
+    {
+      "mapId": 201,
+      "name": "Sequoia Lucky Forest"
+    },
+    {
+      "mapId": 217,
+      "name": "Serene Apartment"
+    },
+    {
+      "mapId": 220,
+      "name": "Serene Apartment"
+    },
+    {
+      "mapId": 222,
+      "name": "Serene Apartment"
+    },
+    {
+      "mapId": 121,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 122,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 123,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 124,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 125,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 126,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 127,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 128,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 129,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 130,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 131,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 132,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 133,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 134,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 135,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 136,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 137,
+      "name": "Silhouette Rooms"
+    },
+    {
+      "mapId": 208,
+      "name": "Ski Resort"
+    },
+    {
+      "mapId": 209,
+      "name": "Ski Resort"
+    },
+    {
+      "mapId": 210,
+      "name": "Ski Resort"
+    },
+    {
+      "mapId": 213,
+      "name": "Ski Resort"
+    },
+    {
+      "mapId": 214,
+      "name": "Ski Resort"
+    },
+    {
+      "mapId": 187,
+      "name": "Smugglers' Hideout"
+    },
+    {
+      "mapId": 66,
+      "name": "Soup World"
+    },
+    {
+      "mapId": 22,
+      "name": "Space"
+    },
+    {
+      "mapId": 118,
+      "name": "Space"
+    },
+    {
+      "mapId": 119,
+      "name": "Space"
+    },
+    {
+      "mapId": 203,
+      "name": "Space"
+    },
+    {
+      "mapId": 275,
+      "name": "Space"
+    },
+    {
+      "mapId": 284,
+      "name": "Space"
+    },
+    {
+      "mapId": 64,
+      "name": "Ssendam Enilaroc"
+    },
+    {
+      "mapId": 170,
+      "name": "Stony Incomers Path"
+    },
+    {
+      "mapId": 171,
+      "name": "Sylphides' Playground"
+    },
+    {
+      "mapId": 278,
+      "name": "The Throne Room"
+    },
+    {
+      "mapId": 25,
+      "name": "Things World"
+    },
+    {
+      "mapId": 24,
+      "name": "Thorny Garden"
+    },
+    {
+      "mapId": 167,
+      "name": "Torture Room"
+    },
+    {
+      "mapId": 256,
+      "name": "Tropical Sea Ice"
+    },
+    {
+      "mapId": 268,
+      "name": "Tropical Sea Ice"
+    },
+    {
+      "mapId": 91,
+      "name": "Twins' Path"
+    },
+    {
+      "mapId": 73,
+      "name": "ULTRA Sugary World"
+    },
+    {
+      "mapId": 76,
+      "name": "ULTRA Sugary World"
+    },
+    {
+      "mapId": 179,
+      "name": "Vaporwave Mall"
+    },
+    {
+      "mapId": 329,
+      "name": "Vintage Studio"
+    },
+    {
+      "mapId": 142,
+      "name": "Voie George Pompidou"
+    },
+    {
+      "mapId": 272,
+      "name": "Vynil Shop"
+    },
+    {
+      "mapId": 273,
+      "name": "Vynil Shop"
+    },
+    {
+      "mapId": 157,
+      "name": "Wild Tootbrush Territory"
+    },
+    {
+      "mapId": 269,
+      "name": "Windy Glacier"
+    },
+    {
+      "mapId": 271,
+      "name": "World Border"
+    },
+    {
+      "mapId": 194,
+      "name": "Zoo"
+    },
+    {
+      "mapId": 197,
+      "name": "Zoo: Aquarium"
+    },
+    {
+      "mapId": 198,
+      "name": "Zoo: Aquarium"
+    },
+    {
+      "mapId": 193,
+      "name": "Zoo: Arctic Zone"
+    },
+    {
+      "mapId": 191,
+      "name": "Zoo: Desertic Zone"
+    },
+    {
+      "mapId": 218,
+      "name": "Zoo: Disenchanted Zone"
+    },
+    {
+      "mapId": 204,
+      "name": "Zoo: Enchanted Zone"
+    },
+    {
+      "mapId": 192,
+      "name": "Zoo: Kiosk"
+    },
+    {
+      "mapId": 195,
+      "name": "Zoo: Tropical Zone"
+    },
+    {
+      "mapId": 196,
+      "name": "Zoo: Vivarium"
+    }
+  ]
+}

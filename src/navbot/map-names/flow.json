@@ -1,0 +1,1173 @@
+{
+  "version": 1,
+  "game": "flow",
+  "source": "ynolocations/flow/config.json",
+  "entries": [
+    {
+      "mapId": 16,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 39,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 40,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 42,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 43,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 44,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 45,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 195,
+      "name": "Back Ward"
+    },
+    {
+      "mapId": 199,
+      "name": "Back Ward"
+    },
+    {
+      "mapId": 200,
+      "name": "Back Ward"
+    },
+    {
+      "mapId": 112,
+      "name": "Back Ward: Parade Ward"
+    },
+    {
+      "mapId": 202,
+      "name": "Back Ward: Parade Ward"
+    },
+    {
+      "mapId": 204,
+      "name": "Back Ward: Parade Ward"
+    },
+    {
+      "mapId": 191,
+      "name": "Back Ward: Parade Ward (Past)"
+    },
+    {
+      "mapId": 197,
+      "name": "Back Ward: Parade Ward (Past)"
+    },
+    {
+      "mapId": 203,
+      "name": "Back Ward: Parade Ward (Past)"
+    },
+    {
+      "mapId": 56,
+      "name": "Blood Maze"
+    },
+    {
+      "mapId": 138,
+      "name": "Blood, Pus, Rust"
+    },
+    {
+      "mapId": 61,
+      "name": "Blue Electric World"
+    },
+    {
+      "mapId": 70,
+      "name": "Cloud World"
+    },
+    {
+      "mapId": 73,
+      "name": "Cloud World"
+    },
+    {
+      "mapId": 75,
+      "name": "Cloud World"
+    },
+    {
+      "mapId": 13,
+      "name": "Connecting Tile Path"
+    },
+    {
+      "mapId": 14,
+      "name": "Connecting Tile Path"
+    },
+    {
+      "mapId": 57,
+      "name": "Connecting Tile Path"
+    },
+    {
+      "mapId": 139,
+      "name": "Corrupted School"
+    },
+    {
+      "mapId": 182,
+      "name": "Corrupted School"
+    },
+    {
+      "mapId": 208,
+      "name": "Corrupted School"
+    },
+    {
+      "mapId": 217,
+      "name": "Corrupted School"
+    },
+    {
+      "mapId": 218,
+      "name": "Corrupted School"
+    },
+    {
+      "mapId": 219,
+      "name": "Corrupted School"
+    },
+    {
+      "mapId": 290,
+      "name": "Deterioration"
+    },
+    {
+      "mapId": 291,
+      "name": "Deterioration"
+    },
+    {
+      "mapId": 292,
+      "name": "Deterioration"
+    },
+    {
+      "mapId": 293,
+      "name": "Deterioration"
+    },
+    {
+      "mapId": 294,
+      "name": "Deterioration"
+    },
+    {
+      "mapId": 295,
+      "name": "Deterioration"
+    },
+    {
+      "mapId": 296,
+      "name": "Deterioration"
+    },
+    {
+      "mapId": 286,
+      "name": "Disposal"
+    },
+    {
+      "mapId": 288,
+      "name": "Disposal"
+    },
+    {
+      "mapId": 289,
+      "name": "Disposal"
+    },
+    {
+      "mapId": 7,
+      "name": "Dream Veranda"
+    },
+    {
+      "mapId": 12,
+      "name": "Dysmorphic World"
+    },
+    {
+      "mapId": 17,
+      "name": "Dysmorphic World"
+    },
+    {
+      "mapId": 18,
+      "name": "Dysmorphic World"
+    },
+    {
+      "mapId": 19,
+      "name": "Dysmorphic World"
+    },
+    {
+      "mapId": 59,
+      "name": "Dysmorphic World"
+    },
+    {
+      "mapId": 5,
+      "name": "Entrance"
+    },
+    {
+      "mapId": 74,
+      "name": "Famicom World"
+    },
+    {
+      "mapId": 76,
+      "name": "Famicom World"
+    },
+    {
+      "mapId": 184,
+      "name": "Famicom World"
+    },
+    {
+      "mapId": 227,
+      "name": "Famicom World"
+    },
+    {
+      "mapId": 228,
+      "name": "Famicom World"
+    },
+    {
+      "mapId": 230,
+      "name": "Famicom World"
+    },
+    {
+      "mapId": 235,
+      "name": "Famicom World"
+    },
+    {
+      "mapId": 255,
+      "name": "Famicom World"
+    },
+    {
+      "mapId": 87,
+      "name": "Flower World"
+    },
+    {
+      "mapId": 104,
+      "name": "Flying Event"
+    },
+    {
+      "mapId": 65,
+      "name": "Footprint Path"
+    },
+    {
+      "mapId": 66,
+      "name": "Footprint Path"
+    },
+    {
+      "mapId": 68,
+      "name": "Footprint Path"
+    },
+    {
+      "mapId": 80,
+      "name": "Footprint Path"
+    },
+    {
+      "mapId": 107,
+      "name": "Footprint Path"
+    },
+    {
+      "mapId": 60,
+      "name": "Green Electric World"
+    },
+    {
+      "mapId": 124,
+      "name": "Green Electric World"
+    },
+    {
+      "mapId": 153,
+      "name": "Hell"
+    },
+    {
+      "mapId": 284,
+      "name": "Hell"
+    },
+    {
+      "mapId": 166,
+      "name": "Hole"
+    },
+    {
+      "mapId": 167,
+      "name": "Hole"
+    },
+    {
+      "mapId": 259,
+      "name": "Hole"
+    },
+    {
+      "mapId": 260,
+      "name": "Hole"
+    },
+    {
+      "mapId": 262,
+      "name": "Hole"
+    },
+    {
+      "mapId": 269,
+      "name": "Hole in Girl"
+    },
+    {
+      "mapId": 270,
+      "name": "Hole in Girl"
+    },
+    {
+      "mapId": 271,
+      "name": "Hole in Girl"
+    },
+    {
+      "mapId": 272,
+      "name": "Hole in Girl"
+    },
+    {
+      "mapId": 168,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 169,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 170,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 171,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 172,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 174,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 183,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 243,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 252,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 253,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 254,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 187,
+      "name": "Illusionary Corridors"
+    },
+    {
+      "mapId": 188,
+      "name": "Illusionary Corridors"
+    },
+    {
+      "mapId": 189,
+      "name": "Illusionary Corridors"
+    },
+    {
+      "mapId": 190,
+      "name": "Illusionary Corridors"
+    },
+    {
+      "mapId": 192,
+      "name": "Illusionary Corridors"
+    },
+    {
+      "mapId": 193,
+      "name": "Illusionary Corridors"
+    },
+    {
+      "mapId": 194,
+      "name": "Illusionary Corridors"
+    },
+    {
+      "mapId": 196,
+      "name": "Illusionary Corridors"
+    },
+    {
+      "mapId": 201,
+      "name": "Illusionary Corridors"
+    },
+    {
+      "mapId": 82,
+      "name": "Insides"
+    },
+    {
+      "mapId": 229,
+      "name": "Machine Nation"
+    },
+    {
+      "mapId": 231,
+      "name": "Machine Nation"
+    },
+    {
+      "mapId": 232,
+      "name": "Machine Nation"
+    },
+    {
+      "mapId": 233,
+      "name": "Machine Nation"
+    },
+    {
+      "mapId": 234,
+      "name": "Machine Nation"
+    },
+    {
+      "mapId": 257,
+      "name": "Machine Nation"
+    },
+    {
+      "mapId": 258,
+      "name": "Machine Nation"
+    },
+    {
+      "mapId": 125,
+      "name": "Microorganism World"
+    },
+    {
+      "mapId": 126,
+      "name": "Microorganism World"
+    },
+    {
+      "mapId": 127,
+      "name": "Microorganism World"
+    },
+    {
+      "mapId": 8,
+      "name": "Music World"
+    },
+    {
+      "mapId": 130,
+      "name": "Music World"
+    },
+    {
+      "mapId": 41,
+      "name": "Neighborhood"
+    },
+    {
+      "mapId": 212,
+      "name": "Neighborhood"
+    },
+    {
+      "mapId": 213,
+      "name": "Neighborhood"
+    },
+    {
+      "mapId": 122,
+      "name": "Northern Wastewater Lake",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 51
+        },
+        {
+          "x1": 55,
+          "y1": 52,
+          "x2": 80,
+          "y2": 57
+        }
+      ]
+    },
+    {
+      "mapId": 96,
+      "name": "Orange Laboratory"
+    },
+    {
+      "mapId": 97,
+      "name": "Orange Laboratory"
+    },
+    {
+      "mapId": 98,
+      "name": "Orange Laboratory"
+    },
+    {
+      "mapId": 99,
+      "name": "Orange Laboratory"
+    },
+    {
+      "mapId": 220,
+      "name": "Orange Laboratory"
+    },
+    {
+      "mapId": 67,
+      "name": "Orange Maze"
+    },
+    {
+      "mapId": 81,
+      "name": "Orange Maze"
+    },
+    {
+      "mapId": 85,
+      "name": "Orange Maze"
+    },
+    {
+      "mapId": 181,
+      "name": "Orange Passage"
+    },
+    {
+      "mapId": 256,
+      "name": "Orange Passage"
+    },
+    {
+      "mapId": 113,
+      "name": "Plant Corridors"
+    },
+    {
+      "mapId": 114,
+      "name": "Plant Corridors"
+    },
+    {
+      "mapId": 115,
+      "name": "Plant Corridors"
+    },
+    {
+      "mapId": 116,
+      "name": "Plant Corridors"
+    },
+    {
+      "mapId": 117,
+      "name": "Plant Corridors"
+    },
+    {
+      "mapId": 118,
+      "name": "Plant Corridors"
+    },
+    {
+      "mapId": 119,
+      "name": "Plant Corridors"
+    },
+    {
+      "mapId": 131,
+      "name": "Plant Corridors"
+    },
+    {
+      "mapId": 9,
+      "name": "Plant World"
+    },
+    {
+      "mapId": 21,
+      "name": "Plant World"
+    },
+    {
+      "mapId": 150,
+      "name": "Prison"
+    },
+    {
+      "mapId": 151,
+      "name": "Prison"
+    },
+    {
+      "mapId": 152,
+      "name": "Prison"
+    },
+    {
+      "mapId": 156,
+      "name": "Psychedelic Town"
+    },
+    {
+      "mapId": 160,
+      "name": "Psychedelic Town"
+    },
+    {
+      "mapId": 161,
+      "name": "Psychedelic Town"
+    },
+    {
+      "mapId": 162,
+      "name": "Psychedelic Town"
+    },
+    {
+      "mapId": 164,
+      "name": "Psychedelic Town"
+    },
+    {
+      "mapId": 88,
+      "name": "Rainbow Maze"
+    },
+    {
+      "mapId": 89,
+      "name": "Rainbow Maze"
+    },
+    {
+      "mapId": 90,
+      "name": "Rainbow Maze"
+    },
+    {
+      "mapId": 91,
+      "name": "Rainbow Maze"
+    },
+    {
+      "mapId": 92,
+      "name": "Rainbow Maze"
+    },
+    {
+      "mapId": 93,
+      "name": "Rainbow Maze"
+    },
+    {
+      "mapId": 157,
+      "name": "Rainbow Maze"
+    },
+    {
+      "mapId": 158,
+      "name": "Rainbow Maze"
+    },
+    {
+      "mapId": 159,
+      "name": "Rainbow Maze"
+    },
+    {
+      "mapId": 163,
+      "name": "Rainbow Maze"
+    },
+    {
+      "mapId": 53,
+      "name": "Reverse Apartments"
+    },
+    {
+      "mapId": 54,
+      "name": "Reverse Apartments"
+    },
+    {
+      "mapId": 55,
+      "name": "Reverse Apartments"
+    },
+    {
+      "mapId": 64,
+      "name": "Reverse Apartments"
+    },
+    {
+      "mapId": 94,
+      "name": "Reverse Apartments"
+    },
+    {
+      "mapId": 95,
+      "name": "Reverse Apartments"
+    },
+    {
+      "mapId": 128,
+      "name": "Reverse Apartments"
+    },
+    {
+      "mapId": 266,
+      "name": "Reverse Apartments"
+    },
+    {
+      "mapId": 224,
+      "name": "Rust Corridor"
+    },
+    {
+      "mapId": 225,
+      "name": "Rust Corridor"
+    },
+    {
+      "mapId": 226,
+      "name": "Rust Corridor"
+    },
+    {
+      "mapId": 236,
+      "name": "Rust Corridor"
+    },
+    {
+      "mapId": 237,
+      "name": "Rust Corridor"
+    },
+    {
+      "mapId": 238,
+      "name": "Rust Corridor"
+    },
+    {
+      "mapId": 240,
+      "name": "Rust Corridor"
+    },
+    {
+      "mapId": 2,
+      "name": "Sabitsuki's Room"
+    },
+    {
+      "mapId": 4,
+      "name": "Sabitsuki's Room"
+    },
+    {
+      "mapId": 6,
+      "name": "Sabitsuki's Room"
+    },
+    {
+      "mapId": 180,
+      "name": "Sabitsuki's Room"
+    },
+    {
+      "mapId": 222,
+      "name": "Sabitsuki's Room"
+    },
+    {
+      "mapId": 223,
+      "name": "Sabitsuki's Room"
+    },
+    {
+      "mapId": 267,
+      "name": "Sabitsuki's Room"
+    },
+    {
+      "mapId": 20,
+      "name": "School"
+    },
+    {
+      "mapId": 83,
+      "name": "School"
+    },
+    {
+      "mapId": 206,
+      "name": "School"
+    },
+    {
+      "mapId": 207,
+      "name": "School"
+    },
+    {
+      "mapId": 209,
+      "name": "School"
+    },
+    {
+      "mapId": 210,
+      "name": "School"
+    },
+    {
+      "mapId": 211,
+      "name": "School"
+    },
+    {
+      "mapId": 221,
+      "name": "School"
+    },
+    {
+      "mapId": 71,
+      "name": "Sea"
+    },
+    {
+      "mapId": 77,
+      "name": "Sea"
+    },
+    {
+      "mapId": 78,
+      "name": "Sea"
+    },
+    {
+      "mapId": 79,
+      "name": "Sea"
+    },
+    {
+      "mapId": 108,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 109,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 110,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 111,
+      "name": "Sewers",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 10,
+          "x2": 15,
+          "y2": 20
+        }
+      ]
+    },
+    {
+      "mapId": 120,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 123,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 137,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 155,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 214,
+      "name": "Smile's House"
+    },
+    {
+      "mapId": 175,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 176,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 177,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 178,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 179,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 185,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 186,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 287,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 122,
+      "name": "Southern Wastewater Lake"
+    },
+    {
+      "mapId": 135,
+      "name": "Star World"
+    },
+    {
+      "mapId": 136,
+      "name": "Star World"
+    },
+    {
+      "mapId": 173,
+      "name": "Star World"
+    },
+    {
+      "mapId": 26,
+      "name": "Submarine City"
+    },
+    {
+      "mapId": 29,
+      "name": "Submarine City"
+    },
+    {
+      "mapId": 30,
+      "name": "Submarine City"
+    },
+    {
+      "mapId": 31,
+      "name": "Submarine City"
+    },
+    {
+      "mapId": 32,
+      "name": "Submarine City"
+    },
+    {
+      "mapId": 33,
+      "name": "Submarine City"
+    },
+    {
+      "mapId": 34,
+      "name": "Submarine City"
+    },
+    {
+      "mapId": 35,
+      "name": "Submarine City"
+    },
+    {
+      "mapId": 36,
+      "name": "Submarine City"
+    },
+    {
+      "mapId": 37,
+      "name": "Submarine City"
+    },
+    {
+      "mapId": 38,
+      "name": "Submarine City"
+    },
+    {
+      "mapId": 62,
+      "name": "Submarine Corridors"
+    },
+    {
+      "mapId": 63,
+      "name": "Submarine Corridors"
+    },
+    {
+      "mapId": 69,
+      "name": "Submarine Corridors"
+    },
+    {
+      "mapId": 72,
+      "name": "Submarine Corridors"
+    },
+    {
+      "mapId": 268,
+      "name": "Submarine Village"
+    },
+    {
+      "mapId": 282,
+      "name": "Submarine Village"
+    },
+    {
+      "mapId": 283,
+      "name": "Submarine Village"
+    },
+    {
+      "mapId": 22,
+      "name": "Submarine World"
+    },
+    {
+      "mapId": 24,
+      "name": "Submarine World"
+    },
+    {
+      "mapId": 25,
+      "name": "Submarine World"
+    },
+    {
+      "mapId": 27,
+      "name": "Submarine World"
+    },
+    {
+      "mapId": 28,
+      "name": "Submarine World"
+    },
+    {
+      "mapId": 58,
+      "name": "Submarine World"
+    },
+    {
+      "mapId": 106,
+      "name": "Submarine World"
+    },
+    {
+      "mapId": 279,
+      "name": "Submarine World"
+    },
+    {
+      "mapId": 281,
+      "name": "Submarine World"
+    },
+    {
+      "mapId": 265,
+      "name": "sugar float days"
+    },
+    {
+      "mapId": 129,
+      "name": "Sugar Hole"
+    },
+    {
+      "mapId": 132,
+      "name": "Sugar Hole"
+    },
+    {
+      "mapId": 133,
+      "name": "Sugar Hole"
+    },
+    {
+      "mapId": 134,
+      "name": "Sugar Hole"
+    },
+    {
+      "mapId": 154,
+      "name": "Sugar Hole"
+    },
+    {
+      "mapId": 165,
+      "name": "Sugar Hole"
+    },
+    {
+      "mapId": 198,
+      "name": "Sunset"
+    },
+    {
+      "mapId": 239,
+      "name": "Sweet Sugar"
+    },
+    {
+      "mapId": 245,
+      "name": "Sweet Sugar"
+    },
+    {
+      "mapId": 246,
+      "name": "Sweet Sugar"
+    },
+    {
+      "mapId": 247,
+      "name": "Sweet Sugar"
+    },
+    {
+      "mapId": 248,
+      "name": "Sweet Sugar"
+    },
+    {
+      "mapId": 249,
+      "name": "Sweet Sugar"
+    },
+    {
+      "mapId": 250,
+      "name": "Sweet Sugar"
+    },
+    {
+      "mapId": 251,
+      "name": "Sweet Sugar"
+    },
+    {
+      "mapId": 263,
+      "name": "Sweet Sugar"
+    },
+    {
+      "mapId": 264,
+      "name": "Sweet Sugar"
+    },
+    {
+      "mapId": 273,
+      "name": "Town"
+    },
+    {
+      "mapId": 274,
+      "name": "Town"
+    },
+    {
+      "mapId": 275,
+      "name": "Town"
+    },
+    {
+      "mapId": 276,
+      "name": "Town"
+    },
+    {
+      "mapId": 277,
+      "name": "Town"
+    },
+    {
+      "mapId": 278,
+      "name": "Town"
+    },
+    {
+      "mapId": 11,
+      "name": "Utility Pole World"
+    },
+    {
+      "mapId": 15,
+      "name": "Utility Pole World"
+    },
+    {
+      "mapId": 105,
+      "name": "Veranda"
+    },
+    {
+      "mapId": 100,
+      "name": "Visceral World"
+    },
+    {
+      "mapId": 101,
+      "name": "Visceral World"
+    },
+    {
+      "mapId": 102,
+      "name": "Visceral World"
+    },
+    {
+      "mapId": 103,
+      "name": "Visceral World"
+    },
+    {
+      "mapId": 140,
+      "name": "Visceral World"
+    },
+    {
+      "mapId": 141,
+      "name": "Visceral World"
+    },
+    {
+      "mapId": 215,
+      "name": "Visceral World"
+    },
+    {
+      "mapId": 216,
+      "name": "Visceral World"
+    },
+    {
+      "mapId": 84,
+      "name": "Wetland"
+    },
+    {
+      "mapId": 86,
+      "name": "Wetland"
+    },
+    {
+      "mapId": 46,
+      "name": "White Room"
+    },
+    {
+      "mapId": 47,
+      "name": "White Room"
+    },
+    {
+      "mapId": 48,
+      "name": "White Room"
+    },
+    {
+      "mapId": 49,
+      "name": "White Room"
+    },
+    {
+      "mapId": 50,
+      "name": "White Room"
+    },
+    {
+      "mapId": 51,
+      "name": "White Room"
+    },
+    {
+      "mapId": 52,
+      "name": "White Room"
+    },
+    {
+      "mapId": 142,
+      "name": "Womb Maze"
+    },
+    {
+      "mapId": 143,
+      "name": "Womb Maze"
+    },
+    {
+      "mapId": 144,
+      "name": "Womb Maze"
+    },
+    {
+      "mapId": 145,
+      "name": "Womb Maze"
+    },
+    {
+      "mapId": 146,
+      "name": "Womb Maze"
+    },
+    {
+      "mapId": 147,
+      "name": "Womb Maze"
+    },
+    {
+      "mapId": 148,
+      "name": "Womb Maze"
+    },
+    {
+      "mapId": 149,
+      "name": "Womb Maze"
+    },
+    {
+      "mapId": 205,
+      "name": "Young Passage"
+    }
+  ]
+}

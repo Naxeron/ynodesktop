@@ -1,0 +1,523 @@
+{
+  "version": 1,
+  "game": "ultraviolet",
+  "source": "ynolocations/ultraviolet/config.json",
+  "entries": [
+    {
+      "mapId": 12,
+      "name": "Ancient Ruins"
+    },
+    {
+      "mapId": 20,
+      "name": "Armory"
+    },
+    {
+      "mapId": 70,
+      "name": "Armory"
+    },
+    {
+      "mapId": 72,
+      "name": "Armory"
+    },
+    {
+      "mapId": 113,
+      "name": "Banquet Hall"
+    },
+    {
+      "mapId": 114,
+      "name": "Banquet Hall"
+    },
+    {
+      "mapId": 115,
+      "name": "Banquet Hall"
+    },
+    {
+      "mapId": 116,
+      "name": "Banquet Hall"
+    },
+    {
+      "mapId": 130,
+      "name": "Banquet Hall"
+    },
+    {
+      "mapId": 133,
+      "name": "Banquet Hall"
+    },
+    {
+      "mapId": 134,
+      "name": "Banquet Hall"
+    },
+    {
+      "mapId": 135,
+      "name": "Banquet Hall"
+    },
+    {
+      "mapId": 149,
+      "name": "Banquet Hall: Balcony"
+    },
+    {
+      "mapId": 35,
+      "name": "Bloody Water Dungeon"
+    },
+    {
+      "mapId": 36,
+      "name": "Bloody Water Dungeon"
+    },
+    {
+      "mapId": 7,
+      "name": "Bookstore"
+    },
+    {
+      "mapId": 28,
+      "name": "Bookstore"
+    },
+    {
+      "mapId": 46,
+      "name": "Bookstore"
+    },
+    {
+      "mapId": 47,
+      "name": "Bookstore"
+    },
+    {
+      "mapId": 140,
+      "name": "Bookstore"
+    },
+    {
+      "mapId": 43,
+      "name": "Boreal Forest"
+    },
+    {
+      "mapId": 51,
+      "name": "Botanical Corridor"
+    },
+    {
+      "mapId": 52,
+      "name": "Botanical Corridor"
+    },
+    {
+      "mapId": 53,
+      "name": "Botanical Corridor"
+    },
+    {
+      "mapId": 54,
+      "name": "Botanical Corridor"
+    },
+    {
+      "mapId": 55,
+      "name": "Botanical Corridor"
+    },
+    {
+      "mapId": 56,
+      "name": "Botanical Corridor"
+    },
+    {
+      "mapId": 57,
+      "name": "Botanical Corridor"
+    },
+    {
+      "mapId": 58,
+      "name": "Botanical Corridor"
+    },
+    {
+      "mapId": 59,
+      "name": "Botanical Corridor"
+    },
+    {
+      "mapId": 48,
+      "name": "Cliff of Memories"
+    },
+    {
+      "mapId": 49,
+      "name": "Cliff of Memories"
+    },
+    {
+      "mapId": 50,
+      "name": "Cliff of Memories"
+    },
+    {
+      "mapId": 77,
+      "name": "Countryside"
+    },
+    {
+      "mapId": 79,
+      "name": "Countryside"
+    },
+    {
+      "mapId": 86,
+      "name": "Countryside"
+    },
+    {
+      "mapId": 32,
+      "name": "Cyber World"
+    },
+    {
+      "mapId": 104,
+      "name": "Cyber World"
+    },
+    {
+      "mapId": 41,
+      "name": "Dark Forest"
+    },
+    {
+      "mapId": 73,
+      "name": "Dark Forest"
+    },
+    {
+      "mapId": 83,
+      "name": "Derelict Hospital"
+    },
+    {
+      "mapId": 3,
+      "name": "Dessert World"
+    },
+    {
+      "mapId": 9,
+      "name": "Dessert World"
+    },
+    {
+      "mapId": 16,
+      "name": "Dessert World"
+    },
+    {
+      "mapId": 19,
+      "name": "Dessert World"
+    },
+    {
+      "mapId": 37,
+      "name": "Emerald Square"
+    },
+    {
+      "mapId": 145,
+      "name": "Emerald Square: Back Alley"
+    },
+    {
+      "mapId": 81,
+      "name": "Emerald Square: Church"
+    },
+    {
+      "mapId": 108,
+      "name": "Fantasy Badlands"
+    },
+    {
+      "mapId": 110,
+      "name": "FC Battlefield"
+    },
+    {
+      "mapId": 106,
+      "name": "FC Caves"
+    },
+    {
+      "mapId": 126,
+      "name": "FC Caves"
+    },
+    {
+      "mapId": 136,
+      "name": "FC Caves"
+    },
+    {
+      "mapId": 88,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 89,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 90,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 91,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 92,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 93,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 94,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 95,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 96,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 97,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 98,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 99,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 100,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 76,
+      "name": "FC Fields"
+    },
+    {
+      "mapId": 87,
+      "name": "FC Fields"
+    },
+    {
+      "mapId": 103,
+      "name": "FC Fields"
+    },
+    {
+      "mapId": 44,
+      "name": "Floating Library"
+    },
+    {
+      "mapId": 61,
+      "name": "Floating Library"
+    },
+    {
+      "mapId": 29,
+      "name": "Glass Pipe World"
+    },
+    {
+      "mapId": 132,
+      "name": "Hieroglyph World"
+    },
+    {
+      "mapId": 38,
+      "name": "Home"
+    },
+    {
+      "mapId": 25,
+      "name": "Liminal Building"
+    },
+    {
+      "mapId": 26,
+      "name": "Liminal Building"
+    },
+    {
+      "mapId": 30,
+      "name": "Liminal Building"
+    },
+    {
+      "mapId": 13,
+      "name": "Macabre World"
+    },
+    {
+      "mapId": 60,
+      "name": "Mars"
+    },
+    {
+      "mapId": 121,
+      "name": "Monochrome Underpass"
+    },
+    {
+      "mapId": 62,
+      "name": "Mysterious Passage"
+    },
+    {
+      "mapId": 27,
+      "name": "Needle Maze"
+    },
+    {
+      "mapId": 5,
+      "name": "Old Storehouse World"
+    },
+    {
+      "mapId": 11,
+      "name": "Old Storehouse World"
+    },
+    {
+      "mapId": 15,
+      "name": "Old Storehouse World"
+    },
+    {
+      "mapId": 18,
+      "name": "Old Storehouse World"
+    },
+    {
+      "mapId": 24,
+      "name": "Old Storehouse World"
+    },
+    {
+      "mapId": 84,
+      "name": "PANErabbit"
+    },
+    {
+      "mapId": 118,
+      "name": "PANErabbit"
+    },
+    {
+      "mapId": 31,
+      "name": "Pastel Block World"
+    },
+    {
+      "mapId": 131,
+      "name": "Pastel Block World"
+    },
+    {
+      "mapId": 8,
+      "name": "Pastel World"
+    },
+    {
+      "mapId": 10,
+      "name": "Pastel World"
+    },
+    {
+      "mapId": 23,
+      "name": "Pastel World: Bunny Mart"
+    },
+    {
+      "mapId": 22,
+      "name": "Pastel World: Rabbit's House"
+    },
+    {
+      "mapId": 40,
+      "name": "Pinkish Continent"
+    },
+    {
+      "mapId": 42,
+      "name": "Pinkish Continent"
+    },
+    {
+      "mapId": 63,
+      "name": "Prairie Manor"
+    },
+    {
+      "mapId": 64,
+      "name": "Prairie Manor"
+    },
+    {
+      "mapId": 65,
+      "name": "Prairie Manor"
+    },
+    {
+      "mapId": 67,
+      "name": "Prairie Manor"
+    },
+    {
+      "mapId": 68,
+      "name": "Prairie Manor"
+    },
+    {
+      "mapId": 150,
+      "name": "Red Metallic Zone"
+    },
+    {
+      "mapId": 21,
+      "name": "Schoolgirl's Room"
+    },
+    {
+      "mapId": 39,
+      "name": "Schoolgirl's Room"
+    },
+    {
+      "mapId": 109,
+      "name": "Schoolgirl's Room"
+    },
+    {
+      "mapId": 107,
+      "name": "Seabed"
+    },
+    {
+      "mapId": 101,
+      "name": "Shrine Labyrinth"
+    },
+    {
+      "mapId": 102,
+      "name": "Shrine Labyrinth"
+    },
+    {
+      "mapId": 80,
+      "name": "Shrine Labyrinth: Entrance"
+    },
+    {
+      "mapId": 117,
+      "name": "Silhouette Fields"
+    },
+    {
+      "mapId": 119,
+      "name": "Silhouette Fields"
+    },
+    {
+      "mapId": 120,
+      "name": "Silhouette Fields"
+    },
+    {
+      "mapId": 122,
+      "name": "Silhouette Fields"
+    },
+    {
+      "mapId": 6,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 14,
+      "name": "Sometsuki's Balcony"
+    },
+    {
+      "mapId": 17,
+      "name": "Sometsuki's Computer"
+    },
+    {
+      "mapId": 34,
+      "name": "Sometsuki's Dream Balcony"
+    },
+    {
+      "mapId": 33,
+      "name": "Sometsuki's Dream Room"
+    },
+    {
+      "mapId": 1,
+      "name": "Sometsuki's Room"
+    },
+    {
+      "mapId": 75,
+      "name": "Space Station"
+    },
+    {
+      "mapId": 82,
+      "name": "Space Station"
+    },
+    {
+      "mapId": 144,
+      "name": "Stained Glass World"
+    },
+    {
+      "mapId": 71,
+      "name": "Streetlamp World"
+    },
+    {
+      "mapId": 74,
+      "name": "take off!!!"
+    },
+    {
+      "mapId": 2,
+      "name": "The Nexus"
+    },
+    {
+      "mapId": 66,
+      "name": "Vast Plains"
+    },
+    {
+      "mapId": 69,
+      "name": "Vast Plains"
+    },
+    {
+      "mapId": 45,
+      "name": "Verdant Prairie"
+    }
+  ]
+}

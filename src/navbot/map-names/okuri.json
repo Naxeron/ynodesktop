@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "game": "okuri",
+  "source": "ynolocations/okuri/config.json",
+  "entries": [
+    {
+      "mapId": 55,
+      "name": "Ash Box"
+    },
+    {
+      "mapId": 40,
+      "name": "Bedroom"
+    },
+    {
+      "mapId": 42,
+      "name": "Bell Passage"
+    },
+    {
+      "mapId": 35,
+      "name": "Building"
+    },
+    {
+      "mapId": 36,
+      "name": "Building"
+    },
+    {
+      "mapId": 37,
+      "name": "Building"
+    },
+    {
+      "mapId": 38,
+      "name": "Building"
+    },
+    {
+      "mapId": 39,
+      "name": "Building"
+    },
+    {
+      "mapId": 45,
+      "name": "Building"
+    },
+    {
+      "mapId": 12,
+      "name": "Bus Stop"
+    },
+    {
+      "mapId": 29,
+      "name": "Bus Stop"
+    },
+    {
+      "mapId": 6,
+      "name": "Calendar"
+    },
+    {
+      "mapId": 22,
+      "name": "Ceremony"
+    },
+    {
+      "mapId": 47,
+      "name": "Ceremony"
+    },
+    {
+      "mapId": 48,
+      "name": "Ceremony"
+    },
+    {
+      "mapId": 49,
+      "name": "Ceremony"
+    },
+    {
+      "mapId": 50,
+      "name": "Ceremony"
+    },
+    {
+      "mapId": 20,
+      "name": "Chrysanthemums and Water Surface"
+    },
+    {
+      "mapId": 33,
+      "name": "Department Store"
+    },
+    {
+      "mapId": 34,
+      "name": "Department Store"
+    },
+    {
+      "mapId": 17,
+      "name": "Field of Sunflowers"
+    },
+    {
+      "mapId": 30,
+      "name": "Field of Sunflowers"
+    },
+    {
+      "mapId": 58,
+      "name": "Field of Sunflowers"
+    },
+    {
+      "mapId": 54,
+      "name": "Flower Box"
+    },
+    {
+      "mapId": 52,
+      "name": "Flower Corridor"
+    },
+    {
+      "mapId": 53,
+      "name": "Flower Corridor"
+    },
+    {
+      "mapId": 56,
+      "name": "Flower Pathway"
+    },
+    {
+      "mapId": 28,
+      "name": "Forest of Eyes"
+    },
+    {
+      "mapId": 57,
+      "name": "Futon Room"
+    },
+    {
+      "mapId": 13,
+      "name": "Garden"
+    },
+    {
+      "mapId": 8,
+      "name": "Home"
+    },
+    {
+      "mapId": 9,
+      "name": "Home"
+    },
+    {
+      "mapId": 16,
+      "name": "Hydrangea Square"
+    },
+    {
+      "mapId": 43,
+      "name": "Icicle Road"
+    },
+    {
+      "mapId": 21,
+      "name": "Maple Pattern"
+    },
+    {
+      "mapId": 31,
+      "name": "Maze"
+    },
+    {
+      "mapId": 3,
+      "name": "My Room"
+    },
+    {
+      "mapId": 4,
+      "name": "My Room in Dream"
+    },
+    {
+      "mapId": 11,
+      "name": "Reed Bed"
+    },
+    {
+      "mapId": 26,
+      "name": "Reed Bed"
+    },
+    {
+      "mapId": 14,
+      "name": "Row of Cherryblossom Trees"
+    },
+    {
+      "mapId": 23,
+      "name": "Row of Cherryblossom Trees"
+    },
+    {
+      "mapId": 18,
+      "name": "Seaside Town"
+    },
+    {
+      "mapId": 44,
+      "name": "Seaside Town"
+    },
+    {
+      "mapId": 19,
+      "name": "Smoky Sand"
+    },
+    {
+      "mapId": 46,
+      "name": "Smoky Sand"
+    },
+    {
+      "mapId": 51,
+      "name": "Tatami Room"
+    },
+    {
+      "mapId": 32,
+      "name": "Tile Path"
+    },
+    {
+      "mapId": 27,
+      "name": "Town"
+    },
+    {
+      "mapId": 15,
+      "name": "Veranda"
+    },
+    {
+      "mapId": 25,
+      "name": "Veranda"
+    },
+    {
+      "mapId": 24,
+      "name": "Windowed Corridor"
+    },
+    {
+      "mapId": 41,
+      "name": "Windowed Corridor"
+    }
+  ]
+}

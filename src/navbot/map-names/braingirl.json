@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "game": "braingirl",
+  "source": "ynolocations/braingirl/config.json",
+  "entries": [
+    {
+      "mapId": 34,
+      "name": "Apartment"
+    },
+    {
+      "mapId": 36,
+      "name": "Apartment (Day)"
+    },
+    {
+      "mapId": 38,
+      "name": "Apartment (Morning)"
+    },
+    {
+      "mapId": 40,
+      "name": "Apartment (Night)"
+    },
+    {
+      "mapId": 44,
+      "name": "Apartment (Storm)"
+    },
+    {
+      "mapId": 16,
+      "name": "Balcony"
+    },
+    {
+      "mapId": 17,
+      "name": "Balcony (Day)"
+    },
+    {
+      "mapId": 22,
+      "name": "Balcony (Morning)"
+    },
+    {
+      "mapId": 20,
+      "name": "Balcony (Night)"
+    },
+    {
+      "mapId": 43,
+      "name": "Balcony (Storm)"
+    },
+    {
+      "mapId": 35,
+      "name": "Bathroom"
+    },
+    {
+      "mapId": 37,
+      "name": "Bathroom (Day)"
+    },
+    {
+      "mapId": 39,
+      "name": "Bathroom (Morning)"
+    },
+    {
+      "mapId": 41,
+      "name": "Bathroom (Night)"
+    },
+    {
+      "mapId": 45,
+      "name": "Bathroom (Storm)"
+    },
+    {
+      "mapId": 3,
+      "name": "Bedroom"
+    },
+    {
+      "mapId": 18,
+      "name": "Bedroom (Day)"
+    },
+    {
+      "mapId": 21,
+      "name": "Bedroom (Morning)"
+    },
+    {
+      "mapId": 19,
+      "name": "Bedroom (Night)"
+    },
+    {
+      "mapId": 42,
+      "name": "Bedroom (Storm)"
+    },
+    {
+      "mapId": 52,
+      "name": "Billiard Zone"
+    },
+    {
+      "mapId": 54,
+      "name": "Catacombs"
+    },
+    {
+      "mapId": 51,
+      "name": "Cellar"
+    },
+    {
+      "mapId": 64,
+      "name": "Crypt"
+    },
+    {
+      "mapId": 66,
+      "name": "Crypt Tombs"
+    },
+    {
+      "mapId": 56,
+      "name": "Cubic Ruins"
+    },
+    {
+      "mapId": 6,
+      "name": "Ecstasy Grasslands"
+    },
+    {
+      "mapId": 7,
+      "name": "Ecstasy Grasslands"
+    },
+    {
+      "mapId": 13,
+      "name": "Ecstasy Grasslands: Grasslands Labyrinth"
+    },
+    {
+      "mapId": 50,
+      "name": "Ecstasy Grasslands: Grasslands Labyrinth"
+    },
+    {
+      "mapId": 8,
+      "name": "Ecstasy Grasslands: Grasslands Limbo"
+    },
+    {
+      "mapId": 60,
+      "name": "Garden Ascend"
+    },
+    {
+      "mapId": 61,
+      "name": "Garden Ascend"
+    },
+    {
+      "mapId": 62,
+      "name": "Graveyard"
+    },
+    {
+      "mapId": 63,
+      "name": "Green Barn"
+    },
+    {
+      "mapId": 5,
+      "name": "Hamlet"
+    },
+    {
+      "mapId": 10,
+      "name": "Hamlet"
+    },
+    {
+      "mapId": 11,
+      "name": "Hamlet"
+    },
+    {
+      "mapId": 57,
+      "name": "Industrial Tunnels"
+    },
+    {
+      "mapId": 67,
+      "name": "Industrial Tunnels"
+    },
+    {
+      "mapId": 49,
+      "name": "Midnight Saloon"
+    },
+    {
+      "mapId": 53,
+      "name": "Museum"
+    },
+    {
+      "mapId": 46,
+      "name": "Museum Tunnel"
+    },
+    {
+      "mapId": 15,
+      "name": "Music Room"
+    },
+    {
+      "mapId": 47,
+      "name": "Music Room"
+    },
+    {
+      "mapId": 59,
+      "name": "Psychedelic Farm"
+    },
+    {
+      "mapId": 65,
+      "name": "Psychedelic Farm"
+    },
+    {
+      "mapId": 58,
+      "name": "Red Barn"
+    },
+    {
+      "mapId": 55,
+      "name": "River Path"
+    },
+    {
+      "mapId": 30,
+      "name": "Saloon"
+    },
+    {
+      "mapId": 31,
+      "name": "Saloon Backrooms"
+    },
+    {
+      "mapId": 32,
+      "name": "Saloon Backrooms"
+    },
+    {
+      "mapId": 33,
+      "name": "Saloon Restrooms"
+    },
+    {
+      "mapId": 25,
+      "name": "Shrine Garden"
+    },
+    {
+      "mapId": 28,
+      "name": "Shrine Garden (midnight)"
+    },
+    {
+      "mapId": 27,
+      "name": "Spirit Shrines"
+    },
+    {
+      "mapId": 26,
+      "name": "Staircase"
+    },
+    {
+      "mapId": 9,
+      "name": "Streets Hub"
+    },
+    {
+      "mapId": 2,
+      "name": "Tanuki Woods"
+    },
+    {
+      "mapId": 1,
+      "name": "Tanuki Woods: Hot Springs"
+    },
+    {
+      "mapId": 4,
+      "name": "Tanuki Woods: Hot Springs"
+    },
+    {
+      "mapId": 14,
+      "name": "Terminal Room"
+    }
+  ]
+}

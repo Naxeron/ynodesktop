@@ -1,5 +1,20 @@
-const { app, ipcMain } = require('electron');
-const { setupContextMenu, createWindow, setupIpc, restoreSession, getMainWindow, store } = require('./createApp');
+const { app, ipcMain, protocol } = require('electron');
+const { readOptions } = require('./navbot/options');
+const debugOptions = readOptions();
+if (debugOptions.enabled) {
+  app.commandLine.appendSwitch('disable-renderer-backgrounding');
+  app.commandLine.appendSwitch('disable-backgrounding-occluded-windows');
+  require('fs').mkdirSync(debugOptions.profileDir, { recursive: true, mode: 0o700 });
+  app.setPath('userData', debugOptions.profileDir);
+  // A separate profile owns separate local saves and cookies.
+  app.setPath('sessionData', debugOptions.profileDir);
+  if (!app.requestSingleInstanceLock()) app.exit(1);
+}
+const { setupContextMenu, createWindow, setupIpc, restoreSession, getMainWindow, store, setupInterceptors } = require('./createApp');
+
+protocol.registerSchemesAsPrivileged([
+  { scheme: 'local-engine', privileges: { secure: true, standard: true, supportFetchAPI: true, corsEnabled: true } }
+]);
 const { connectDiscordRpc, updateRichPresence, clearPresence } = require('./scripts/discordRpcUtils');
 
 setupContextMenu();
@@ -28,6 +43,7 @@ function stopRpc() {
 }
 
 app.whenReady().then(() => {
+  setupInterceptors();
   restoreSession();
   setupIpc();
   createWindow();
@@ -43,7 +59,9 @@ app.whenReady().then(() => {
     return newState;
   });
 
-  if (store.get('discordRpcEnabled', true)) {
+  if (!debugOptions.enabled && store.get('discordRpcEnabled', true)) {
     startRpc();
   }
 });
+
+app.on('window-all-closed', () => app.quit());

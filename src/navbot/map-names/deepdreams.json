@@ -1,0 +1,419 @@
+{
+  "version": 1,
+  "game": "deepdreams",
+  "source": "ynolocations/deepdreams/config.json",
+  "entries": [
+    {
+      "mapId": 95,
+      "name": "Abandoned Lab"
+    },
+    {
+      "mapId": 32,
+      "name": "Alien Ocean"
+    },
+    {
+      "mapId": 67,
+      "name": "Alley"
+    },
+    {
+      "mapId": 70,
+      "name": "Antennae Field"
+    },
+    {
+      "mapId": 65,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 66,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 4,
+      "name": "Ashy Desert"
+    },
+    {
+      "mapId": 60,
+      "name": "Ashy Desert"
+    },
+    {
+      "mapId": 61,
+      "name": "Ashy Desert"
+    },
+    {
+      "mapId": 42,
+      "name": "Attic"
+    },
+    {
+      "mapId": 14,
+      "name": "Bath House"
+    },
+    {
+      "mapId": 15,
+      "name": "Bath House"
+    },
+    {
+      "mapId": 93,
+      "name": "Bath House"
+    },
+    {
+      "mapId": 63,
+      "name": "Black Lace"
+    },
+    {
+      "mapId": 10,
+      "name": "Cathedral"
+    },
+    {
+      "mapId": 13,
+      "name": "Cathedral"
+    },
+    {
+      "mapId": 18,
+      "name": "Cathedral"
+    },
+    {
+      "mapId": 80,
+      "name": "Crystal Cavern"
+    },
+    {
+      "mapId": 44,
+      "name": "Dark Eden"
+    },
+    {
+      "mapId": 71,
+      "name": "Dark Library"
+    },
+    {
+      "mapId": 75,
+      "name": "Dark Town"
+    },
+    {
+      "mapId": 76,
+      "name": "Dark Town"
+    },
+    {
+      "mapId": 77,
+      "name": "Dark Town"
+    },
+    {
+      "mapId": 82,
+      "name": "Dark Town"
+    },
+    {
+      "mapId": 8,
+      "name": "Debug Room"
+    },
+    {
+      "mapId": 78,
+      "name": "Docks"
+    },
+    {
+      "mapId": 81,
+      "name": "Docks"
+    },
+    {
+      "mapId": 47,
+      "name": "Dream District"
+    },
+    {
+      "mapId": 85,
+      "name": "Empty City"
+    },
+    {
+      "mapId": 36,
+      "name": "Escher Garden"
+    },
+    {
+      "mapId": 37,
+      "name": "Escher Garden"
+    },
+    {
+      "mapId": 9,
+      "name": "Golden Garden"
+    },
+    {
+      "mapId": 79,
+      "name": "Green Field"
+    },
+    {
+      "mapId": 57,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 38,
+      "name": "Infinity Street"
+    },
+    {
+      "mapId": 30,
+      "name": "Jovian Moon"
+    },
+    {
+      "mapId": 31,
+      "name": "Jovian Moon"
+    },
+    {
+      "mapId": 6,
+      "name": "Lamp Forest"
+    },
+    {
+      "mapId": 56,
+      "name": "Lamp Forest"
+    },
+    {
+      "mapId": 58,
+      "name": "Lily Field"
+    },
+    {
+      "mapId": 59,
+      "name": "Lily Field"
+    },
+    {
+      "mapId": 43,
+      "name": "Manager's Room"
+    },
+    {
+      "mapId": 2,
+      "name": "Mariana's Dream Room"
+    },
+    {
+      "mapId": 1,
+      "name": "Mariana's Room"
+    },
+    {
+      "mapId": 5,
+      "name": "Mauve Shoal"
+    },
+    {
+      "mapId": 97,
+      "name": "Misty Forest"
+    },
+    {
+      "mapId": 100,
+      "name": "Misty Forest"
+    },
+    {
+      "mapId": 101,
+      "name": "Misty Forest"
+    },
+    {
+      "mapId": 46,
+      "name": "Mod Street"
+    },
+    {
+      "mapId": 62,
+      "name": "Mushroom Cavern"
+    },
+    {
+      "mapId": 72,
+      "name": "Neon Sewers"
+    },
+    {
+      "mapId": 7,
+      "name": "Old Factory"
+    },
+    {
+      "mapId": 49,
+      "name": "Old Factory"
+    },
+    {
+      "mapId": 50,
+      "name": "Old Factory"
+    },
+    {
+      "mapId": 51,
+      "name": "Old Factory"
+    },
+    {
+      "mapId": 52,
+      "name": "Old Factory"
+    },
+    {
+      "mapId": 53,
+      "name": "Old Factory"
+    },
+    {
+      "mapId": 54,
+      "name": "Old Factory"
+    },
+    {
+      "mapId": 55,
+      "name": "Old Factory"
+    },
+    {
+      "mapId": 88,
+      "name": "Outside Mariana's Room"
+    },
+    {
+      "mapId": 89,
+      "name": "Outside Mariana's Room"
+    },
+    {
+      "mapId": 90,
+      "name": "Outside Mariana's Room"
+    },
+    {
+      "mapId": 91,
+      "name": "Outside Mariana's Room"
+    },
+    {
+      "mapId": 92,
+      "name": "Outside Mariana's Room"
+    },
+    {
+      "mapId": 103,
+      "name": "Outside Mariana's Room"
+    },
+    {
+      "mapId": 16,
+      "name": "Palace"
+    },
+    {
+      "mapId": 33,
+      "name": "Palace"
+    },
+    {
+      "mapId": 34,
+      "name": "Palace"
+    },
+    {
+      "mapId": 35,
+      "name": "Palace"
+    },
+    {
+      "mapId": 11,
+      "name": "Pastel House"
+    },
+    {
+      "mapId": 12,
+      "name": "Pastel House"
+    },
+    {
+      "mapId": 83,
+      "name": "Planetarium"
+    },
+    {
+      "mapId": 84,
+      "name": "Planetarium"
+    },
+    {
+      "mapId": 96,
+      "name": "Puppet Path"
+    },
+    {
+      "mapId": 98,
+      "name": "Puppet Path"
+    },
+    {
+      "mapId": 99,
+      "name": "Puppet Path"
+    },
+    {
+      "mapId": 73,
+      "name": "Rainbow Scratch Park"
+    },
+    {
+      "mapId": 74,
+      "name": "Rainbow Scratch Park"
+    },
+    {
+      "mapId": 45,
+      "name": "Red River"
+    },
+    {
+      "mapId": 64,
+      "name": "River"
+    },
+    {
+      "mapId": 68,
+      "name": "River"
+    },
+    {
+      "mapId": 29,
+      "name": "Stone Ruins"
+    },
+    {
+      "mapId": 102,
+      "name": "Stone Ruins"
+    },
+    {
+      "mapId": 86,
+      "name": "Subnexus"
+    },
+    {
+      "mapId": 87,
+      "name": "Tetsuko's Room"
+    },
+    {
+      "mapId": 3,
+      "name": "The Nexus"
+    },
+    {
+      "mapId": 24,
+      "name": "Train Car"
+    },
+    {
+      "mapId": 25,
+      "name": "Train Car"
+    },
+    {
+      "mapId": 27,
+      "name": "Train Car"
+    },
+    {
+      "mapId": 28,
+      "name": "Train Car"
+    },
+    {
+      "mapId": 19,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 20,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 21,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 22,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 23,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 26,
+      "name": "Twilight Valley"
+    },
+    {
+      "mapId": 39,
+      "name": "Victorian Stairs"
+    },
+    {
+      "mapId": 40,
+      "name": "Victorian Stairs"
+    },
+    {
+      "mapId": 41,
+      "name": "Victorian Stairs"
+    },
+    {
+      "mapId": 48,
+      "name": "Water Garden"
+    },
+    {
+      "mapId": 17,
+      "name": "Water Mill"
+    },
+    {
+      "mapId": 69,
+      "name": "Water Mill"
+    },
+    {
+      "mapId": 94,
+      "name": "Water Mill"
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "game": "oneshot",
+  "source": "ynolocations/oneshot/config.json",
+  "entries": [
+    {
+      "mapId": 65,
+      "name": "Barrens"
+    },
+    {
+      "mapId": 20,
+      "name": "Barrens: Cliffs"
+    },
+    {
+      "mapId": 18,
+      "name": "Barrens: Dock"
+    },
+    {
+      "mapId": 25,
+      "name": "Barrens: Dock"
+    },
+    {
+      "mapId": 19,
+      "name": "Barrens: Dormitories"
+    },
+    {
+      "mapId": 21,
+      "name": "Barrens: Mining Facility"
+    },
+    {
+      "mapId": 22,
+      "name": "Barrens: Mining Facility"
+    },
+    {
+      "mapId": 40,
+      "name": "Barrens: Mining Facility"
+    },
+    {
+      "mapId": 23,
+      "name": "Barrens: Natural Gas Vents"
+    },
+    {
+      "mapId": 14,
+      "name": "Barrens: Outpost"
+    },
+    {
+      "mapId": 15,
+      "name": "Barrens: Outpost"
+    },
+    {
+      "mapId": 16,
+      "name": "Barrens: Outpost"
+    },
+    {
+      "mapId": 27,
+      "name": "Barrens: Outpost"
+    },
+    {
+      "mapId": 9,
+      "name": "Barrens: Roadways"
+    },
+    {
+      "mapId": 13,
+      "name": "Barrens: Roadways"
+    },
+    {
+      "mapId": 17,
+      "name": "Barrens: Shrimp Swamp"
+    },
+    {
+      "mapId": 62,
+      "name": "Elevator"
+    },
+    {
+      "mapId": 66,
+      "name": "Elevator"
+    },
+    {
+      "mapId": 64,
+      "name": "Glen"
+    },
+    {
+      "mapId": 34,
+      "name": "Glen: Forest"
+    },
+    {
+      "mapId": 29,
+      "name": "Glen: North Ruins Exterior"
+    },
+    {
+      "mapId": 24,
+      "name": "Glen: Overgrown Dock"
+    },
+    {
+      "mapId": 45,
+      "name": "Glen: Overgrown Dock"
+    },
+    {
+      "mapId": 28,
+      "name": "Glen: Ruins"
+    },
+    {
+      "mapId": 30,
+      "name": "Glen: Ruins"
+    },
+    {
+      "mapId": 31,
+      "name": "Glen: Ruins"
+    },
+    {
+      "mapId": 33,
+      "name": "Glen: Ruins"
+    },
+    {
+      "mapId": 36,
+      "name": "Glen: Ruins"
+    },
+    {
+      "mapId": 46,
+      "name": "Glen: Ruins"
+    },
+    {
+      "mapId": 47,
+      "name": "Glen: Ruins"
+    },
+    {
+      "mapId": 37,
+      "name": "Glen: South Ruins Exterior"
+    },
+    {
+      "mapId": 26,
+      "name": "Glen: Village"
+    },
+    {
+      "mapId": 38,
+      "name": "Glen: Village"
+    },
+    {
+      "mapId": 39,
+      "name": "Glen: Village"
+    },
+    {
+      "mapId": 41,
+      "name": "Glen: Village"
+    },
+    {
+      "mapId": 42,
+      "name": "Glen: Village"
+    },
+    {
+      "mapId": 43,
+      "name": "Glen: Village"
+    },
+    {
+      "mapId": 44,
+      "name": "Glen: Village"
+    },
+    {
+      "mapId": 48,
+      "name": "Glen: Village"
+    },
+    {
+      "mapId": 58,
+      "name": "Refuge"
+    },
+    {
+      "mapId": 35,
+      "name": "Refuge: Border Exterior"
+    },
+    {
+      "mapId": 54,
+      "name": "Refuge: Cafe"
+    },
+    {
+      "mapId": 56,
+      "name": "Refuge: Cafe Exterior"
+    },
+    {
+      "mapId": 53,
+      "name": "Refuge: Library"
+    },
+    {
+      "mapId": 63,
+      "name": "Refuge: Library"
+    },
+    {
+      "mapId": 55,
+      "name": "Refuge: Library Exterior"
+    },
+    {
+      "mapId": 49,
+      "name": "Refuge: Tower Exterior"
+    },
+    {
+      "mapId": 57,
+      "name": "Refuge: Tower Exterior"
+    },
+    {
+      "mapId": 3,
+      "name": "Starting Area: Basement"
+    },
+    {
+      "mapId": 6,
+      "name": "Starting Area: Basement"
+    },
+    {
+      "mapId": 4,
+      "name": "Starting Area: Bathroom"
+    },
+    {
+      "mapId": 2,
+      "name": "Starting Area: Bedroom"
+    },
+    {
+      "mapId": 50,
+      "name": "Starting Area: Bedroom"
+    },
+    {
+      "mapId": 5,
+      "name": "Starting Area: Living Room"
+    },
+    {
+      "mapId": 52,
+      "name": "Starting Area: Living Room"
+    },
+    {
+      "mapId": 60,
+      "name": "Tower"
+    },
+    {
+      "mapId": 61,
+      "name": "Tower"
+    }
+  ]
+}

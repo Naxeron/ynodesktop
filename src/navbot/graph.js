@@ -1,0 +1,61 @@
+'use strict';
+
+const fs = require('node:fs');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const startRoute = require('./overlays/2kki-start-route.json');
+const edgeFields = ['targetMapId', 'startX', 'startY', 'targetX', 'targetY'];
+const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+
+function applyGraphOverlay(source, game) {
+  if (game !== startRoute.game) return { graph: source, overlay: null };
+  if (!source || typeof source !== 'object' || Array.isArray(source)) throw new Error('Map graph must be an object');
+  const graph = { ...source };
+  const changes = [];
+  const update = (mapId, predicate, additions, reason) => {
+    const before = graph[mapId] || [];
+    if (!Array.isArray(before)) throw new Error(`Map ${mapId} must contain an array of edges`);
+    const kept = before.filter(edge => !predicate(edge));
+    graph[mapId] = [...kept, ...additions.map(edge => ({ ...edge }))];
+    changes.push({ mapId, reason, removed: before.length - kept.length, added: additions.length });
+  };
+  for (const correction of startRoute.replaceExits) {
+    update(correction.mapId,
+      edge => edge && edge.startX === correction.startX && edge.startY === correction.startY,
+      correction.edges, `Reviewed exit at (${correction.startX},${correction.startY})`);
+  }
+  for (const removal of startRoute.removeEdges) {
+    update(removal.mapId, edge => edge && edgeFields.every(field => edge[field] === removal[field]), [], 'Remove fabricated Nexus edge');
+  }
+  for (const pruning of startRoute.pruneDestinations) {
+    update(pruning.mapId, edge => edge && pruning.targetMapIds.includes(edge.targetMapId), [], 'Remove debug destinations');
+  }
+  return { graph, overlay: { ...startRoute, changes } };
+}
+
+// Keep the downloaded/generated graph intact. Each debug run records exactly what
+// it served, together with the source and correction hashes needed to reproduce it.
+function prepareDebugGraph(options) {
+  if (!options.enabled || options.game !== startRoute.game) return options;
+  const sourceGraphPath = options.graphPath;
+  const sourceBytes = fs.readFileSync(sourceGraphPath);
+  const { graph, overlay } = applyGraphOverlay(JSON.parse(sourceBytes), options.game);
+  const output = JSON.stringify(graph);
+  const graphPath = path.join(options.runDir, 'map_graph.json');
+  const graphProvenancePath = path.join(options.runDir, 'graph-provenance.json');
+  const graphOverlayPath = path.join(__dirname, 'overlays', '2kki-start-route.json');
+  if (path.resolve(sourceGraphPath) === path.resolve(graphPath)) {
+    throw new Error('Debug graph output would overwrite its source; select a fresh run directory');
+  }
+  fs.mkdirSync(options.runDir, { recursive: true, mode: 0o700 });
+  fs.writeFileSync(graphPath, output, { mode: 0o600 });
+  fs.writeFileSync(graphProvenancePath, JSON.stringify({
+    game: options.game,
+    source: { path: sourceGraphPath, sha256: hash(sourceBytes), bytes: sourceBytes.length },
+    served: { path: graphPath, sha256: hash(output), bytes: Buffer.byteLength(output) },
+    overlay: { ...overlay, path: graphOverlayPath, sha256: hash(fs.readFileSync(graphOverlayPath)) },
+  }, null, 2), { mode: 0o600 });
+  return { ...options, sourceGraphPath, graphPath, graphProvenancePath };
+}
+
+module.exports = { applyGraphOverlay, prepareDebugGraph };

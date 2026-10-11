@@ -1,0 +1,1235 @@
+{
+  "version": 1,
+  "game": "someday",
+  "source": "ynolocations/someday/config.json",
+  "entries": [
+    {
+      "mapId": 4,
+      "name": "8-bit World"
+    },
+    {
+      "mapId": 7,
+      "name": "Alphanumeric World"
+    },
+    {
+      "mapId": 127,
+      "name": "Art Gallery"
+    },
+    {
+      "mapId": 133,
+      "name": "Art Gallery"
+    },
+    {
+      "mapId": 134,
+      "name": "Art Gallery"
+    },
+    {
+      "mapId": 135,
+      "name": "Art Gallery"
+    },
+    {
+      "mapId": 66,
+      "name": "Beach"
+    },
+    {
+      "mapId": 308,
+      "name": "Bleak Room"
+    },
+    {
+      "mapId": 132,
+      "name": "Blur Path"
+    },
+    {
+      "mapId": 67,
+      "name": "Caves"
+    },
+    {
+      "mapId": 68,
+      "name": "Caves"
+    },
+    {
+      "mapId": 69,
+      "name": "Caves"
+    },
+    {
+      "mapId": 52,
+      "name": "CCCCCCCCCCCCCC"
+    },
+    {
+      "mapId": 235,
+      "name": "Chaos"
+    },
+    {
+      "mapId": 236,
+      "name": "Chaos"
+    },
+    {
+      "mapId": 238,
+      "name": "Chaos"
+    },
+    {
+      "mapId": 177,
+      "name": "City"
+    },
+    {
+      "mapId": 204,
+      "name": "City"
+    },
+    {
+      "mapId": 276,
+      "name": "City"
+    },
+    {
+      "mapId": 277,
+      "name": "City"
+    },
+    {
+      "mapId": 286,
+      "name": "Cliff"
+    },
+    {
+      "mapId": 287,
+      "name": "Cliff"
+    },
+    {
+      "mapId": 45,
+      "name": "Clock Tower"
+    },
+    {
+      "mapId": 46,
+      "name": "Clock Tower"
+    },
+    {
+      "mapId": 144,
+      "name": "Computer Maze"
+    },
+    {
+      "mapId": 145,
+      "name": "Computer Maze"
+    },
+    {
+      "mapId": 8,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 16,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 19,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 20,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 21,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 22,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 23,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 24,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 47,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 48,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 49,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 50,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 51,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 62,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 174,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 254,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 292,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 293,
+      "name": "Computer World"
+    },
+    {
+      "mapId": 71,
+      "name": "Corrupted School World"
+    },
+    {
+      "mapId": 72,
+      "name": "Corrupted School World"
+    },
+    {
+      "mapId": 282,
+      "name": "Dance Flood"
+    },
+    {
+      "mapId": 283,
+      "name": "Dance Flood"
+    },
+    {
+      "mapId": 284,
+      "name": "Dance Flood"
+    },
+    {
+      "mapId": 285,
+      "name": "Dance Flood"
+    },
+    {
+      "mapId": 9,
+      "name": "Dark World"
+    },
+    {
+      "mapId": 5,
+      "name": "Data World"
+    },
+    {
+      "mapId": 55,
+      "name": "Data World 2"
+    },
+    {
+      "mapId": 41,
+      "name": "Decision Path"
+    },
+    {
+      "mapId": 142,
+      "name": "Deep Internet"
+    },
+    {
+      "mapId": 143,
+      "name": "Deep Internet"
+    },
+    {
+      "mapId": 65,
+      "name": "Desert"
+    },
+    {
+      "mapId": 10,
+      "name": "Doodle World"
+    },
+    {
+      "mapId": 38,
+      "name": "Doodle World"
+    },
+    {
+      "mapId": 199,
+      "name": "Edible World"
+    },
+    {
+      "mapId": 200,
+      "name": "Edible World"
+    },
+    {
+      "mapId": 271,
+      "name": "Empty Gallery"
+    },
+    {
+      "mapId": 272,
+      "name": "Empty Gallery"
+    },
+    {
+      "mapId": 278,
+      "name": "Empty Gallery"
+    },
+    {
+      "mapId": 188,
+      "name": "Endless Station"
+    },
+    {
+      "mapId": 237,
+      "name": "Exit"
+    },
+    {
+      "mapId": 242,
+      "name": "Exit"
+    },
+    {
+      "mapId": 306,
+      "name": "Exit"
+    },
+    {
+      "mapId": 57,
+      "name": "Flip Swap Path"
+    },
+    {
+      "mapId": 26,
+      "name": "Flower Field"
+    },
+    {
+      "mapId": 94,
+      "name": "Fog World"
+    },
+    {
+      "mapId": 96,
+      "name": "Fog World"
+    },
+    {
+      "mapId": 97,
+      "name": "Fog World"
+    },
+    {
+      "mapId": 37,
+      "name": "Forest"
+    },
+    {
+      "mapId": 259,
+      "name": "Four Seasons Path"
+    },
+    {
+      "mapId": 266,
+      "name": "Four Seasons Path"
+    },
+    {
+      "mapId": 267,
+      "name": "Four Seasons Path"
+    },
+    {
+      "mapId": 269,
+      "name": "Four Seasons Path"
+    },
+    {
+      "mapId": 270,
+      "name": "Four Seasons Path"
+    },
+    {
+      "mapId": 201,
+      "name": "Glacier"
+    },
+    {
+      "mapId": 202,
+      "name": "Glacier"
+    },
+    {
+      "mapId": 53,
+      "name": "Glitch World"
+    },
+    {
+      "mapId": 13,
+      "name": "Grassland World"
+    },
+    {
+      "mapId": 173,
+      "name": "Grassland World"
+    },
+    {
+      "mapId": 268,
+      "name": "Grassland World"
+    },
+    {
+      "mapId": 161,
+      "name": "Grid Path"
+    },
+    {
+      "mapId": 168,
+      "name": "Hatsuyume"
+    },
+    {
+      "mapId": 169,
+      "name": "Hatsuyume"
+    },
+    {
+      "mapId": 170,
+      "name": "Hatsuyume"
+    },
+    {
+      "mapId": 171,
+      "name": "Hatsuyume"
+    },
+    {
+      "mapId": 172,
+      "name": "Hatsuyume"
+    },
+    {
+      "mapId": 15,
+      "name": "Haunted House"
+    },
+    {
+      "mapId": 27,
+      "name": "Haunted House"
+    },
+    {
+      "mapId": 28,
+      "name": "Haunted House"
+    },
+    {
+      "mapId": 36,
+      "name": "Hexagon Realm"
+    },
+    {
+      "mapId": 211,
+      "name": "High School"
+    },
+    {
+      "mapId": 212,
+      "name": "High School"
+    },
+    {
+      "mapId": 213,
+      "name": "High School"
+    },
+    {
+      "mapId": 214,
+      "name": "High School"
+    },
+    {
+      "mapId": 217,
+      "name": "High School"
+    },
+    {
+      "mapId": 218,
+      "name": "High School"
+    },
+    {
+      "mapId": 219,
+      "name": "High School"
+    },
+    {
+      "mapId": 220,
+      "name": "High School"
+    },
+    {
+      "mapId": 98,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 99,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 100,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 101,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 102,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 103,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 104,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 105,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 106,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 107,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 108,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 109,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 110,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 111,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 112,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 113,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 114,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 115,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 116,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 117,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 118,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 119,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 120,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 121,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 122,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 123,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 124,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 125,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 128,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 129,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 130,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 131,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 156,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 221,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 35,
+      "name": "Ice World"
+    },
+    {
+      "mapId": 56,
+      "name": "Ice World"
+    },
+    {
+      "mapId": 29,
+      "name": "Internet"
+    },
+    {
+      "mapId": 1,
+      "name": "Itsuki's Room"
+    },
+    {
+      "mapId": 230,
+      "name": "Itsuki's Room"
+    },
+    {
+      "mapId": 232,
+      "name": "Itsuki's Room"
+    },
+    {
+      "mapId": 249,
+      "name": "Itsuki's Room"
+    },
+    {
+      "mapId": 251,
+      "name": "Itsuki's Room"
+    },
+    {
+      "mapId": 248,
+      "name": "Kondo"
+    },
+    {
+      "mapId": 250,
+      "name": "Kondo"
+    },
+    {
+      "mapId": 244,
+      "name": "Lake"
+    },
+    {
+      "mapId": 3,
+      "name": "Lava"
+    },
+    {
+      "mapId": 255,
+      "name": "Lava Path"
+    },
+    {
+      "mapId": 160,
+      "name": "Letter Path"
+    },
+    {
+      "mapId": 165,
+      "name": "LSD World (Downer)"
+    },
+    {
+      "mapId": 166,
+      "name": "LSD World (Dynamic)"
+    },
+    {
+      "mapId": 164,
+      "name": "LSD World (Static)"
+    },
+    {
+      "mapId": 163,
+      "name": "LSD World (Upper)"
+    },
+    {
+      "mapId": 191,
+      "name": "Mall"
+    },
+    {
+      "mapId": 192,
+      "name": "Mall"
+    },
+    {
+      "mapId": 193,
+      "name": "Mall"
+    },
+    {
+      "mapId": 261,
+      "name": "Memory Graveyard"
+    },
+    {
+      "mapId": 262,
+      "name": "Memory Graveyard"
+    },
+    {
+      "mapId": 263,
+      "name": "Memory Graveyard"
+    },
+    {
+      "mapId": 243,
+      "name": "Meta-Nexus"
+    },
+    {
+      "mapId": 245,
+      "name": "Meta-Nexus"
+    },
+    {
+      "mapId": 309,
+      "name": "Meta-Nexus"
+    },
+    {
+      "mapId": 310,
+      "name": "Meta-Nexus"
+    },
+    {
+      "mapId": 311,
+      "name": "Meta-Nexus"
+    },
+    {
+      "mapId": 312,
+      "name": "Meta-Nexus"
+    },
+    {
+      "mapId": 313,
+      "name": "Meta-Nexus"
+    },
+    {
+      "mapId": 314,
+      "name": "Meta-Nexus"
+    },
+    {
+      "mapId": 315,
+      "name": "Meta-Nexus"
+    },
+    {
+      "mapId": 81,
+      "name": "Moon"
+    },
+    {
+      "mapId": 215,
+      "name": "Moon 2"
+    },
+    {
+      "mapId": 11,
+      "name": "Mountain World"
+    },
+    {
+      "mapId": 54,
+      "name": "Neon Path"
+    },
+    {
+      "mapId": 30,
+      "name": "Neon World"
+    },
+    {
+      "mapId": 2,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 231,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 239,
+      "name": "Nice Bar"
+    },
+    {
+      "mapId": 240,
+      "name": "Nice Bar"
+    },
+    {
+      "mapId": 241,
+      "name": "Nice Bar"
+    },
+    {
+      "mapId": 208,
+      "name": "Nice Town"
+    },
+    {
+      "mapId": 210,
+      "name": "Nice Town"
+    },
+    {
+      "mapId": 224,
+      "name": "Outside Itsuki's Room"
+    },
+    {
+      "mapId": 253,
+      "name": "Outside Itsuki's Room"
+    },
+    {
+      "mapId": 273,
+      "name": "Overgrown Caves"
+    },
+    {
+      "mapId": 274,
+      "name": "Overgrown Caves"
+    },
+    {
+      "mapId": 275,
+      "name": "Overgrown Caves"
+    },
+    {
+      "mapId": 42,
+      "name": "Pink Maze"
+    },
+    {
+      "mapId": 162,
+      "name": "Pink Path"
+    },
+    {
+      "mapId": 256,
+      "name": "Pink Path 2"
+    },
+    {
+      "mapId": 264,
+      "name": "Playground"
+    },
+    {
+      "mapId": 265,
+      "name": "Playground"
+    },
+    {
+      "mapId": 302,
+      "name": "Pulse World"
+    },
+    {
+      "mapId": 303,
+      "name": "Pulse World"
+    },
+    {
+      "mapId": 304,
+      "name": "Pulse World"
+    },
+    {
+      "mapId": 6,
+      "name": "Purple Polka-Dot World"
+    },
+    {
+      "mapId": 40,
+      "name": "Question World"
+    },
+    {
+      "mapId": 70,
+      "name": "Rage Path"
+    },
+    {
+      "mapId": 43,
+      "name": "Rain World"
+    },
+    {
+      "mapId": 79,
+      "name": "Rain World"
+    },
+    {
+      "mapId": 137,
+      "name": "Rain World"
+    },
+    {
+      "mapId": 59,
+      "name": "Rainbow Path"
+    },
+    {
+      "mapId": 58,
+      "name": "Rainbow World"
+    },
+    {
+      "mapId": 288,
+      "name": "Relaxing Room"
+    },
+    {
+      "mapId": 294,
+      "name": "Rooftop"
+    },
+    {
+      "mapId": 126,
+      "name": "Room 311"
+    },
+    {
+      "mapId": 33,
+      "name": "Rusted Tubes"
+    },
+    {
+      "mapId": 34,
+      "name": "Rusted Tubes"
+    },
+    {
+      "mapId": 95,
+      "name": "Rusted Tubes"
+    },
+    {
+      "mapId": 14,
+      "name": "School World"
+    },
+    {
+      "mapId": 17,
+      "name": "School World"
+    },
+    {
+      "mapId": 18,
+      "name": "School World"
+    },
+    {
+      "mapId": 63,
+      "name": "School World"
+    },
+    {
+      "mapId": 64,
+      "name": "School World"
+    },
+    {
+      "mapId": 75,
+      "name": "Seabed"
+    },
+    {
+      "mapId": 76,
+      "name": "Seabed"
+    },
+    {
+      "mapId": 78,
+      "name": "Seabed"
+    },
+    {
+      "mapId": 93,
+      "name": "Seabed"
+    },
+    {
+      "mapId": 295,
+      "name": "Senior High"
+    },
+    {
+      "mapId": 296,
+      "name": "Senior High"
+    },
+    {
+      "mapId": 297,
+      "name": "Senior High"
+    },
+    {
+      "mapId": 298,
+      "name": "Senior High"
+    },
+    {
+      "mapId": 299,
+      "name": "Senior High"
+    },
+    {
+      "mapId": 300,
+      "name": "Senior High"
+    },
+    {
+      "mapId": 301,
+      "name": "Senior High"
+    },
+    {
+      "mapId": 305,
+      "name": "Senior High"
+    },
+    {
+      "mapId": 73,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 74,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 139,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 175,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 176,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 260,
+      "name": "Shooting Star Path"
+    },
+    {
+      "mapId": 140,
+      "name": "Shower"
+    },
+    {
+      "mapId": 141,
+      "name": "Shower"
+    },
+    {
+      "mapId": 216,
+      "name": "Space Flight"
+    },
+    {
+      "mapId": 279,
+      "name": "Space Party"
+    },
+    {
+      "mapId": 280,
+      "name": "Space Party"
+    },
+    {
+      "mapId": 281,
+      "name": "Space Party"
+    },
+    {
+      "mapId": 12,
+      "name": "Space World"
+    },
+    {
+      "mapId": 206,
+      "name": "Streetlight World"
+    },
+    {
+      "mapId": 179,
+      "name": "Subway"
+    },
+    {
+      "mapId": 181,
+      "name": "Subway"
+    },
+    {
+      "mapId": 189,
+      "name": "Subway"
+    },
+    {
+      "mapId": 180,
+      "name": "Subway Station 1"
+    },
+    {
+      "mapId": 182,
+      "name": "Subway Station 2"
+    },
+    {
+      "mapId": 183,
+      "name": "Subway Station 3"
+    },
+    {
+      "mapId": 184,
+      "name": "Subway Station 4"
+    },
+    {
+      "mapId": 185,
+      "name": "Subway Station 5"
+    },
+    {
+      "mapId": 186,
+      "name": "Subway Station 6"
+    },
+    {
+      "mapId": 187,
+      "name": "Subway Station 7"
+    },
+    {
+      "mapId": 82,
+      "name": "Test 1"
+    },
+    {
+      "mapId": 91,
+      "name": "Test 10"
+    },
+    {
+      "mapId": 146,
+      "name": "Test 11"
+    },
+    {
+      "mapId": 147,
+      "name": "Test 12"
+    },
+    {
+      "mapId": 148,
+      "name": "Test 13"
+    },
+    {
+      "mapId": 149,
+      "name": "Test 14"
+    },
+    {
+      "mapId": 150,
+      "name": "Test 15"
+    },
+    {
+      "mapId": 151,
+      "name": "Test 16"
+    },
+    {
+      "mapId": 152,
+      "name": "Test 16"
+    },
+    {
+      "mapId": 307,
+      "name": "Test 16"
+    },
+    {
+      "mapId": 153,
+      "name": "Test 17"
+    },
+    {
+      "mapId": 154,
+      "name": "Test 18"
+    },
+    {
+      "mapId": 155,
+      "name": "Test 19"
+    },
+    {
+      "mapId": 83,
+      "name": "Test 2"
+    },
+    {
+      "mapId": 157,
+      "name": "Test 20"
+    },
+    {
+      "mapId": 84,
+      "name": "Test 3"
+    },
+    {
+      "mapId": 85,
+      "name": "Test 4"
+    },
+    {
+      "mapId": 86,
+      "name": "Test 5"
+    },
+    {
+      "mapId": 87,
+      "name": "Test 6"
+    },
+    {
+      "mapId": 88,
+      "name": "Test 7"
+    },
+    {
+      "mapId": 89,
+      "name": "Test 8"
+    },
+    {
+      "mapId": 90,
+      "name": "Test 9"
+    },
+    {
+      "mapId": 80,
+      "name": "Testing Area"
+    },
+    {
+      "mapId": 92,
+      "name": "Testing Area"
+    },
+    {
+      "mapId": 158,
+      "name": "Testing Area"
+    },
+    {
+      "mapId": 190,
+      "name": "The Void"
+    },
+    {
+      "mapId": 257,
+      "name": "Thread World"
+    },
+    {
+      "mapId": 258,
+      "name": "Thread World"
+    },
+    {
+      "mapId": 39,
+      "name": "Tree Path"
+    },
+    {
+      "mapId": 61,
+      "name": "Tsukitsuki's Balcony"
+    },
+    {
+      "mapId": 60,
+      "name": "Tsukitsuki's Bedroom"
+    },
+    {
+      "mapId": 31,
+      "name": "Tubes"
+    },
+    {
+      "mapId": 32,
+      "name": "Tubes"
+    },
+    {
+      "mapId": 205,
+      "name": "Upper World"
+    },
+    {
+      "mapId": 159,
+      "name": "Water Path"
+    },
+    {
+      "mapId": 136,
+      "name": "Wave Path"
+    },
+    {
+      "mapId": 25,
+      "name": "Window"
+    },
+    {
+      "mapId": 233,
+      "name": "Window"
+    },
+    {
+      "mapId": 234,
+      "name": "Window"
+    },
+    {
+      "mapId": 252,
+      "name": "Window"
+    },
+    {
+      "mapId": 227,
+      "name": "Wobbly World"
+    },
+    {
+      "mapId": 195,
+      "name": "ZApNeF"
+    },
+    {
+      "mapId": 196,
+      "name": "ZApNeF"
+    },
+    {
+      "mapId": 197,
+      "name": "ZApNeF"
+    },
+    {
+      "mapId": 289,
+      "name": "ZApNeF Advanced Level 1"
+    },
+    {
+      "mapId": 291,
+      "name": "ZApNeF Advanced Level 2"
+    },
+    {
+      "mapId": 290,
+      "name": "ZApNeF Beta-Advanced Level 1"
+    },
+    {
+      "mapId": 198,
+      "name": "ZApNeF Level 1"
+    },
+    {
+      "mapId": 194,
+      "name": "ZApNeF Level 2"
+    },
+    {
+      "mapId": 203,
+      "name": "ZApNeF Level 3"
+    },
+    {
+      "mapId": 207,
+      "name": "ZApNeF Level 3"
+    },
+    {
+      "mapId": 209,
+      "name": "ZApNeF Level 4"
+    },
+    {
+      "mapId": 222,
+      "name": "ZApNeF Level 5"
+    },
+    {
+      "mapId": 223,
+      "name": "ZApNeF Level 6"
+    },
+    {
+      "mapId": 225,
+      "name": "ZApNeF Level 7"
+    },
+    {
+      "mapId": 246,
+      "name": "ZApNeF Level 8"
+    },
+    {
+      "mapId": 247,
+      "name": "ZApNeF Level 9"
+    }
+  ]
+}

@@ -1,0 +1,311 @@
+{
+  "version": 1,
+  "game": "scarynikki",
+  "source": "ynolocations/scarynikki/config.json",
+  "entries": [
+    {
+      "mapId": 57,
+      "name": "aaaaa"
+    },
+    {
+      "mapId": 87,
+      "name": "aaaaa"
+    },
+    {
+      "mapId": 23,
+      "name": "Balcony"
+    },
+    {
+      "mapId": 22,
+      "name": "Bedroom"
+    },
+    {
+      "mapId": 91,
+      "name": "Birthday World"
+    },
+    {
+      "mapId": 3,
+      "name": "Blood World"
+    },
+    {
+      "mapId": 78,
+      "name": "Burnt Forest"
+    },
+    {
+      "mapId": 34,
+      "name": "Cthulhu"
+    },
+    {
+      "mapId": 10,
+      "name": "Cup Passage"
+    },
+    {
+      "mapId": 24,
+      "name": "Dark Forest"
+    },
+    {
+      "mapId": 25,
+      "name": "Dark Forest"
+    },
+    {
+      "mapId": 90,
+      "name": "Dark Place"
+    },
+    {
+      "mapId": 28,
+      "name": "Dark Tiles World"
+    },
+    {
+      "mapId": 39,
+      "name": "Deep Sea"
+    },
+    {
+      "mapId": 45,
+      "name": "Desert"
+    },
+    {
+      "mapId": 46,
+      "name": "Desert"
+    },
+    {
+      "mapId": 84,
+      "name": "Desert Party"
+    },
+    {
+      "mapId": 26,
+      "name": "don't go there"
+    },
+    {
+      "mapId": 36,
+      "name": "Dream Balcony"
+    },
+    {
+      "mapId": 35,
+      "name": "Dream Room"
+    },
+    {
+      "mapId": 5,
+      "name": "Dudes World"
+    },
+    {
+      "mapId": 73,
+      "name": "End 1"
+    },
+    {
+      "mapId": 2,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 7,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 15,
+      "name": "FC World"
+    },
+    {
+      "mapId": 66,
+      "name": "Flight"
+    },
+    {
+      "mapId": 4,
+      "name": "Forest World"
+    },
+    {
+      "mapId": 63,
+      "name": "Green Cubes"
+    },
+    {
+      "mapId": 64,
+      "name": "Green Cubes"
+    },
+    {
+      "mapId": 16,
+      "name": "Green Cubes World"
+    },
+    {
+      "mapId": 20,
+      "name": "Green Cubes World"
+    },
+    {
+      "mapId": 85,
+      "name": "Green Sea"
+    },
+    {
+      "mapId": 56,
+      "name": "Guys Room"
+    },
+    {
+      "mapId": 54,
+      "name": "Guys World"
+    },
+    {
+      "mapId": 81,
+      "name": "Guys World"
+    },
+    {
+      "mapId": 41,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 42,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 43,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 51,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 49,
+      "name": "Lava Docks"
+    },
+    {
+      "mapId": 50,
+      "name": "Lava Docks"
+    },
+    {
+      "mapId": 80,
+      "name": "Lightningtsuki's Room"
+    },
+    {
+      "mapId": 75,
+      "name": "Minecrap"
+    },
+    {
+      "mapId": 76,
+      "name": "Minecrap"
+    },
+    {
+      "mapId": 79,
+      "name": "Minecrap"
+    },
+    {
+      "mapId": 11,
+      "name": "Monochrome Neon Maze"
+    },
+    {
+      "mapId": 31,
+      "name": "Monochrome World"
+    },
+    {
+      "mapId": 32,
+      "name": "Monochrome World"
+    },
+    {
+      "mapId": 18,
+      "name": "Neon World"
+    },
+    {
+      "mapId": 19,
+      "name": "Neon World"
+    },
+    {
+      "mapId": 8,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 14,
+      "name": "Noise"
+    },
+    {
+      "mapId": 37,
+      "name": "Orange Bricks Path"
+    },
+    {
+      "mapId": 27,
+      "name": "Rain World"
+    },
+    {
+      "mapId": 6,
+      "name": "Rainbow Tiles World"
+    },
+    {
+      "mapId": 13,
+      "name": "School"
+    },
+    {
+      "mapId": 17,
+      "name": "School Roof"
+    },
+    {
+      "mapId": 12,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 58,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 21,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 59,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 60,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 61,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 62,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 29,
+      "name": "Spikes Plaza"
+    },
+    {
+      "mapId": 38,
+      "name": "Sword Room"
+    },
+    {
+      "mapId": 88,
+      "name": "Terfin's Room"
+    },
+    {
+      "mapId": 9,
+      "name": "The Beach"
+    },
+    {
+      "mapId": 52,
+      "name": "The Dragon"
+    },
+    {
+      "mapId": 55,
+      "name": "The Stair"
+    },
+    {
+      "mapId": 33,
+      "name": "Twilight Lake"
+    },
+    {
+      "mapId": 67,
+      "name": "Twilight Lake"
+    },
+    {
+      "mapId": 48,
+      "name": "Under Desert"
+    },
+    {
+      "mapId": 1,
+      "name": "Vaporwave Passage"
+    },
+    {
+      "mapId": 65,
+      "name": "Venus"
+    },
+    {
+      "mapId": 68,
+      "name": "WIP"
+    }
+  ]
+}

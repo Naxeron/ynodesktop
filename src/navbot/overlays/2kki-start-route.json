@@ -1,0 +1,69 @@
+{
+  "id": "2kki-start-route-v1",
+  "game": "2kki",
+  "reviewedAt": "2026-10-10",
+  "basis": "RPG Maker event pages decoded with liblcf; normal starting-room route, not general event-condition evaluation.",
+  "sources": [
+    {
+      "mapId": 2,
+      "url": "https://ynoproject.net/data/2kki/Map0002.lmu",
+      "sha256": "fc3d0f83465536c7d8d0ae7cedfdaecfe73bf1a2091b741c6f0b08859b7e8b51",
+      "events": "Event 3 at (7,5) requires facing left; sleeping passes through map 900 and finishes at map 5 (9,12). Event 5 at (9,4) normally leads to balcony map 3; its other destinations belong to conditional endings."
+    },
+    {
+      "mapId": 5,
+      "url": "https://ynoproject.net/data/2kki/Map0005.lmu",
+      "sha256": "336eeae1c3e87ffa89682f4af4b3808db8661c1ace76315e626cc6009f096169",
+      "events": "Event 7 at (9,15) is a touch event leading to dream bedroom map 4 (9,5)."
+    },
+    {
+      "mapId": 4,
+      "url": "https://ynoproject.net/data/2kki/Map0004.lmu",
+      "sha256": "717d2d8e6e90404ed800e40241eb34880031ab8cc7aa8475ba9c7cd2308886b9",
+      "events": "Event 8 at (15,7) requires facing right. Normal destination is Nexus map 10 (3,4); conditional pages can instead enter puzzle map 2653."
+    }
+  ],
+  "limitations": [
+    "The source graph remains a collection of candidates: unrelated event conditions are not evaluated.",
+    "Map 2653 is a conditional puzzle destination and its puzzle is not solved by this overlay.",
+    "Ending maps 222, 223, 224, 225 and 448 are not alternative Nexus maps. Their former direct Nexus edges were fabricated by the scraper.",
+    "The reviewed source hashes identify the map versions used to derive these corrections; the overlay does not claim compatibility with future map revisions."
+  ],
+  "replaceExits": [
+    {
+      "mapId": 2, "startX": 7, "startY": 5,
+      "edges": [
+        { "targetMapId": 5, "startX": 7, "startY": 5, "targetX": 9, "targetY": 12, "approachX": 8, "approachY": 5, "direction": 3, "action": true }
+      ]
+    },
+    {
+      "mapId": 2, "startX": 9, "startY": 4,
+      "edges": [
+        { "targetMapId": 3, "startX": 9, "startY": 4, "targetX": 9, "targetY": 14 }
+      ]
+    },
+    {
+      "mapId": 5, "startX": 9, "startY": 15,
+      "edges": [
+        { "targetMapId": 4, "startX": 9, "startY": 15, "targetX": 9, "targetY": 5 }
+      ]
+    },
+    {
+      "mapId": 4, "startX": 15, "startY": 7,
+      "edges": [
+        { "targetMapId": 10, "startX": 15, "startY": 7, "targetX": 3, "targetY": 4, "approachX": 14, "approachY": 7, "direction": 1, "action": true },
+        { "targetMapId": 2653, "startX": 15, "startY": 7, "targetX": 12, "targetY": 12, "approachX": 14, "approachY": 7, "direction": 1, "action": true }
+      ]
+    }
+  ],
+  "removeEdges": [
+    { "mapId": 224, "targetMapId": 10, "startX": 9, "startY": 27, "targetX": 9, "targetY": 27 },
+    { "mapId": 223, "targetMapId": 10, "startX": 7, "startY": 15, "targetX": 9, "targetY": 27 },
+    { "mapId": 225, "targetMapId": 10, "startX": 8, "startY": 15, "targetX": 9, "targetY": 27 },
+    { "mapId": 222, "targetMapId": 10, "startX": 8, "startY": 15, "targetX": 9, "targetY": 27 },
+    { "mapId": 448, "targetMapId": 10, "startX": 8, "startY": 15, "targetX": 9, "targetY": 27 }
+  ],
+  "pruneDestinations": [
+    { "mapId": 2, "targetMapIds": [1, 171] }
+  ]
+}

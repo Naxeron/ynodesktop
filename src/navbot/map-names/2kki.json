@@ -1,0 +1,8565 @@
+{
+  "version": 1,
+  "game": "2kki",
+  "source": "ynolocations/2kki/config.json",
+  "entries": [
+    {
+      "mapId": 1344,
+      "name": "3D Structures Path",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 253,
+          "x2": 76,
+          "y2": 299
+        }
+      ]
+    },
+    {
+      "mapId": 564,
+      "name": "Abandoned Apartments",
+      "regions": [
+        {
+          "x1": 81,
+          "y1": 50,
+          "x2": 99,
+          "y2": 76
+        },
+        {
+          "x1": 61,
+          "y1": 77,
+          "x2": 99,
+          "y2": 93
+        },
+        {
+          "x1": 39,
+          "y1": 140,
+          "x2": 73,
+          "y2": 179
+        }
+      ]
+    },
+    {
+      "mapId": 569,
+      "name": "Abandoned Apartments",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 48,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 1281,
+      "name": "Abyss of Farewells"
+    },
+    {
+      "mapId": 2513,
+      "name": "Abyssal Garden"
+    },
+    {
+      "mapId": 2554,
+      "name": "Abyssal Garden: Bloodstained Eye House"
+    },
+    {
+      "mapId": 1879,
+      "name": "Adabana Gardens",
+      "regions": [
+        {
+          "x1": 2,
+          "y1": 3,
+          "x2": 20,
+          "y2": 9
+        },
+        {
+          "x1": 26,
+          "y1": 20,
+          "x2": 45,
+          "y2": 24
+        }
+      ]
+    },
+    {
+      "mapId": 1308,
+      "name": "Ahogeko's House",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 105,
+          "x2": 19,
+          "y2": 119
+        }
+      ]
+    },
+    {
+      "mapId": 859,
+      "name": "Alien Valley",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 79,
+          "y2": 14
+        },
+        {
+          "x1": -1,
+          "y1": 30,
+          "x2": -1,
+          "y2": 60
+        }
+      ]
+    },
+    {
+      "mapId": 2567,
+      "name": "Alien Wasteland",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 121,
+          "x2": 119,
+          "y2": 240
+        }
+      ]
+    },
+    {
+      "mapId": 2570,
+      "name": "Alien Wasteland",
+      "regions": [
+        {
+          "x1": 265,
+          "y1": 0,
+          "x2": 290,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 2508,
+      "name": "Amethyst Ocean",
+      "regions": [
+        {
+          "x1": 39,
+          "y1": 0,
+          "x2": 99,
+          "y2": 77
+        }
+      ]
+    },
+    {
+      "mapId": 2392,
+      "name": "Amoeba Woods"
+    },
+    {
+      "mapId": 3369,
+      "name": "Angel Palace"
+    },
+    {
+      "mapId": 175,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 216,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 431,
+      "name": "Apartments"
+    },
+    {
+      "mapId": 1061,
+      "name": "Apartments",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 3,
+          "x2": 71,
+          "y2": 21
+        },
+        {
+          "x1": 0,
+          "y1": 160,
+          "x2": 35,
+          "y2": 174
+        }
+      ]
+    },
+    {
+      "mapId": 775,
+      "name": "Aquamarine Cave",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 74,
+          "x2": -1,
+          "y2": 184
+        }
+      ]
+    },
+    {
+      "mapId": 852,
+      "name": "Aquatic Cafe"
+    },
+    {
+      "mapId": 939,
+      "name": "Aquatic Cube City"
+    },
+    {
+      "mapId": 943,
+      "name": "Aquatic Cube City"
+    },
+    {
+      "mapId": 571,
+      "name": "Arc de Pillar World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 83,
+          "y2": 79
+        }
+      ]
+    },
+    {
+      "mapId": 2813,
+      "name": "Art Exposition",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 2,
+          "x2": 74,
+          "y2": 52
+        },
+        {
+          "x1": 240,
+          "y1": 137,
+          "x2": 299,
+          "y2": 209
+        },
+        {
+          "x1": 148,
+          "y1": 4,
+          "x2": 178,
+          "y2": 27
+        },
+        {
+          "x1": 148,
+          "y1": 114,
+          "x2": 228,
+          "y2": 209
+        }
+      ]
+    },
+    {
+      "mapId": 2814,
+      "name": "Art Exposition",
+      "regions": [
+        {
+          "x1": 39,
+          "y1": 84,
+          "x2": 48,
+          "y2": 116
+        },
+        {
+          "x1": 95,
+          "y1": 6,
+          "x2": 118,
+          "y2": 25
+        },
+        {
+          "x1": 148,
+          "y1": 90,
+          "x2": 176,
+          "y2": 114
+        },
+        {
+          "x1": 135,
+          "y1": 0,
+          "x2": 199,
+          "y2": 67
+        },
+        {
+          "x1": 3,
+          "y1": 153,
+          "x2": 132,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 1061,
+      "name": "Art Gallery",
+      "regions": [
+        {
+          "x1": 84,
+          "y1": 0,
+          "x2": 109,
+          "y2": 77
+        }
+      ]
+    },
+    {
+      "mapId": 119,
+      "name": "Art Gallery: Multi-colored splatter"
+    },
+    {
+      "mapId": 2567,
+      "name": "ASCII Prairie",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 119,
+          "y2": 119
+        }
+      ]
+    },
+    {
+      "mapId": 1427,
+      "name": "Astral World: Nightshade Corridor"
+    },
+    {
+      "mapId": 201,
+      "name": "Atlantis"
+    },
+    {
+      "mapId": 202,
+      "name": "Atlantis"
+    },
+    {
+      "mapId": 205,
+      "name": "Atlantis"
+    },
+    {
+      "mapId": 1479,
+      "name": "Aureate Clockworks: Witch's Carnevale"
+    },
+    {
+      "mapId": 1139,
+      "name": "Aurora Lake",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 134,
+          "x2": -1,
+          "y2": 159
+        }
+      ]
+    },
+    {
+      "mapId": 1273,
+      "name": "Azure Depths",
+      "regions": [
+        {
+          "x1": 128,
+          "y1": -1,
+          "x2": 317,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1663,
+      "name": "Azure Garden"
+    },
+    {
+      "mapId": 1675,
+      "name": "Azure Garden: Forbidden Swamp"
+    },
+    {
+      "mapId": 2873,
+      "name": "Azure Overdose Zone",
+      "regions": [
+        {
+          "x1": 1,
+          "y1": 1,
+          "x2": 22,
+          "y2": 12
+        }
+      ]
+    },
+    {
+      "mapId": 3130,
+      "name": "Ballerina Forest",
+      "regions": [
+        {
+          "x1": 13,
+          "y1": 7,
+          "x2": 32,
+          "y2": 21
+        },
+        {
+          "x1": 180,
+          "y1": 120,
+          "x2": 199,
+          "y2": 134
+        },
+        {
+          "x1": 125,
+          "y1": 158,
+          "x2": 157,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 3191,
+      "name": "Ballerina Forest",
+      "regions": [
+        {
+          "x1": 10,
+          "y1": 178,
+          "x2": 10,
+          "y2": 178
+        }
+      ]
+    },
+    {
+      "mapId": 2279,
+      "name": "Balloon Park",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 81,
+          "x2": -1,
+          "y2": 95
+        }
+      ]
+    },
+    {
+      "mapId": 2295,
+      "name": "Balloon Park",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 57
+        }
+      ]
+    },
+    {
+      "mapId": 824,
+      "name": "Bathhouse"
+    },
+    {
+      "mapId": 828,
+      "name": "Bathhouse: Dining Hall"
+    },
+    {
+      "mapId": 3366,
+      "name": "Beachside Infirmary"
+    },
+    {
+      "mapId": 3366,
+      "name": "Beachside Infirmary: Crab Dog Beach",
+      "regions": [
+        {
+          "x1": 114,
+          "y1": 0,
+          "x2": 175,
+          "y2": 39
+        }
+      ]
+    },
+    {
+      "mapId": 643,
+      "name": "Binary World"
+    },
+    {
+      "mapId": 644,
+      "name": "Binary World"
+    },
+    {
+      "mapId": 645,
+      "name": "Binary World"
+    },
+    {
+      "mapId": 646,
+      "name": "Binary World"
+    },
+    {
+      "mapId": 647,
+      "name": "Binary World"
+    },
+    {
+      "mapId": 570,
+      "name": "Bioluminescent Cavern"
+    },
+    {
+      "mapId": 2145,
+      "name": "Birch Forest"
+    },
+    {
+      "mapId": 1281,
+      "name": "Birthday Tower",
+      "regions": [
+        {
+          "x1": 25,
+          "y1": 5,
+          "x2": 45,
+          "y2": 21
+        },
+        {
+          "x1": 143,
+          "y1": 65,
+          "x2": 168,
+          "y2": 79
+        }
+      ]
+    },
+    {
+      "mapId": 68,
+      "name": "Black Building"
+    },
+    {
+      "mapId": 2033,
+      "name": "Blackjack Manor"
+    },
+    {
+      "mapId": 471,
+      "name": "Bleak Future"
+    },
+    {
+      "mapId": 472,
+      "name": "Bleak Future"
+    },
+    {
+      "mapId": 473,
+      "name": "Bleak Future",
+      "conditional": true
+    },
+    {
+      "mapId": 475,
+      "name": "Bleak Future"
+    },
+    {
+      "mapId": 476,
+      "name": "Bleak Future"
+    },
+    {
+      "mapId": 473,
+      "name": "Bleak Future: Gray Hoodie Boy's Balcony",
+      "conditional": true
+    },
+    {
+      "mapId": 474,
+      "name": "Bleak Future: Gray Hoodie Boy's Room"
+    },
+    {
+      "mapId": 859,
+      "name": "Bleeding Heads Garden"
+    },
+    {
+      "mapId": 2237,
+      "name": "Bleeding Mushroom Garden: Hellish Bloody Maze"
+    },
+    {
+      "mapId": 2567,
+      "name": "Bleeding Sorrows",
+      "regions": [
+        {
+          "x1": 221,
+          "y1": 97,
+          "x2": 303,
+          "y2": 198
+        }
+      ]
+    },
+    {
+      "mapId": 2300,
+      "name": "Bleeding Tree Disco",
+      "regions": [
+        {
+          "x1": 115,
+          "y1": 0,
+          "x2": 232,
+          "y2": 44
+        }
+      ]
+    },
+    {
+      "mapId": 4082,
+      "name": "Blinking Maze",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 92,
+          "x2": 8,
+          "y2": 97
+        },
+        {
+          "x1": 0,
+          "y1": 117,
+          "x2": 149,
+          "y2": 209
+        }
+      ]
+    },
+    {
+      "mapId": 1380,
+      "name": "Blizzard Plains"
+    },
+    {
+      "mapId": 852,
+      "name": "Blob Desert",
+      "regions": [
+        {
+          "x1": 7,
+          "y1": 3,
+          "x2": 26,
+          "y2": 17
+        }
+      ]
+    },
+    {
+      "mapId": 1521,
+      "name": "Blob Desert"
+    },
+    {
+      "mapId": 2747,
+      "name": "Blood Chalice Desolation"
+    },
+    {
+      "mapId": 2280,
+      "name": "Blood Red Beach"
+    },
+    {
+      "mapId": 2294,
+      "name": "Blood Red Beach",
+      "regions": [
+        {
+          "x1": 60,
+          "y1": -1,
+          "x2": 79,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 234,
+      "name": "Blood World"
+    },
+    {
+      "mapId": 3503,
+      "name": "Blossom Boardwalk",
+      "regions": [
+        {
+          "x1": 193,
+          "y1": 3,
+          "x2": 214,
+          "y2": 19
+        }
+      ]
+    },
+    {
+      "mapId": 2279,
+      "name": "Blue Apartments",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 15
+        },
+        {
+          "x1": -1,
+          "y1": 46,
+          "x2": -1,
+          "y2": 59
+        }
+      ]
+    },
+    {
+      "mapId": 2292,
+      "name": "Blue Apartments",
+      "regions": [
+        {
+          "x1": 22,
+          "y1": 167,
+          "x2": 44,
+          "y2": 194
+        },
+        {
+          "x1": 0,
+          "y1": 111,
+          "x2": 299,
+          "y2": 119
+        },
+        {
+          "x1": 71,
+          "y1": 181,
+          "x2": 94,
+          "y2": 197
+        }
+      ]
+    },
+    {
+      "mapId": 835,
+      "name": "Blue Cactus Islands",
+      "regions": [
+        {
+          "x1": 115,
+          "y1": 0,
+          "x2": 130,
+          "y2": 15
+        }
+      ]
+    },
+    {
+      "mapId": 1774,
+      "name": "Blue Cactus Islands: Golden Sky Bridge"
+    },
+    {
+      "mapId": 1775,
+      "name": "Blue Cactus Islands: Golden Sky Bridge"
+    },
+    {
+      "mapId": 1020,
+      "name": "Blue Cactus Islands: Mirror Lake"
+    },
+    {
+      "mapId": 86,
+      "name": "Blue Forest"
+    },
+    {
+      "mapId": 1441,
+      "name": "Blue House Road"
+    },
+    {
+      "mapId": 1371,
+      "name": "Blue Restaurant",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 139,
+          "y2": 11
+        }
+      ]
+    },
+    {
+      "mapId": 1445,
+      "name": "Blue Restaurant",
+      "regions": [
+        {
+          "x1": 370,
+          "y1": 164,
+          "x2": 425,
+          "y2": 220
+        }
+      ]
+    },
+    {
+      "mapId": 2392,
+      "name": "Blue Rock Depths",
+      "regions": [
+        {
+          "x1": 2,
+          "y1": 71,
+          "x2": 17,
+          "y2": 83
+        },
+        {
+          "x1": 173,
+          "y1": 0,
+          "x2": 242,
+          "y2": 70
+        }
+      ]
+    },
+    {
+      "mapId": 2901,
+      "name": "Blue Rock Depths"
+    },
+    {
+      "mapId": 2279,
+      "name": "Blue Streetlight World",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 60,
+          "x2": -1,
+          "y2": 80
+        }
+      ]
+    },
+    {
+      "mapId": 3151,
+      "name": "Blue Undergrowth",
+      "regions": [
+        {
+          "x1": 41,
+          "y1": 0,
+          "x2": 59,
+          "y2": 15
+        }
+      ]
+    },
+    {
+      "mapId": 2073,
+      "name": "Bodacious Rotation Station"
+    },
+    {
+      "mapId": 2192,
+      "name": "Bodacious Rotation Station"
+    },
+    {
+      "mapId": 1061,
+      "name": "Boogie Street",
+      "regions": [
+        {
+          "x1": 82,
+          "y1": 86,
+          "x2": 101,
+          "y2": 109
+        }
+      ]
+    },
+    {
+      "mapId": 534,
+      "name": "Bottom Garden"
+    },
+    {
+      "mapId": 235,
+      "name": "Bowling Zone",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 6,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 236,
+      "name": "Bowling Zone: Bowling Pin World"
+    },
+    {
+      "mapId": 1093,
+      "name": "Bracken Plains",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 58,
+          "y2": 69
+        }
+      ]
+    },
+    {
+      "mapId": 2039,
+      "name": "Bread World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 109,
+          "x2": 83,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 1341,
+      "name": "Bright Forest",
+      "regions": [
+        {
+          "x1": 40,
+          "y1": 235,
+          "x2": 79,
+          "y2": 259
+        }
+      ]
+    },
+    {
+      "mapId": 1308,
+      "name": "Bright Forest: Rainbow Ruins",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": 60,
+          "x2": 39,
+          "y2": 74
+        }
+      ]
+    },
+    {
+      "mapId": 1350,
+      "name": "Bright Forest: Rainbow Ruins"
+    },
+    {
+      "mapId": 672,
+      "name": "Broken City",
+      "conditional": true
+    },
+    {
+      "mapId": 677,
+      "name": "Broken City: Winter Funeral"
+    },
+    {
+      "mapId": 333,
+      "name": "Broken Faces Area"
+    },
+    {
+      "mapId": 297,
+      "name": "Broken Faces Area: Danger Panic Zone"
+    },
+    {
+      "mapId": 1924,
+      "name": "Budding Life World"
+    },
+    {
+      "mapId": 1928,
+      "name": "Budding Life World"
+    },
+    {
+      "mapId": 164,
+      "name": "Bug Maze",
+      "regions": [
+        {
+          "x1": 69,
+          "y1": 4,
+          "x2": 85,
+          "y2": 27
+        }
+      ]
+    },
+    {
+      "mapId": 281,
+      "name": "Bug Maze"
+    },
+    {
+      "mapId": 3368,
+      "name": "Burger Joint",
+      "regions": [
+        {
+          "x1": 22,
+          "y1": 203,
+          "x2": 34,
+          "y2": 217
+        }
+      ]
+    },
+    {
+      "mapId": 3369,
+      "name": "Burger Joint",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 139,
+          "y2": 149
+        }
+      ]
+    },
+    {
+      "mapId": 2296,
+      "name": "Burial Depths: Burial Depths A",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 50
+        }
+      ]
+    },
+    {
+      "mapId": 2296,
+      "name": "Burial Depths: Burial Depths B",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 145,
+          "x2": -1,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 2537,
+      "name": "Butcher Hollow",
+      "regions": [
+        {
+          "x1": 100,
+          "y1": 0,
+          "x2": 119,
+          "y2": 49
+        }
+      ]
+    },
+    {
+      "mapId": 1611,
+      "name": "Butter Rain World",
+      "regions": [
+        {
+          "x1": 23,
+          "y1": 0,
+          "x2": 42,
+          "y2": 14
+        },
+        {
+          "x1": 116,
+          "y1": 0,
+          "x2": 135,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 694,
+      "name": "Butterfly Forest",
+      "conditional": true
+    },
+    {
+      "mapId": 1187,
+      "name": "Butterfly Passage",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 111
+        }
+      ]
+    },
+    {
+      "mapId": 1547,
+      "name": "Cactus Desert"
+    },
+    {
+      "mapId": 1255,
+      "name": "Calcarina Sea"
+    },
+    {
+      "mapId": 1023,
+      "name": "Calcarina Sea: Calcarina Snowfield"
+    },
+    {
+      "mapId": 1024,
+      "name": "Calcarina Sea: Calcarina Snowfield"
+    },
+    {
+      "mapId": 2289,
+      "name": "Calico Forest",
+      "regions": [
+        {
+          "x1": 43,
+          "y1": 33,
+          "x2": 62,
+          "y2": 47
+        }
+      ]
+    },
+    {
+      "mapId": 2213,
+      "name": "Candlelit Factory"
+    },
+    {
+      "mapId": 2216,
+      "name": "Candlelit Factory",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 19,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2217,
+      "name": "Candlelit Factory"
+    },
+    {
+      "mapId": 3369,
+      "name": "Canned Fish World",
+      "regions": [
+        {
+          "x1": 290,
+          "y1": 0,
+          "x2": 399,
+          "y2": 112
+        }
+      ]
+    },
+    {
+      "mapId": 3365,
+      "name": "Carnage Carnival: Wicked Reddish Path",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 404,
+          "x2": 199,
+          "y2": 499
+        }
+      ]
+    },
+    {
+      "mapId": 1001,
+      "name": "Cat Cemetery: Witch's House"
+    },
+    {
+      "mapId": 1555,
+      "name": "Celestial Night",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 90,
+          "y2": 165
+        }
+      ]
+    },
+    {
+      "mapId": 2805,
+      "name": "Cerulean School"
+    },
+    {
+      "mapId": 1011,
+      "name": "Chainlink Lees"
+    },
+    {
+      "mapId": 536,
+      "name": "Chaotic Buildings",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 183
+        }
+      ]
+    },
+    {
+      "mapId": 2300,
+      "name": "Chaser Academy"
+    },
+    {
+      "mapId": 2140,
+      "name": "Check-Disk Nexus"
+    },
+    {
+      "mapId": 2647,
+      "name": "Check-Disk Nexus"
+    },
+    {
+      "mapId": 1629,
+      "name": "Checkered Postal Path",
+      "regions": [
+        {
+          "x1": 314,
+          "y1": -1,
+          "x2": 399,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2272,
+      "name": "Checkered Towers",
+      "regions": [
+        {
+          "x1": 14,
+          "y1": 0,
+          "x2": 64,
+          "y2": 14
+        },
+        {
+          "x1": -1,
+          "y1": 79,
+          "x2": -1,
+          "y2": 99
+        }
+      ]
+    },
+    {
+      "mapId": 2279,
+      "name": "Checkered Towers"
+    },
+    {
+      "mapId": 2294,
+      "name": "Checkered Towers",
+      "regions": [
+        {
+          "x1": 40,
+          "y1": -1,
+          "x2": 59,
+          "y2": -1
+        },
+        {
+          "x1": 100,
+          "y1": -1,
+          "x2": 119,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2563,
+      "name": "Cheese World",
+      "regions": [
+        {
+          "x1": 11,
+          "y1": 75,
+          "x2": 34,
+          "y2": 77
+        },
+        {
+          "x1": 113,
+          "y1": 0,
+          "x2": 199,
+          "y2": 55
+        }
+      ]
+    },
+    {
+      "mapId": 2570,
+      "name": "Cheese World",
+      "regions": [
+        {
+          "x1": 147,
+          "y1": 0,
+          "x2": 150,
+          "y2": 14
+        },
+        {
+          "x1": 166,
+          "y1": 0,
+          "x2": 173,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 2793,
+      "name": "Cheesecake Mountain"
+    },
+    {
+      "mapId": 2798,
+      "name": "Cheesecake Mountain: Cheesecake Girl's Room",
+      "regions": [
+        {
+          "x1": 29,
+          "y1": 327,
+          "x2": 53,
+          "y2": 349
+        }
+      ]
+    },
+    {
+      "mapId": 2798,
+      "name": "Cheesecake Mountain: Parrot Empire",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 299,
+          "y2": 174
+        }
+      ]
+    },
+    {
+      "mapId": 854,
+      "name": "Chess World",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 113,
+          "x2": -1,
+          "y2": 169
+        }
+      ]
+    },
+    {
+      "mapId": 855,
+      "name": "Chess World"
+    },
+    {
+      "mapId": 1700,
+      "name": "Chicken World"
+    },
+    {
+      "mapId": 1318,
+      "name": "Chocolate Tower"
+    },
+    {
+      "mapId": 2171,
+      "name": "Chromatic Limbo",
+      "regions": [
+        {
+          "x1": 22,
+          "y1": 1,
+          "x2": 57,
+          "y2": 21
+        }
+      ]
+    },
+    {
+      "mapId": 1273,
+      "name": "Cinder Statue Heaven",
+      "regions": [
+        {
+          "x1": 318,
+          "y1": 0,
+          "x2": 449,
+          "y2": 84
+        }
+      ]
+    },
+    {
+      "mapId": 1611,
+      "name": "Cipher Fog World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 18,
+          "x2": 19,
+          "y2": 32
+        },
+        {
+          "x1": 116,
+          "y1": 18,
+          "x2": 135,
+          "y2": 32
+        }
+      ]
+    },
+    {
+      "mapId": 157,
+      "name": "Circus"
+    },
+    {
+      "mapId": 3368,
+      "name": "Citrus Springs"
+    },
+    {
+      "mapId": 1308,
+      "name": "City of Liars"
+    },
+    {
+      "mapId": 890,
+      "name": "City of Liars: Footprint Path",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 1944,
+      "name": "City of Liars: Footprint Path",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 102,
+          "x2": -1,
+          "y2": 129
+        }
+      ]
+    },
+    {
+      "mapId": 1944,
+      "name": "City of Liars: Hallway Maze"
+    },
+    {
+      "mapId": 1340,
+      "name": "Claustrophobia"
+    },
+    {
+      "mapId": 495,
+      "name": "Clawtree Forest"
+    },
+    {
+      "mapId": 495,
+      "name": "Clawtree Forest: Prismatic Tent",
+      "regions": [
+        {
+          "x1": 95,
+          "y1": 0,
+          "x2": 209,
+          "y2": 120
+        }
+      ]
+    },
+    {
+      "mapId": 1035,
+      "name": "Cliffside Woods"
+    },
+    {
+      "mapId": 317,
+      "name": "Closet Pinwheel Path",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 75,
+          "x2": -1,
+          "y2": 151
+        }
+      ]
+    },
+    {
+      "mapId": 674,
+      "name": "Cloudy World: Crying Eyes Cave"
+    },
+    {
+      "mapId": 708,
+      "name": "Cocktail Lounge",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 29,
+          "y2": 24
+        }
+      ]
+    },
+    {
+      "mapId": 4082,
+      "name": "Collaged Complex A",
+      "regions": [
+        {
+          "x1": 128,
+          "y1": 101,
+          "x2": 149,
+          "y2": 116
+        }
+      ]
+    },
+    {
+      "mapId": 4084,
+      "name": "Collaged Complex A",
+      "regions": [
+        {
+          "x1": 56,
+          "y1": 159,
+          "x2": 99,
+          "y2": 186
+        },
+        {
+          "x1": 0,
+          "y1": 355,
+          "x2": 99,
+          "y2": 369
+        }
+      ]
+    },
+    {
+      "mapId": 4084,
+      "name": "Collaged Complex B",
+      "regions": [
+        {
+          "x1": 49,
+          "y1": 53,
+          "x2": 99,
+          "y2": 77
+        },
+        {
+          "x1": 62,
+          "y1": 78,
+          "x2": 99,
+          "y2": 95
+        },
+        {
+          "x1": 0,
+          "y1": 112,
+          "x2": 21,
+          "y2": 197
+        },
+        {
+          "x1": 21,
+          "y1": 143,
+          "x2": 63,
+          "y2": 159
+        },
+        {
+          "x1": 49,
+          "y1": 53,
+          "x2": 63,
+          "y2": 188
+        },
+        {
+          "x1": 46,
+          "y1": 188,
+          "x2": 99,
+          "y2": 216
+        },
+        {
+          "x1": 69,
+          "y1": 217,
+          "x2": 99,
+          "y2": 238
+        }
+      ]
+    },
+    {
+      "mapId": 2556,
+      "name": "Collision World"
+    },
+    {
+      "mapId": 2559,
+      "name": "Collision World"
+    },
+    {
+      "mapId": 3130,
+      "name": "Colorless Carnival: Tent",
+      "regions": [
+        {
+          "x1": 86,
+          "y1": 0,
+          "x2": 199,
+          "y2": 43
+        }
+      ]
+    },
+    {
+      "mapId": 3370,
+      "name": "Communal Workspace"
+    },
+    {
+      "mapId": 116,
+      "name": "Concrete World"
+    },
+    {
+      "mapId": 114,
+      "name": "Concrete World: Concrete World B"
+    },
+    {
+      "mapId": 2798,
+      "name": "Confection Estate"
+    },
+    {
+      "mapId": 4084,
+      "name": "Conservatory",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 99,
+          "y2": 52
+        }
+      ]
+    },
+    {
+      "mapId": 1522,
+      "name": "Constellation World: Star Building"
+    },
+    {
+      "mapId": 1523,
+      "name": "Constellation World: Star Building",
+      "conditional": true
+    },
+    {
+      "mapId": 1524,
+      "name": "Constellation World: Star Building"
+    },
+    {
+      "mapId": 808,
+      "name": "Constellation World: Star Path"
+    },
+    {
+      "mapId": 1993,
+      "name": "Construction Frame Building"
+    },
+    {
+      "mapId": 1999,
+      "name": "Construction Frame Building"
+    },
+    {
+      "mapId": 2038,
+      "name": "Corridor of Eyes",
+      "regions": [
+        {
+          "x1": 99,
+          "y1": 48,
+          "x2": 158,
+          "y2": 99
+        }
+      ]
+    },
+    {
+      "mapId": 1308,
+      "name": "Corrupted Love World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 135,
+          "x2": 19,
+          "y2": 149
+        }
+      ]
+    },
+    {
+      "mapId": 2653,
+      "name": "Corrupted Nexus"
+    },
+    {
+      "mapId": 1312,
+      "name": "Cosmic Cube World"
+    },
+    {
+      "mapId": 555,
+      "name": "Cosmic World"
+    },
+    {
+      "mapId": 1445,
+      "name": "Crazed Faces Maze",
+      "regions": [
+        {
+          "x1": 410,
+          "y1": 460,
+          "x2": 499,
+          "y2": 499
+        }
+      ]
+    },
+    {
+      "mapId": 4088,
+      "name": "Crimson Drains",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 301,
+          "x2": 135,
+          "y2": 379
+        },
+        {
+          "x1": 258,
+          "y1": 0,
+          "x2": 278,
+          "y2": 15
+        },
+        {
+          "x1": 136,
+          "y1": 231,
+          "x2": 299,
+          "y2": 379
+        }
+      ]
+    },
+    {
+      "mapId": 1036,
+      "name": "Crimson Labyrinth"
+    },
+    {
+      "mapId": 2289,
+      "name": "Crimson Park",
+      "regions": [
+        {
+          "x1": 64,
+          "y1": 33,
+          "x2": 83,
+          "y2": 47
+        }
+      ]
+    },
+    {
+      "mapId": 1826,
+      "name": "Critter Village: Hexagonal Pillar Passage",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 17,
+          "x2": 85,
+          "y2": 60
+        },
+        {
+          "x1": 94,
+          "y1": 1,
+          "x2": 164,
+          "y2": 82
+        },
+        {
+          "x1": 0,
+          "y1": 62,
+          "x2": 64,
+          "y2": 128
+        },
+        {
+          "x1": 77,
+          "y1": 84,
+          "x2": 164,
+          "y2": 125
+        },
+        {
+          "x1": 116,
+          "y1": 127,
+          "x2": 164,
+          "y2": 174
+        }
+      ]
+    },
+    {
+      "mapId": 1828,
+      "name": "Critter Village: Hexagonal Pillar Passage",
+      "regions": [
+        {
+          "x1": 1,
+          "y1": 126,
+          "x2": 62,
+          "y2": 165
+        }
+      ]
+    },
+    {
+      "mapId": 1828,
+      "name": "Critter Village: Hexagonal Tile Factory"
+    },
+    {
+      "mapId": 1700,
+      "name": "Crystal Lake",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 85,
+          "y2": 79
+        }
+      ]
+    },
+    {
+      "mapId": 3158,
+      "name": "Cubic Cliffs",
+      "conditional": true
+    },
+    {
+      "mapId": 2185,
+      "name": "Cuckoo Skyline Express"
+    },
+    {
+      "mapId": 785,
+      "name": "Cyan Relic World",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 60,
+          "x2": -1,
+          "y2": 99
+        }
+      ]
+    },
+    {
+      "mapId": 701,
+      "name": "Cyber Hub",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 52,
+          "y2": 82
+        }
+      ]
+    },
+    {
+      "mapId": 1809,
+      "name": "Cyber Prison"
+    },
+    {
+      "mapId": 2463,
+      "name": "Dal Segno Labyrinth",
+      "regions": [
+        {
+          "x1": 58,
+          "y1": -1,
+          "x2": 137,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 354,
+      "name": "Dark Alleys",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": 15,
+          "x2": 39,
+          "y2": 29
+        }
+      ]
+    },
+    {
+      "mapId": 357,
+      "name": "Dark Alleys: Dark Stairs"
+    },
+    {
+      "mapId": 1590,
+      "name": "Dark Nexus",
+      "regions": [
+        {
+          "x1": 92,
+          "y1": 0,
+          "x2": 141,
+          "y2": 30
+        }
+      ]
+    },
+    {
+      "mapId": 52,
+      "name": "Dark Room"
+    },
+    {
+      "mapId": 198,
+      "name": "Day and Night Towers"
+    },
+    {
+      "mapId": 3151,
+      "name": "Dazzling Garden",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 39,
+          "y2": 15
+        }
+      ]
+    },
+    {
+      "mapId": 3154,
+      "name": "Dazzling Garden"
+    },
+    {
+      "mapId": 95,
+      "name": "Deciding Street: Bazaar"
+    },
+    {
+      "mapId": 958,
+      "name": "Decrepit Dwellings",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 65,
+          "y2": 82
+        },
+        {
+          "x1": 80,
+          "y1": 0,
+          "x2": 148,
+          "y2": 36
+        }
+      ]
+    },
+    {
+      "mapId": 1725,
+      "name": "Deep Blue Graveyard",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 94,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2213,
+      "name": "Deep Cold Path",
+      "regions": [
+        {
+          "x1": 138,
+          "y1": 7,
+          "x2": 138,
+          "y2": 7
+        }
+      ]
+    },
+    {
+      "mapId": 1642,
+      "name": "Deep Red Wilds",
+      "regions": [
+        {
+          "x1": 5,
+          "y1": 3,
+          "x2": 46,
+          "y2": 17
+        },
+        {
+          "x1": 5,
+          "y1": 18,
+          "x2": 26,
+          "y2": 32
+        }
+      ]
+    },
+    {
+      "mapId": 2401,
+      "name": "Deep Red Wilds: Prehistoric Passage"
+    },
+    {
+      "mapId": 2402,
+      "name": "Deep Red Wilds: Prehistoric Passage"
+    },
+    {
+      "mapId": 2403,
+      "name": "Deep Red Wilds: Ruined Skyline"
+    },
+    {
+      "mapId": 4082,
+      "name": "Deep Red Wilds:Prehistoric Passage",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 210,
+          "x2": 149,
+          "y2": 224
+        }
+      ]
+    },
+    {
+      "mapId": 451,
+      "name": "Deluxe Mask Shop",
+      "conditional": true
+    },
+    {
+      "mapId": 1521,
+      "name": "Deluxe Mask Shop",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 30,
+          "x2": -1,
+          "y2": 44
+        },
+        {
+          "x1": 40,
+          "y1": 15,
+          "x2": 59,
+          "y2": 29
+        }
+      ]
+    },
+    {
+      "mapId": 532,
+      "name": "Depths"
+    },
+    {
+      "mapId": 560,
+      "name": "Depths"
+    },
+    {
+      "mapId": 561,
+      "name": "Depths"
+    },
+    {
+      "mapId": 562,
+      "name": "Depths"
+    },
+    {
+      "mapId": 2038,
+      "name": "Deserted Center",
+      "regions": [
+        {
+          "x1": 95,
+          "y1": 121,
+          "x2": 164,
+          "y2": 167
+        }
+      ]
+    },
+    {
+      "mapId": 530,
+      "name": "Deserted Town",
+      "regions": [
+        {
+          "x1": 134,
+          "y1": 59,
+          "x2": 167,
+          "y2": 203
+        },
+        {
+          "x1": 0,
+          "y1": 186,
+          "x2": 153,
+          "y2": 216
+        },
+        {
+          "x1": -1,
+          "y1": 217,
+          "x2": -1,
+          "y2": 309
+        }
+      ]
+    },
+    {
+      "mapId": 533,
+      "name": "Deserted Town"
+    },
+    {
+      "mapId": 542,
+      "name": "Deserted Town"
+    },
+    {
+      "mapId": 798,
+      "name": "Despair Road: Poker Zone"
+    },
+    {
+      "mapId": 141,
+      "name": "Developer Room"
+    },
+    {
+      "mapId": 230,
+      "name": "Developer Room"
+    },
+    {
+      "mapId": 374,
+      "name": "Developer Room"
+    },
+    {
+      "mapId": 2295,
+      "name": "Dice Swamp"
+    },
+    {
+      "mapId": 2296,
+      "name": "Dice Swamp"
+    },
+    {
+      "mapId": 2570,
+      "name": "Dice Swamp",
+      "regions": [
+        {
+          "x1": 221,
+          "y1": 0,
+          "x2": 238,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 1281,
+      "name": "Dice World",
+      "regions": [
+        {
+          "x1": 4,
+          "y1": 5,
+          "x2": 24,
+          "y2": 21
+        },
+        {
+          "x1": 0,
+          "y1": 65,
+          "x2": 142,
+          "y2": 79
+        }
+      ]
+    },
+    {
+      "mapId": 1730,
+      "name": "Digital Alley",
+      "regions": [
+        {
+          "x1": 185,
+          "y1": 81,
+          "x2": 277,
+          "y2": 159
+        }
+      ]
+    },
+    {
+      "mapId": 1806,
+      "name": "Digital Alley: Disco Floor",
+      "regions": [
+        {
+          "x1": 307,
+          "y1": -1,
+          "x2": 449,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2031,
+      "name": "Digital Heart Space",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 116,
+          "y2": 129
+        }
+      ]
+    },
+    {
+      "mapId": 3151,
+      "name": "Dim Floors",
+      "regions": [
+        {
+          "x1": 40,
+          "y1": 71,
+          "x2": 59,
+          "y2": 89
+        }
+      ]
+    },
+    {
+      "mapId": 3158,
+      "name": "Dim Floors",
+      "conditional": true
+    },
+    {
+      "mapId": 4083,
+      "name": "Dim Floors",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 207,
+          "x2": 204,
+          "y2": 304
+        }
+      ]
+    },
+    {
+      "mapId": 187,
+      "name": "Docks"
+    },
+    {
+      "mapId": 279,
+      "name": "Docks: Commando and Provost-san's Submarine"
+    },
+    {
+      "mapId": 751,
+      "name": "Dojo"
+    },
+    {
+      "mapId": 752,
+      "name": "Dojo"
+    },
+    {
+      "mapId": 753,
+      "name": "Dojo"
+    },
+    {
+      "mapId": 756,
+      "name": "Dojo"
+    },
+    {
+      "mapId": 2103,
+      "name": "Domino Constructions"
+    },
+    {
+      "mapId": 1308,
+      "name": "Donut Hole World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 90,
+          "x2": 19,
+          "y2": 104
+        }
+      ]
+    },
+    {
+      "mapId": 489,
+      "name": "Downfall Garden A",
+      "regions": [
+        {
+          "x1": 210,
+          "y1": 0,
+          "x2": 279,
+          "y2": 76
+        }
+      ]
+    },
+    {
+      "mapId": 496,
+      "name": "Downfall Garden A"
+    },
+    {
+      "mapId": 587,
+      "name": "Downfall Garden B"
+    },
+    {
+      "mapId": 1973,
+      "name": "Drains Theater: The Cinema"
+    },
+    {
+      "mapId": 1974,
+      "name": "Drains Theater: The Cinema"
+    },
+    {
+      "mapId": 4086,
+      "name": "Dreadful City",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 51,
+          "y2": 40
+        }
+      ]
+    },
+    {
+      "mapId": 1302,
+      "name": "Dreadful Docks"
+    },
+    {
+      "mapId": 1266,
+      "name": "Dreadful Docks: Neon Pathway",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 90,
+          "x2": 99,
+          "y2": 149
+        }
+      ]
+    },
+    {
+      "mapId": 681,
+      "name": "Dream Bank"
+    },
+    {
+      "mapId": 393,
+      "name": "Dream Beach"
+    },
+    {
+      "mapId": 394,
+      "name": "Dream Beach"
+    },
+    {
+      "mapId": 396,
+      "name": "Dream Beach"
+    },
+    {
+      "mapId": 498,
+      "name": "Dream Beach",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 121,
+          "x2": -1,
+          "y2": 149
+        }
+      ]
+    },
+    {
+      "mapId": 1700,
+      "name": "Dream Easter Island",
+      "regions": [
+        {
+          "x1": 86,
+          "y1": 0,
+          "x2": 199,
+          "y2": 79
+        }
+      ]
+    },
+    {
+      "mapId": 701,
+      "name": "Dream Mexico"
+    },
+    {
+      "mapId": 1061,
+      "name": "Dream Park"
+    },
+    {
+      "mapId": 1070,
+      "name": "Dream Park",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 185,
+          "x2": -1,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 1281,
+      "name": "Dream Park",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 41,
+          "x2": 51,
+          "y2": 64
+        }
+      ]
+    },
+    {
+      "mapId": 1061,
+      "name": "Dream Park: Treetops Area",
+      "regions": [
+        {
+          "x1": 81,
+          "y1": 179,
+          "x2": 89,
+          "y2": 197
+        }
+      ]
+    },
+    {
+      "mapId": 1067,
+      "name": "Dream Park: Treetops Area"
+    },
+    {
+      "mapId": 1590,
+      "name": "Dream Pool",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 16,
+          "x2": 0,
+          "y2": 16
+        }
+      ]
+    },
+    {
+      "mapId": 2740,
+      "name": "Dream Route: Past Amethyst Caves"
+    },
+    {
+      "mapId": 2739,
+      "name": "Dream Route: Past Park"
+    },
+    {
+      "mapId": 3015,
+      "name": "Dream Route: Present Amethyst Caves"
+    },
+    {
+      "mapId": 3014,
+      "name": "Dream Route: Present Park"
+    },
+    {
+      "mapId": 3029,
+      "name": "Dream Route: Stone Graveyard"
+    },
+    {
+      "mapId": 2570,
+      "name": "Dreary Harbor",
+      "regions": [
+        {
+          "x1": 341,
+          "y1": 0,
+          "x2": 358,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 1949,
+      "name": "Drenched Passageways"
+    },
+    {
+      "mapId": 176,
+      "name": "Dressing Room",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 105
+        }
+      ]
+    },
+    {
+      "mapId": 890,
+      "name": "Drowsy Forest"
+    },
+    {
+      "mapId": 1295,
+      "name": "Drowsy Forest",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 275,
+          "x2": 39,
+          "y2": 289
+        }
+      ]
+    },
+    {
+      "mapId": 1492,
+      "name": "Drowsy Forest"
+    },
+    {
+      "mapId": 2604,
+      "name": "Dusty Grey Town"
+    },
+    {
+      "mapId": 2607,
+      "name": "Dusty Grey Town"
+    },
+    {
+      "mapId": 4081,
+      "name": "Edifices"
+    },
+    {
+      "mapId": 1177,
+      "name": "Electromagnetic Terminal: Seaside Road"
+    },
+    {
+      "mapId": 1722,
+      "name": "Elemental Caves",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 85,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1723,
+      "name": "Elemental Caves",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 92,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1730,
+      "name": "Elemental Caves: Thunder Valley",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 81,
+          "x2": 84,
+          "y2": 159
+        }
+      ]
+    },
+    {
+      "mapId": 301,
+      "name": "Elvis Masada's Place"
+    },
+    {
+      "mapId": 2416,
+      "name": "Empty Abode"
+    },
+    {
+      "mapId": 1723,
+      "name": "Energy Complex",
+      "regions": [
+        {
+          "x1": 187,
+          "y1": -1,
+          "x2": 399,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 3110,
+      "name": "English Thundershower"
+    },
+    {
+      "mapId": 2171,
+      "name": "Ephemeral Barrens"
+    },
+    {
+      "mapId": 3020,
+      "name": "Epsilon District: Gray Sewers"
+    },
+    {
+      "mapId": 911,
+      "name": "Erratic Pillar Lands",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 15,
+          "x2": 76,
+          "y2": 74
+        }
+      ]
+    },
+    {
+      "mapId": 785,
+      "name": "Escalator"
+    },
+    {
+      "mapId": 3126,
+      "name": "Ethereal Garden",
+      "regions": [
+        {
+          "x1": 30,
+          "y1": 0,
+          "x2": 129,
+          "y2": 45
+        }
+      ]
+    },
+    {
+      "mapId": 4083,
+      "name": "Ethereal Lagoon",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 204,
+          "y2": 206
+        }
+      ]
+    },
+    {
+      "mapId": 1308,
+      "name": "Ethnic World",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": 150,
+          "x2": 39,
+          "y2": 164
+        }
+      ]
+    },
+    {
+      "mapId": 2164,
+      "name": "Ethnic World",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": 0,
+          "x2": 39,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 2165,
+      "name": "Ethnic World: Binary Path",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 86,
+          "y2": 46
+        }
+      ]
+    },
+    {
+      "mapId": 2165,
+      "name": "Ethnic World: Opal Path",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 55,
+          "x2": 79,
+          "y2": 99
+        }
+      ]
+    },
+    {
+      "mapId": 1389,
+      "name": "Evil Cube Zone",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 99,
+          "x2": -1,
+          "y2": 179
+        }
+      ]
+    },
+    {
+      "mapId": 1547,
+      "name": "Execution Ground",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": -1,
+          "x2": 39,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2251,
+      "name": "Expanded Corridors"
+    },
+    {
+      "mapId": 849,
+      "name": "Extraterrestrial Cliffside",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 92,
+          "x2": 179,
+          "y2": 119
+        },
+        {
+          "x1": 180,
+          "y1": 72,
+          "x2": 309,
+          "y2": 119
+        }
+      ]
+    },
+    {
+      "mapId": 909,
+      "name": "Extraterrestrial Cliffside: Strange Poison Fields"
+    },
+    {
+      "mapId": 925,
+      "name": "Extraterrestrial Cliffside: Strange Poison Fields",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 155,
+          "x2": 34,
+          "y2": 169
+        }
+      ]
+    },
+    {
+      "mapId": 503,
+      "name": "Eyeball Archives"
+    },
+    {
+      "mapId": 504,
+      "name": "Eyeball Archives"
+    },
+    {
+      "mapId": 505,
+      "name": "Eyeball Archives"
+    },
+    {
+      "mapId": 1588,
+      "name": "Eyeball Cherry Fields",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 105,
+          "x2": -1,
+          "y2": 130
+        }
+      ]
+    },
+    {
+      "mapId": 1590,
+      "name": "Eyeball Cherry Fields",
+      "regions": [
+        {
+          "x1": 63,
+          "y1": 0,
+          "x2": 82,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 176,
+      "name": "Fabric World"
+    },
+    {
+      "mapId": 2040,
+      "name": "Faces Zone",
+      "regions": [
+        {
+          "x1": 130,
+          "y1": 0,
+          "x2": 199,
+          "y2": 62
+        }
+      ]
+    },
+    {
+      "mapId": 3195,
+      "name": "Faerie Hollow"
+    },
+    {
+      "mapId": 414,
+      "name": "Fairy Tale Woods"
+    },
+    {
+      "mapId": 416,
+      "name": "Fairy Tale Woods"
+    },
+    {
+      "mapId": 2292,
+      "name": "Fake Apartments",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 207,
+          "x2": 163,
+          "y2": 251
+        }
+      ]
+    },
+    {
+      "mapId": 2294,
+      "name": "Fake Apartments",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 19,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2570,
+      "name": "Fake Apartments",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 14,
+          "y2": 14
+        },
+        {
+          "x1": 40,
+          "y1": 0,
+          "x2": 59,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 694,
+      "name": "Fantasy Library",
+      "conditional": true
+    },
+    {
+      "mapId": 713,
+      "name": "Fantasy Library",
+      "conditional": true
+    },
+    {
+      "mapId": 944,
+      "name": "FC Caverns"
+    },
+    {
+      "mapId": 944,
+      "name": "FC Caverns A",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 1,
+          "x2": 0,
+          "y2": 70
+        },
+        {
+          "x1": 1,
+          "y1": 0,
+          "x2": 15,
+          "y2": 70
+        },
+        {
+          "x1": 16,
+          "y1": 14,
+          "x2": 31,
+          "y2": 56
+        },
+        {
+          "x1": 32,
+          "y1": 42,
+          "x2": 47,
+          "y2": 56
+        },
+        {
+          "x1": 32,
+          "y1": 14,
+          "x2": 63,
+          "y2": 28
+        },
+        {
+          "x1": 48,
+          "y1": 47,
+          "x2": 95,
+          "y2": 70
+        }
+      ]
+    },
+    {
+      "mapId": 944,
+      "name": "FC Caverns B",
+      "regions": [
+        {
+          "x1": 64,
+          "y1": 0,
+          "x2": 95,
+          "y2": 14
+        },
+        {
+          "x1": 64,
+          "y1": 15,
+          "x2": 79,
+          "y2": 42
+        }
+      ]
+    },
+    {
+      "mapId": 944,
+      "name": "FC Caverns C",
+      "regions": [
+        {
+          "x1": 80,
+          "y1": 27,
+          "x2": 95,
+          "y2": 44
+        },
+        {
+          "x1": 96,
+          "y1": 0,
+          "x2": 127,
+          "y2": 41
+        },
+        {
+          "x1": 96,
+          "y1": 42,
+          "x2": 143,
+          "y2": 84
+        }
+      ]
+    },
+    {
+      "mapId": 1879,
+      "name": "Field of Cosmos",
+      "regions": [
+        {
+          "x1": 2,
+          "y1": 30,
+          "x2": 21,
+          "y2": 44
+        }
+      ]
+    },
+    {
+      "mapId": 1264,
+      "name": "Finger Candle World: Finger Maze"
+    },
+    {
+      "mapId": 1266,
+      "name": "Finger Candle World: Lonely Crying Path",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 99,
+          "y2": 89
+        }
+      ]
+    },
+    {
+      "mapId": 2031,
+      "name": "Fish Oil Swamp"
+    },
+    {
+      "mapId": 2797,
+      "name": "Fish Oil Swamp: Crab Shore",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 278,
+          "x2": 49,
+          "y2": 321
+        }
+      ]
+    },
+    {
+      "mapId": 2216,
+      "name": "Fish Person Shoal",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": -1,
+          "x2": 39,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2219,
+      "name": "Fish Person Shoal"
+    },
+    {
+      "mapId": 2251,
+      "name": "Fish Person Shoal",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 19,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2218,
+      "name": "Fish Person Shoal: Shoal Caverns"
+    },
+    {
+      "mapId": 2251,
+      "name": "Fish Person Shoal: Shoal Caverns",
+      "regions": [
+        {
+          "x1": 40,
+          "y1": -1,
+          "x2": 59,
+          "y2": -1
+        },
+        {
+          "x1": 120,
+          "y1": -1,
+          "x2": 139,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2254,
+      "name": "Fish Person Shoal: Shoal Caverns"
+    },
+    {
+      "mapId": 2255,
+      "name": "Fish Person Shoal: Shoal Caverns"
+    },
+    {
+      "mapId": 2216,
+      "name": "Flamelit Wasteland",
+      "regions": [
+        {
+          "x1": 40,
+          "y1": -1,
+          "x2": 59,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2220,
+      "name": "Flamelit Wasteland"
+    },
+    {
+      "mapId": 2251,
+      "name": "Flamelit Wasteland",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": -1,
+          "x2": 39,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2255,
+      "name": "Flamelit Wasteland: Hell Caverns",
+      "regions": [
+        {
+          "x1": 41,
+          "y1": 23,
+          "x2": 99,
+          "y2": 99
+        }
+      ]
+    },
+    {
+      "mapId": 70,
+      "name": "Flesh Paths World"
+    },
+    {
+      "mapId": 1340,
+      "name": "Flicker Trail",
+      "regions": [
+        {
+          "x1": 4,
+          "y1": 2,
+          "x2": 15,
+          "y2": 27
+        }
+      ]
+    },
+    {
+      "mapId": 1700,
+      "name": "Floating Beer Isle",
+      "regions": [
+        {
+          "x1": 86,
+          "y1": 80,
+          "x2": 199,
+          "y2": 159
+        }
+      ]
+    },
+    {
+      "mapId": 2213,
+      "name": "Floating Tiled Islands",
+      "regions": [
+        {
+          "x1": 108,
+          "y1": 0,
+          "x2": 127,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 2216,
+      "name": "Floating Tiled Islands"
+    },
+    {
+      "mapId": 2259,
+      "name": "Floating Tiled Islands"
+    },
+    {
+      "mapId": 69,
+      "name": "Flooded Baths"
+    },
+    {
+      "mapId": 950,
+      "name": "Flooded Dungeon: Floral Vortex"
+    },
+    {
+      "mapId": 1225,
+      "name": "Floral Crossroads: Ghostly Exhibit"
+    },
+    {
+      "mapId": 708,
+      "name": "Florist"
+    },
+    {
+      "mapId": 2003,
+      "name": "Flowerpot Outlands",
+      "conditional": true
+    },
+    {
+      "mapId": 2508,
+      "name": "Flowery Ponds"
+    },
+    {
+      "mapId": 1195,
+      "name": "Fluorescent City"
+    },
+    {
+      "mapId": 1266,
+      "name": "Fluorescent Halls",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 150,
+          "x2": 99,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 1308,
+      "name": "Fluorescent Halls",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 117,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 131,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 132,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 133,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 134,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 135,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 136,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 137,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 138,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 256,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 257,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 258,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 260,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 441,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 442,
+      "name": "Flying Fish World"
+    },
+    {
+      "mapId": 381,
+      "name": "Forest Carnival"
+    },
+    {
+      "mapId": 382,
+      "name": "Forest Carnival"
+    },
+    {
+      "mapId": 389,
+      "name": "Forest Carnival"
+    },
+    {
+      "mapId": 463,
+      "name": "Forest Carnival: High Priestess' Show"
+    },
+    {
+      "mapId": 464,
+      "name": "Forest Carnival: High Priestess' Show"
+    },
+    {
+      "mapId": 465,
+      "name": "Forest Carnival: High Priestess' Show"
+    },
+    {
+      "mapId": 1728,
+      "name": "Forest Cavern: Stellar Palace"
+    },
+    {
+      "mapId": 60,
+      "name": "Forest World",
+      "regions": [
+        {
+          "x1": 66,
+          "y1": 0,
+          "x2": 105,
+          "y2": 65
+        }
+      ]
+    },
+    {
+      "mapId": 311,
+      "name": "Forest World: Monster's Jaw"
+    },
+    {
+      "mapId": 73,
+      "name": "Forest World: Shadow Woman Forest"
+    },
+    {
+      "mapId": 72,
+      "name": "Forest World: Underground"
+    },
+    {
+      "mapId": 215,
+      "name": "Forlorn Beach House"
+    },
+    {
+      "mapId": 305,
+      "name": "Forlorn Beach House"
+    },
+    {
+      "mapId": 306,
+      "name": "Forlorn Beach House"
+    },
+    {
+      "mapId": 333,
+      "name": "Forlorn Beach House",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 79
+        }
+      ]
+    },
+    {
+      "mapId": 911,
+      "name": "Fossil Lake",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 80,
+          "x2": 86,
+          "y2": 94
+        },
+        {
+          "x1": 130,
+          "y1": 80,
+          "x2": 179,
+          "y2": 94
+        }
+      ]
+    },
+    {
+      "mapId": 943,
+      "name": "Fossil Lake",
+      "regions": [
+        {
+          "x1": 50,
+          "y1": -1,
+          "x2": 99,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1810,
+      "name": "Fossil Mines"
+    },
+    {
+      "mapId": 2463,
+      "name": "Foundation Passage",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 46,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 426,
+      "name": "Fountain World"
+    },
+    {
+      "mapId": 2040,
+      "name": "Four Seasons Forest"
+    },
+    {
+      "mapId": 1798,
+      "name": "Fox Temple"
+    },
+    {
+      "mapId": 1034,
+      "name": "Frigid Meadow: Frozen Cavern"
+    },
+    {
+      "mapId": 344,
+      "name": "FUJI"
+    },
+    {
+      "mapId": 1699,
+      "name": "Funeral Prison",
+      "regions": [
+        {
+          "x1": 82,
+          "y1": -1,
+          "x2": 249,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 458,
+      "name": "Gallery of Me"
+    },
+    {
+      "mapId": 1590,
+      "name": "Garden of Treachery",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 65,
+          "x2": 50,
+          "y2": 101
+        }
+      ]
+    },
+    {
+      "mapId": 1590,
+      "name": "Garden of Treachery: Stairs of Wrath"
+    },
+    {
+      "mapId": 1590,
+      "name": "Garden of Treachery: Visine Corridor",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 32,
+          "x2": 82,
+          "y2": 46
+        }
+      ]
+    },
+    {
+      "mapId": 82,
+      "name": "Garden World",
+      "regions": [
+        {
+          "x1": 13,
+          "y1": 68,
+          "x2": 30,
+          "y2": 77
+        }
+      ]
+    },
+    {
+      "mapId": 484,
+      "name": "Garden World"
+    },
+    {
+      "mapId": 84,
+      "name": "Garden World: Monster Party"
+    },
+    {
+      "mapId": 2289,
+      "name": "Geode Valley",
+      "regions": [
+        {
+          "x1": 22,
+          "y1": 33,
+          "x2": 41,
+          "y2": 47
+        }
+      ]
+    },
+    {
+      "mapId": 34,
+      "name": "Geometry World"
+    },
+    {
+      "mapId": 35,
+      "name": "Geometry World"
+    },
+    {
+      "mapId": 36,
+      "name": "Geometry World"
+    },
+    {
+      "mapId": 1611,
+      "name": "Geometry World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 19,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 1221,
+      "name": "Ghastly Dumpsite: Golden Forest"
+    },
+    {
+      "mapId": 1222,
+      "name": "Ghastly Dumpsite: Golden Forest"
+    },
+    {
+      "mapId": 2799,
+      "name": "Ghostly Woods",
+      "regions": [
+        {
+          "x1": 80,
+          "y1": 355,
+          "x2": 164,
+          "y2": 454
+        }
+      ]
+    },
+    {
+      "mapId": 402,
+      "name": "Gimmick Runner"
+    },
+    {
+      "mapId": 403,
+      "name": "Gimmick Runner: Beginner's Course"
+    },
+    {
+      "mapId": 3369,
+      "name": "Glacier Island",
+      "regions": [
+        {
+          "x1": 166,
+          "y1": 238,
+          "x2": 233,
+          "y2": 339
+        },
+        {
+          "x1": 234,
+          "y1": 182,
+          "x2": 282,
+          "y2": 339
+        },
+        {
+          "x1": 283,
+          "y1": 116,
+          "x2": 399,
+          "y2": 339
+        }
+      ]
+    },
+    {
+      "mapId": 1889,
+      "name": "Glitched Butterfly Sector: TV Eye Room"
+    },
+    {
+      "mapId": 1887,
+      "name": "Glitched Butterfly Sector: White Lily Path A"
+    },
+    {
+      "mapId": 1887,
+      "name": "Glitched Butterfly Sector: White Lily Path B",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 8,
+          "x2": 53,
+          "y2": 69
+        },
+        {
+          "x1": 65,
+          "y1": 54,
+          "x2": 102,
+          "y2": 69
+        }
+      ]
+    },
+    {
+      "mapId": 1826,
+      "name": "Glowing Tree Path"
+    },
+    {
+      "mapId": 1387,
+      "name": "Golden Mechanical Tower"
+    },
+    {
+      "mapId": 1697,
+      "name": "Golden Mechanical Tower",
+      "regions": [
+        {
+          "x1": 54,
+          "y1": -1,
+          "x2": 133,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1845,
+      "name": "Graffiti City",
+      "regions": [
+        {
+          "x1": 47,
+          "y1": 130,
+          "x2": 70,
+          "y2": 144
+        }
+      ]
+    },
+    {
+      "mapId": 120,
+      "name": "Graffiti Maze"
+    },
+    {
+      "mapId": 139,
+      "name": "Graffiti Maze"
+    },
+    {
+      "mapId": 140,
+      "name": "Graffiti Maze"
+    },
+    {
+      "mapId": 1273,
+      "name": "Graffiti Sector: Slime Cherry Crypt",
+      "regions": [
+        {
+          "x1": 318,
+          "y1": 85,
+          "x2": 449,
+          "y2": 150
+        }
+      ]
+    },
+    {
+      "mapId": 2289,
+      "name": "Graffiti Waterfront"
+    },
+    {
+      "mapId": 1622,
+      "name": "Grand Beach",
+      "regions": [
+        {
+          "x1": 22,
+          "y1": -1,
+          "x2": 39,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1629,
+      "name": "Grand Beach",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 313,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 971,
+      "name": "Grand Scientific Museum"
+    },
+    {
+      "mapId": 1093,
+      "name": "Grape Mall"
+    },
+    {
+      "mapId": 2694,
+      "name": "Graveyard of Repentance"
+    },
+    {
+      "mapId": 1061,
+      "name": "Graveyard World",
+      "regions": [
+        {
+          "x1": 10,
+          "y1": 40,
+          "x2": 70,
+          "y2": 54
+        }
+      ]
+    },
+    {
+      "mapId": 2747,
+      "name": "Grease Desert",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 21,
+          "x2": 94,
+          "y2": 37
+        }
+      ]
+    },
+    {
+      "mapId": 445,
+      "name": "Green Neon World"
+    },
+    {
+      "mapId": 1966,
+      "name": "Green Pattern World"
+    },
+    {
+      "mapId": 754,
+      "name": "Green Tile Room"
+    },
+    {
+      "mapId": 760,
+      "name": "Green Tile Room"
+    },
+    {
+      "mapId": 2799,
+      "name": "Grilled Octopus World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 276,
+          "x2": 164,
+          "y2": 354
+        }
+      ]
+    },
+    {
+      "mapId": 1070,
+      "name": "Guardians' Temple"
+    },
+    {
+      "mapId": 1112,
+      "name": "Guardians' Temple: Hidden Shrine"
+    },
+    {
+      "mapId": 1113,
+      "name": "Guardians' Temple: Hidden Shrine"
+    },
+    {
+      "mapId": 1114,
+      "name": "Guardians' Temple: Hidden Shrine"
+    },
+    {
+      "mapId": 1115,
+      "name": "Guardians' Temple: Hidden Shrine"
+    },
+    {
+      "mapId": 1116,
+      "name": "Guardians' Temple: Hidden Shrine"
+    },
+    {
+      "mapId": 1117,
+      "name": "Guardians' Temple: Hidden Shrine"
+    },
+    {
+      "mapId": 1118,
+      "name": "Guardians' Temple: Hidden Shrine"
+    },
+    {
+      "mapId": 1119,
+      "name": "Guardians' Temple: Hidden Shrine"
+    },
+    {
+      "mapId": 1120,
+      "name": "Guardians' Temple: Hidden Shrine"
+    },
+    {
+      "mapId": 244,
+      "name": "Guts World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 201,
+          "y2": 141
+        }
+      ]
+    },
+    {
+      "mapId": 247,
+      "name": "Guts World"
+    },
+    {
+      "mapId": 1344,
+      "name": "Gutter"
+    },
+    {
+      "mapId": 704,
+      "name": "Halloween Zone",
+      "regions": [
+        {
+          "x1": 30,
+          "y1": 0,
+          "x2": 53,
+          "y2": 15
+        },
+        {
+          "x1": 62,
+          "y1": 0,
+          "x2": 79,
+          "y2": 13
+        },
+        {
+          "x1": 89,
+          "y1": 0,
+          "x2": 103,
+          "y2": 13
+        }
+      ]
+    },
+    {
+      "mapId": 11,
+      "name": "Hand Hub"
+    },
+    {
+      "mapId": 1989,
+      "name": "Hat World"
+    },
+    {
+      "mapId": 2031,
+      "name": "Hatred Palace",
+      "regions": [
+        {
+          "x1": 117,
+          "y1": 0,
+          "x2": 235,
+          "y2": 129
+        }
+      ]
+    },
+    {
+      "mapId": 794,
+      "name": "Haunted Forest Town",
+      "regions": [
+        {
+          "x1": 125,
+          "y1": 110,
+          "x2": 159,
+          "y2": 149
+        }
+      ]
+    },
+    {
+      "mapId": 925,
+      "name": "Haunted Forest Town: Spirit Mansion"
+    },
+    {
+      "mapId": 57,
+      "name": "Head Wasteland",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 376,
+          "x2": -1,
+          "y2": 430
+        }
+      ]
+    },
+    {
+      "mapId": 817,
+      "name": "Head World",
+      "regions": [
+        {
+          "x1": 50,
+          "y1": 4,
+          "x2": 74,
+          "y2": 18
+        }
+      ]
+    },
+    {
+      "mapId": 819,
+      "name": "Head World: Brain"
+    },
+    {
+      "mapId": 820,
+      "name": "Head World: Brain"
+    },
+    {
+      "mapId": 862,
+      "name": "Head World: Cyberspace"
+    },
+    {
+      "mapId": 482,
+      "name": "Heart World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 23,
+          "x2": 20,
+          "y2": 72
+        }
+      ]
+    },
+    {
+      "mapId": 92,
+      "name": "Heart World: Panel Passage"
+    },
+    {
+      "mapId": 96,
+      "name": "Heart World: Panel Passage"
+    },
+    {
+      "mapId": 3102,
+      "name": "Heian Era Village",
+      "regions": [
+        {
+          "x1": 7,
+          "y1": 3,
+          "x2": 12,
+          "y2": 10
+        }
+      ]
+    },
+    {
+      "mapId": 2570,
+      "name": "Hellish Village",
+      "regions": [
+        {
+          "x1": 125,
+          "y1": 0,
+          "x2": 134,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 3368,
+      "name": "Hemlock Lab",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 250,
+          "x2": 296,
+          "y2": 364
+        }
+      ]
+    },
+    {
+      "mapId": 817,
+      "name": "High-rise Building"
+    },
+    {
+      "mapId": 861,
+      "name": "High-rise Building: Dango World"
+    },
+    {
+      "mapId": 863,
+      "name": "High-rise Building: Dango World"
+    },
+    {
+      "mapId": 62,
+      "name": "Highway",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 108
+        },
+        {
+          "x1": 33,
+          "y1": 124,
+          "x2": 48,
+          "y2": 131
+        },
+        {
+          "x1": 0,
+          "y1": 109,
+          "x2": 26,
+          "y2": 139
+        },
+        {
+          "x1": -1,
+          "y1": 140,
+          "x2": -1,
+          "y2": 179
+        }
+      ]
+    },
+    {
+      "mapId": 65,
+      "name": "Highway"
+    },
+    {
+      "mapId": 67,
+      "name": "Highway"
+    },
+    {
+      "mapId": 68,
+      "name": "Highway",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 32
+        }
+      ]
+    },
+    {
+      "mapId": 498,
+      "name": "Highway",
+      "regions": [
+        {
+          "x1": 25,
+          "y1": 41,
+          "x2": 59,
+          "y2": 53
+        }
+      ]
+    },
+    {
+      "mapId": 1445,
+      "name": "Holiday Hell"
+    },
+    {
+      "mapId": 1193,
+      "name": "Holographic Chamber"
+    },
+    {
+      "mapId": 1699,
+      "name": "Honeybee Laboratory",
+      "regions": [
+        {
+          "x1": 195,
+          "y1": 34,
+          "x2": 249,
+          "y2": 74
+        }
+      ]
+    },
+    {
+      "mapId": 1726,
+      "name": "Honeybee Laboratory",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 102,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2039,
+      "name": "Honeybee Residence",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 89,
+          "y2": 55
+        }
+      ]
+    },
+    {
+      "mapId": 2039,
+      "name": "Honeybee Residence: Honeybee Skyscraper"
+    },
+    {
+      "mapId": 3368,
+      "name": "Hop Springs",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 79,
+          "y2": 159
+        },
+        {
+          "x1": 80,
+          "y1": 0,
+          "x2": 119,
+          "y2": 89
+        }
+      ]
+    },
+    {
+      "mapId": 1445,
+      "name": "Horror Maze",
+      "regions": [
+        {
+          "x1": 447,
+          "y1": 146,
+          "x2": 455,
+          "y2": 242
+        }
+      ]
+    },
+    {
+      "mapId": 24,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 25,
+      "name": "Hospital: Hospital Outskirts"
+    },
+    {
+      "mapId": 26,
+      "name": "Hospital: Hospital Outskirts"
+    },
+    {
+      "mapId": 27,
+      "name": "Hospital: Hospital Outskirts"
+    },
+    {
+      "mapId": 2661,
+      "name": "Hospital: Monochrome Passage"
+    },
+    {
+      "mapId": 295,
+      "name": "Hourglass Desert: Pyramid Maze"
+    },
+    {
+      "mapId": 296,
+      "name": "Hourglass Desert: Pyramid Maze"
+    },
+    {
+      "mapId": 816,
+      "name": "House Over the Rainbow: Black Rose World"
+    },
+    {
+      "mapId": 815,
+      "name": "House Over the Rainbow: Rose Field"
+    },
+    {
+      "mapId": 1445,
+      "name": "Ice Cream Islands",
+      "regions": [
+        {
+          "x1": 1,
+          "y1": 72,
+          "x2": 180,
+          "y2": 180
+        }
+      ]
+    },
+    {
+      "mapId": 762,
+      "name": "Ice Floe World"
+    },
+    {
+      "mapId": 765,
+      "name": "Ice Floe World"
+    },
+    {
+      "mapId": 767,
+      "name": "Ice Floe World: Great Fish's Stomach"
+    },
+    {
+      "mapId": 2796,
+      "name": "Ice Thorn Cave"
+    },
+    {
+      "mapId": 2797,
+      "name": "Ice Thorn Cave: Ice Robot's Room",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 233,
+          "x2": 49,
+          "y2": 279
+        }
+      ]
+    },
+    {
+      "mapId": 2279,
+      "name": "Illuminated Building",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 16,
+          "x2": -1,
+          "y2": 30
+        }
+      ]
+    },
+    {
+      "mapId": 2296,
+      "name": "Illuminated Building",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 51,
+          "x2": -1,
+          "y2": 144
+        }
+      ]
+    },
+    {
+      "mapId": 2064,
+      "name": "Illusive Forest: Bloody Eye House"
+    },
+    {
+      "mapId": 2061,
+      "name": "Illusive Forest: Tiger Trail"
+    },
+    {
+      "mapId": 1806,
+      "name": "Industrial Hotel"
+    },
+    {
+      "mapId": 571,
+      "name": "Industrial Maze"
+    },
+    {
+      "mapId": 725,
+      "name": "Innocent Dream"
+    },
+    {
+      "mapId": 237,
+      "name": "Invisible Maze"
+    },
+    {
+      "mapId": 238,
+      "name": "Invisible Maze"
+    },
+    {
+      "mapId": 239,
+      "name": "Invisible Maze"
+    },
+    {
+      "mapId": 57,
+      "name": "Japan Town",
+      "regions": [
+        {
+          "x1": 24,
+          "y1": 69,
+          "x2": 50,
+          "y2": 95
+        }
+      ]
+    },
+    {
+      "mapId": 58,
+      "name": "Japan Town",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 162,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 57,
+      "name": "Japan Town: The Back Alley",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 200,
+          "x2": -1,
+          "y2": 328
+        },
+        {
+          "x1": -1,
+          "y1": 431,
+          "x2": -1,
+          "y2": 454
+        }
+      ]
+    },
+    {
+      "mapId": 57,
+      "name": "Japan Town: The Hotel",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 23,
+          "y2": 95
+        },
+        {
+          "x1": 24,
+          "y1": 0,
+          "x2": 50,
+          "y2": 68
+        }
+      ]
+    },
+    {
+      "mapId": 271,
+      "name": "Japan Town: The Hotel"
+    },
+    {
+      "mapId": 314,
+      "name": "Japan Town: The Hotel"
+    },
+    {
+      "mapId": 317,
+      "name": "Japan Town: The Hotel"
+    },
+    {
+      "mapId": 59,
+      "name": "Japan Town: The Underground Bar"
+    },
+    {
+      "mapId": 3364,
+      "name": "Jigsaw Junction",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 387,
+          "x2": 19,
+          "y2": 402
+        }
+      ]
+    },
+    {
+      "mapId": 3370,
+      "name": "Jigsaw Junction",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 121,
+          "x2": 197,
+          "y2": 145
+        }
+      ]
+    },
+    {
+      "mapId": 412,
+      "name": "Jigsaw Puzzle World",
+      "conditional": true
+    },
+    {
+      "mapId": 415,
+      "name": "Jigsaw Puzzle World"
+    },
+    {
+      "mapId": 418,
+      "name": "Jigsaw Puzzle World"
+    },
+    {
+      "mapId": 419,
+      "name": "Jigsaw Puzzle World"
+    },
+    {
+      "mapId": 452,
+      "name": "Jigsaw Puzzle World"
+    },
+    {
+      "mapId": 1826,
+      "name": "Kaleidoscope World",
+      "regions": [
+        {
+          "x1": 1,
+          "y1": 130,
+          "x2": 33,
+          "y2": 155
+        },
+        {
+          "x1": 35,
+          "y1": 130,
+          "x2": 67,
+          "y2": 155
+        },
+        {
+          "x1": 82,
+          "y1": 130,
+          "x2": 109,
+          "y2": 170
+        },
+        {
+          "x1": 49,
+          "y1": 204,
+          "x2": 96,
+          "y2": 219
+        }
+      ]
+    },
+    {
+      "mapId": 383,
+      "name": "Laboratory"
+    },
+    {
+      "mapId": 2038,
+      "name": "Lake of Bones",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 187,
+          "x2": 234,
+          "y2": 304
+        }
+      ]
+    },
+    {
+      "mapId": 2203,
+      "name": "Lamp Puddle World: Fortune Teller's Tent"
+    },
+    {
+      "mapId": 1272,
+      "name": "Laundromat",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 199,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1276,
+      "name": "Laundromat: Floating City",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 171
+        }
+      ]
+    },
+    {
+      "mapId": 1347,
+      "name": "Lavender Park: 28 Tile Path"
+    },
+    {
+      "mapId": 1148,
+      "name": "Lavender Waters"
+    },
+    {
+      "mapId": 2294,
+      "name": "Legacy Nexus"
+    },
+    {
+      "mapId": 2570,
+      "name": "Legacy Nexus",
+      "regions": [
+        {
+          "x1": 240,
+          "y1": 0,
+          "x2": 259,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 2293,
+      "name": "Legacy Nexus: Realistic Flat"
+    },
+    {
+      "mapId": 2563,
+      "name": "Legacy of Ruin",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 100,
+          "x2": 89,
+          "y2": 129
+        },
+        {
+          "x1": 57,
+          "y1": 0,
+          "x2": 73,
+          "y2": 56
+        },
+        {
+          "x1": 52,
+          "y1": 57,
+          "x2": 73,
+          "y2": 95
+        },
+        {
+          "x1": 74,
+          "y1": 0,
+          "x2": 103,
+          "y2": 99
+        }
+      ]
+    },
+    {
+      "mapId": 2567,
+      "name": "Legacy of Ruin",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 334,
+          "x2": 119,
+          "y2": 399
+        }
+      ]
+    },
+    {
+      "mapId": 2570,
+      "name": "Legacy of Ruin"
+    },
+    {
+      "mapId": 3531,
+      "name": "Legacy of Ruin"
+    },
+    {
+      "mapId": 1700,
+      "name": "Lemon World",
+      "regions": [
+        {
+          "x1": 200,
+          "y1": 0,
+          "x2": 279,
+          "y2": 79
+        }
+      ]
+    },
+    {
+      "mapId": 4082,
+      "name": "Limestone Dam",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 101,
+          "x2": 149,
+          "y2": 85
+        }
+      ]
+    },
+    {
+      "mapId": 1383,
+      "name": "Lingering Sewers",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 119,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1719,
+      "name": "Lit Tile Path"
+    },
+    {
+      "mapId": 1728,
+      "name": "Litter Heaven",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 160,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2040,
+      "name": "Lively Tower",
+      "regions": [
+        {
+          "x1": 214,
+          "y1": 0,
+          "x2": 399,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 2191,
+      "name": "Lonely Home: Sunset Sanctum"
+    },
+    {
+      "mapId": 455,
+      "name": "Lorn Tower: Portrait"
+    },
+    {
+      "mapId": 1139,
+      "name": "Lost Creek"
+    },
+    {
+      "mapId": 668,
+      "name": "Lotus Waters"
+    },
+    {
+      "mapId": 1727,
+      "name": "Love Lodge",
+      "regions": [
+        {
+          "x1": 113,
+          "y1": -1,
+          "x2": 294,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1809,
+      "name": "Love Lodge",
+      "regions": [
+        {
+          "x1": 140,
+          "y1": 0,
+          "x2": 199,
+          "y2": 61
+        }
+      ]
+    },
+    {
+      "mapId": 1266,
+      "name": "Lovesick World"
+    },
+    {
+      "mapId": 1299,
+      "name": "Lovesick World"
+    },
+    {
+      "mapId": 1308,
+      "name": "Lovesick World",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 30,
+          "x2": -1,
+          "y2": 59
+        }
+      ]
+    },
+    {
+      "mapId": 1472,
+      "name": "Luminous Lake: Dragon's Peak"
+    },
+    {
+      "mapId": 1626,
+      "name": "Mackerel Desert",
+      "regions": [
+        {
+          "x1": 55,
+          "y1": -1,
+          "x2": 127,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2392,
+      "name": "Magenta Village",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 24,
+          "x2": 99,
+          "y2": 68
+        },
+        {
+          "x1": 0,
+          "y1": 99,
+          "x2": 20,
+          "y2": 101
+        },
+        {
+          "x1": 0,
+          "y1": 129,
+          "x2": 65,
+          "y2": 200
+        }
+      ]
+    },
+    {
+      "mapId": 2704,
+      "name": "Magic Nexus"
+    },
+    {
+      "mapId": 1673,
+      "name": "Magical Passage"
+    },
+    {
+      "mapId": 266,
+      "name": "Magnet Room: Zalgo's Room"
+    },
+    {
+      "mapId": 263,
+      "name": "Magnet Room: Zalgo's Room?"
+    },
+    {
+      "mapId": 58,
+      "name": "Maiden Outlook"
+    },
+    {
+      "mapId": 569,
+      "name": "Mansion"
+    },
+    {
+      "mapId": 2039,
+      "name": "Mansion Garden",
+      "regions": [
+        {
+          "x1": 84,
+          "y1": 104,
+          "x2": 230,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 1274,
+      "name": "Maple Forest"
+    },
+    {
+      "mapId": 1274,
+      "name": "Maple Forest: Bamboo Forest",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 137,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1274,
+      "name": "Maple Forest: Golden Chinatown",
+      "regions": [
+        {
+          "x1": 138,
+          "y1": -1,
+          "x2": 321,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1622,
+      "name": "Maple Forest: Golden Chinatown",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 21,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1725,
+      "name": "Maple Forest: Lollipop Isle",
+      "regions": [
+        {
+          "x1": 220,
+          "y1": 0,
+          "x2": 289,
+          "y2": 42
+        }
+      ]
+    },
+    {
+      "mapId": 1578,
+      "name": "Marble Ruins"
+    },
+    {
+      "mapId": 1578,
+      "name": "Marble Ruins: Marble Tower",
+      "regions": [
+        {
+          "x1": 137,
+          "y1": 235,
+          "x2": 183,
+          "y2": 259
+        }
+      ]
+    },
+    {
+      "mapId": 1580,
+      "name": "Marble Ruins: Marble Tower"
+    },
+    {
+      "mapId": 1579,
+      "name": "Marble Ruins: Small Pond"
+    },
+    {
+      "mapId": 1578,
+      "name": "Marble Ruins:The Garden",
+      "regions": [
+        {
+          "x1": 5,
+          "y1": 217,
+          "x2": 43,
+          "y2": 244
+        }
+      ]
+    },
+    {
+      "mapId": 51,
+      "name": "Marijuana Goddess World"
+    },
+    {
+      "mapId": 451,
+      "name": "Mask Shop",
+      "conditional": true
+    },
+    {
+      "mapId": 2652,
+      "name": "Meadow of Faces"
+    },
+    {
+      "mapId": 2873,
+      "name": "Metallic Pathway"
+    },
+    {
+      "mapId": 2799,
+      "name": "Miasma"
+    },
+    {
+      "mapId": 2797,
+      "name": "Miasma: White Lily Graveyard",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 165,
+          "x2": 49,
+          "y2": 232
+        }
+      ]
+    },
+    {
+      "mapId": 2199,
+      "name": "Mini-Nexus: Someone's Room"
+    },
+    {
+      "mapId": 42,
+      "name": "Minigame A"
+    },
+    {
+      "mapId": 1243,
+      "name": "Miraculous Waters",
+      "regions": [
+        {
+          "x1": 209,
+          "y1": -1,
+          "x2": 234,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1247,
+      "name": "Miraculous Waters"
+    },
+    {
+      "mapId": 845,
+      "name": "Misty Bridges: Lotus Lamp Room"
+    },
+    {
+      "mapId": 3102,
+      "name": "Misty Streets"
+    },
+    {
+      "mapId": 2630,
+      "name": "Mixed Beach"
+    },
+    {
+      "mapId": 1271,
+      "name": "Mole Mine",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 25,
+          "x2": 56,
+          "y2": 106
+        }
+      ]
+    },
+    {
+      "mapId": 1523,
+      "name": "Monkey Mansion",
+      "conditional": true
+    },
+    {
+      "mapId": 854,
+      "name": "Monkey Mansion: Monkey Mansion Basement"
+    },
+    {
+      "mapId": 1782,
+      "name": "Monkey Mansion: Monkey Mansion Basement"
+    },
+    {
+      "mapId": 911,
+      "name": "Monochrome Feudal Japan",
+      "regions": [
+        {
+          "x1": 109,
+          "y1": 15,
+          "x2": 132,
+          "y2": 25
+        }
+      ]
+    },
+    {
+      "mapId": 183,
+      "name": "Monochrome Feudal Japan: Monochrome Path"
+    },
+    {
+      "mapId": 184,
+      "name": "Monochrome Feudal Japan: Monochrome Path"
+    },
+    {
+      "mapId": 185,
+      "name": "Monochrome Feudal Japan: Monochrome Path"
+    },
+    {
+      "mapId": 1048,
+      "name": "Monochrome GB World"
+    },
+    {
+      "mapId": 991,
+      "name": "Monochrome GB World: GB Fields"
+    },
+    {
+      "mapId": 992,
+      "name": "Monochrome GB World: GB Fields"
+    },
+    {
+      "mapId": 993,
+      "name": "Monochrome GB World: GB Fields"
+    },
+    {
+      "mapId": 994,
+      "name": "Monochrome GB World: GB Fields"
+    },
+    {
+      "mapId": 1047,
+      "name": "Monochrome GB World: GB Tunnel"
+    },
+    {
+      "mapId": 1425,
+      "name": "Monochrome GB World: GB Well"
+    },
+    {
+      "mapId": 903,
+      "name": "Monochrome Mansion",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 71
+        }
+      ]
+    },
+    {
+      "mapId": 1005,
+      "name": "Monochrome Mansion: Escherian Passage"
+    },
+    {
+      "mapId": 904,
+      "name": "Monochrome Mansion: Monochrome Fields"
+    },
+    {
+      "mapId": 2567,
+      "name": "Monochrome Street: Everyman Passage",
+      "regions": [
+        {
+          "x1": 218,
+          "y1": 355,
+          "x2": 250,
+          "y2": 384
+        },
+        {
+          "x1": 120,
+          "y1": 385,
+          "x2": 303,
+          "y2": 399
+        }
+      ]
+    },
+    {
+      "mapId": 2165,
+      "name": "Monochrome Tile Corridor"
+    },
+    {
+      "mapId": 2143,
+      "name": "Moonlit Street"
+    },
+    {
+      "mapId": 1387,
+      "name": "Moonview Lane: Fabric Planet",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 32
+        }
+      ]
+    },
+    {
+      "mapId": 2805,
+      "name": "Morning Suburbs",
+      "regions": [
+        {
+          "x1": 180,
+          "y1": 0,
+          "x2": 211,
+          "y2": 21
+        }
+      ]
+    },
+    {
+      "mapId": 2807,
+      "name": "Morning Suburbs"
+    },
+    {
+      "mapId": 3195,
+      "name": "Moss World",
+      "regions": [
+        {
+          "x1": 238,
+          "y1": 24,
+          "x2": 257,
+          "y2": 43
+        }
+      ]
+    },
+    {
+      "mapId": 2291,
+      "name": "Motel Breeze",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 43,
+          "y2": 15
+        },
+        {
+          "x1": 26,
+          "y1": 258,
+          "x2": 41,
+          "y2": 299
+        }
+      ]
+    },
+    {
+      "mapId": 2796,
+      "name": "Moth Gallery: Cold Summer Flames",
+      "regions": [
+        {
+          "x1": 32,
+          "y1": 26,
+          "x2": 48,
+          "y2": 46
+        }
+      ]
+    },
+    {
+      "mapId": 2799,
+      "name": "Moth Gallery: Cold Summer Flames",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 157,
+          "x2": 164,
+          "y2": 275
+        }
+      ]
+    },
+    {
+      "mapId": 3130,
+      "name": "Moth Meadow",
+      "regions": [
+        {
+          "x1": 177,
+          "y1": 82,
+          "x2": 196,
+          "y2": 96
+        }
+      ]
+    },
+    {
+      "mapId": 2736,
+      "name": "Mourning Void: Heart Passage"
+    },
+    {
+      "mapId": 2737,
+      "name": "Mourning Void: Heart Passage"
+    },
+    {
+      "mapId": 3130,
+      "name": "Museum of Curiosities"
+    },
+    {
+      "mapId": 290,
+      "name": "Mushroom World: White Mushroom Field"
+    },
+    {
+      "mapId": 2750,
+      "name": "Mutant Nexus"
+    },
+    {
+      "mapId": 1381,
+      "name": "Mystery Library",
+      "regions": [
+        {
+          "x1": 83,
+          "y1": 140,
+          "x2": 199,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 1387,
+      "name": "Mystery Library",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 33,
+          "x2": -1,
+          "y2": 79
+        }
+      ]
+    },
+    {
+      "mapId": 188,
+      "name": "Nail World",
+      "regions": [
+        {
+          "x1": 27,
+          "y1": 29,
+          "x2": 28,
+          "y2": 30
+        },
+        {
+          "x1": 27,
+          "y1": 32,
+          "x2": 28,
+          "y2": 38
+        },
+        {
+          "x1": 29,
+          "y1": 26,
+          "x2": 29,
+          "y2": 41
+        },
+        {
+          "x1": 30,
+          "y1": 23,
+          "x2": 30,
+          "y2": 42
+        },
+        {
+          "x1": 31,
+          "y1": 22,
+          "x2": 32,
+          "y2": 46
+        },
+        {
+          "x1": 33,
+          "y1": 20,
+          "x2": 34,
+          "y2": 47
+        },
+        {
+          "x1": 35,
+          "y1": 18,
+          "x2": 36,
+          "y2": 48
+        },
+        {
+          "x1": 37,
+          "y1": 17,
+          "x2": 38,
+          "y2": 49
+        },
+        {
+          "x1": 39,
+          "y1": 15,
+          "x2": 42,
+          "y2": 50
+        },
+        {
+          "x1": 43,
+          "y1": 13,
+          "x2": 57,
+          "y2": 51
+        },
+        {
+          "x1": 58,
+          "y1": 15,
+          "x2": 62,
+          "y2": 51
+        },
+        {
+          "x1": 63,
+          "y1": 17,
+          "x2": 64,
+          "y2": 49
+        },
+        {
+          "x1": 65,
+          "y1": 19,
+          "x2": 66,
+          "y2": 48
+        },
+        {
+          "x1": 67,
+          "y1": 21,
+          "x2": 67,
+          "y2": 48
+        },
+        {
+          "x1": 68,
+          "y1": 22,
+          "x2": 68,
+          "y2": 45
+        },
+        {
+          "x1": 69,
+          "y1": 25,
+          "x2": 69,
+          "y2": 44
+        },
+        {
+          "x1": 70,
+          "y1": 25,
+          "x2": 71,
+          "y2": 41
+        },
+        {
+          "x1": 72,
+          "y1": 28,
+          "x2": 72,
+          "y2": 28
+        },
+        {
+          "x1": 72,
+          "y1": 32,
+          "x2": 72,
+          "y2": 39
+        },
+        {
+          "x1": 73,
+          "y1": 32,
+          "x2": 73,
+          "y2": 36
+        }
+      ]
+    },
+    {
+      "mapId": 272,
+      "name": "Nail World: Red Nail Passage"
+    },
+    {
+      "mapId": 1700,
+      "name": "Nazca Valley",
+      "regions": [
+        {
+          "x1": 200,
+          "y1": 80,
+          "x2": 279,
+          "y2": 159
+        }
+      ]
+    },
+    {
+      "mapId": 1721,
+      "name": "Nazca Valley: Ambulance Parking Facility"
+    },
+    {
+      "mapId": 1723,
+      "name": "Nazca Valley: Eggplant Domain",
+      "regions": [
+        {
+          "x1": 93,
+          "y1": -1,
+          "x2": 186,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1807,
+      "name": "Nazca Valley: Fried Egg Zone",
+      "regions": [
+        {
+          "x1": 124,
+          "y1": -1,
+          "x2": 249,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2040,
+      "name": "Nazca Valley: Monochrome Dungeon",
+      "regions": [
+        {
+          "x1": 122,
+          "y1": 77,
+          "x2": 213,
+          "y2": 140
+        }
+      ]
+    },
+    {
+      "mapId": 1730,
+      "name": "Nazca Valley: Panda Checkers Area",
+      "regions": [
+        {
+          "x1": 85,
+          "y1": 0,
+          "x2": 184,
+          "y2": 80
+        }
+      ]
+    },
+    {
+      "mapId": 1730,
+      "name": "Nazca Valley: Psychedelic Dungeon",
+      "regions": [
+        {
+          "x1": 85,
+          "y1": 81,
+          "x2": 184,
+          "y2": 159
+        }
+      ]
+    },
+    {
+      "mapId": 1725,
+      "name": "Nazca Valley: Space Construction Site",
+      "regions": [
+        {
+          "x1": 220,
+          "y1": 43,
+          "x2": 289,
+          "y2": 99
+        }
+      ]
+    },
+    {
+      "mapId": 1730,
+      "name": "Nazca Valley: Squid Zone",
+      "regions": [
+        {
+          "x1": 185,
+          "y1": 0,
+          "x2": 277,
+          "y2": 80
+        }
+      ]
+    },
+    {
+      "mapId": 1730,
+      "name": "Nazca Valley: Stove",
+      "regions": [
+        {
+          "x1": 278,
+          "y1": 0,
+          "x2": 349,
+          "y2": 80
+        }
+      ]
+    },
+    {
+      "mapId": 1730,
+      "name": "Nazca Valley: Sunny Town"
+    },
+    {
+      "mapId": 936,
+      "name": "Neon Caves"
+    },
+    {
+      "mapId": 529,
+      "name": "Neon City"
+    },
+    {
+      "mapId": 62,
+      "name": "Neon Highway",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 180,
+          "x2": -1,
+          "y2": 219
+        }
+      ]
+    },
+    {
+      "mapId": 483,
+      "name": "Neon Highway"
+    },
+    {
+      "mapId": 2164,
+      "name": "Neon Playground"
+    },
+    {
+      "mapId": 841,
+      "name": "Neon Sea: Marina's House"
+    },
+    {
+      "mapId": 2157,
+      "name": "Nerium Lab: Pink Hell"
+    },
+    {
+      "mapId": 268,
+      "name": "Never-Ending Hallway"
+    },
+    {
+      "mapId": 269,
+      "name": "Never-Ending Hallway"
+    },
+    {
+      "mapId": 10,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 1293,
+      "name": "Nightfall Park"
+    },
+    {
+      "mapId": 1302,
+      "name": "Nightfall Park",
+      "regions": [
+        {
+          "x1": 130,
+          "y1": 0,
+          "x2": 149,
+          "y2": 50
+        }
+      ]
+    },
+    {
+      "mapId": 1946,
+      "name": "Nightfall Park"
+    },
+    {
+      "mapId": 1810,
+      "name": "Nightmare Inn",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 201,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1963,
+      "name": "Ninja Town"
+    },
+    {
+      "mapId": 1963,
+      "name": "Ninja Town: The Neighborhood",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 15
+        }
+      ]
+    },
+    {
+      "mapId": 1965,
+      "name": "Ninja Town: The Neighborhood"
+    },
+    {
+      "mapId": 1400,
+      "name": "Nocturne"
+    },
+    {
+      "mapId": 1791,
+      "name": "Nocturne"
+    },
+    {
+      "mapId": 1796,
+      "name": "Nocturne"
+    },
+    {
+      "mapId": 1422,
+      "name": "Obentou World"
+    },
+    {
+      "mapId": 1885,
+      "name": "Oblique Hell",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 128,
+          "x2": 51,
+          "y2": 163
+        }
+      ]
+    },
+    {
+      "mapId": 1890,
+      "name": "Oblique Hell",
+      "regions": [
+        {
+          "x1": 119,
+          "y1": 142,
+          "x2": 142,
+          "y2": 158
+        }
+      ]
+    },
+    {
+      "mapId": 1885,
+      "name": "Oblique Hell: Antiquated Bathhouse",
+      "regions": [
+        {
+          "x1": 53,
+          "y1": 128,
+          "x2": 72,
+          "y2": 142
+        }
+      ]
+    },
+    {
+      "mapId": 1885,
+      "name": "Oblique Hell: First-Person Maze"
+    },
+    {
+      "mapId": 1890,
+      "name": "Oblique Hell: First-Person Maze",
+      "regions": [
+        {
+          "x1": 149,
+          "y1": 142,
+          "x2": 172,
+          "y2": 158
+        }
+      ]
+    },
+    {
+      "mapId": 1709,
+      "name": "Obstacle Course: Yellow Diamond Area"
+    },
+    {
+      "mapId": 788,
+      "name": "Ocean Storehouse"
+    },
+    {
+      "mapId": 911,
+      "name": "Ocean Subsurface"
+    },
+    {
+      "mapId": 1322,
+      "name": "Octagonal Grid Hub: Colorless Pier"
+    },
+    {
+      "mapId": 1323,
+      "name": "Octagonal Grid Hub: Colorless Pier"
+    },
+    {
+      "mapId": 1324,
+      "name": "Octagonal Grid Hub: Colorless Pier"
+    },
+    {
+      "mapId": 1328,
+      "name": "Octagonal Grid Hub: Colorless Pier"
+    },
+    {
+      "mapId": 1329,
+      "name": "Octagonal Grid Hub: Colorless Pier"
+    },
+    {
+      "mapId": 1273,
+      "name": "Oil Drum World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 127,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 6,
+      "name": "Old Sound Room"
+    },
+    {
+      "mapId": 1389,
+      "name": "Omurice Labyrinth",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 49
+        }
+      ]
+    },
+    {
+      "mapId": 1371,
+      "name": "Onyx Tile World"
+    },
+    {
+      "mapId": 1736,
+      "name": "Opal Archives"
+    },
+    {
+      "mapId": 1291,
+      "name": "Opal Ruins A",
+      "regions": [
+        {
+          "x1": 18,
+          "y1": 0,
+          "x2": 121,
+          "y2": 7
+        },
+        {
+          "x1": 45,
+          "y1": 8,
+          "x2": 113,
+          "y2": 11
+        },
+        {
+          "x1": 14,
+          "y1": 12,
+          "x2": 114,
+          "y2": 19
+        },
+        {
+          "x1": 18,
+          "y1": 20,
+          "x2": 109,
+          "y2": 26
+        },
+        {
+          "x1": 32,
+          "y1": 27,
+          "x2": 96,
+          "y2": 37
+        },
+        {
+          "x1": 27,
+          "y1": 38,
+          "x2": 89,
+          "y2": 41
+        },
+        {
+          "x1": 15,
+          "y1": 42,
+          "x2": 81,
+          "y2": 46
+        },
+        {
+          "x1": 12,
+          "y1": 47,
+          "x2": 76,
+          "y2": 50
+        },
+        {
+          "x1": 101,
+          "y1": 49,
+          "x2": 113,
+          "y2": 50
+        },
+        {
+          "x1": 41,
+          "y1": 51,
+          "x2": 113,
+          "y2": 58
+        },
+        {
+          "x1": 65,
+          "y1": 59,
+          "x2": 99,
+          "y2": 62
+        },
+        {
+          "x1": 36,
+          "y1": 63,
+          "x2": 107,
+          "y2": 70
+        },
+        {
+          "x1": 129,
+          "y1": 58,
+          "x2": 139,
+          "y2": 66
+        },
+        {
+          "x1": 127,
+          "y1": 67,
+          "x2": 149,
+          "y2": 70
+        },
+        {
+          "x1": 30,
+          "y1": 71,
+          "x2": 149,
+          "y2": 79
+        },
+        {
+          "x1": 8,
+          "y1": 66,
+          "x2": 19,
+          "y2": 67
+        },
+        {
+          "x1": 14,
+          "y1": 68,
+          "x2": 17,
+          "y2": 69
+        },
+        {
+          "x1": 0,
+          "y1": 70,
+          "x2": 14,
+          "y2": 77
+        }
+      ]
+    },
+    {
+      "mapId": 1294,
+      "name": "Opal Ruins A: Opal Sea"
+    },
+    {
+      "mapId": 1347,
+      "name": "Opal Ruins A: Opal Sea",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 17,
+          "y2": 47
+        }
+      ]
+    },
+    {
+      "mapId": 1291,
+      "name": "Opal Ruins B"
+    },
+    {
+      "mapId": 1308,
+      "name": "Orange Badlands",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 60,
+          "x2": 19,
+          "y2": 74
+        }
+      ]
+    },
+    {
+      "mapId": 4081,
+      "name": "Orange Tile Path",
+      "regions": [
+        {
+          "x1": 198,
+          "y1": 137,
+          "x2": 299,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 1308,
+      "name": "Originator Garden",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 15,
+          "x2": 19,
+          "y2": 29
+        }
+      ]
+    },
+    {
+      "mapId": 1309,
+      "name": "Originator Garden: Fuchsia Suburbs B"
+    },
+    {
+      "mapId": 539,
+      "name": "Overgrown City"
+    },
+    {
+      "mapId": 546,
+      "name": "Overgrown City"
+    },
+    {
+      "mapId": 564,
+      "name": "Overgrown Gate"
+    },
+    {
+      "mapId": 2038,
+      "name": "Overwork Office",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 311,
+          "x2": 20,
+          "y2": 326
+        }
+      ]
+    },
+    {
+      "mapId": 3368,
+      "name": "Overwork Office",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 365,
+          "x2": 296,
+          "y2": 499
+        }
+      ]
+    },
+    {
+      "mapId": 3369,
+      "name": "Overwork Office",
+      "regions": [
+        {
+          "x1": 100,
+          "y1": 355,
+          "x2": 254,
+          "y2": 499
+        }
+      ]
+    },
+    {
+      "mapId": 3151,
+      "name": "Painted Landscape",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 18,
+          "x2": 59,
+          "y2": 55
+        }
+      ]
+    },
+    {
+      "mapId": 3158,
+      "name": "Painted Landscape",
+      "conditional": true
+    },
+    {
+      "mapId": 1621,
+      "name": "Pancake World: Dinosaur Abode",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 55,
+          "x2": -1,
+          "y2": 99
+        }
+      ]
+    },
+    {
+      "mapId": 639,
+      "name": "Pansy Path"
+    },
+    {
+      "mapId": 1959,
+      "name": "Pansy Path"
+    },
+    {
+      "mapId": 1960,
+      "name": "Pansy Path"
+    },
+    {
+      "mapId": 3365,
+      "name": "Paper Ruins",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 251,
+          "x2": 199,
+          "y2": 403
+        }
+      ]
+    },
+    {
+      "mapId": 762,
+      "name": "Paradise",
+      "regions": [
+        {
+          "x1": 25,
+          "y1": 0,
+          "x2": 49,
+          "y2": 14
+        },
+        {
+          "x1": 49,
+          "y1": 34,
+          "x2": 64,
+          "y2": 59
+        }
+      ]
+    },
+    {
+      "mapId": 763,
+      "name": "Paradise"
+    },
+    {
+      "mapId": 764,
+      "name": "Paradise",
+      "regions": [
+        {
+          "x1": 90,
+          "y1": 159,
+          "x2": 130,
+          "y2": 175
+        }
+      ]
+    },
+    {
+      "mapId": 765,
+      "name": "Paradise",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 28,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 877,
+      "name": "Parasite Laboratory"
+    },
+    {
+      "mapId": 1529,
+      "name": "Parking Garage: Mistaken Call Room"
+    },
+    {
+      "mapId": 1781,
+      "name": "Parking Garage: Underground Mall"
+    },
+    {
+      "mapId": 2213,
+      "name": "Party Playground",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 19,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 1302,
+      "name": "Pastel Chalk World",
+      "regions": [
+        {
+          "x1": 110,
+          "y1": 135,
+          "x2": 129,
+          "y2": 149
+        },
+        {
+          "x1": 130,
+          "y1": 90,
+          "x2": 149,
+          "y2": 134
+        }
+      ]
+    },
+    {
+      "mapId": 3364,
+      "name": "Pastel Dream Sea: Sargat Layer"
+    },
+    {
+      "mapId": 3370,
+      "name": "Pastel Dream Sea: Sargat Layer",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 165,
+          "x2": 19,
+          "y2": 179
+        }
+      ]
+    },
+    {
+      "mapId": 3364,
+      "name": "Pastel Dream Sea: Sunken Ship Mansion",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 229,
+          "y2": 99
+        }
+      ]
+    },
+    {
+      "mapId": 2567,
+      "name": "Pastel Mall",
+      "regions": [
+        {
+          "x1": 209,
+          "y1": 0,
+          "x2": 303,
+          "y2": 25
+        },
+        {
+          "x1": 209,
+          "y1": 26,
+          "x2": 303,
+          "y2": 96
+        }
+      ]
+    },
+    {
+      "mapId": 672,
+      "name": "Pencil World",
+      "conditional": true
+    },
+    {
+      "mapId": 192,
+      "name": "Penguin Game"
+    },
+    {
+      "mapId": 193,
+      "name": "Penguin Game"
+    },
+    {
+      "mapId": 692,
+      "name": "Picture Book"
+    },
+    {
+      "mapId": 713,
+      "name": "Picture Book",
+      "conditional": true
+    },
+    {
+      "mapId": 717,
+      "name": "Picture Book"
+    },
+    {
+      "mapId": 1396,
+      "name": "Picture Book"
+    },
+    {
+      "mapId": 3126,
+      "name": "Pinwheel Countryside"
+    },
+    {
+      "mapId": 3025,
+      "name": "Pitch Black Plateau"
+    },
+    {
+      "mapId": 3026,
+      "name": "Pitch Black Plateau"
+    },
+    {
+      "mapId": 3028,
+      "name": "Pitch Black Plateau: Hopeful Road"
+    },
+    {
+      "mapId": 3027,
+      "name": "Pitch Black Plateau: The Emptiness"
+    },
+    {
+      "mapId": 567,
+      "name": "Planetarium"
+    },
+    {
+      "mapId": 568,
+      "name": "Planetarium"
+    },
+    {
+      "mapId": 2003,
+      "name": "Planter Passage",
+      "conditional": true
+    },
+    {
+      "mapId": 249,
+      "name": "Plated Snow Country"
+    },
+    {
+      "mapId": 250,
+      "name": "Plated Snow Country"
+    },
+    {
+      "mapId": 1271,
+      "name": "Playing Card Dungeon",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 107,
+          "x2": 56,
+          "y2": 149
+        }
+      ]
+    },
+    {
+      "mapId": 1383,
+      "name": "Playing Card Dungeon",
+      "regions": [
+        {
+          "x1": 120,
+          "y1": -1,
+          "x2": 199,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1630,
+      "name": "Playing Card Dungeon: Golden Casino"
+    },
+    {
+      "mapId": 1722,
+      "name": "Playing Card Dungeon: Golden Casino",
+      "regions": [
+        {
+          "x1": 86,
+          "y1": -1,
+          "x2": 189,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1559,
+      "name": "Pleasure Street",
+      "regions": [
+        {
+          "x1": 5,
+          "y1": 29,
+          "x2": 131,
+          "y2": 42
+        },
+        {
+          "x1": 4,
+          "y1": 45,
+          "x2": 19,
+          "y2": 57
+        },
+        {
+          "x1": 47,
+          "y1": 45,
+          "x2": 89,
+          "y2": 57
+        }
+      ]
+    },
+    {
+      "mapId": 2151,
+      "name": "Pleasure Street"
+    },
+    {
+      "mapId": 2152,
+      "name": "Pleasure Street"
+    },
+    {
+      "mapId": 2155,
+      "name": "Pleasure Street",
+      "regions": [
+        {
+          "x1": 75,
+          "y1": 3,
+          "x2": 98,
+          "y2": 56
+        },
+        {
+          "x1": 27,
+          "y1": 98,
+          "x2": 49,
+          "y2": 113
+        }
+      ]
+    },
+    {
+      "mapId": 2156,
+      "name": "Pleasure Street: Sensu Zone"
+    },
+    {
+      "mapId": 2563,
+      "name": "Pocket Garden",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 170,
+          "x2": 199,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 799,
+      "name": "Polluted Swamp"
+    },
+    {
+      "mapId": 2213,
+      "name": "Polygon Mazescape",
+      "regions": [
+        {
+          "x1": 210,
+          "y1": 0,
+          "x2": 232,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 1950,
+      "name": "Pop Tiles Maze: Moonlight Lake"
+    },
+    {
+      "mapId": 2185,
+      "name": "Port City",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 35,
+          "x2": 174,
+          "y2": 81
+        }
+      ]
+    },
+    {
+      "mapId": 1525,
+      "name": "Portrait Purgatory"
+    },
+    {
+      "mapId": 1642,
+      "name": "Poseidon Plaza"
+    },
+    {
+      "mapId": 3369,
+      "name": "Potato World",
+      "regions": [
+        {
+          "x1": 140,
+          "y1": 0,
+          "x2": 249,
+          "y2": 149
+        }
+      ]
+    },
+    {
+      "mapId": 2239,
+      "name": "Primary Estate: Canvas"
+    },
+    {
+      "mapId": 1714,
+      "name": "Private Rooms"
+    },
+    {
+      "mapId": 1269,
+      "name": "Pudding World"
+    },
+    {
+      "mapId": 150,
+      "name": "Puzzle Game (Kura Puzzle)"
+    },
+    {
+      "mapId": 719,
+      "name": "Radiant Rainbow Reef"
+    },
+    {
+      "mapId": 515,
+      "name": "Radiant Ruins"
+    },
+    {
+      "mapId": 520,
+      "name": "Radiant Ruins"
+    },
+    {
+      "mapId": 1038,
+      "name": "Radiant Stones Pathway"
+    },
+    {
+      "mapId": 1730,
+      "name": "Rainbow Pottery Zone",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 84,
+          "y2": 80
+        }
+      ]
+    },
+    {
+      "mapId": 1801,
+      "name": "Rainbow Pottery Zone: Dogū World"
+    },
+    {
+      "mapId": 2509,
+      "name": "Rainbow Snow Plateau",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 150,
+          "x2": 19,
+          "y2": 164
+        }
+      ]
+    },
+    {
+      "mapId": 2289,
+      "name": "Rainfall Forest",
+      "regions": [
+        {
+          "x1": 64,
+          "y1": 17,
+          "x2": 83,
+          "y2": 31
+        }
+      ]
+    },
+    {
+      "mapId": 4088,
+      "name": "Rainy Bridges",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 80,
+          "x2": 97,
+          "y2": 300
+        },
+        {
+          "x1": 98,
+          "y1": 208,
+          "x2": 135,
+          "y2": 300
+        }
+      ]
+    },
+    {
+      "mapId": 327,
+      "name": "Realistic Beach"
+    },
+    {
+      "mapId": 328,
+      "name": "Realistic Beach"
+    },
+    {
+      "mapId": 329,
+      "name": "Realistic Beach"
+    },
+    {
+      "mapId": 330,
+      "name": "Realistic Beach"
+    },
+    {
+      "mapId": 331,
+      "name": "Realistic Beach"
+    },
+    {
+      "mapId": 332,
+      "name": "Realistic Beach"
+    },
+    {
+      "mapId": 2272,
+      "name": "Realm of Dice",
+      "regions": [
+        {
+          "x1": 5,
+          "y1": 1,
+          "x2": 11,
+          "y2": 10
+        },
+        {
+          "x1": -1,
+          "y1": 36,
+          "x2": -1,
+          "y2": 67
+        }
+      ]
+    },
+    {
+      "mapId": 3368,
+      "name": "Recursive Warehouse",
+      "regions": [
+        {
+          "x1": 96,
+          "y1": 172,
+          "x2": 196,
+          "y2": 248
+        }
+      ]
+    },
+    {
+      "mapId": 587,
+      "name": "Red Black World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 19,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 3136,
+      "name": "Red Black World"
+    },
+    {
+      "mapId": 102,
+      "name": "Red Blue Yellow (Minigame B)"
+    },
+    {
+      "mapId": 618,
+      "name": "Red Blue Yellow (Minigame B) - EX Version"
+    },
+    {
+      "mapId": 195,
+      "name": "Red Brick Maze: Cloning Room"
+    },
+    {
+      "mapId": 54,
+      "name": "Red City"
+    },
+    {
+      "mapId": 3151,
+      "name": "Red Desert Ruins",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 72,
+          "x2": 59,
+          "y2": 74
+        },
+        {
+          "x1": 0,
+          "y1": 76,
+          "x2": 21,
+          "y2": 89
+        }
+      ]
+    },
+    {
+      "mapId": 723,
+      "name": "Red Sky Cliff: Splash Streetway"
+    },
+    {
+      "mapId": 724,
+      "name": "Red Sky Cliff: Splash Streetway"
+    },
+    {
+      "mapId": 578,
+      "name": "Red Streetlight World"
+    },
+    {
+      "mapId": 2872,
+      "name": "Red Sun Outlook"
+    },
+    {
+      "mapId": 2876,
+      "name": "Red Sun Outlook"
+    },
+    {
+      "mapId": 2877,
+      "name": "Red Sun Outlook"
+    },
+    {
+      "mapId": 2878,
+      "name": "Red Sun Outlook"
+    },
+    {
+      "mapId": 2880,
+      "name": "Red Sun Outlook"
+    },
+    {
+      "mapId": 1727,
+      "name": "Refrigerator Tower",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 112,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1726,
+      "name": "Refrigerator Tower: Freezer",
+      "regions": [
+        {
+          "x1": 250,
+          "y1": -1,
+          "x2": 349,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1725,
+      "name": "Restored Sky Kingdom",
+      "regions": [
+        {
+          "x1": 95,
+          "y1": -1,
+          "x2": 219,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 490,
+      "name": "RGB Passage A"
+    },
+    {
+      "mapId": 490,
+      "name": "RGB Passage B",
+      "regions": [
+        {
+          "x1": 62,
+          "y1": 0,
+          "x2": 88,
+          "y2": 40
+        },
+        {
+          "x1": 3,
+          "y1": 49,
+          "x2": 23,
+          "y2": 79
+        }
+      ]
+    },
+    {
+      "mapId": 2039,
+      "name": "Rice Dumpling Plateau",
+      "regions": [
+        {
+          "x1": 156,
+          "y1": 0,
+          "x2": 249,
+          "y2": 93
+        }
+      ]
+    },
+    {
+      "mapId": 2693,
+      "name": "Rice Field: Abandoned Railway"
+    },
+    {
+      "mapId": 2880,
+      "name": "Rifle Wasteland",
+      "regions": [
+        {
+          "x1": 70,
+          "y1": 0,
+          "x2": 99,
+          "y2": 44
+        }
+      ]
+    },
+    {
+      "mapId": 637,
+      "name": "River Complex: Buddha Face Labyrinth"
+    },
+    {
+      "mapId": 487,
+      "name": "River Road A"
+    },
+    {
+      "mapId": 487,
+      "name": "River Road B",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 24,
+          "x2": -1,
+          "y2": 50
+        }
+      ]
+    },
+    {
+      "mapId": 489,
+      "name": "River_Complex: Buddha Face Labyrinth",
+      "regions": [
+        {
+          "x1": 240,
+          "y1": 131,
+          "x2": 256,
+          "y2": 139
+        }
+      ]
+    },
+    {
+      "mapId": 849,
+      "name": "Riverside Waste Facility"
+    },
+    {
+      "mapId": 925,
+      "name": "Riverside Waste Facility",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 30,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 2102,
+      "name": "Roadside Forest: Mannequin Sub-Area"
+    },
+    {
+      "mapId": 1531,
+      "name": "Rock World: Sunset Rooftops"
+    },
+    {
+      "mapId": 797,
+      "name": "Rooftops",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 104,
+          "y2": 96
+        }
+      ]
+    },
+    {
+      "mapId": 831,
+      "name": "Rooftops: Red Road"
+    },
+    {
+      "mapId": 581,
+      "name": "Rose Church"
+    },
+    {
+      "mapId": 1022,
+      "name": "Rotten Sea"
+    },
+    {
+      "mapId": 446,
+      "name": "Rough Ash World"
+    },
+    {
+      "mapId": 2256,
+      "name": "Ruby Forest",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 485,
+          "x2": 19,
+          "y2": 499
+        }
+      ]
+    },
+    {
+      "mapId": 955,
+      "name": "Ruined Garden",
+      "regions": [
+        {
+          "x1": 43,
+          "y1": 43,
+          "x2": 89,
+          "y2": 90
+        }
+      ]
+    },
+    {
+      "mapId": 1476,
+      "name": "Rusted Factory"
+    },
+    {
+      "mapId": 1588,
+      "name": "Rusty Urban Complex"
+    },
+    {
+      "mapId": 2139,
+      "name": "Sakura Ruins: Colored Shapes Zone"
+    },
+    {
+      "mapId": 2137,
+      "name": "Sakura Ruins: Petal Passage"
+    },
+    {
+      "mapId": 2296,
+      "name": "Sands of Self: Depths of Self",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 242,
+          "x2": -1,
+          "y2": 299
+        }
+      ]
+    },
+    {
+      "mapId": 775,
+      "name": "Sandy Plains",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 73
+        }
+      ]
+    },
+    {
+      "mapId": 3124,
+      "name": "Sapphire Hand Town"
+    },
+    {
+      "mapId": 3426,
+      "name": "Satellite Space-way"
+    },
+    {
+      "mapId": 3427,
+      "name": "Satellite Space-way: Nightcap House"
+    },
+    {
+      "mapId": 163,
+      "name": "Scenic Outlook"
+    },
+    {
+      "mapId": 167,
+      "name": "Scenic Outlook"
+    },
+    {
+      "mapId": 168,
+      "name": "Scenic Outlook"
+    },
+    {
+      "mapId": 169,
+      "name": "Scenic Outlook"
+    },
+    {
+      "mapId": 219,
+      "name": "Scenic Outlook"
+    },
+    {
+      "mapId": 395,
+      "name": "School"
+    },
+    {
+      "mapId": 763,
+      "name": "Scorched Wasteland"
+    },
+    {
+      "mapId": 762,
+      "name": "Scorched Wasteland: The Ark",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 24,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 762,
+      "name": "Scorched Wasteland: The Ash Settlement",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 79,
+          "y2": 29
+        }
+      ]
+    },
+    {
+      "mapId": 1111,
+      "name": "Scrambled Egg Zone"
+    },
+    {
+      "mapId": 2037,
+      "name": "Scrapyard"
+    },
+    {
+      "mapId": 859,
+      "name": "Sculpture Park",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 15,
+          "x2": 19,
+          "y2": 29
+        }
+      ]
+    },
+    {
+      "mapId": 853,
+      "name": "Sculpture Park: Purple Forest Path"
+    },
+    {
+      "mapId": 809,
+      "name": "Sea Lily World"
+    },
+    {
+      "mapId": 489,
+      "name": "Sea of Clouds"
+    },
+    {
+      "mapId": 595,
+      "name": "Sea of Clouds: Moai Bro Prison"
+    },
+    {
+      "mapId": 2007,
+      "name": "Sea of Trees: Slime Room"
+    },
+    {
+      "mapId": 2796,
+      "name": "Sea Slug House",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 177,
+          "y2": 14
+        },
+        {
+          "x1": 41,
+          "y1": 93,
+          "x2": 155,
+          "y2": 172
+        }
+      ]
+    },
+    {
+      "mapId": 2040,
+      "name": "Sea Slug House: Orange Alley",
+      "regions": [
+        {
+          "x1": 95,
+          "y1": 168,
+          "x2": 212,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 2463,
+      "name": "Sealed Rainbow Pillars",
+      "regions": [
+        {
+          "x1": 178,
+          "y1": -1,
+          "x2": 239,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1301,
+      "name": "Second Nexus"
+    },
+    {
+      "mapId": 1308,
+      "name": "Second Nexus",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": 15,
+          "x2": 39,
+          "y2": 29
+        }
+      ]
+    },
+    {
+      "mapId": 1343,
+      "name": "Second Nexus"
+    },
+    {
+      "mapId": 593,
+      "name": "Sepia Clouds World"
+    },
+    {
+      "mapId": 2416,
+      "name": "Serene Docks",
+      "regions": [
+        {
+          "x1": 39,
+          "y1": 31,
+          "x2": 72,
+          "y2": 40
+        }
+      ]
+    },
+    {
+      "mapId": 2426,
+      "name": "Serene Docks"
+    },
+    {
+      "mapId": 3035,
+      "name": "Serpent Archives"
+    },
+    {
+      "mapId": 2738,
+      "name": "Serpent Ruins B: Cave"
+    },
+    {
+      "mapId": 1805,
+      "name": "Serpentine Pyramid",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 214,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1807,
+      "name": "Serum Laboratory"
+    },
+    {
+      "mapId": 54,
+      "name": "Sewers",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 125,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 57,
+      "name": "Sewers",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 96,
+          "x2": -1,
+          "y2": 375
+        }
+      ]
+    },
+    {
+      "mapId": 1778,
+      "name": "Shadow Lady Estate"
+    },
+    {
+      "mapId": 1779,
+      "name": "Shadow Lady Estate"
+    },
+    {
+      "mapId": 1780,
+      "name": "Shadow Lady Estate"
+    },
+    {
+      "mapId": 1831,
+      "name": "Shadow Lady Estate"
+    },
+    {
+      "mapId": 1308,
+      "name": "Shallows of Deceit",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": 120,
+          "x2": 39,
+          "y2": 149
+        }
+      ]
+    },
+    {
+      "mapId": 1611,
+      "name": "Sherbet Snowfield",
+      "regions": [
+        {
+          "x1": 23,
+          "y1": 18,
+          "x2": 42,
+          "y2": 32
+        },
+        {
+          "x1": 139,
+          "y1": 18,
+          "x2": 158,
+          "y2": 32
+        }
+      ]
+    },
+    {
+      "mapId": 493,
+      "name": "Shield Owl World"
+    },
+    {
+      "mapId": 152,
+      "name": "Shinto Shrine"
+    },
+    {
+      "mapId": 155,
+      "name": "Shinto Shrine"
+    },
+    {
+      "mapId": 156,
+      "name": "Shinto Shrine"
+    },
+    {
+      "mapId": 158,
+      "name": "Shinto Shrine"
+    },
+    {
+      "mapId": 159,
+      "name": "Shinto Shrine"
+    },
+    {
+      "mapId": 708,
+      "name": "Shop Ruins",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 25,
+          "x2": 29,
+          "y2": 58
+        }
+      ]
+    },
+    {
+      "mapId": 3365,
+      "name": "Shrouded Arcadia"
+    },
+    {
+      "mapId": 1890,
+      "name": "Sierpinski Maze"
+    },
+    {
+      "mapId": 220,
+      "name": "Sign World: Sign World B"
+    },
+    {
+      "mapId": 951,
+      "name": "Silent Sewers",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 66,
+          "x2": 37,
+          "y2": 73
+        }
+      ]
+    },
+    {
+      "mapId": 953,
+      "name": "Silent Sewers"
+    },
+    {
+      "mapId": 953,
+      "name": "Silent Sewers: Cyclops' Room",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 17
+        }
+      ]
+    },
+    {
+      "mapId": 1621,
+      "name": "Silhouette Complex",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 0,
+          "x2": -1,
+          "y2": 54
+        }
+      ]
+    },
+    {
+      "mapId": 1626,
+      "name": "Silhouette Complex",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 54,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1170,
+      "name": "Silver Mansion"
+    },
+    {
+      "mapId": 371,
+      "name": "Simple Street"
+    },
+    {
+      "mapId": 1611,
+      "name": "Six-Layer Terminal"
+    },
+    {
+      "mapId": 1722,
+      "name": "Sky Cactus Zone",
+      "regions": [
+        {
+          "x1": 190,
+          "y1": -1,
+          "x2": 399,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 285,
+      "name": "Sky Kingdom"
+    },
+    {
+      "mapId": 2797,
+      "name": "Skyline Highway"
+    },
+    {
+      "mapId": 2799,
+      "name": "Skyline Highway",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 355,
+          "x2": 79,
+          "y2": 454
+        }
+      ]
+    },
+    {
+      "mapId": 3370,
+      "name": "Skyview Elevator",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 197,
+          "x2": 197,
+          "y2": 349
+        }
+      ]
+    },
+    {
+      "mapId": 2392,
+      "name": "Slate Doorway",
+      "regions": [
+        {
+          "x1": 70,
+          "y1": 74,
+          "x2": 159,
+          "y2": 245
+        },
+        {
+          "x1": 24,
+          "y1": 219,
+          "x2": 67,
+          "y2": 256
+        }
+      ]
+    },
+    {
+      "mapId": 2509,
+      "name": "Slate Doorway"
+    },
+    {
+      "mapId": 745,
+      "name": "Slums"
+    },
+    {
+      "mapId": 1073,
+      "name": "Snack Gallery"
+    },
+    {
+      "mapId": 3131,
+      "name": "Snow Black: Keyhole"
+    },
+    {
+      "mapId": 1712,
+      "name": "Snow White Field: Puppet's Theatre"
+    },
+    {
+      "mapId": 1711,
+      "name": "Snow White Field: The Tunnel"
+    },
+    {
+      "mapId": 3503,
+      "name": "Snowdrop Garden",
+      "regions": [
+        {
+          "x1": 201,
+          "y1": 109,
+          "x2": 245,
+          "y2": 162
+        }
+      ]
+    },
+    {
+      "mapId": 1547,
+      "name": "Snowman World",
+      "regions": [
+        {
+          "x1": 60,
+          "y1": -1,
+          "x2": 79,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1809,
+      "name": "Snowy Suburbs",
+      "regions": [
+        {
+          "x1": 140,
+          "y1": 62,
+          "x2": 199,
+          "y2": 99
+        }
+      ]
+    },
+    {
+      "mapId": 1004,
+      "name": "Snowy Village"
+    },
+    {
+      "mapId": 1341,
+      "name": "Solstice Forest"
+    },
+    {
+      "mapId": 2149,
+      "name": "Somber Establishment"
+    },
+    {
+      "mapId": 2150,
+      "name": "Somber Establishment"
+    },
+    {
+      "mapId": 2251,
+      "name": "Somber Establishment",
+      "regions": [
+        {
+          "x1": 60,
+          "y1": -1,
+          "x2": 79,
+          "y2": -1
+        },
+        {
+          "x1": 80,
+          "y1": -1,
+          "x2": 99,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2256,
+      "name": "Somber Establishment"
+    },
+    {
+      "mapId": 2257,
+      "name": "Somber Establishment"
+    },
+    {
+      "mapId": 2747,
+      "name": "Somniphobia",
+      "regions": [
+        {
+          "x1": 192,
+          "y1": 0,
+          "x2": 249,
+          "y2": 34
+        }
+      ]
+    },
+    {
+      "mapId": 457,
+      "name": "Sound Room"
+    },
+    {
+      "mapId": 620,
+      "name": "Sound Room"
+    },
+    {
+      "mapId": 1611,
+      "name": "Sound Saws World",
+      "regions": [
+        {
+          "x1": 46,
+          "y1": 0,
+          "x2": 65,
+          "y2": 14
+        },
+        {
+          "x1": 139,
+          "y1": 0,
+          "x2": 158,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 2033,
+      "name": "Soy Sauce World",
+      "regions": [
+        {
+          "x1": 200,
+          "y1": 0,
+          "x2": 299,
+          "y2": 99
+        }
+      ]
+    },
+    {
+      "mapId": 443,
+      "name": "Space"
+    },
+    {
+      "mapId": 444,
+      "name": "Space"
+    },
+    {
+      "mapId": 1844,
+      "name": "Spaceship: Sunset's Room"
+    },
+    {
+      "mapId": 1123,
+      "name": "Sparkling Dimension A"
+    },
+    {
+      "mapId": 1123,
+      "name": "Sparkling Dimension B",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 170,
+          "x2": 79,
+          "y2": 239
+        }
+      ]
+    },
+    {
+      "mapId": 1773,
+      "name": "Spear Tribe World: Overgrown Stone Area"
+    },
+    {
+      "mapId": 232,
+      "name": "Spelling Room: Eyeball Room"
+    },
+    {
+      "mapId": 1697,
+      "name": "Spike Alley",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 53,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1547,
+      "name": "Spiked Fence Garden",
+      "regions": [
+        {
+          "x1": 40,
+          "y1": -1,
+          "x2": 59,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 588,
+      "name": "Spirit Capital"
+    },
+    {
+      "mapId": 354,
+      "name": "Sprout World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 40,
+          "y2": 12
+        }
+      ]
+    },
+    {
+      "mapId": 252,
+      "name": "Square-Square World"
+    },
+    {
+      "mapId": 1271,
+      "name": "Stalker Alley: Braille Dungeon",
+      "regions": [
+        {
+          "x1": 57,
+          "y1": -1,
+          "x2": 199,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 3731,
+      "name": "Star Carpet World"
+    },
+    {
+      "mapId": 3154,
+      "name": "Star Cubes World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 213,
+          "x2": 99,
+          "y2": 349
+        }
+      ]
+    },
+    {
+      "mapId": 1272,
+      "name": "Star Hub",
+      "regions": [
+        {
+          "x1": 200,
+          "y1": -1,
+          "x2": 299,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 205,
+      "name": "Star Ocean: Sea Sponge Path",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 19,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 206,
+      "name": "Star Ocean: Sea Sponge Path"
+    },
+    {
+      "mapId": 935,
+      "name": "Static Labyrinth"
+    },
+    {
+      "mapId": 1079,
+      "name": "Static Labyrinth: Doppelgänger Room"
+    },
+    {
+      "mapId": 946,
+      "name": "Static Noise Hell: Ripple Passage"
+    },
+    {
+      "mapId": 1295,
+      "name": "Statue Forest"
+    },
+    {
+      "mapId": 1302,
+      "name": "Statue Forest",
+      "regions": [
+        {
+          "x1": 130,
+          "y1": 135,
+          "x2": 149,
+          "y2": 149
+        }
+      ]
+    },
+    {
+      "mapId": 794,
+      "name": "Strange Plants World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 89,
+          "y2": 59
+        }
+      ]
+    },
+    {
+      "mapId": 1555,
+      "name": "Strawberry Milk Sea"
+    },
+    {
+      "mapId": 3503,
+      "name": "Strawberry Outskirts",
+      "regions": [
+        {
+          "x1": 225,
+          "y1": 3,
+          "x2": 246,
+          "y2": 19
+        }
+      ]
+    },
+    {
+      "mapId": 1033,
+      "name": "Streetlight Garden"
+    },
+    {
+      "mapId": 1308,
+      "name": "Submerged Communications Area",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 150,
+          "x2": 20,
+          "y2": 179
+        },
+        {
+          "x1": 20,
+          "y1": 165,
+          "x2": 39,
+          "y2": 179
+        }
+      ]
+    },
+    {
+      "mapId": 67,
+      "name": "Sugar World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 45,
+          "x2": 21,
+          "y2": 59
+        }
+      ]
+    },
+    {
+      "mapId": 654,
+      "name": "Sugar World"
+    },
+    {
+      "mapId": 486,
+      "name": "Sugar World: Sugary Depths"
+    },
+    {
+      "mapId": 490,
+      "name": "Sugar World: Sugary Depths",
+      "regions": [
+        {
+          "x1": 55,
+          "y1": 50,
+          "x2": 99,
+          "y2": 79
+        }
+      ]
+    },
+    {
+      "mapId": 3124,
+      "name": "Sunken Spore Sea",
+      "regions": [
+        {
+          "x1": 3,
+          "y1": 119,
+          "x2": 68,
+          "y2": 128
+        }
+      ]
+    },
+    {
+      "mapId": 1697,
+      "name": "Sunken Treehouse",
+      "regions": [
+        {
+          "x1": 134,
+          "y1": -1,
+          "x2": 399,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2801,
+      "name": "Sunrise Road"
+    },
+    {
+      "mapId": 2802,
+      "name": "Sunrise Road"
+    },
+    {
+      "mapId": 2803,
+      "name": "Sunrise Road"
+    },
+    {
+      "mapId": 2038,
+      "name": "Sunset School"
+    },
+    {
+      "mapId": 1726,
+      "name": "Sunset Sky Slums",
+      "regions": [
+        {
+          "x1": 103,
+          "y1": -1,
+          "x2": 249,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 911,
+      "name": "Surgical Scissors World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 179,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 619,
+      "name": "Symbolon: Conway's Game of Life"
+    },
+    {
+      "mapId": 3366,
+      "name": "Tanuki Tail Portrait",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 75,
+          "x2": 223,
+          "y2": 231
+        }
+      ]
+    },
+    {
+      "mapId": 60,
+      "name": "Tapir-san's Place"
+    },
+    {
+      "mapId": 1272,
+      "name": "Tarnished Ship",
+      "regions": [
+        {
+          "x1": 156,
+          "y1": 102,
+          "x2": 199,
+          "y2": 149
+        }
+      ]
+    },
+    {
+      "mapId": 1276,
+      "name": "Tarnished Ship",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 172,
+          "x2": -1,
+          "y2": 299
+        }
+      ]
+    },
+    {
+      "mapId": 2567,
+      "name": "Tea Ruins",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 242,
+          "x2": 204,
+          "y2": 304
+        }
+      ]
+    },
+    {
+      "mapId": 2570,
+      "name": "Tea Ruins",
+      "regions": [
+        {
+          "x1": 304,
+          "y1": 0,
+          "x2": 315,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 3531,
+      "name": "Tea Ruins",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 29,
+          "x2": 19,
+          "y2": 29
+        }
+      ]
+    },
+    {
+      "mapId": 3130,
+      "name": "Technicolor Towers",
+      "regions": [
+        {
+          "x1": 13,
+          "y1": 25,
+          "x2": 32,
+          "y2": 39
+        }
+      ]
+    },
+    {
+      "mapId": 3191,
+      "name": "Technicolor Towers"
+    },
+    {
+      "mapId": 3130,
+      "name": "Technicolor Towers: Sketch Café",
+      "regions": [
+        {
+          "x1": 180,
+          "y1": 185,
+          "x2": 199,
+          "y2": 199
+        }
+      ]
+    },
+    {
+      "mapId": 895,
+      "name": "Techno Condominium"
+    },
+    {
+      "mapId": 3732,
+      "name": "Tele-pole Plains"
+    },
+    {
+      "mapId": 170,
+      "name": "Teleport Maze"
+    },
+    {
+      "mapId": 334,
+      "name": "Teleport Maze"
+    },
+    {
+      "mapId": 835,
+      "name": "Tesla Garden"
+    },
+    {
+      "mapId": 1445,
+      "name": "Test Facility",
+      "regions": [
+        {
+          "x1": 252,
+          "y1": 75,
+          "x2": 499,
+          "y2": 125
+        },
+        {
+          "x1": 240,
+          "y1": 140,
+          "x2": 400,
+          "y2": 160
+        },
+        {
+          "x1": 235,
+          "y1": 187,
+          "x2": 350,
+          "y2": 205
+        },
+        {
+          "x1": 380,
+          "y1": 400,
+          "x2": 430,
+          "y2": 420
+        }
+      ]
+    },
+    {
+      "mapId": 2289,
+      "name": "The Skin",
+      "regions": [
+        {
+          "x1": 1,
+          "y1": 33,
+          "x2": 20,
+          "y2": 47
+        }
+      ]
+    },
+    {
+      "mapId": 741,
+      "name": "Theatre World: Lavender Temple"
+    },
+    {
+      "mapId": 2268,
+      "name": "Thrift Shop"
+    },
+    {
+      "mapId": 2567,
+      "name": "Thrift Shop",
+      "regions": [
+        {
+          "x1": 251,
+          "y1": 324,
+          "x2": 303,
+          "y2": 384
+        }
+      ]
+    },
+    {
+      "mapId": 2492,
+      "name": "Thumbtack World"
+    },
+    {
+      "mapId": 2494,
+      "name": "Thumbtack World"
+    },
+    {
+      "mapId": 2495,
+      "name": "Thumbtack World"
+    },
+    {
+      "mapId": 2456,
+      "name": "Ticking Blackout Zone"
+    },
+    {
+      "mapId": 1698,
+      "name": "Tomato World",
+      "regions": [
+        {
+          "x1": 82,
+          "y1": -1,
+          "x2": 179,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1691,
+      "name": "Tomato World: Ring Toss Path"
+    },
+    {
+      "mapId": 1205,
+      "name": "Tomb of Velleities: Lunar Sanctuary"
+    },
+    {
+      "mapId": 2274,
+      "name": "Topdown Dungeon",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": 90,
+          "x2": 79,
+          "y2": 134
+        }
+      ]
+    },
+    {
+      "mapId": 1381,
+      "name": "Totem Hotel"
+    },
+    {
+      "mapId": 1389,
+      "name": "Totem Hotel",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 50,
+          "x2": -1,
+          "y2": 98
+        }
+      ]
+    },
+    {
+      "mapId": 1622,
+      "name": "Totem Hotel",
+      "regions": [
+        {
+          "x1": 40,
+          "y1": -1,
+          "x2": 79,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1805,
+      "name": "Toxicology Research Facility"
+    },
+    {
+      "mapId": 1394,
+      "name": "Toy World"
+    },
+    {
+      "mapId": 376,
+      "name": "Toy World: The Shadow Woman's Lap"
+    },
+    {
+      "mapId": 312,
+      "name": "Train Tracks"
+    },
+    {
+      "mapId": 313,
+      "name": "Train Tracks"
+    },
+    {
+      "mapId": 1445,
+      "name": "Tribulation Complex",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 125,
+          "y2": 60
+        },
+        {
+          "x1": 126,
+          "y1": 0,
+          "x2": 499,
+          "y2": 60
+        }
+      ]
+    },
+    {
+      "mapId": 1395,
+      "name": "Tricolor Room"
+    },
+    {
+      "mapId": 1387,
+      "name": "Trophy Animal Land",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 80,
+          "x2": -1,
+          "y2": 124
+        }
+      ]
+    },
+    {
+      "mapId": 2038,
+      "name": "Turtle Stew World",
+      "regions": [
+        {
+          "x1": 202,
+          "y1": 0,
+          "x2": 300,
+          "y2": 110
+        }
+      ]
+    },
+    {
+      "mapId": 482,
+      "name": "TV Room"
+    },
+    {
+      "mapId": 1573,
+      "name": "Twilight Park"
+    },
+    {
+      "mapId": 2508,
+      "name": "Twisted Forest",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 64,
+          "x2": 29,
+          "y2": 66
+        }
+      ]
+    },
+    {
+      "mapId": 1733,
+      "name": "Twisted Thickets: The Peak"
+    },
+    {
+      "mapId": 780,
+      "name": "Underground Lake"
+    },
+    {
+      "mapId": 450,
+      "name": "Underground Passage"
+    },
+    {
+      "mapId": 794,
+      "name": "Underground Passage"
+    },
+    {
+      "mapId": 2268,
+      "name": "Underground Subway",
+      "regions": [
+        {
+          "x1": 395,
+          "y1": -1,
+          "x2": 499,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2294,
+      "name": "Underground Subway",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": -1,
+          "x2": 39,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2295,
+      "name": "Underground Subway",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 247,
+          "x2": 199,
+          "y2": 299
+        }
+      ]
+    },
+    {
+      "mapId": 2563,
+      "name": "Underneath"
+    },
+    {
+      "mapId": 2570,
+      "name": "Underneath",
+      "regions": [
+        {
+          "x1": 181,
+          "y1": 0,
+          "x2": 216,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 3531,
+      "name": "Underneath",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 25,
+          "x2": 19,
+          "y2": 25
+        }
+      ]
+    },
+    {
+      "mapId": 57,
+      "name": "Underwater Amusement Park",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 455,
+          "x2": -1,
+          "y2": 499
+        }
+      ]
+    },
+    {
+      "mapId": 273,
+      "name": "Underwater Amusement Park"
+    },
+    {
+      "mapId": 274,
+      "name": "Underwater Amusement Park"
+    },
+    {
+      "mapId": 275,
+      "name": "Underwater Amusement Park"
+    },
+    {
+      "mapId": 1514,
+      "name": "Unending River: Spelunker's Nightmare"
+    },
+    {
+      "mapId": 1500,
+      "name": "Unknown Child's Room"
+    },
+    {
+      "mapId": 3,
+      "name": "Urotsuki's Balcony"
+    },
+    {
+      "mapId": 223,
+      "name": "Urotsuki's Balcony"
+    },
+    {
+      "mapId": 225,
+      "name": "Urotsuki's Balcony"
+    },
+    {
+      "mapId": 171,
+      "name": "Urotsuki's Dream Apartments",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 20,
+          "y2": 15
+        },
+        {
+          "x1": 75,
+          "y1": 21,
+          "x2": 93,
+          "y2": 35
+        }
+      ]
+    },
+    {
+      "mapId": 173,
+      "name": "Urotsuki's Dream Apartments"
+    },
+    {
+      "mapId": 174,
+      "name": "Urotsuki's Dream Apartments"
+    },
+    {
+      "mapId": 177,
+      "name": "Urotsuki's Dream Apartments"
+    },
+    {
+      "mapId": 178,
+      "name": "Urotsuki's Dream Apartments"
+    },
+    {
+      "mapId": 422,
+      "name": "Urotsuki's Dream Apartments"
+    },
+    {
+      "mapId": 423,
+      "name": "Urotsuki's Dream Apartments"
+    },
+    {
+      "mapId": 425,
+      "name": "Urotsuki's Dream Apartments"
+    },
+    {
+      "mapId": 955,
+      "name": "Urotsuki's Dream Apartments",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 43,
+          "x2": 42,
+          "y2": 90
+        }
+      ]
+    },
+    {
+      "mapId": 1461,
+      "name": "Urotsuki's Dream Apartments"
+    },
+    {
+      "mapId": 1783,
+      "name": "Urotsuki's Dream Apartments"
+    },
+    {
+      "mapId": 2164,
+      "name": "Urotsuki's Dream Apartments",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 19,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 2269,
+      "name": "Urotsuki's Dream Apartments"
+    },
+    {
+      "mapId": 2831,
+      "name": "Urotsuki's Dream Apartments"
+    },
+    {
+      "mapId": 4082,
+      "name": "Urotsuki's Dream Apartments",
+      "regions": [
+        {
+          "x1": 128,
+          "y1": 86,
+          "x2": 149,
+          "y2": 100
+        },
+        {
+          "x1": 0,
+          "y1": 63,
+          "x2": 21,
+          "y2": 78
+        }
+      ]
+    },
+    {
+      "mapId": 3308,
+      "name": "Urotsuki's Dream Apartments: Blackout House"
+    },
+    {
+      "mapId": 801,
+      "name": "Urotsuki's Dream Apartments: Dream Wardrobe"
+    },
+    {
+      "mapId": 1252,
+      "name": "Urotsuki's Dream Apartments: Portrait Collection"
+    },
+    {
+      "mapId": 179,
+      "name": "Urotsuki's Dream Apartments: Trophy Room"
+    },
+    {
+      "mapId": 5,
+      "name": "Urotsuki's Dream Balcony"
+    },
+    {
+      "mapId": 4,
+      "name": "Urotsuki's Dream Room"
+    },
+    {
+      "mapId": 1994,
+      "name": "Urotsuki's Dream Room: Vertigo"
+    },
+    {
+      "mapId": 1999,
+      "name": "Urotsuki's Dream Room: Vertigo"
+    },
+    {
+      "mapId": 2,
+      "name": "Urotsuki's Room"
+    },
+    {
+      "mapId": 1845,
+      "name": "Vaporwave Mall"
+    },
+    {
+      "mapId": 722,
+      "name": "Vase World: Vase Interior"
+    },
+    {
+      "mapId": 731,
+      "name": "Vase World: Vase Path"
+    },
+    {
+      "mapId": 3216,
+      "name": "VIBRANT SMILE WORLD"
+    },
+    {
+      "mapId": 2793,
+      "name": "Vinegar Vicinity",
+      "regions": [
+        {
+          "x1": 300,
+          "y1": 0,
+          "x2": 474,
+          "y2": 154
+        }
+      ]
+    },
+    {
+      "mapId": 911,
+      "name": "Viridescent Temple",
+      "regions": [
+        {
+          "x1": 77,
+          "y1": 15,
+          "x2": 98,
+          "y2": 27
+        }
+      ]
+    },
+    {
+      "mapId": 976,
+      "name": "Viridian Wetlands"
+    },
+    {
+      "mapId": 977,
+      "name": "Viridian Wetlands"
+    },
+    {
+      "mapId": 242,
+      "name": "Visine World"
+    },
+    {
+      "mapId": 245,
+      "name": "Visine World"
+    },
+    {
+      "mapId": 243,
+      "name": "Visine World: Eye Shop"
+    },
+    {
+      "mapId": 1698,
+      "name": "Voxel Island",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 81,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 1699,
+      "name": "Voxel Island",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 81,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2880,
+      "name": "Wan Lotus Docks",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 39,
+          "y2": 44
+        }
+      ]
+    },
+    {
+      "mapId": 4088,
+      "name": "Watching Forest",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 299,
+          "y2": 79
+        },
+        {
+          "x1": 104,
+          "y1": 79,
+          "x2": 299,
+          "y2": 230
+        }
+      ]
+    },
+    {
+      "mapId": 1401,
+      "name": "Water Reclamation Facility: Shutter Alley"
+    },
+    {
+      "mapId": 1402,
+      "name": "Water Reclamation Facility: Shutter Alley"
+    },
+    {
+      "mapId": 3151,
+      "name": "Waterworks",
+      "regions": [
+        {
+          "x1": 24,
+          "y1": 76,
+          "x2": 44,
+          "y2": 89
+        }
+      ]
+    },
+    {
+      "mapId": 2509,
+      "name": "Weary Potted Plant World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 166,
+          "x2": 19,
+          "y2": 164
+        }
+      ]
+    },
+    {
+      "mapId": 1187,
+      "name": "Whipped Cream World",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 112,
+          "x2": -1,
+          "y2": 258
+        }
+      ]
+    },
+    {
+      "mapId": 309,
+      "name": "White Fern World"
+    },
+    {
+      "mapId": 310,
+      "name": "White Fern World"
+    },
+    {
+      "mapId": 518,
+      "name": "Wind Tunnel"
+    },
+    {
+      "mapId": 519,
+      "name": "Wind Tunnel"
+    },
+    {
+      "mapId": 1590,
+      "name": "Wind Turbine Plateau",
+      "regions": [
+        {
+          "x1": 92,
+          "y1": 32,
+          "x2": 111,
+          "y2": 46
+        }
+      ]
+    },
+    {
+      "mapId": 2980,
+      "name": "Windowed Plains"
+    },
+    {
+      "mapId": 3503,
+      "name": "Windy Factory"
+    },
+    {
+      "mapId": 1308,
+      "name": "Winter Valley",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 75,
+          "x2": -1,
+          "y2": 89
+        }
+      ]
+    },
+    {
+      "mapId": 1341,
+      "name": "Winter Valley",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 115,
+          "x2": -1,
+          "y2": 209
+        }
+      ]
+    },
+    {
+      "mapId": 1882,
+      "name": "Wooded Lakeside A",
+      "regions": [
+        {
+          "x1": 20,
+          "y1": 0,
+          "x2": 208,
+          "y2": 21
+        },
+        {
+          "x1": 0,
+          "y1": 160,
+          "x2": 21,
+          "y2": 192
+        },
+        {
+          "x1": 238,
+          "y1": 160,
+          "x2": 239,
+          "y2": 192
+        },
+        {
+          "x1": 18,
+          "y1": 291,
+          "x2": 49,
+          "y2": 309
+        }
+      ]
+    },
+    {
+      "mapId": 1890,
+      "name": "Wooded Lakeside A",
+      "regions": [
+        {
+          "x1": 71,
+          "y1": 166,
+          "x2": 253,
+          "y2": 179
+        },
+        {
+          "x1": 89,
+          "y1": 142,
+          "x2": 112,
+          "y2": 158
+        },
+        {
+          "x1": 179,
+          "y1": 142,
+          "x2": 202,
+          "y2": 158
+        }
+      ]
+    },
+    {
+      "mapId": 1882,
+      "name": "Wooded Lakeside B",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 13,
+          "x2": 17,
+          "y2": 56
+        },
+        {
+          "x1": 21,
+          "y1": 24,
+          "x2": 126,
+          "y2": 38
+        },
+        {
+          "x1": 18,
+          "y1": 39,
+          "x2": 172,
+          "y2": 57
+        },
+        {
+          "x1": 23,
+          "y1": 58,
+          "x2": 172,
+          "y2": 91
+        },
+        {
+          "x1": 173,
+          "y1": 20,
+          "x2": 239,
+          "y2": 52
+        },
+        {
+          "x1": 212,
+          "y1": 0,
+          "x2": 239,
+          "y2": 19
+        },
+        {
+          "x1": 0,
+          "y1": 58,
+          "x2": 21,
+          "y2": 101
+        },
+        {
+          "x1": 54,
+          "y1": 92,
+          "x2": 153,
+          "y2": 115
+        },
+        {
+          "x1": 0,
+          "y1": 376,
+          "x2": 19,
+          "y2": 400
+        },
+        {
+          "x1": 0,
+          "y1": 401,
+          "x2": 83,
+          "y2": 419
+        },
+        {
+          "x1": 20,
+          "y1": 389,
+          "x2": 35,
+          "y2": 400
+        },
+        {
+          "x1": 108,
+          "y1": 411,
+          "x2": 129,
+          "y2": 419
+        },
+        {
+          "x1": 158,
+          "y1": 412,
+          "x2": 192,
+          "y2": 419
+        },
+        {
+          "x1": 189,
+          "y1": 386,
+          "x2": 239,
+          "y2": 411
+        },
+        {
+          "x1": 207,
+          "y1": 412,
+          "x2": 234,
+          "y2": 419
+        }
+      ]
+    },
+    {
+      "mapId": 1882,
+      "name": "Wooded Lakeside B: Gnarled Tree Plaza",
+      "regions": [
+        {
+          "x1": 30,
+          "y1": 123,
+          "x2": 109,
+          "y2": 179
+        }
+      ]
+    },
+    {
+      "mapId": 2037,
+      "name": "Wooden Cubes Playground",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 115,
+          "y2": 107
+        }
+      ]
+    },
+    {
+      "mapId": 948,
+      "name": "Wooden Polycube Ruins: Icy Garden"
+    },
+    {
+      "mapId": 2294,
+      "name": "Worksite",
+      "regions": [
+        {
+          "x1": 80,
+          "y1": -1,
+          "x2": 99,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 2295,
+      "name": "Worksite",
+      "regions": [
+        {
+          "x1": -1,
+          "y1": 194,
+          "x2": -1,
+          "y2": 246
+        }
+      ]
+    },
+    {
+      "mapId": 2567,
+      "name": "Worm Labyrinth"
+    },
+    {
+      "mapId": 2570,
+      "name": "Worm Labyrinth",
+      "regions": [
+        {
+          "x1": 321,
+          "y1": 0,
+          "x2": 338,
+          "y2": 14
+        }
+      ]
+    },
+    {
+      "mapId": 121,
+      "name": "↑V↑ (Wavy Up)"
+    },
+    {
+      "mapId": 122,
+      "name": "↑V↑ (Wavy Up)"
+    },
+    {
+      "mapId": 123,
+      "name": "↑V↑ (Wavy Up)"
+    },
+    {
+      "mapId": 124,
+      "name": "↑V↑ (Wavy Up)"
+    },
+    {
+      "mapId": 125,
+      "name": "↑V↑ (Wavy Up)"
+    },
+    {
+      "mapId": 126,
+      "name": "↑V↑ (Wavy Up)"
+    },
+    {
+      "mapId": 127,
+      "name": "↑V↑ (Wavy Up)"
+    },
+    {
+      "mapId": 128,
+      "name": "↑V↑ (Wavy Up)"
+    },
+    {
+      "mapId": 129,
+      "name": "↑V↑ (Wavy Up)"
+    },
+    {
+      "mapId": 130,
+      "name": "↑V↑ (Wavy Up)"
+    }
+  ]
+}

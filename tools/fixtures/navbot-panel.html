@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Navbot panel offline fixture</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:;">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; background: #12101a; color: #cdc2dc; font: 14px sans-serif; }
+    #ynod-titlebar { height: 30px; background: #08060d; display: flex; align-items: center; padding-left: 12px; }
+    #ynod-navbot-toggle { margin-left: auto; align-self: stretch; color: #dfc7eb; border: 0; background: #26202e; padding: 0 16px; }
+    main { height: calc(100% - 30px); display: grid; place-items: center; }
+    #canvas { outline: none; width: min(70vw, 640px); height: min(70vh, 480px); background: #19131f; border: 1px solid #393043; }
+    #caption { position: absolute; left: 24px; bottom: 12px; color: #82748f; }
+  </style>
+</head>
+<body>
+  <div id="ynod-titlebar">Yume Nikki Online Project <button id="ynod-navbot-toggle" aria-expanded="false">Navbot</button></div>
+  <main><canvas id="canvas" width="320" height="240" tabindex="0" aria-label="Game"></canvas></main>
+  <p id="caption">Offline UI fixture · simulated game state</p>
+  <script>
+    const initial = () => ({
+      enabled: true,
+      game: '2kki',
+      ready: true,
+      state: {
+        scene: 'Map', map_id: 2, player_x: 8, player_y: 5,
+        map_width: 20, map_height: 15, active: false,
+        graph_loaded: true, status: 'idle', path_length: 0,
+        route_length: 0, route: [], held_keys: [], target_map_id: 0,
+        target_x: 0, target_y: 0, global_target_x: 0, global_target_y: 0
+      }
+    });
+    const fixture = window.panelFixture = {
+      snapshot: initial(), commands: [], stateCalls: 0, gameKeys: [],
+      deferMovement: false, pendingMovement: null, commandError: null,
+      deferState: false, pendingState: null,
+      mapsCalls: 0, mapsError: null, deferMaps: false, pendingMaps: null,
+      lookupCalls: [], deferLookup: false, pendingLookup: null,
+      lookupResponse: { title: 'Chocolate World', mapIds: ['0036', '0037'] },
+      maps: { game: '2kki', entries: [
+        { mapId: 2, name: "Urotsuki's Room" },
+        { mapId: 10, name: 'Nexus' },
+        { mapId: 34, name: 'Geometry World' },
+        { mapId: 35, name: 'Geometry World' },
+        { mapId: 42, name: 'Ancient Forest' },
+        { mapId: 70, name: 'Moon <em>Garden</em>' }
+      ] },
+      reset() {
+        this.snapshot = initial();
+        this.commands = [];
+        this.commandError = null;
+        this.deferMovement = false;
+      },
+      finishMovement() {
+        this.pendingMovement?.(structuredClone(this.snapshot));
+        this.pendingMovement = null;
+      }
+    };
+    window.gameId = '2kki';
+    window.locationsData = [];
+    window.locationCache = {};
+    window.send2kkiApiRequest = (url, callback) => {
+      fixture.lookupCalls.push(url);
+      const response = structuredClone(fixture.lookupResponse);
+      if (fixture.deferLookup) fixture.pendingLookup = () => callback(response);
+      else queueMicrotask(() => callback(response));
+    };
+    window.electronAPI = {
+      async navbotMaps() {
+        fixture.mapsCalls++;
+        if (fixture.mapsError) throw new Error(fixture.mapsError);
+        const maps = structuredClone(fixture.maps);
+        if (fixture.deferMaps) return new Promise(resolve => { fixture.pendingMaps = () => resolve(maps); });
+        return maps;
+      },
+      async navbotState() {
+        fixture.stateCalls++;
+        const next = structuredClone(fixture.snapshot);
+        if (fixture.deferState) return new Promise(resolve => { fixture.pendingState = () => resolve(next); });
+        return next;
+      },
+      async navbotCommand(command) {
+        fixture.commands.push(structuredClone(command));
+        if (fixture.commandError) throw new Error(fixture.commandError);
+        if (command.op === 'stop') {
+          Object.assign(fixture.snapshot.state, { active: false, path_length: 0, route_length: 0, route: [], status: 'idle' });
+          return structuredClone(fixture.snapshot);
+        }
+        if (fixture.deferMovement) {
+          const next = structuredClone(fixture.snapshot);
+          Object.assign(next.state, { active: true, path_length: 6, status: 'navigating' });
+          return new Promise(resolve => { fixture.pendingMovement = () => resolve(next); });
+        }
+        Object.assign(fixture.snapshot.state, { active: true, path_length: 6, status: 'navigating', target_map_id: 0, target_x: command.x, target_y: command.y });
+        if (command.op === 'goto-map') Object.assign(fixture.snapshot.state, { route_length: 3, route: [5, 4, command.map], target_map_id: command.map, global_target_x: command.x, global_target_y: command.y });
+        return structuredClone(fixture.snapshot);
+      }
+    };
+    document.getElementById('ynod-navbot-toggle').addEventListener('click', () => {
+      window.dispatchEvent(new CustomEvent('ynod-navbot-toggle'));
+    });
+    for (const type of ['keydown', 'keyup', 'keypress']) {
+      window.addEventListener(type, event => fixture.gameKeys.push({ type, key: event.key }));
+    }
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#312640';
+    for (let x = 0; x < 320; x += 16) for (let y = 0; y < 240; y += 16) {
+      if ((x + y) % 32 === 0) ctx.fillRect(x, y, 16, 16);
+    }
+    ctx.fillStyle = '#ac739d';
+    ctx.fillRect(150, 110, 12, 18);
+  </script>
+</body>
+</html>

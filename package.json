@@ -8,10 +8,17 @@
     "dist": "electron-builder",
     "dist-win": "electron-builder --win",
     "dist-linux": "electron-builder --linux",
-    "dist-mac": "electron-builder --mac"
+    "dist-mac": "electron-builder --mac",
+    "navbot": "node tools/navbot-cli.js",
+    "test:navbot": "node --test tools/navbot.test.js tools/navbot-command-queue.test.js tools/navbot-ui-controller.test.js tools/navbot-map-catalog.test.js ../tools/check-map-graph.test.js",
+    "build:navbot-maps": "node tools/build-navbot-map-catalog.js",
+    "test:navbot-ui": "node tools/navbot-panel.test.js"
   },
   "author": "jvbf, abbey, foundationkitty",
   "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "devDependencies": {
     "electron": "^39.8.5",
     "electron-builder": "^26.0.0"
@@ -27,11 +34,16 @@
     ],
     "files": [
       "**/*",
+      "!.navbot/**",
+      "!scratch/**",
+      "!tools/**",
+      "!{check_store,dump_html,inject_*,regenerate_graph,scratch_*,test_*,map_scraper}.js",
+      "!page.html",
+      "!Map*.lmu",
       "!.github/**",
       "!generateReleaseNotes.js",
       "!eslint.config.mjs",
       "!README.md",
-      "!LICENSE",
       "!yarn.lock",
       "!**/node_modules/**/{CHANGELOG.md,README.md,readme.md,readme,*.ts,*.d.ts,*.map}",
       "!**/node_modules/**/test{,s}/**",

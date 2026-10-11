@@ -1,0 +1,787 @@
+{
+  "version": 1,
+  "game": "if",
+  "source": "ynolocations/if/config.json",
+  "entries": [
+    {
+      "mapId": 77,
+      "name": "Apple Tree Forest"
+    },
+    {
+      "mapId": 78,
+      "name": "Apple Tree Forest"
+    },
+    {
+      "mapId": 180,
+      "name": "Apple Tree Forest"
+    },
+    {
+      "mapId": 14,
+      "name": "Bizarre Fish World"
+    },
+    {
+      "mapId": 40,
+      "name": "Bizarre Fish World"
+    },
+    {
+      "mapId": 23,
+      "name": "Blue Tile Passage"
+    },
+    {
+      "mapId": 17,
+      "name": "Circuit World"
+    },
+    {
+      "mapId": 141,
+      "name": "Colored Block World"
+    },
+    {
+      "mapId": 142,
+      "name": "Colored Block World"
+    },
+    {
+      "mapId": 138,
+      "name": "Crayon Drawing Passage"
+    },
+    {
+      "mapId": 143,
+      "name": "Cyber City"
+    },
+    {
+      "mapId": 144,
+      "name": "Cyber City"
+    },
+    {
+      "mapId": 157,
+      "name": "Cyber City"
+    },
+    {
+      "mapId": 158,
+      "name": "Cyber City"
+    },
+    {
+      "mapId": 159,
+      "name": "Cyber City"
+    },
+    {
+      "mapId": 160,
+      "name": "Cyber City"
+    },
+    {
+      "mapId": 161,
+      "name": "Cyber City"
+    },
+    {
+      "mapId": 162,
+      "name": "Cyber City"
+    },
+    {
+      "mapId": 163,
+      "name": "Cyber City"
+    },
+    {
+      "mapId": 164,
+      "name": "Cyber City"
+    },
+    {
+      "mapId": 165,
+      "name": "Cyber City"
+    },
+    {
+      "mapId": 7,
+      "name": "Dark World"
+    },
+    {
+      "mapId": 60,
+      "name": "Debug Room"
+    },
+    {
+      "mapId": 13,
+      "name": "Digital Brain Maze"
+    },
+    {
+      "mapId": 22,
+      "name": "Digital Brain Maze"
+    },
+    {
+      "mapId": 106,
+      "name": "Digital Brain Maze"
+    },
+    {
+      "mapId": 107,
+      "name": "Effect Egg Swamp"
+    },
+    {
+      "mapId": 108,
+      "name": "Effect Egg Swamp"
+    },
+    {
+      "mapId": 117,
+      "name": "Fashion Market"
+    },
+    {
+      "mapId": 118,
+      "name": "Fashion Market"
+    },
+    {
+      "mapId": 119,
+      "name": "Fashion Market"
+    },
+    {
+      "mapId": 63,
+      "name": "FC Dungeon"
+    },
+    {
+      "mapId": 72,
+      "name": "FC Ruins"
+    },
+    {
+      "mapId": 76,
+      "name": "FC Ruins"
+    },
+    {
+      "mapId": 61,
+      "name": "FC World"
+    },
+    {
+      "mapId": 62,
+      "name": "FC World"
+    },
+    {
+      "mapId": 38,
+      "name": "Fenced Meadow"
+    },
+    {
+      "mapId": 42,
+      "name": "Fenced Meadow: Needlework Area"
+    },
+    {
+      "mapId": 33,
+      "name": "Flashing Waveform Maze"
+    },
+    {
+      "mapId": 39,
+      "name": "Flashing Waveform Maze"
+    },
+    {
+      "mapId": 57,
+      "name": "Flashing Waveform Maze"
+    },
+    {
+      "mapId": 58,
+      "name": "Flashing Waveform Maze"
+    },
+    {
+      "mapId": 150,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 151,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 152,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 153,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 154,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 155,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 156,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 172,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 173,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 174,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 175,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 176,
+      "name": "Flat Townscape"
+    },
+    {
+      "mapId": 166,
+      "name": "Flat Townscape: Pyramid"
+    },
+    {
+      "mapId": 171,
+      "name": "Flat Townscape: Pyramid"
+    },
+    {
+      "mapId": 20,
+      "name": "Frigid Candy Forest"
+    },
+    {
+      "mapId": 21,
+      "name": "Frigid Candy Forest"
+    },
+    {
+      "mapId": 170,
+      "name": "Frigid Candy Forest"
+    },
+    {
+      "mapId": 24,
+      "name": "Frigid Candy Forest: Pouch Settlement"
+    },
+    {
+      "mapId": 25,
+      "name": "Frigid Candy Forest: Pouch Settlement"
+    },
+    {
+      "mapId": 26,
+      "name": "Frigid Candy Forest: Pouch Settlement"
+    },
+    {
+      "mapId": 27,
+      "name": "Frigid Candy Forest: Pouch Settlement"
+    },
+    {
+      "mapId": 28,
+      "name": "Frigid Candy Forest: Pouch Settlement"
+    },
+    {
+      "mapId": 10,
+      "name": "Green Cube Passage"
+    },
+    {
+      "mapId": 30,
+      "name": "Green Cube Passage"
+    },
+    {
+      "mapId": 53,
+      "name": "Hologram Space"
+    },
+    {
+      "mapId": 67,
+      "name": "Hologram Space"
+    },
+    {
+      "mapId": 69,
+      "name": "Hologram Space"
+    },
+    {
+      "mapId": 68,
+      "name": "Hologram Space: Back Alley"
+    },
+    {
+      "mapId": 70,
+      "name": "Hologram Space: Back Alley"
+    },
+    {
+      "mapId": 79,
+      "name": "Hologram Space: Back Alley"
+    },
+    {
+      "mapId": 65,
+      "name": "Human Figure World"
+    },
+    {
+      "mapId": 66,
+      "name": "Human Figure World"
+    },
+    {
+      "mapId": 74,
+      "name": "Human Figure World: Staring Giant Area"
+    },
+    {
+      "mapId": 35,
+      "name": "Ice Temple"
+    },
+    {
+      "mapId": 36,
+      "name": "Ice Temple"
+    },
+    {
+      "mapId": 52,
+      "name": "Ice Temple"
+    },
+    {
+      "mapId": 116,
+      "name": "Ice Temple"
+    },
+    {
+      "mapId": 179,
+      "name": "Ice Temple"
+    },
+    {
+      "mapId": 84,
+      "name": "Ice Temple: Witch Flight"
+    },
+    {
+      "mapId": 71,
+      "name": "Isolated House"
+    },
+    {
+      "mapId": 109,
+      "name": "Isolated House"
+    },
+    {
+      "mapId": 149,
+      "name": "Isolated House"
+    },
+    {
+      "mapId": 183,
+      "name": "Isolated House"
+    },
+    {
+      "mapId": 47,
+      "name": "Japanese Castle"
+    },
+    {
+      "mapId": 48,
+      "name": "Japanese Castle"
+    },
+    {
+      "mapId": 51,
+      "name": "Japanese Castle"
+    },
+    {
+      "mapId": 86,
+      "name": "Japanese Castle: Ninja's Room"
+    },
+    {
+      "mapId": 46,
+      "name": "Lycoris World"
+    },
+    {
+      "mapId": 49,
+      "name": "Lycoris World"
+    },
+    {
+      "mapId": 50,
+      "name": "Lycoris World: Eclipse"
+    },
+    {
+      "mapId": 11,
+      "name": "Magenta Roads"
+    },
+    {
+      "mapId": 85,
+      "name": "Magenta Roads"
+    },
+    {
+      "mapId": 121,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 122,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 123,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 124,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 126,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 127,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 128,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 129,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 131,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 132,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 133,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 134,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 135,
+      "name": "Magicant"
+    },
+    {
+      "mapId": 148,
+      "name": "Maze of Fear"
+    },
+    {
+      "mapId": 44,
+      "name": "Mechanical Animal World"
+    },
+    {
+      "mapId": 145,
+      "name": "Monochrome City"
+    },
+    {
+      "mapId": 146,
+      "name": "Monochrome City"
+    },
+    {
+      "mapId": 177,
+      "name": "Monochrome City"
+    },
+    {
+      "mapId": 178,
+      "name": "Monochrome City"
+    },
+    {
+      "mapId": 54,
+      "name": "Monochrome Islands"
+    },
+    {
+      "mapId": 59,
+      "name": "Monochrome Islands"
+    },
+    {
+      "mapId": 64,
+      "name": "Monochrome Islands"
+    },
+    {
+      "mapId": 55,
+      "name": "Monochrome Islands: Lunar Isle"
+    },
+    {
+      "mapId": 56,
+      "name": "Monochrome Islands: Solar Isle"
+    },
+    {
+      "mapId": 98,
+      "name": "Mural World"
+    },
+    {
+      "mapId": 112,
+      "name": "Mural World: Silhouette Passage"
+    },
+    {
+      "mapId": 5,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 15,
+      "name": "Nocturnal Rivers"
+    },
+    {
+      "mapId": 34,
+      "name": "Paint World"
+    },
+    {
+      "mapId": 41,
+      "name": "Paint World: Toy Box"
+    },
+    {
+      "mapId": 113,
+      "name": "Pointing Forest"
+    },
+    {
+      "mapId": 114,
+      "name": "Pointing Forest"
+    },
+    {
+      "mapId": 115,
+      "name": "Pointing Forest"
+    },
+    {
+      "mapId": 130,
+      "name": "Pointing Forest"
+    },
+    {
+      "mapId": 136,
+      "name": "Pointing Forest"
+    },
+    {
+      "mapId": 137,
+      "name": "Pointing Forest"
+    },
+    {
+      "mapId": 82,
+      "name": "Prison Chambers"
+    },
+    {
+      "mapId": 13,
+      "name": "Program World",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": 0,
+          "x2": 39,
+          "y2": 8
+        },
+        {
+          "x1": 0,
+          "y1": 9,
+          "x2": 39,
+          "y2": 9
+        },
+        {
+          "x1": 2,
+          "y1": 10,
+          "x2": 37,
+          "y2": 10
+        },
+        {
+          "x1": 4,
+          "y1": 11,
+          "x2": 35,
+          "y2": 11
+        },
+        {
+          "x1": 6,
+          "y1": 12,
+          "x2": 33,
+          "y2": 12
+        },
+        {
+          "x1": 8,
+          "y1": 13,
+          "x2": 31,
+          "y2": 13
+        },
+        {
+          "x1": 10,
+          "y1": 14,
+          "x2": 29,
+          "y2": 14
+        },
+        {
+          "x1": 12,
+          "y1": 15,
+          "x2": 27,
+          "y2": 15
+        },
+        {
+          "x1": 14,
+          "y1": 16,
+          "x2": 25,
+          "y2": 16
+        },
+        {
+          "x1": 16,
+          "y1": 17,
+          "x2": 23,
+          "y2": 17
+        },
+        {
+          "x1": 18,
+          "y1": 18,
+          "x2": 21,
+          "y2": 18
+        }
+      ]
+    },
+    {
+      "mapId": 18,
+      "name": "Program World"
+    },
+    {
+      "mapId": 81,
+      "name": "Program World B"
+    },
+    {
+      "mapId": 105,
+      "name": "Program World B"
+    },
+    {
+      "mapId": 99,
+      "name": "Psychedelic Glyph World"
+    },
+    {
+      "mapId": 100,
+      "name": "Rainbow World"
+    },
+    {
+      "mapId": 103,
+      "name": "Rainbow World"
+    },
+    {
+      "mapId": 104,
+      "name": "Rainbow World"
+    },
+    {
+      "mapId": 43,
+      "name": "Red and Blue Passage"
+    },
+    {
+      "mapId": 29,
+      "name": "Red Tile Passage"
+    },
+    {
+      "mapId": 120,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 167,
+      "name": "Sewers"
+    },
+    {
+      "mapId": 4,
+      "name": "Shimitsuki's Balcony"
+    },
+    {
+      "mapId": 6,
+      "name": "Shimitsuki's Balcony"
+    },
+    {
+      "mapId": 95,
+      "name": "Shimitsuki's Computer"
+    },
+    {
+      "mapId": 2,
+      "name": "Shimitsuki's Dream Room"
+    },
+    {
+      "mapId": 102,
+      "name": "Shimitsuki's Dream Room"
+    },
+    {
+      "mapId": 1,
+      "name": "Shimitsuki's Room"
+    },
+    {
+      "mapId": 3,
+      "name": "Shimitsuki's Room"
+    },
+    {
+      "mapId": 87,
+      "name": "Shimitsuki's Room"
+    },
+    {
+      "mapId": 88,
+      "name": "Shimitsuki's Room"
+    },
+    {
+      "mapId": 89,
+      "name": "Shimitsuki's Room"
+    },
+    {
+      "mapId": 110,
+      "name": "Shimitsuki's Room"
+    },
+    {
+      "mapId": 111,
+      "name": "Shimitsuki's Room"
+    },
+    {
+      "mapId": 181,
+      "name": "Shimitsuki's Room"
+    },
+    {
+      "mapId": 182,
+      "name": "Shimitsuki's Room"
+    },
+    {
+      "mapId": 83,
+      "name": "Space Coaster World"
+    },
+    {
+      "mapId": 92,
+      "name": "Spelling Crypt"
+    },
+    {
+      "mapId": 93,
+      "name": "Spelling Crypt"
+    },
+    {
+      "mapId": 101,
+      "name": "Staircase Suburbs"
+    },
+    {
+      "mapId": 168,
+      "name": "Staircase Suburbs"
+    },
+    {
+      "mapId": 169,
+      "name": "Staircase Suburbs"
+    },
+    {
+      "mapId": 75,
+      "name": "Steel Wilds"
+    },
+    {
+      "mapId": 80,
+      "name": "Steel Wilds"
+    },
+    {
+      "mapId": 147,
+      "name": "Steel Wilds"
+    },
+    {
+      "mapId": 97,
+      "name": "Strange Library"
+    },
+    {
+      "mapId": 139,
+      "name": "Streetlamp World"
+    },
+    {
+      "mapId": 140,
+      "name": "Streetlamp World: Bar"
+    },
+    {
+      "mapId": 9,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 12,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 16,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 19,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 37,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 90,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 91,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 94,
+      "name": "Train Station"
+    },
+    {
+      "mapId": 31,
+      "name": "Yellow Tile Passage"
+    }
+  ]
+}

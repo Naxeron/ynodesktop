@@ -1,0 +1,691 @@
+{
+  "version": 1,
+  "game": "tsushin",
+  "source": "ynolocations/tsushin/config.json",
+  "entries": [
+    {
+      "mapId": 23,
+      "name": "Abandoned Swimming Pool"
+    },
+    {
+      "mapId": 135,
+      "name": "Amusement Park"
+    },
+    {
+      "mapId": 139,
+      "name": "Amusement Park"
+    },
+    {
+      "mapId": 155,
+      "name": "Amusement Park"
+    },
+    {
+      "mapId": 55,
+      "name": "Ancient Civilization"
+    },
+    {
+      "mapId": 56,
+      "name": "Ancient Civilization"
+    },
+    {
+      "mapId": 15,
+      "name": "Artsy Apartments"
+    },
+    {
+      "mapId": 37,
+      "name": "Artsy Apartments"
+    },
+    {
+      "mapId": 138,
+      "name": "Azure Park"
+    },
+    {
+      "mapId": 26,
+      "name": "Beach"
+    },
+    {
+      "mapId": 85,
+      "name": "Body Part Exhibition"
+    },
+    {
+      "mapId": 36,
+      "name": "Cake Tower"
+    },
+    {
+      "mapId": 68,
+      "name": "Cake Tower"
+    },
+    {
+      "mapId": 136,
+      "name": "Car"
+    },
+    {
+      "mapId": 96,
+      "name": "Cheese Maze"
+    },
+    {
+      "mapId": 82,
+      "name": "City Building"
+    },
+    {
+      "mapId": 87,
+      "name": "City Building"
+    },
+    {
+      "mapId": 92,
+      "name": "City Building"
+    },
+    {
+      "mapId": 17,
+      "name": "Concrete Building"
+    },
+    {
+      "mapId": 84,
+      "name": "Cubic Lamp Meadow"
+    },
+    {
+      "mapId": 91,
+      "name": "Cubic Lamp Meadow"
+    },
+    {
+      "mapId": 102,
+      "name": "Cubic Lamp Meadow"
+    },
+    {
+      "mapId": 145,
+      "name": "Curtain World"
+    },
+    {
+      "mapId": 179,
+      "name": "Curtain World"
+    },
+    {
+      "mapId": 77,
+      "name": "Dark Screaming Maze"
+    },
+    {
+      "mapId": 132,
+      "name": "Dead Woods"
+    },
+    {
+      "mapId": 64,
+      "name": "Debug Room"
+    },
+    {
+      "mapId": 140,
+      "name": "Debug Room"
+    },
+    {
+      "mapId": 142,
+      "name": "Debug Room"
+    },
+    {
+      "mapId": 31,
+      "name": "Deep Blue Park"
+    },
+    {
+      "mapId": 108,
+      "name": "Deep Forest"
+    },
+    {
+      "mapId": 33,
+      "name": "Deep Forest A"
+    },
+    {
+      "mapId": 40,
+      "name": "Deep Forest A"
+    },
+    {
+      "mapId": 35,
+      "name": "Deep Forest B"
+    },
+    {
+      "mapId": 61,
+      "name": "Deep Forest B"
+    },
+    {
+      "mapId": 25,
+      "name": "Deep Forest C"
+    },
+    {
+      "mapId": 88,
+      "name": "Deep Forest C"
+    },
+    {
+      "mapId": 95,
+      "name": "Deep Forest C"
+    },
+    {
+      "mapId": 76,
+      "name": "Docks"
+    },
+    {
+      "mapId": 154,
+      "name": "Dollhouse Village"
+    },
+    {
+      "mapId": 90,
+      "name": "Downtown"
+    },
+    {
+      "mapId": 39,
+      "name": "Factory"
+    },
+    {
+      "mapId": 144,
+      "name": "Factory"
+    },
+    {
+      "mapId": 169,
+      "name": "Factory"
+    },
+    {
+      "mapId": 147,
+      "name": "Festive Clouds"
+    },
+    {
+      "mapId": 27,
+      "name": "Floating Triangle Attic"
+    },
+    {
+      "mapId": 168,
+      "name": "Forest Bus Stop"
+    },
+    {
+      "mapId": 153,
+      "name": "Head Space"
+    },
+    {
+      "mapId": 73,
+      "name": "Hothouse"
+    },
+    {
+      "mapId": 137,
+      "name": "Lakeside Dock"
+    },
+    {
+      "mapId": 78,
+      "name": "Library"
+    },
+    {
+      "mapId": 79,
+      "name": "Library"
+    },
+    {
+      "mapId": 80,
+      "name": "Library"
+    },
+    {
+      "mapId": 107,
+      "name": "Lotus Marsh"
+    },
+    {
+      "mapId": 130,
+      "name": "Low-poly Town"
+    },
+    {
+      "mapId": 11,
+      "name": "Majestic Garden"
+    },
+    {
+      "mapId": 6,
+      "name": "Meat World"
+    },
+    {
+      "mapId": 28,
+      "name": "Meat World"
+    },
+    {
+      "mapId": 104,
+      "name": "Monitor Realm"
+    },
+    {
+      "mapId": 148,
+      "name": "Monitor Realm: Sushi Aquarium"
+    },
+    {
+      "mapId": 67,
+      "name": "Moon"
+    },
+    {
+      "mapId": 69,
+      "name": "Moon"
+    },
+    {
+      "mapId": 98,
+      "name": "Moon"
+    },
+    {
+      "mapId": 100,
+      "name": "Moon"
+    },
+    {
+      "mapId": 38,
+      "name": "Moon Ornament"
+    },
+    {
+      "mapId": 41,
+      "name": "Moon Ornament"
+    },
+    {
+      "mapId": 7,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 52,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 71,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 81,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 105,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 109,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 110,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 111,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 112,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 113,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 114,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 115,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 157,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 158,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 159,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 174,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 175,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 176,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 177,
+      "name": "Oceanfront Architecture"
+    },
+    {
+      "mapId": 143,
+      "name": "Oceanfront Architecture: Hair Salon"
+    },
+    {
+      "mapId": 134,
+      "name": "Office Building"
+    },
+    {
+      "mapId": 42,
+      "name": "Old Apartment Building"
+    },
+    {
+      "mapId": 44,
+      "name": "Old Apartment Building"
+    },
+    {
+      "mapId": 45,
+      "name": "Old Apartment Building"
+    },
+    {
+      "mapId": 46,
+      "name": "Old Apartment Building"
+    },
+    {
+      "mapId": 47,
+      "name": "Old Apartment Building"
+    },
+    {
+      "mapId": 48,
+      "name": "Old Apartment Building"
+    },
+    {
+      "mapId": 49,
+      "name": "Old Apartment Building"
+    },
+    {
+      "mapId": 50,
+      "name": "Old Apartment Building"
+    },
+    {
+      "mapId": 51,
+      "name": "Old Apartment Building"
+    },
+    {
+      "mapId": 53,
+      "name": "Penguin Land"
+    },
+    {
+      "mapId": 54,
+      "name": "Photo Album"
+    },
+    {
+      "mapId": 156,
+      "name": "Photo Album"
+    },
+    {
+      "mapId": 146,
+      "name": "Plush Grave"
+    },
+    {
+      "mapId": 86,
+      "name": "Port"
+    },
+    {
+      "mapId": 89,
+      "name": "Port"
+    },
+    {
+      "mapId": 62,
+      "name": "Rainy Islands"
+    },
+    {
+      "mapId": 65,
+      "name": "Rainy Islands"
+    },
+    {
+      "mapId": 74,
+      "name": "Red Totem Passage"
+    },
+    {
+      "mapId": 75,
+      "name": "Red Totem Passage"
+    },
+    {
+      "mapId": 106,
+      "name": "Residential Building"
+    },
+    {
+      "mapId": 160,
+      "name": "Residential Building"
+    },
+    {
+      "mapId": 161,
+      "name": "Residential Building"
+    },
+    {
+      "mapId": 162,
+      "name": "Residential Building"
+    },
+    {
+      "mapId": 163,
+      "name": "Residential Building"
+    },
+    {
+      "mapId": 164,
+      "name": "Residential Building"
+    },
+    {
+      "mapId": 165,
+      "name": "Residential Building"
+    },
+    {
+      "mapId": 166,
+      "name": "Residential Building"
+    },
+    {
+      "mapId": 167,
+      "name": "Residential Building"
+    },
+    {
+      "mapId": 21,
+      "name": "Rooftop"
+    },
+    {
+      "mapId": 32,
+      "name": "Rooftop"
+    },
+    {
+      "mapId": 12,
+      "name": "Seaside"
+    },
+    {
+      "mapId": 13,
+      "name": "Seaside"
+    },
+    {
+      "mapId": 5,
+      "name": "Snowy Avenue"
+    },
+    {
+      "mapId": 19,
+      "name": "Snowy Avenue"
+    },
+    {
+      "mapId": 22,
+      "name": "Snowy Avenue"
+    },
+    {
+      "mapId": 151,
+      "name": "Snowy Avenue: Convenience Store"
+    },
+    {
+      "mapId": 117,
+      "name": "Sofa Maze"
+    },
+    {
+      "mapId": 178,
+      "name": "Sofa Maze"
+    },
+    {
+      "mapId": 70,
+      "name": "Spring World"
+    },
+    {
+      "mapId": 30,
+      "name": "Stairs and Sundries"
+    },
+    {
+      "mapId": 66,
+      "name": "Stairs and Sundries"
+    },
+    {
+      "mapId": 93,
+      "name": "Streetlight Wetlands"
+    },
+    {
+      "mapId": 94,
+      "name": "Streetlight Wetlands"
+    },
+    {
+      "mapId": 8,
+      "name": "Swamp World"
+    },
+    {
+      "mapId": 9,
+      "name": "Swamp World"
+    },
+    {
+      "mapId": 97,
+      "name": "Throne of Entrails"
+    },
+    {
+      "mapId": 129,
+      "name": "Tropics"
+    },
+    {
+      "mapId": 133,
+      "name": "Tropics"
+    },
+    {
+      "mapId": 10,
+      "name": "Underpass"
+    },
+    {
+      "mapId": 99,
+      "name": "Underpass"
+    },
+    {
+      "mapId": 120,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 121,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 122,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 123,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 124,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 125,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 126,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 127,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 128,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 150,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 170,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 171,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 172,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 173,
+      "name": "Urban Cityscape"
+    },
+    {
+      "mapId": 34,
+      "name": "Warehouse"
+    },
+    {
+      "mapId": 18,
+      "name": "White Desert"
+    },
+    {
+      "mapId": 24,
+      "name": "White Desert"
+    },
+    {
+      "mapId": 101,
+      "name": "White Desert"
+    },
+    {
+      "mapId": 141,
+      "name": "White Desert"
+    },
+    {
+      "mapId": 63,
+      "name": "Wormiko's Apartment"
+    },
+    {
+      "mapId": 83,
+      "name": "Wormiko's Apartment"
+    },
+    {
+      "mapId": 3,
+      "name": "Wormiko's Dream Room"
+    },
+    {
+      "mapId": 4,
+      "name": "Wormiko's Dream Room"
+    },
+    {
+      "mapId": 16,
+      "name": "Wormiko's Dream Room"
+    },
+    {
+      "mapId": 1,
+      "name": "Wormiko's Room"
+    },
+    {
+      "mapId": 14,
+      "name": "Zombie Apartment"
+    },
+    {
+      "mapId": 20,
+      "name": "Zombie Apartment"
+    },
+    {
+      "mapId": 29,
+      "name": "Zombie Apartment"
+    },
+    {
+      "mapId": 43,
+      "name": "Zombie Apartment"
+    },
+    {
+      "mapId": 57,
+      "name": "Zombie Apartment"
+    },
+    {
+      "mapId": 58,
+      "name": "Zombie Apartment"
+    },
+    {
+      "mapId": 59,
+      "name": "Zombie Apartment"
+    },
+    {
+      "mapId": 60,
+      "name": "Zombie Apartment"
+    },
+    {
+      "mapId": 72,
+      "name": "Zombie Apartment"
+    }
+  ]
+}

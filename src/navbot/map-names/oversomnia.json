@@ -1,0 +1,463 @@
+{
+  "version": 1,
+  "game": "oversomnia",
+  "source": "ynolocations/oversomnia/config.json",
+  "entries": [
+    {
+      "mapId": 11,
+      "name": "Abyssal Passage"
+    },
+    {
+      "mapId": 57,
+      "name": "Aeroplane World"
+    },
+    {
+      "mapId": 58,
+      "name": "Aeroplane World"
+    },
+    {
+      "mapId": 10,
+      "name": "Aquarium World"
+    },
+    {
+      "mapId": 12,
+      "name": "Aquarium World"
+    },
+    {
+      "mapId": 21,
+      "name": "Attic World"
+    },
+    {
+      "mapId": 23,
+      "name": "Attic World"
+    },
+    {
+      "mapId": 42,
+      "name": "Basement World"
+    },
+    {
+      "mapId": 4,
+      "name": "Bathroom"
+    },
+    {
+      "mapId": 55,
+      "name": "Benthic World"
+    },
+    {
+      "mapId": 87,
+      "name": "Blue Passage A",
+      "regions": [
+        {
+          "x1": 0,
+          "y1": -1,
+          "x2": 40,
+          "y2": -1
+        }
+      ]
+    },
+    {
+      "mapId": 87,
+      "name": "Blue Passage B"
+    },
+    {
+      "mapId": 91,
+      "name": "Boiling Water World"
+    },
+    {
+      "mapId": 37,
+      "name": "Clock House"
+    },
+    {
+      "mapId": 19,
+      "name": "Cloud Cuckoo World"
+    },
+    {
+      "mapId": 88,
+      "name": "Cold Storage"
+    },
+    {
+      "mapId": 89,
+      "name": "Cold Storage"
+    },
+    {
+      "mapId": 63,
+      "name": "Crystal World"
+    },
+    {
+      "mapId": 61,
+      "name": "Curtain Den"
+    },
+    {
+      "mapId": 98,
+      "name": "Curtain Den"
+    },
+    {
+      "mapId": 77,
+      "name": "Death Row"
+    },
+    {
+      "mapId": 28,
+      "name": "Deluge"
+    },
+    {
+      "mapId": 47,
+      "name": "Demon's Shop"
+    },
+    {
+      "mapId": 38,
+      "name": "Descent"
+    },
+    {
+      "mapId": 25,
+      "name": "Dream Journal"
+    },
+    {
+      "mapId": 108,
+      "name": "Dreaming Serpents World"
+    },
+    {
+      "mapId": 113,
+      "name": "Dreaming Serpents World"
+    },
+    {
+      "mapId": 66,
+      "name": "Electrical Servicer"
+    },
+    {
+      "mapId": 31,
+      "name": "Electro Tower"
+    },
+    {
+      "mapId": 92,
+      "name": "Elevator"
+    },
+    {
+      "mapId": 50,
+      "name": "Emerald Shrubland"
+    },
+    {
+      "mapId": 39,
+      "name": "Emergency Room"
+    },
+    {
+      "mapId": 102,
+      "name": "Familiar Room"
+    },
+    {
+      "mapId": 100,
+      "name": "Familiar Street"
+    },
+    {
+      "mapId": 85,
+      "name": "Fishing Hole"
+    },
+    {
+      "mapId": 62,
+      "name": "Foggy Road"
+    },
+    {
+      "mapId": 49,
+      "name": "Garden Centre"
+    },
+    {
+      "mapId": 67,
+      "name": "Garden Centre"
+    },
+    {
+      "mapId": 43,
+      "name": "Gloomy Wetlands"
+    },
+    {
+      "mapId": 110,
+      "name": "Gloomy Wetlands"
+    },
+    {
+      "mapId": 104,
+      "name": "Hoarder's Room"
+    },
+    {
+      "mapId": 80,
+      "name": "Hotel Room"
+    },
+    {
+      "mapId": 7,
+      "name": "Irving's Dream Room"
+    },
+    {
+      "mapId": 2,
+      "name": "Irving's Room"
+    },
+    {
+      "mapId": 106,
+      "name": "Junction Space"
+    },
+    {
+      "mapId": 107,
+      "name": "Junction Space"
+    },
+    {
+      "mapId": 3,
+      "name": "Kitchen"
+    },
+    {
+      "mapId": 93,
+      "name": "Lowest Point"
+    },
+    {
+      "mapId": 101,
+      "name": "Lowest Point"
+    },
+    {
+      "mapId": 95,
+      "name": "Magic 8-Ball Room"
+    },
+    {
+      "mapId": 53,
+      "name": "Meteorite Cave"
+    },
+    {
+      "mapId": 29,
+      "name": "Metro Zone"
+    },
+    {
+      "mapId": 33,
+      "name": "Metro Zone"
+    },
+    {
+      "mapId": 60,
+      "name": "Moth Temple"
+    },
+    {
+      "mapId": 103,
+      "name": "Moth Temple"
+    },
+    {
+      "mapId": 73,
+      "name": "Museum"
+    },
+    {
+      "mapId": 48,
+      "name": "Music Symbol World"
+    },
+    {
+      "mapId": 54,
+      "name": "Mycotoxin Marsh"
+    },
+    {
+      "mapId": 96,
+      "name": "Mycotoxin Marsh"
+    },
+    {
+      "mapId": 94,
+      "name": "Neon Crustacean Zone"
+    },
+    {
+      "mapId": 105,
+      "name": "Neptune"
+    },
+    {
+      "mapId": 9,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 70,
+      "name": "Noble Gas District"
+    },
+    {
+      "mapId": 109,
+      "name": "Noble Gas District"
+    },
+    {
+      "mapId": 18,
+      "name": "Noise Room"
+    },
+    {
+      "mapId": 44,
+      "name": "Oil World"
+    },
+    {
+      "mapId": 71,
+      "name": "Outback Roads"
+    },
+    {
+      "mapId": 72,
+      "name": "Outback Roads"
+    },
+    {
+      "mapId": 5,
+      "name": "Outside Irving's Room"
+    },
+    {
+      "mapId": 6,
+      "name": "Outside Irving's Room"
+    },
+    {
+      "mapId": 111,
+      "name": "Overlook"
+    },
+    {
+      "mapId": 56,
+      "name": "Pink Beach"
+    },
+    {
+      "mapId": 84,
+      "name": "Poker Chip World"
+    },
+    {
+      "mapId": 68,
+      "name": "Pool World"
+    },
+    {
+      "mapId": 69,
+      "name": "Pool World"
+    },
+    {
+      "mapId": 78,
+      "name": "Printer Ink World"
+    },
+    {
+      "mapId": 99,
+      "name": "Radio Studio"
+    },
+    {
+      "mapId": 36,
+      "name": "Rainy Village"
+    },
+    {
+      "mapId": 74,
+      "name": "Ramparts"
+    },
+    {
+      "mapId": 45,
+      "name": "Random Space"
+    },
+    {
+      "mapId": 22,
+      "name": "Road Sign World"
+    },
+    {
+      "mapId": 75,
+      "name": "Scarlet World"
+    },
+    {
+      "mapId": 26,
+      "name": "Sea Manor"
+    },
+    {
+      "mapId": 32,
+      "name": "Stormy Towers"
+    },
+    {
+      "mapId": 46,
+      "name": "Sunset Hell"
+    },
+    {
+      "mapId": 76,
+      "name": "Swamp World"
+    },
+    {
+      "mapId": 81,
+      "name": "Swamp World"
+    },
+    {
+      "mapId": 97,
+      "name": "Telescope"
+    },
+    {
+      "mapId": 112,
+      "name": "The Green River"
+    },
+    {
+      "mapId": 114,
+      "name": "The Green River"
+    },
+    {
+      "mapId": 65,
+      "name": "Tornado Area"
+    },
+    {
+      "mapId": 41,
+      "name": "Transmission Tower World"
+    },
+    {
+      "mapId": 13,
+      "name": "Twilight Apartments"
+    },
+    {
+      "mapId": 14,
+      "name": "Twilight Apartments"
+    },
+    {
+      "mapId": 15,
+      "name": "Twilight Apartments"
+    },
+    {
+      "mapId": 16,
+      "name": "Twilight Apartments"
+    },
+    {
+      "mapId": 17,
+      "name": "Twilight Apartments"
+    },
+    {
+      "mapId": 30,
+      "name": "Twilight Apartments"
+    },
+    {
+      "mapId": 24,
+      "name": "Underwater A"
+    },
+    {
+      "mapId": 27,
+      "name": "Underwater B"
+    },
+    {
+      "mapId": 40,
+      "name": "Vampire's House"
+    },
+    {
+      "mapId": 79,
+      "name": "Ventilation Passage"
+    },
+    {
+      "mapId": 82,
+      "name": "Ventilation Passage"
+    },
+    {
+      "mapId": 83,
+      "name": "Ventilation Void"
+    },
+    {
+      "mapId": 86,
+      "name": "Vermilion Rooftops"
+    },
+    {
+      "mapId": 59,
+      "name": "Vile Tunnels"
+    },
+    {
+      "mapId": 20,
+      "name": "Waterway Town"
+    },
+    {
+      "mapId": 35,
+      "name": "Waterworks Office"
+    },
+    {
+      "mapId": 64,
+      "name": "Weather Station"
+    },
+    {
+      "mapId": 51,
+      "name": "Winter Hills"
+    },
+    {
+      "mapId": 52,
+      "name": "Winter Hills"
+    },
+    {
+      "mapId": 90,
+      "name": "Winter Hills"
+    }
+  ]
+}

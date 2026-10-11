@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "game": "nostalgic",
+  "source": "ynolocations/nostalgic/config.json",
+  "entries": [
+    {
+      "mapId": 109,
+      "name": "?"
+    },
+    {
+      "mapId": 108,
+      "name": "??"
+    },
+    {
+      "mapId": 105,
+      "name": "???"
+    },
+    {
+      "mapId": 29,
+      "name": "A's Balcony"
+    },
+    {
+      "mapId": 34,
+      "name": "A's Dream Balcony"
+    },
+    {
+      "mapId": 36,
+      "name": "A's Dream Room"
+    },
+    {
+      "mapId": 30,
+      "name": "A's Room"
+    },
+    {
+      "mapId": 23,
+      "name": "Azure Abode"
+    },
+    {
+      "mapId": 24,
+      "name": "Azure Abode"
+    },
+    {
+      "mapId": 26,
+      "name": "Azure Abode"
+    },
+    {
+      "mapId": 6,
+      "name": "Breakfast World"
+    },
+    {
+      "mapId": 74,
+      "name": "Breakfast World"
+    },
+    {
+      "mapId": 75,
+      "name": "Christmas World"
+    },
+    {
+      "mapId": 35,
+      "name": "Clock Giant's House"
+    },
+    {
+      "mapId": 4,
+      "name": "Clock Tower Restaurant"
+    },
+    {
+      "mapId": 63,
+      "name": "Clock Tower Restaurant"
+    },
+    {
+      "mapId": 68,
+      "name": "Clock Tower Restaurant"
+    },
+    {
+      "mapId": 19,
+      "name": "Cold Forest"
+    },
+    {
+      "mapId": 66,
+      "name": "Confection World"
+    },
+    {
+      "mapId": 69,
+      "name": "Confection World: Ribbon House"
+    },
+    {
+      "mapId": 33,
+      "name": "Fabric Room"
+    },
+    {
+      "mapId": 46,
+      "name": "Fancy House"
+    },
+    {
+      "mapId": 52,
+      "name": "Fancy House"
+    },
+    {
+      "mapId": 57,
+      "name": "Fancy House"
+    },
+    {
+      "mapId": 16,
+      "name": "Full Moon Desert"
+    },
+    {
+      "mapId": 73,
+      "name": "Full Moon Desert: Shining Passage"
+    },
+    {
+      "mapId": 28,
+      "name": "Garden Chair World"
+    },
+    {
+      "mapId": 40,
+      "name": "Garden Chair World: Four Cats Path"
+    },
+    {
+      "mapId": 5,
+      "name": "Glass Forest"
+    },
+    {
+      "mapId": 32,
+      "name": "Hallucination"
+    },
+    {
+      "mapId": 20,
+      "name": "Juice Sea"
+    },
+    {
+      "mapId": 21,
+      "name": "Juice Sea"
+    },
+    {
+      "mapId": 39,
+      "name": "Juice Sea"
+    },
+    {
+      "mapId": 49,
+      "name": "Juice Sea: Windmill Path"
+    },
+    {
+      "mapId": 64,
+      "name": "My Living Room"
+    },
+    {
+      "mapId": 110,
+      "name": "My Living Room"
+    },
+    {
+      "mapId": 59,
+      "name": "My Room"
+    },
+    {
+      "mapId": 61,
+      "name": "My Room"
+    },
+    {
+      "mapId": 65,
+      "name": "My Room"
+    },
+    {
+      "mapId": 111,
+      "name": "My Room"
+    },
+    {
+      "mapId": 45,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 47,
+      "name": "Nursery Room"
+    },
+    {
+      "mapId": 58,
+      "name": "Nursery Room"
+    },
+    {
+      "mapId": 1,
+      "name": "Paper Plane World"
+    },
+    {
+      "mapId": 13,
+      "name": "Paper Plane World"
+    },
+    {
+      "mapId": 14,
+      "name": "Paper Plane World"
+    },
+    {
+      "mapId": 62,
+      "name": "Pastel Space"
+    },
+    {
+      "mapId": 48,
+      "name": "Peaceful Bus Stop"
+    },
+    {
+      "mapId": 50,
+      "name": "Peaceful Bus Stop: Bus"
+    },
+    {
+      "mapId": 94,
+      "name": "Pink Seabed"
+    },
+    {
+      "mapId": 97,
+      "name": "Pink Seabed"
+    },
+    {
+      "mapId": 22,
+      "name": "Sleeping Flowers"
+    },
+    {
+      "mapId": 53,
+      "name": "Sleeping Flowers"
+    },
+    {
+      "mapId": 25,
+      "name": "Sleeping Flowers: Tree of Dreams"
+    },
+    {
+      "mapId": 70,
+      "name": "Sleeping Garden"
+    },
+    {
+      "mapId": 107,
+      "name": "Snowfield"
+    },
+    {
+      "mapId": 113,
+      "name": "Something"
+    },
+    {
+      "mapId": 112,
+      "name": "Somewhere"
+    },
+    {
+      "mapId": 55,
+      "name": "Star Dome"
+    },
+    {
+      "mapId": 60,
+      "name": "Star Dome"
+    },
+    {
+      "mapId": 10,
+      "name": "Tricolor Park"
+    },
+    {
+      "mapId": 12,
+      "name": "Tricolor Park: Orgel House"
+    },
+    {
+      "mapId": 17,
+      "name": "Tricolor Park: Orgel House"
+    }
+  ]
+}

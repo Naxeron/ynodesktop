@@ -1,0 +1,739 @@
+{
+  "version": 1,
+  "game": "fog",
+  "source": "ynolocations/fog/config.json",
+  "entries": [
+    {
+      "mapId": 162,
+      "name": "A2600 World: Center"
+    },
+    {
+      "mapId": 164,
+      "name": "A2600 World: East"
+    },
+    {
+      "mapId": 16,
+      "name": "A2600 World: Entrance"
+    },
+    {
+      "mapId": 165,
+      "name": "A2600 World: North"
+    },
+    {
+      "mapId": 167,
+      "name": "A2600 World: Northeast"
+    },
+    {
+      "mapId": 166,
+      "name": "A2600 World: Northwest"
+    },
+    {
+      "mapId": 159,
+      "name": "A2600 World: South"
+    },
+    {
+      "mapId": 161,
+      "name": "A2600 World: Southeast"
+    },
+    {
+      "mapId": 160,
+      "name": "A2600 World: Southwest"
+    },
+    {
+      "mapId": 163,
+      "name": "A2600 World: West"
+    },
+    {
+      "mapId": 83,
+      "name": "Alley Maze"
+    },
+    {
+      "mapId": 95,
+      "name": "Another Blood Maze"
+    },
+    {
+      "mapId": 172,
+      "name": "Another Blood Path"
+    },
+    {
+      "mapId": 151,
+      "name": "Another Compact World"
+    },
+    {
+      "mapId": 65,
+      "name": "Another Dub Bridge"
+    },
+    {
+      "mapId": 66,
+      "name": "Another Dub Room"
+    },
+    {
+      "mapId": 113,
+      "name": "Another Nature World"
+    },
+    {
+      "mapId": 149,
+      "name": "Another Star Path"
+    },
+    {
+      "mapId": 156,
+      "name": "Another White Desert"
+    },
+    {
+      "mapId": 153,
+      "name": "Another White Staircase"
+    },
+    {
+      "mapId": 10,
+      "name": "Arrow World"
+    },
+    {
+      "mapId": 45,
+      "name": "Arrow World: Bridge"
+    },
+    {
+      "mapId": 11,
+      "name": "Arrow World: Maze Gate"
+    },
+    {
+      "mapId": 21,
+      "name": "Arrow World: Prison"
+    },
+    {
+      "mapId": 12,
+      "name": "Arrow World: Zombie Parade"
+    },
+    {
+      "mapId": 52,
+      "name": "Basement Hallway"
+    },
+    {
+      "mapId": 70,
+      "name": "Blood Fountain Campus"
+    },
+    {
+      "mapId": 94,
+      "name": "Blood Maze"
+    },
+    {
+      "mapId": 93,
+      "name": "Blood Path"
+    },
+    {
+      "mapId": 103,
+      "name": "Blood Sky World"
+    },
+    {
+      "mapId": 105,
+      "name": "Blood Sky World: Floor"
+    },
+    {
+      "mapId": 44,
+      "name": "Blue Dub Room"
+    },
+    {
+      "mapId": 9,
+      "name": "Blue Stairs"
+    },
+    {
+      "mapId": 15,
+      "name": "Color World"
+    },
+    {
+      "mapId": 17,
+      "name": "Color World: Power Room"
+    },
+    {
+      "mapId": 26,
+      "name": "Compact World"
+    },
+    {
+      "mapId": 91,
+      "name": "Compact World: Blood Prison"
+    },
+    {
+      "mapId": 92,
+      "name": "Compact World: Bloody Staircase"
+    },
+    {
+      "mapId": 28,
+      "name": "Compact World: Nightmare Balcony"
+    },
+    {
+      "mapId": 27,
+      "name": "Compact World: Nightmare Bedroom"
+    },
+    {
+      "mapId": 49,
+      "name": "Compact World: Nightmare Closet"
+    },
+    {
+      "mapId": 89,
+      "name": "Compact World: Stone Complex"
+    },
+    {
+      "mapId": 90,
+      "name": "Compact World: Stone Prison"
+    },
+    {
+      "mapId": 29,
+      "name": "Compact World: Top Balcony"
+    },
+    {
+      "mapId": 147,
+      "name": "Convention Center"
+    },
+    {
+      "mapId": 32,
+      "name": "Dark World"
+    },
+    {
+      "mapId": 33,
+      "name": "Dark World: Basement"
+    },
+    {
+      "mapId": 34,
+      "name": "Dark World: Prison"
+    },
+    {
+      "mapId": 97,
+      "name": "Dead Alley"
+    },
+    {
+      "mapId": 104,
+      "name": "Dead Sky World"
+    },
+    {
+      "mapId": 154,
+      "name": "Decaying Path"
+    },
+    {
+      "mapId": 152,
+      "name": "Dreamer Lab"
+    },
+    {
+      "mapId": 67,
+      "name": "Dub Bridge"
+    },
+    {
+      "mapId": 84,
+      "name": "EGA City"
+    },
+    {
+      "mapId": 107,
+      "name": "EGA Dead End"
+    },
+    {
+      "mapId": 85,
+      "name": "EGA Street"
+    },
+    {
+      "mapId": 86,
+      "name": "Emory's Bedroom"
+    },
+    {
+      "mapId": 88,
+      "name": "Emory's Dream Bedroom"
+    },
+    {
+      "mapId": 87,
+      "name": "Emory's Nexus"
+    },
+    {
+      "mapId": 143,
+      "name": "Ending A"
+    },
+    {
+      "mapId": 158,
+      "name": "Ending B"
+    },
+    {
+      "mapId": 176,
+      "name": "Ending C"
+    },
+    {
+      "mapId": 141,
+      "name": "Ending Credits"
+    },
+    {
+      "mapId": 142,
+      "name": "Ending Credits"
+    },
+    {
+      "mapId": 175,
+      "name": "Ending Credits"
+    },
+    {
+      "mapId": 177,
+      "name": "Ending Credits"
+    },
+    {
+      "mapId": 179,
+      "name": "Ending Credits"
+    },
+    {
+      "mapId": 181,
+      "name": "Ending Credits"
+    },
+    {
+      "mapId": 183,
+      "name": "Ending Credits"
+    },
+    {
+      "mapId": 178,
+      "name": "Ending D"
+    },
+    {
+      "mapId": 180,
+      "name": "Ending E"
+    },
+    {
+      "mapId": 182,
+      "name": "Ending F"
+    },
+    {
+      "mapId": 184,
+      "name": "Ending G"
+    },
+    {
+      "mapId": 127,
+      "name": "Feldon's Bathroom"
+    },
+    {
+      "mapId": 126,
+      "name": "Feldon's Bedroom"
+    },
+    {
+      "mapId": 170,
+      "name": "Game Screen"
+    },
+    {
+      "mapId": 30,
+      "name": "Glitch World"
+    },
+    {
+      "mapId": 116,
+      "name": "Glitch World: Face Path"
+    },
+    {
+      "mapId": 102,
+      "name": "Glitch World: Labyrinth"
+    },
+    {
+      "mapId": 31,
+      "name": "Glitch World: Power Room"
+    },
+    {
+      "mapId": 100,
+      "name": "Good-bye Stranger"
+    },
+    {
+      "mapId": 101,
+      "name": "Good-bye Stranger: Level 1-1"
+    },
+    {
+      "mapId": 186,
+      "name": "Good-bye Stranger: Level 1-2"
+    },
+    {
+      "mapId": 187,
+      "name": "Good-bye Stranger: Level 2-1"
+    },
+    {
+      "mapId": 188,
+      "name": "Good-bye Stranger: Level 2-2"
+    },
+    {
+      "mapId": 189,
+      "name": "Good-bye Stranger: Level 3-1"
+    },
+    {
+      "mapId": 190,
+      "name": "Good-bye Stranger: Level 3-2"
+    },
+    {
+      "mapId": 191,
+      "name": "Good-bye Stranger: Level 4-1"
+    },
+    {
+      "mapId": 192,
+      "name": "Good-bye Stranger: Level F-F"
+    },
+    {
+      "mapId": 117,
+      "name": "Graffiti World"
+    },
+    {
+      "mapId": 22,
+      "name": "Grass World"
+    },
+    {
+      "mapId": 24,
+      "name": "Grass World: Intermediate Path"
+    },
+    {
+      "mapId": 25,
+      "name": "Grass World: Path to Pyramid"
+    },
+    {
+      "mapId": 23,
+      "name": "Grass World: Pyramid Stairs"
+    },
+    {
+      "mapId": 185,
+      "name": "Grass World: Top of Pyramid"
+    },
+    {
+      "mapId": 144,
+      "name": "Heaven"
+    },
+    {
+      "mapId": 40,
+      "name": "Impalement World"
+    },
+    {
+      "mapId": 171,
+      "name": "Impalement World: Prison"
+    },
+    {
+      "mapId": 50,
+      "name": "Impalement World: Stairway"
+    },
+    {
+      "mapId": 41,
+      "name": "Inverse Impalement World"
+    },
+    {
+      "mapId": 3,
+      "name": "Leon's Balcony"
+    },
+    {
+      "mapId": 1,
+      "name": "Leon's Bedroom"
+    },
+    {
+      "mapId": 4,
+      "name": "Leon's Dream Balcony"
+    },
+    {
+      "mapId": 6,
+      "name": "Leon's Dream Bedroom"
+    },
+    {
+      "mapId": 128,
+      "name": "Lindsey's Bedroom"
+    },
+    {
+      "mapId": 125,
+      "name": "Mitsuru's Bedroom"
+    },
+    {
+      "mapId": 42,
+      "name": "Nature World"
+    },
+    {
+      "mapId": 109,
+      "name": "Nature World: Corpse Cabin"
+    },
+    {
+      "mapId": 112,
+      "name": "Nature World: Firefly Meadow"
+    },
+    {
+      "mapId": 110,
+      "name": "Nature World: Picture Cabin"
+    },
+    {
+      "mapId": 114,
+      "name": "Nature World: Snake Cabin"
+    },
+    {
+      "mapId": 8,
+      "name": "Neon World"
+    },
+    {
+      "mapId": 7,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 157,
+      "name": "Nothingness"
+    },
+    {
+      "mapId": 140,
+      "name": "Nowhere"
+    },
+    {
+      "mapId": 63,
+      "name": "Office Complex"
+    },
+    {
+      "mapId": 138,
+      "name": "Office Complex: Another Landing"
+    },
+    {
+      "mapId": 61,
+      "name": "Office Complex: Bridge Closet"
+    },
+    {
+      "mapId": 146,
+      "name": "Office Complex: Broken Bridge Closet"
+    },
+    {
+      "mapId": 55,
+      "name": "Office Complex: Dead End"
+    },
+    {
+      "mapId": 137,
+      "name": "Office Complex: Destroyed Office"
+    },
+    {
+      "mapId": 64,
+      "name": "Office Complex: East Stairway"
+    },
+    {
+      "mapId": 69,
+      "name": "Office Complex: East Wing"
+    },
+    {
+      "mapId": 59,
+      "name": "Office Complex: Hallway"
+    },
+    {
+      "mapId": 131,
+      "name": "Office Complex: Jerkbrain Emory's Office"
+    },
+    {
+      "mapId": 133,
+      "name": "Office Complex: Jerkbrain Feldon's Office"
+    },
+    {
+      "mapId": 129,
+      "name": "Office Complex: Jerkbrain Leon's Office"
+    },
+    {
+      "mapId": 132,
+      "name": "Office Complex: Jerkbrain Lindsey's Office"
+    },
+    {
+      "mapId": 134,
+      "name": "Office Complex: Jerkbrain Mitsuru's Office"
+    },
+    {
+      "mapId": 130,
+      "name": "Office Complex: Jerkbrain Tegan's Office"
+    },
+    {
+      "mapId": 56,
+      "name": "Office Complex: Landing"
+    },
+    {
+      "mapId": 53,
+      "name": "Office Complex: Mutating Hallway"
+    },
+    {
+      "mapId": 54,
+      "name": "Office Complex: Mutating Hallway Anomaly"
+    },
+    {
+      "mapId": 58,
+      "name": "Office Complex: Prison"
+    },
+    {
+      "mapId": 136,
+      "name": "Office Complex: Top Floor"
+    },
+    {
+      "mapId": 145,
+      "name": "Office Complex: Vacant Room"
+    },
+    {
+      "mapId": 60,
+      "name": "Office Complex: Webcam Room"
+    },
+    {
+      "mapId": 62,
+      "name": "Office Complex: West Stairway"
+    },
+    {
+      "mapId": 57,
+      "name": "Office Complex: West Wing"
+    },
+    {
+      "mapId": 98,
+      "name": "Open Space"
+    },
+    {
+      "mapId": 43,
+      "name": "Rainbow Maze"
+    },
+    {
+      "mapId": 150,
+      "name": "Rainbow Maze: Power Room"
+    },
+    {
+      "mapId": 51,
+      "name": "Red Temple"
+    },
+    {
+      "mapId": 173,
+      "name": "Red Temple: Bloody Hallway"
+    },
+    {
+      "mapId": 74,
+      "name": "Red Temple: East Room"
+    },
+    {
+      "mapId": 71,
+      "name": "Red Temple: Great Hall"
+    },
+    {
+      "mapId": 72,
+      "name": "Red Temple: Prison"
+    },
+    {
+      "mapId": 174,
+      "name": "Red Temple: Treasure Room"
+    },
+    {
+      "mapId": 73,
+      "name": "Red Temple: West Room"
+    },
+    {
+      "mapId": 119,
+      "name": "School"
+    },
+    {
+      "mapId": 121,
+      "name": "School: Boys' Bathroom"
+    },
+    {
+      "mapId": 120,
+      "name": "School: Classroom"
+    },
+    {
+      "mapId": 122,
+      "name": "School: Girls' Bathroom"
+    },
+    {
+      "mapId": 123,
+      "name": "School: Martha's Classroom"
+    },
+    {
+      "mapId": 124,
+      "name": "School: Robot's Classroom"
+    },
+    {
+      "mapId": 135,
+      "name": "Sewer"
+    },
+    {
+      "mapId": 39,
+      "name": "Side World"
+    },
+    {
+      "mapId": 81,
+      "name": "Side World: Second Section"
+    },
+    {
+      "mapId": 82,
+      "name": "Side World: Third Section"
+    },
+    {
+      "mapId": 38,
+      "name": "Sky World"
+    },
+    {
+      "mapId": 148,
+      "name": "Space Station: Captain's Quarters"
+    },
+    {
+      "mapId": 47,
+      "name": "Space Station: Concourse"
+    },
+    {
+      "mapId": 19,
+      "name": "Space Station: Entrance"
+    },
+    {
+      "mapId": 46,
+      "name": "Space Station: Niche"
+    },
+    {
+      "mapId": 20,
+      "name": "Space Station: Prison"
+    },
+    {
+      "mapId": 18,
+      "name": "Star Path"
+    },
+    {
+      "mapId": 106,
+      "name": "Sweets World"
+    },
+    {
+      "mapId": 78,
+      "name": "Tegan's Balcony"
+    },
+    {
+      "mapId": 76,
+      "name": "Tegan's Bedroom"
+    },
+    {
+      "mapId": 79,
+      "name": "Tegan's Dream Balcony"
+    },
+    {
+      "mapId": 80,
+      "name": "Tegan's Dream Bedroom"
+    },
+    {
+      "mapId": 118,
+      "name": "Teleport Maze"
+    },
+    {
+      "mapId": 36,
+      "name": "Type World"
+    },
+    {
+      "mapId": 111,
+      "name": "Type World: Another Power Room"
+    },
+    {
+      "mapId": 115,
+      "name": "Type World: Another Theater"
+    },
+    {
+      "mapId": 108,
+      "name": "Type World: Bloody Tunnel"
+    },
+    {
+      "mapId": 37,
+      "name": "Type World: Power Room"
+    },
+    {
+      "mapId": 48,
+      "name": "Type World: Symbol Room"
+    },
+    {
+      "mapId": 168,
+      "name": "Type World: Theater"
+    },
+    {
+      "mapId": 155,
+      "name": "Watched Path"
+    },
+    {
+      "mapId": 68,
+      "name": "Water Fountain Campus"
+    },
+    {
+      "mapId": 139,
+      "name": "White Desert"
+    },
+    {
+      "mapId": 169,
+      "name": "White Staircase"
+    }
+  ]
+}

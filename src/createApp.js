@@ -6,17 +6,31 @@ const {
   dialog,
   shell,
   safeStorage,
+  protocol,
 } = require('electron');
 const contextMenu = require('electron-context-menu');
 const Store = require('electron-store');
 const promptInjection = require('./scripts/promptinjection');
 const titlebar = require('./scripts/titlebar');
+const navbotPanel = require('./scripts/navbot-panel');
 const path = require('path');
 const { parseGameName, isDreamWorldMap } = require('./scripts/utils');
+const fs = require('fs');
+const { readOptions } = require('./navbot/options');
+const { startBridge } = require('./navbot/bridge');
+const { createNavbotUiController } = require('./navbot/ui-controller');
+const { prepareDebugGraph } = require('./navbot/graph');
+let debugOptions = readOptions();
 
 const store = new Store();
 
 let mainWindow = null;
+const navbotBridges = new WeakMap();
+const navbotUi = createNavbotUiController({
+  getWindow: () => mainWindow,
+  getOptions: () => debugOptions,
+  getBridge: win => navbotBridges.get(win),
+});
 
 // --- Session helpers (safeStorage with plaintext fallback + migration) ---
 
@@ -136,26 +150,39 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js'),
       backgroundThrottling: false,
       contextIsolation: true,  // explicit — renderer JS cannot access Node APIs
-      sandbox: true,            // renderer process is OS-sandboxed
+      sandbox: true,           // renderer process is OS-sandboxed
       nodeIntegration: false,   // explicit — never allow Node in renderer
     },
   });
+  const win = mainWindow;
 
   mainWindow.setMenu(null);
   mainWindow.setTitle('Yume Nikki Online Project');
   mainWindow.webContents.setMaxListeners(13);
 
-  mainWindow.on('closed', () => {
+  const bounds = store.get('windowBounds');
+  if (bounds) mainWindow.setBounds(bounds);
+  if (store.get('isMaximized')) mainWindow.maximize();
+
+  mainWindow.on('close', () => {
+    store.set('windowBounds', mainWindow.getBounds());
+    store.set('isMaximized', mainWindow.isMaximized());
     saveSession();
-    app.quit();
+  });
+
+  mainWindow.on('closed', () => {
+      navbotBridges.delete(win);
+      if (mainWindow === win) mainWindow = null;
   });
 
   mainWindow.webContents.on('did-finish-load', () => {
-    titlebar(mainWindow);
-    promptInjection(mainWindow);
-    mainWindow.webContents.executeJavaScript(`
+    titlebar(win);
+    navbotPanel(win);
+    promptInjection(win);
+    win.webContents.executeJavaScript(`
       if (document.title !== "Yume Nikki Online Project") {
-        document.getElementById('content').style.overflow = 'hidden';
+        const content = document.getElementById('content');
+        if (content) content.style.overflow = 'hidden';
         document.querySelector('#content')?.scrollTo(0, 0);
       }
     `);
@@ -172,6 +199,7 @@ function createWindow() {
       if (u.hostname !== 'ynoproject.net') {
         event.preventDefault();
       }
+      if (debugOptions.enabled && u.pathname.split('/')[1] !== debugOptions.game) event.preventDefault();
     } catch {
       event.preventDefault();
     }
@@ -187,6 +215,7 @@ function createWindow() {
 
     // Game link — load in-app
     if (isGame && !isMap) {
+      if (debugOptions.enabled && gameName.trim() !== debugOptions.game) return { action: 'deny' };
       mainWindow.loadURL(`https://ynoproject.net/${encodeURIComponent(gameName.trim())}`);
       return { action: 'deny' };
     }
@@ -216,13 +245,95 @@ function createWindow() {
     event.preventDefault();
   });
 
-  mainWindow.loadURL('https://ynoproject.net/');
+  if (debugOptions.enabled) {
+    startBridge(win, debugOptions, () => app.quit()).then(bridge => {
+      if (win.isDestroyed()) {
+        bridge.close();
+        return;
+      }
+      navbotBridges.set(win, bridge);
+      win.loadURL(`https://ynoproject.net/${debugOptions.game}/`).catch(error => {
+        console.error('[Navbot Debug] Page load failed:', error.message);
+      });
+    }).catch(error => {
+      console.error('[Navbot Debug] Failed to start control bridge:', error);
+      app.exit(1);
+    });
+  } else {
+    mainWindow.loadURL('https://ynoproject.net/');
+  }
+
   return mainWindow;
+}
+
+// --- Engine Interception ---
+
+function setupInterceptors() {
+  // Normal desktop sessions use the official engine. Local replacement is opt-in.
+  if (!debugOptions.enabled) return;
+  debugOptions = prepareDebugGraph(debugOptions);
+  const allowed = new Map([
+    ['ynoengine-simd.js', path.join(debugOptions.engineDir, 'ynoengine-simd.js')],
+    ['ynoengine-simd.wasm', path.join(debugOptions.engineDir, 'ynoengine-simd.wasm')],
+    ['map_graph.json', debugOptions.graphPath],
+  ]);
+  for (const file of ['ynoengine-simd.js', 'ynoengine-simd.wasm']) {
+    if (!fs.existsSync(allowed.get(file))) throw new Error(`Missing local engine: ${allowed.get(file)}`);
+  }
+  protocol.handle('local-engine', async (request) => {
+    const url = new URL(request.url);
+    const filePath = url.pathname === '/' || url.pathname === '' ? allowed.get(url.hostname) : null;
+    if (!filePath) return new Response('Unknown engine asset', { status: 404 });
+    try {
+      let body = await fs.promises.readFile(filePath);
+      if (url.hostname === 'ynoengine-simd.js') {
+        // Set the WASM URL before module creation; did-finish-load was too late.
+        body = body.toString('utf8') + `
+;(() => {
+  const originalCreate = createEasyRpgPlayer;
+  createEasyRpgPlayer = function(opts = {}) {
+    const originalLocate = opts.locateFile;
+    const options = Object.assign({}, opts, {
+      navbotDebug: true,
+      locateFile(file, prefix) {
+        if (file.endsWith('.wasm')) return 'local-engine://ynoengine-simd.wasm';
+        return originalLocate ? originalLocate(file, prefix) : prefix + file;
+      }
+    });
+    return originalCreate(options).then(m => { window.Module = m; return m; });
+  };
+  window.createEasyRpgPlayer = createEasyRpgPlayer;
+})();`;
+      }
+      return new Response(body, { headers: {
+        'Access-Control-Allow-Origin': 'https://ynoproject.net',
+        'Content-Type': url.hostname.endsWith('.wasm') ? 'application/wasm' : url.hostname.endsWith('.js') ? 'text/javascript' : 'application/json',
+        'Cache-Control': 'no-store',
+      } });
+    } catch (error) {
+      console.error('[Navbot Debug] Local asset unavailable:', filePath, error.message);
+      return new Response('Local engine asset unavailable', { status: 404, headers: { 'Access-Control-Allow-Origin': 'https://ynoproject.net' } });
+    }
+  });
+  session.defaultSession.webRequest.onBeforeRequest(
+    { urls: ['https://ynoproject.net/*'] },
+    (details, callback) => {
+      const filename = path.basename(new URL(details.url).pathname);
+      if (filename === 'ynoengine-simd.js' || filename === 'ynoengine.js') {
+        return callback({ redirectURL: 'local-engine://ynoengine-simd.js' });
+      }
+      callback({});
+    }
+  );
 }
 
 // --- IPC ---
 
 function setupIpc() {
+  ipcMain.handle('navbot:state', event => navbotUi.state(event));
+  ipcMain.handle('navbot:command', (event, command) => navbotUi.command(event, command));
+  ipcMain.handle('navbot:maps', event => navbotUi.maps(event));
+
   // Use the trusted mainWindow reference, not getFocusedWindow()
   ipcMain.on('minimize', () => {
     mainWindow?.minimize();
@@ -238,4 +349,4 @@ function getMainWindow() {
   return mainWindow;
 }
 
-module.exports = { setupContextMenu, createWindow, setupIpc, restoreSession, getMainWindow, store };
+module.exports = { setupContextMenu, createWindow, setupIpc, restoreSession, getMainWindow, store, setupInterceptors };

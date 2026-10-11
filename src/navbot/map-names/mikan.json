@@ -1,0 +1,755 @@
+{
+  "version": 1,
+  "game": "mikan",
+  "source": "ynolocations/mikan/config.json",
+  "entries": [
+    {
+      "mapId": 87,
+      "name": "Abandoned House"
+    },
+    {
+      "mapId": 88,
+      "name": "Abandoned House"
+    },
+    {
+      "mapId": 84,
+      "name": "Abandoned Rooftop"
+    },
+    {
+      "mapId": 85,
+      "name": "Abandoned Rooftop: Girl’s Room"
+    },
+    {
+      "mapId": 174,
+      "name": "Archaic Temple"
+    },
+    {
+      "mapId": 175,
+      "name": "Archaic Temple"
+    },
+    {
+      "mapId": 176,
+      "name": "Archaic Temple"
+    },
+    {
+      "mapId": 177,
+      "name": "Archaic Temple"
+    },
+    {
+      "mapId": 178,
+      "name": "Archaic Temple"
+    },
+    {
+      "mapId": 102,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 103,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 104,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 105,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 106,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 107,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 108,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 109,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 110,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 111,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 112,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 113,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 114,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 115,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 116,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 117,
+      "name": "Assembly Line"
+    },
+    {
+      "mapId": 16,
+      "name": "Barbed Wire Fence World"
+    },
+    {
+      "mapId": 18,
+      "name": "Barbed Wire Fence World"
+    },
+    {
+      "mapId": 15,
+      "name": "Bean Sprouts World"
+    },
+    {
+      "mapId": 101,
+      "name": "Black Cat Flight"
+    },
+    {
+      "mapId": 13,
+      "name": "Black Stone World"
+    },
+    {
+      "mapId": 17,
+      "name": "Black Stone World"
+    },
+    {
+      "mapId": 58,
+      "name": "Bloodied Cross Corridor"
+    },
+    {
+      "mapId": 92,
+      "name": "Cliffside Train Tracks"
+    },
+    {
+      "mapId": 93,
+      "name": "Cliffside Train Tracks"
+    },
+    {
+      "mapId": 94,
+      "name": "Cliffside Train Tracks"
+    },
+    {
+      "mapId": 119,
+      "name": "Colorful Settlement"
+    },
+    {
+      "mapId": 121,
+      "name": "Dark Corridor"
+    },
+    {
+      "mapId": 24,
+      "name": "Dark Pillar Waters"
+    },
+    {
+      "mapId": 25,
+      "name": "Dark Pillar Waters"
+    },
+    {
+      "mapId": 167,
+      "name": "Dark Sewers"
+    },
+    {
+      "mapId": 168,
+      "name": "Dark Sewers"
+    },
+    {
+      "mapId": 169,
+      "name": "Dark Sewers"
+    },
+    {
+      "mapId": 89,
+      "name": "Dim Cave"
+    },
+    {
+      "mapId": 90,
+      "name": "Dim Cave"
+    },
+    {
+      "mapId": 91,
+      "name": "Dim Cave"
+    },
+    {
+      "mapId": 172,
+      "name": "Dim Garden"
+    },
+    {
+      "mapId": 96,
+      "name": "Dirt Field"
+    },
+    {
+      "mapId": 97,
+      "name": "Dirt Field"
+    },
+    {
+      "mapId": 98,
+      "name": "Dirt Field"
+    },
+    {
+      "mapId": 99,
+      "name": "Dirt Field: Tower"
+    },
+    {
+      "mapId": 100,
+      "name": "Dirt Field: Tower"
+    },
+    {
+      "mapId": 21,
+      "name": "Door World"
+    },
+    {
+      "mapId": 32,
+      "name": "Door World: Giant Door"
+    },
+    {
+      "mapId": 57,
+      "name": "Dream In Dream"
+    },
+    {
+      "mapId": 64,
+      "name": "Factory"
+    },
+    {
+      "mapId": 65,
+      "name": "Factory"
+    },
+    {
+      "mapId": 66,
+      "name": "Factory"
+    },
+    {
+      "mapId": 67,
+      "name": "Factory"
+    },
+    {
+      "mapId": 68,
+      "name": "Factory"
+    },
+    {
+      "mapId": 69,
+      "name": "Factory"
+    },
+    {
+      "mapId": 70,
+      "name": "Factory"
+    },
+    {
+      "mapId": 71,
+      "name": "Factory"
+    },
+    {
+      "mapId": 72,
+      "name": "Factory"
+    },
+    {
+      "mapId": 73,
+      "name": "Factory"
+    },
+    {
+      "mapId": 74,
+      "name": "Factory"
+    },
+    {
+      "mapId": 75,
+      "name": "Factory"
+    },
+    {
+      "mapId": 76,
+      "name": "Factory"
+    },
+    {
+      "mapId": 77,
+      "name": "Factory"
+    },
+    {
+      "mapId": 78,
+      "name": "Factory"
+    },
+    {
+      "mapId": 79,
+      "name": "Factory"
+    },
+    {
+      "mapId": 80,
+      "name": "Factory"
+    },
+    {
+      "mapId": 186,
+      "name": "FC World"
+    },
+    {
+      "mapId": 187,
+      "name": "FC World"
+    },
+    {
+      "mapId": 188,
+      "name": "FC World"
+    },
+    {
+      "mapId": 189,
+      "name": "FC World"
+    },
+    {
+      "mapId": 63,
+      "name": "Foggy Bridge"
+    },
+    {
+      "mapId": 47,
+      "name": "Gray Route"
+    },
+    {
+      "mapId": 42,
+      "name": "Gray Wasteland"
+    },
+    {
+      "mapId": 43,
+      "name": "Gray Wasteland"
+    },
+    {
+      "mapId": 44,
+      "name": "Gray Wasteland"
+    },
+    {
+      "mapId": 45,
+      "name": "Gray Wasteland"
+    },
+    {
+      "mapId": 46,
+      "name": "Gray Wasteland"
+    },
+    {
+      "mapId": 118,
+      "name": "Green Staircase"
+    },
+    {
+      "mapId": 33,
+      "name": "Hand Sector"
+    },
+    {
+      "mapId": 34,
+      "name": "Hand Sector"
+    },
+    {
+      "mapId": 35,
+      "name": "Hand Sector"
+    },
+    {
+      "mapId": 36,
+      "name": "Hand Sector"
+    },
+    {
+      "mapId": 143,
+      "name": "Hazy Memory"
+    },
+    {
+      "mapId": 27,
+      "name": "Inorganic Building"
+    },
+    {
+      "mapId": 29,
+      "name": "Inorganic Building"
+    },
+    {
+      "mapId": 30,
+      "name": "Inorganic Building"
+    },
+    {
+      "mapId": 28,
+      "name": "Inorganic Building: Shapeshifter’s Hallway"
+    },
+    {
+      "mapId": 19,
+      "name": "Inorganic World"
+    },
+    {
+      "mapId": 20,
+      "name": "Inorganic World"
+    },
+    {
+      "mapId": 26,
+      "name": "Iron Plate"
+    },
+    {
+      "mapId": 146,
+      "name": "Jellyfish Exhibition"
+    },
+    {
+      "mapId": 147,
+      "name": "Jellyfish Exhibition"
+    },
+    {
+      "mapId": 148,
+      "name": "Jellyfish Exhibition"
+    },
+    {
+      "mapId": 133,
+      "name": "Maid Mansion"
+    },
+    {
+      "mapId": 134,
+      "name": "Maid Mansion"
+    },
+    {
+      "mapId": 135,
+      "name": "Maid Mansion"
+    },
+    {
+      "mapId": 136,
+      "name": "Maid Mansion"
+    },
+    {
+      "mapId": 137,
+      "name": "Maid Mansion"
+    },
+    {
+      "mapId": 138,
+      "name": "Maid Mansion"
+    },
+    {
+      "mapId": 139,
+      "name": "Maid Mansion"
+    },
+    {
+      "mapId": 140,
+      "name": "Maid Mansion"
+    },
+    {
+      "mapId": 141,
+      "name": "Maid Mansion"
+    },
+    {
+      "mapId": 142,
+      "name": "Maid Mansion"
+    },
+    {
+      "mapId": 48,
+      "name": "Mannequin Street"
+    },
+    {
+      "mapId": 149,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 150,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 151,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 152,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 153,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 154,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 155,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 156,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 157,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 158,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 159,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 160,
+      "name": "Migraine Hallways"
+    },
+    {
+      "mapId": 170,
+      "name": "Misty Wetlands"
+    },
+    {
+      "mapId": 123,
+      "name": "Monochrome Pixel Room"
+    },
+    {
+      "mapId": 56,
+      "name": "Nightmare Swirl"
+    },
+    {
+      "mapId": 179,
+      "name": "Old Arcade"
+    },
+    {
+      "mapId": 180,
+      "name": "Old Arcade"
+    },
+    {
+      "mapId": 181,
+      "name": "Old Arcade"
+    },
+    {
+      "mapId": 182,
+      "name": "Old Arcade"
+    },
+    {
+      "mapId": 183,
+      "name": "Old Arcade"
+    },
+    {
+      "mapId": 39,
+      "name": "Park"
+    },
+    {
+      "mapId": 40,
+      "name": "Park"
+    },
+    {
+      "mapId": 41,
+      "name": "Park"
+    },
+    {
+      "mapId": 31,
+      "name": "Pillar World"
+    },
+    {
+      "mapId": 14,
+      "name": "Plank World"
+    },
+    {
+      "mapId": 62,
+      "name": "Prismatic Zone"
+    },
+    {
+      "mapId": 124,
+      "name": "Prison"
+    },
+    {
+      "mapId": 125,
+      "name": "Prison"
+    },
+    {
+      "mapId": 126,
+      "name": "Prison"
+    },
+    {
+      "mapId": 127,
+      "name": "Prison"
+    },
+    {
+      "mapId": 128,
+      "name": "Prison"
+    },
+    {
+      "mapId": 129,
+      "name": "Prison"
+    },
+    {
+      "mapId": 130,
+      "name": "Prison"
+    },
+    {
+      "mapId": 144,
+      "name": "Projector Room"
+    },
+    {
+      "mapId": 22,
+      "name": "Rain Puddle World"
+    },
+    {
+      "mapId": 23,
+      "name": "Rain Puddle World: Underground"
+    },
+    {
+      "mapId": 83,
+      "name": "Raindrop Road"
+    },
+    {
+      "mapId": 82,
+      "name": "Red Hand Labyrinth"
+    },
+    {
+      "mapId": 161,
+      "name": "Rooms of Nothingness"
+    },
+    {
+      "mapId": 162,
+      "name": "Rooms of Nothingness"
+    },
+    {
+      "mapId": 163,
+      "name": "Rooms of Nothingness"
+    },
+    {
+      "mapId": 164,
+      "name": "Rooms of Nothingness"
+    },
+    {
+      "mapId": 165,
+      "name": "Rooms of Nothingness"
+    },
+    {
+      "mapId": 166,
+      "name": "Rooms of Nothingness"
+    },
+    {
+      "mapId": 37,
+      "name": "Sandy Sprout World"
+    },
+    {
+      "mapId": 38,
+      "name": "Sandy Sprout World"
+    },
+    {
+      "mapId": 53,
+      "name": "Sandy Sprout World"
+    },
+    {
+      "mapId": 54,
+      "name": "Sandy Sprout World"
+    },
+    {
+      "mapId": 55,
+      "name": "Sandy Sprout World"
+    },
+    {
+      "mapId": 81,
+      "name": "Scarecrow Doll Void"
+    },
+    {
+      "mapId": 59,
+      "name": "Sepia Island"
+    },
+    {
+      "mapId": 60,
+      "name": "Sepia Island"
+    },
+    {
+      "mapId": 61,
+      "name": "Sepia Island"
+    },
+    {
+      "mapId": 49,
+      "name": "Serene Hill"
+    },
+    {
+      "mapId": 50,
+      "name": "Serene Hill"
+    },
+    {
+      "mapId": 51,
+      "name": "Serene Hill"
+    },
+    {
+      "mapId": 52,
+      "name": "Serene Hill"
+    },
+    {
+      "mapId": 120,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 122,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 4,
+      "name": "Soutarou's Balcony"
+    },
+    {
+      "mapId": 190,
+      "name": "Soutarou's Balcony"
+    },
+    {
+      "mapId": 191,
+      "name": "Soutarou's Balcony"
+    },
+    {
+      "mapId": 9,
+      "name": "Soutarou's Dream Balcony"
+    },
+    {
+      "mapId": 10,
+      "name": "Soutarou's Dream Room"
+    },
+    {
+      "mapId": 3,
+      "name": "Soutarou's Room"
+    },
+    {
+      "mapId": 184,
+      "name": "Soutarou's Room"
+    },
+    {
+      "mapId": 185,
+      "name": "Static Corridor"
+    },
+    {
+      "mapId": 95,
+      "name": "Suppressed Thoughts"
+    },
+    {
+      "mapId": 171,
+      "name": "Swaying Bird Passage"
+    },
+    {
+      "mapId": 5,
+      "name": "TA_BE_"
+    },
+    {
+      "mapId": 6,
+      "name": "TA_BE_"
+    },
+    {
+      "mapId": 7,
+      "name": "TA_BE_"
+    },
+    {
+      "mapId": 8,
+      "name": "TA_BE_"
+    },
+    {
+      "mapId": 86,
+      "name": "TA_BE_: Hardcore Mode"
+    },
+    {
+      "mapId": 12,
+      "name": "The Nexus"
+    },
+    {
+      "mapId": 131,
+      "name": "Toxic Sewers"
+    },
+    {
+      "mapId": 132,
+      "name": "Toxic Sewers"
+    },
+    {
+      "mapId": 173,
+      "name": "Toxic Sewers: Sunset"
+    }
+  ]
+}

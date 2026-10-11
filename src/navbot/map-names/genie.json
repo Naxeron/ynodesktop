@@ -1,0 +1,1271 @@
+{
+  "version": 1,
+  "game": "genie",
+  "source": "ynolocations/genie/config.json",
+  "entries": [
+    {
+      "mapId": 42,
+      "name": "3D Mecha Path"
+    },
+    {
+      "mapId": 43,
+      "name": "3D Mecha Path"
+    },
+    {
+      "mapId": 44,
+      "name": "3D Mecha Path"
+    },
+    {
+      "mapId": 45,
+      "name": "3D Mecha Path"
+    },
+    {
+      "mapId": 142,
+      "name": "3D Projection"
+    },
+    {
+      "mapId": 300,
+      "name": "Ancient Heavenly Sky"
+    },
+    {
+      "mapId": 110,
+      "name": "Apartments Room"
+    },
+    {
+      "mapId": 184,
+      "name": "Aquarium"
+    },
+    {
+      "mapId": 185,
+      "name": "Aquarium"
+    },
+    {
+      "mapId": 186,
+      "name": "Aquarium"
+    },
+    {
+      "mapId": 87,
+      "name": "Big Monster"
+    },
+    {
+      "mapId": 68,
+      "name": "Black Passage"
+    },
+    {
+      "mapId": 69,
+      "name": "Black Passage"
+    },
+    {
+      "mapId": 148,
+      "name": "Building"
+    },
+    {
+      "mapId": 218,
+      "name": "Capsule Room A"
+    },
+    {
+      "mapId": 219,
+      "name": "Capsule Room B"
+    },
+    {
+      "mapId": 72,
+      "name": "Cat Shop"
+    },
+    {
+      "mapId": 157,
+      "name": "Cellar"
+    },
+    {
+      "mapId": 158,
+      "name": "Chamber of a Life Cycle"
+    },
+    {
+      "mapId": 162,
+      "name": "Choose"
+    },
+    {
+      "mapId": 166,
+      "name": "Cloudy Sunset"
+    },
+    {
+      "mapId": 167,
+      "name": "Cloudy Sunset"
+    },
+    {
+      "mapId": 168,
+      "name": "Cloudy Sunset"
+    },
+    {
+      "mapId": 169,
+      "name": "Cloudy Sunset"
+    },
+    {
+      "mapId": 170,
+      "name": "Cloudy Sunset"
+    },
+    {
+      "mapId": 150,
+      "name": "Clown Tunnel"
+    },
+    {
+      "mapId": 268,
+      "name": "Colly Maid Cafe"
+    },
+    {
+      "mapId": 35,
+      "name": "Cosmic Prison"
+    },
+    {
+      "mapId": 155,
+      "name": "Dark Basement: -1 Floor"
+    },
+    {
+      "mapId": 156,
+      "name": "Dark Basement: -2 Floor"
+    },
+    {
+      "mapId": 16,
+      "name": "Dark Lantern"
+    },
+    {
+      "mapId": 17,
+      "name": "Dark Lantern"
+    },
+    {
+      "mapId": 315,
+      "name": "Dark Promenade"
+    },
+    {
+      "mapId": 316,
+      "name": "Dark Promenade"
+    },
+    {
+      "mapId": 318,
+      "name": "Dark Promenade"
+    },
+    {
+      "mapId": 319,
+      "name": "Dark Promenade"
+    },
+    {
+      "mapId": 324,
+      "name": "Dark Promenade"
+    },
+    {
+      "mapId": 102,
+      "name": "Dark World"
+    },
+    {
+      "mapId": 269,
+      "name": "Desert Field"
+    },
+    {
+      "mapId": 270,
+      "name": "Desert Field"
+    },
+    {
+      "mapId": 271,
+      "name": "Desert Field"
+    },
+    {
+      "mapId": 272,
+      "name": "Desert Field"
+    },
+    {
+      "mapId": 273,
+      "name": "Desert Field"
+    },
+    {
+      "mapId": 275,
+      "name": "Deserted Town"
+    },
+    {
+      "mapId": 67,
+      "name": "Distant Red Horizon"
+    },
+    {
+      "mapId": 285,
+      "name": "Dog House"
+    },
+    {
+      "mapId": 177,
+      "name": "Dream Promenade"
+    },
+    {
+      "mapId": 178,
+      "name": "Dream Promenade"
+    },
+    {
+      "mapId": 286,
+      "name": "Dungeon"
+    },
+    {
+      "mapId": 287,
+      "name": "Dungeon"
+    },
+    {
+      "mapId": 288,
+      "name": "Dungeon"
+    },
+    {
+      "mapId": 289,
+      "name": "Dungeon"
+    },
+    {
+      "mapId": 290,
+      "name": "Dungeon"
+    },
+    {
+      "mapId": 291,
+      "name": "Dungeon"
+    },
+    {
+      "mapId": 292,
+      "name": "Dungeon"
+    },
+    {
+      "mapId": 293,
+      "name": "Dungeon"
+    },
+    {
+      "mapId": 294,
+      "name": "Dungeon"
+    },
+    {
+      "mapId": 295,
+      "name": "Dungeon"
+    },
+    {
+      "mapId": 296,
+      "name": "Dungeon?"
+    },
+    {
+      "mapId": 297,
+      "name": "Dungeon?"
+    },
+    {
+      "mapId": 298,
+      "name": "Dungeon?"
+    },
+    {
+      "mapId": 146,
+      "name": "Elevator"
+    },
+    {
+      "mapId": 149,
+      "name": "Elevator"
+    },
+    {
+      "mapId": 263,
+      "name": "Elevator"
+    },
+    {
+      "mapId": 264,
+      "name": "Elevator"
+    },
+    {
+      "mapId": 145,
+      "name": "Endless staircase"
+    },
+    {
+      "mapId": 36,
+      "name": "Feverish Monochrome Maze"
+    },
+    {
+      "mapId": 37,
+      "name": "Feverish Monochrome Maze"
+    },
+    {
+      "mapId": 38,
+      "name": "Feverish Monochrome Maze"
+    },
+    {
+      "mapId": 175,
+      "name": "Floating Cube RPG"
+    },
+    {
+      "mapId": 176,
+      "name": "Floating Cube RPG"
+    },
+    {
+      "mapId": 128,
+      "name": "Freezing Point"
+    },
+    {
+      "mapId": 129,
+      "name": "Freezing Point"
+    },
+    {
+      "mapId": 130,
+      "name": "Freezing Point"
+    },
+    {
+      "mapId": 131,
+      "name": "Freezing Point"
+    },
+    {
+      "mapId": 133,
+      "name": "Freezing Point"
+    },
+    {
+      "mapId": 134,
+      "name": "Freezing Point"
+    },
+    {
+      "mapId": 299,
+      "name": "Galaxy Starlight Clock"
+    },
+    {
+      "mapId": 108,
+      "name": "Golden Canopy"
+    },
+    {
+      "mapId": 6,
+      "name": "Gray Staircase"
+    },
+    {
+      "mapId": 7,
+      "name": "Gray Staircase"
+    },
+    {
+      "mapId": 8,
+      "name": "Gray Staircase"
+    },
+    {
+      "mapId": 9,
+      "name": "Gray Staircase"
+    },
+    {
+      "mapId": 10,
+      "name": "Gray Staircase"
+    },
+    {
+      "mapId": 11,
+      "name": "Gray Staircase"
+    },
+    {
+      "mapId": 12,
+      "name": "Gray Staircase"
+    },
+    {
+      "mapId": 13,
+      "name": "Gray Staircase"
+    },
+    {
+      "mapId": 14,
+      "name": "Gray Staircase"
+    },
+    {
+      "mapId": 15,
+      "name": "Gray Staircase"
+    },
+    {
+      "mapId": 48,
+      "name": "Hall of Shadows"
+    },
+    {
+      "mapId": 49,
+      "name": "Hall of Shadows"
+    },
+    {
+      "mapId": 50,
+      "name": "Hall of Shadows"
+    },
+    {
+      "mapId": 51,
+      "name": "Hall of Shadows"
+    },
+    {
+      "mapId": 56,
+      "name": "Hall of Shadows"
+    },
+    {
+      "mapId": 78,
+      "name": "Hallucination World"
+    },
+    {
+      "mapId": 79,
+      "name": "Hallucination World"
+    },
+    {
+      "mapId": 80,
+      "name": "Hallucination World"
+    },
+    {
+      "mapId": 81,
+      "name": "Hallucination World"
+    },
+    {
+      "mapId": 140,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 141,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 187,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 188,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 189,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 190,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 191,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 192,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 193,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 194,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 195,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 196,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 197,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 198,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 199,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 200,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 201,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 203,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 204,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 205,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 206,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 207,
+      "name": "Hellish Cafe"
+    },
+    {
+      "mapId": 182,
+      "name": "Hellish Facility"
+    },
+    {
+      "mapId": 183,
+      "name": "Hellish Facility"
+    },
+    {
+      "mapId": 302,
+      "name": "Hellish Facility"
+    },
+    {
+      "mapId": 303,
+      "name": "Hellish Facility"
+    },
+    {
+      "mapId": 232,
+      "name": "Hellish Park"
+    },
+    {
+      "mapId": 233,
+      "name": "Hellish Park"
+    },
+    {
+      "mapId": 118,
+      "name": "Hellish Prison"
+    },
+    {
+      "mapId": 119,
+      "name": "Hellish Prison"
+    },
+    {
+      "mapId": 120,
+      "name": "Hellish Prison"
+    },
+    {
+      "mapId": 121,
+      "name": "Hellish Prison"
+    },
+    {
+      "mapId": 122,
+      "name": "Hellish Prison"
+    },
+    {
+      "mapId": 123,
+      "name": "Hellish Prison"
+    },
+    {
+      "mapId": 124,
+      "name": "Hellish Prison"
+    },
+    {
+      "mapId": 304,
+      "name": "Hellish Prison"
+    },
+    {
+      "mapId": 305,
+      "name": "Hellish Prison"
+    },
+    {
+      "mapId": 307,
+      "name": "Hellish Trial"
+    },
+    {
+      "mapId": 308,
+      "name": "Hellish Trial"
+    },
+    {
+      "mapId": 309,
+      "name": "Hellish Trial"
+    },
+    {
+      "mapId": 310,
+      "name": "Hellish Trial"
+    },
+    {
+      "mapId": 262,
+      "name": "Hiding Place"
+    },
+    {
+      "mapId": 161,
+      "name": "Hospital"
+    },
+    {
+      "mapId": 229,
+      "name": "Icy Corridor"
+    },
+    {
+      "mapId": 30,
+      "name": "Inside"
+    },
+    {
+      "mapId": 34,
+      "name": "Into Space"
+    },
+    {
+      "mapId": 2,
+      "name": "Into the Unreal"
+    },
+    {
+      "mapId": 223,
+      "name": "Laboratory A"
+    },
+    {
+      "mapId": 224,
+      "name": "Laboratory A"
+    },
+    {
+      "mapId": 225,
+      "name": "Laboratory A"
+    },
+    {
+      "mapId": 226,
+      "name": "Laboratory A"
+    },
+    {
+      "mapId": 235,
+      "name": "Laboratory B"
+    },
+    {
+      "mapId": 236,
+      "name": "Laboratory B"
+    },
+    {
+      "mapId": 237,
+      "name": "Level Clothing Interface"
+    },
+    {
+      "mapId": 278,
+      "name": "Lost City"
+    },
+    {
+      "mapId": 279,
+      "name": "Lost City"
+    },
+    {
+      "mapId": 208,
+      "name": "Meatball"
+    },
+    {
+      "mapId": 209,
+      "name": "Meatball"
+    },
+    {
+      "mapId": 210,
+      "name": "Meatball"
+    },
+    {
+      "mapId": 211,
+      "name": "Meatball"
+    },
+    {
+      "mapId": 212,
+      "name": "Meatball"
+    },
+    {
+      "mapId": 213,
+      "name": "Meatball"
+    },
+    {
+      "mapId": 214,
+      "name": "Meatball"
+    },
+    {
+      "mapId": 215,
+      "name": "Meatball"
+    },
+    {
+      "mapId": 216,
+      "name": "Meatball"
+    },
+    {
+      "mapId": 217,
+      "name": "Meatball"
+    },
+    {
+      "mapId": 179,
+      "name": "Model Store"
+    },
+    {
+      "mapId": 40,
+      "name": "Monochrome Trail"
+    },
+    {
+      "mapId": 227,
+      "name": "Museum"
+    },
+    {
+      "mapId": 228,
+      "name": "Museum"
+    },
+    {
+      "mapId": 230,
+      "name": "Museum"
+    },
+    {
+      "mapId": 231,
+      "name": "Museum"
+    },
+    {
+      "mapId": 234,
+      "name": "Museum"
+    },
+    {
+      "mapId": 125,
+      "name": "My Home"
+    },
+    {
+      "mapId": 139,
+      "name": "My Home"
+    },
+    {
+      "mapId": 103,
+      "name": "Narrow Apartments"
+    },
+    {
+      "mapId": 88,
+      "name": "New Century Town"
+    },
+    {
+      "mapId": 180,
+      "name": "Outside"
+    },
+    {
+      "mapId": 53,
+      "name": "Passageway"
+    },
+    {
+      "mapId": 54,
+      "name": "Passageway"
+    },
+    {
+      "mapId": 280,
+      "name": "Pink Cube Zone"
+    },
+    {
+      "mapId": 281,
+      "name": "Pink Cube Zone"
+    },
+    {
+      "mapId": 282,
+      "name": "Pink Cube Zone"
+    },
+    {
+      "mapId": 283,
+      "name": "Pink Cube Zone"
+    },
+    {
+      "mapId": 52,
+      "name": "Pixelated Fish"
+    },
+    {
+      "mapId": 89,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 90,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 91,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 92,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 93,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 94,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 95,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 96,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 97,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 98,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 99,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 100,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 101,
+      "name": "Planet Room"
+    },
+    {
+      "mapId": 181,
+      "name": "Pool Facilities"
+    },
+    {
+      "mapId": 221,
+      "name": "Power room"
+    },
+    {
+      "mapId": 46,
+      "name": "Psychedelic Path"
+    },
+    {
+      "mapId": 47,
+      "name": "Psychedelic Path"
+    },
+    {
+      "mapId": 320,
+      "name": "Reality Dream"
+    },
+    {
+      "mapId": 321,
+      "name": "Reality Dream"
+    },
+    {
+      "mapId": 322,
+      "name": "Reality Dream"
+    },
+    {
+      "mapId": 323,
+      "name": "Reality Dream"
+    },
+    {
+      "mapId": 70,
+      "name": "Red Aisle"
+    },
+    {
+      "mapId": 71,
+      "name": "Red Aisle"
+    },
+    {
+      "mapId": 109,
+      "name": "Red Gate"
+    },
+    {
+      "mapId": 55,
+      "name": "Red Room"
+    },
+    {
+      "mapId": 311,
+      "name": "Red Sight"
+    },
+    {
+      "mapId": 151,
+      "name": "Robotic Tram"
+    },
+    {
+      "mapId": 152,
+      "name": "Robotic Tram"
+    },
+    {
+      "mapId": 153,
+      "name": "Robotic Tram"
+    },
+    {
+      "mapId": 154,
+      "name": "Robotic Tram"
+    },
+    {
+      "mapId": 32,
+      "name": "Rocket Station"
+    },
+    {
+      "mapId": 33,
+      "name": "Rocket Station"
+    },
+    {
+      "mapId": 75,
+      "name": "Scarlet Staircase"
+    },
+    {
+      "mapId": 76,
+      "name": "Scarlet Staircase"
+    },
+    {
+      "mapId": 77,
+      "name": "Scarlet Staircase"
+    },
+    {
+      "mapId": 73,
+      "name": "Sea of Blood"
+    },
+    {
+      "mapId": 74,
+      "name": "Sea of Blood"
+    },
+    {
+      "mapId": 244,
+      "name": "Select location"
+    },
+    {
+      "mapId": 248,
+      "name": "Select location"
+    },
+    {
+      "mapId": 132,
+      "name": "Slender Man"
+    },
+    {
+      "mapId": 82,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 83,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 84,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 85,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 86,
+      "name": "Snow World"
+    },
+    {
+      "mapId": 104,
+      "name": "Solitary Confinement"
+    },
+    {
+      "mapId": 239,
+      "name": "Space Station"
+    },
+    {
+      "mapId": 240,
+      "name": "Space Station"
+    },
+    {
+      "mapId": 241,
+      "name": "Space Station"
+    },
+    {
+      "mapId": 242,
+      "name": "Space Station"
+    },
+    {
+      "mapId": 246,
+      "name": "Space Station"
+    },
+    {
+      "mapId": 250,
+      "name": "Space Station"
+    },
+    {
+      "mapId": 251,
+      "name": "Space Station"
+    },
+    {
+      "mapId": 252,
+      "name": "Space Station"
+    },
+    {
+      "mapId": 111,
+      "name": "Spear Room"
+    },
+    {
+      "mapId": 276,
+      "name": "Spirit Void A"
+    },
+    {
+      "mapId": 277,
+      "name": "Spirit Void A"
+    },
+    {
+      "mapId": 274,
+      "name": "Spirit Void B"
+    },
+    {
+      "mapId": 171,
+      "name": "Square Teleport Maze"
+    },
+    {
+      "mapId": 172,
+      "name": "Square Teleport Maze"
+    },
+    {
+      "mapId": 173,
+      "name": "Square Teleport Maze"
+    },
+    {
+      "mapId": 144,
+      "name": "Star of Wise Sea A"
+    },
+    {
+      "mapId": 265,
+      "name": "Star of Wise Sea B"
+    },
+    {
+      "mapId": 266,
+      "name": "Star of Wise Sea B"
+    },
+    {
+      "mapId": 284,
+      "name": "Star River"
+    },
+    {
+      "mapId": 243,
+      "name": "Starliner"
+    },
+    {
+      "mapId": 245,
+      "name": "Starliner"
+    },
+    {
+      "mapId": 247,
+      "name": "Starliner"
+    },
+    {
+      "mapId": 249,
+      "name": "Starliner"
+    },
+    {
+      "mapId": 105,
+      "name": "Static World"
+    },
+    {
+      "mapId": 106,
+      "name": "Static World"
+    },
+    {
+      "mapId": 107,
+      "name": "Static World"
+    },
+    {
+      "mapId": 238,
+      "name": "Statue Museum"
+    },
+    {
+      "mapId": 41,
+      "name": "Streetlights Corner"
+    },
+    {
+      "mapId": 143,
+      "name": "Subnexus"
+    },
+    {
+      "mapId": 1,
+      "name": "Sweet Home"
+    },
+    {
+      "mapId": 4,
+      "name": "Sweet Home"
+    },
+    {
+      "mapId": 31,
+      "name": "Sweet Home?"
+    },
+    {
+      "mapId": 137,
+      "name": "Sweet Home?"
+    },
+    {
+      "mapId": 138,
+      "name": "Sweet Home?"
+    },
+    {
+      "mapId": 159,
+      "name": "Sweet Home?"
+    },
+    {
+      "mapId": 160,
+      "name": "Sweet Home?"
+    },
+    {
+      "mapId": 174,
+      "name": "Sweet Home?"
+    },
+    {
+      "mapId": 312,
+      "name": "Sweet Home?"
+    },
+    {
+      "mapId": 325,
+      "name": "Sweet Home?"
+    },
+    {
+      "mapId": 306,
+      "name": "The Corridor"
+    },
+    {
+      "mapId": 313,
+      "name": "The Darknezzz"
+    },
+    {
+      "mapId": 314,
+      "name": "The Darknezzz"
+    },
+    {
+      "mapId": 39,
+      "name": "The Fence"
+    },
+    {
+      "mapId": 317,
+      "name": "The Hand Shop"
+    },
+    {
+      "mapId": 253,
+      "name": "The Hell"
+    },
+    {
+      "mapId": 254,
+      "name": "The Hell"
+    },
+    {
+      "mapId": 255,
+      "name": "The Hell"
+    },
+    {
+      "mapId": 256,
+      "name": "The Hell"
+    },
+    {
+      "mapId": 257,
+      "name": "The Hell"
+    },
+    {
+      "mapId": 258,
+      "name": "The Hell"
+    },
+    {
+      "mapId": 259,
+      "name": "The Hell"
+    },
+    {
+      "mapId": 260,
+      "name": "The Hell"
+    },
+    {
+      "mapId": 261,
+      "name": "The Hell"
+    },
+    {
+      "mapId": 163,
+      "name": "The Laboratory"
+    },
+    {
+      "mapId": 57,
+      "name": "The Light"
+    },
+    {
+      "mapId": 58,
+      "name": "The Light"
+    },
+    {
+      "mapId": 59,
+      "name": "The Light"
+    },
+    {
+      "mapId": 60,
+      "name": "The Light"
+    },
+    {
+      "mapId": 61,
+      "name": "The Light"
+    },
+    {
+      "mapId": 62,
+      "name": "The Light"
+    },
+    {
+      "mapId": 63,
+      "name": "The Light"
+    },
+    {
+      "mapId": 64,
+      "name": "The Light"
+    },
+    {
+      "mapId": 65,
+      "name": "The Light"
+    },
+    {
+      "mapId": 66,
+      "name": "The Light"
+    },
+    {
+      "mapId": 113,
+      "name": "The Road"
+    },
+    {
+      "mapId": 114,
+      "name": "The Road"
+    },
+    {
+      "mapId": 115,
+      "name": "The Road"
+    },
+    {
+      "mapId": 116,
+      "name": "The Road"
+    },
+    {
+      "mapId": 117,
+      "name": "The Road"
+    },
+    {
+      "mapId": 19,
+      "name": "Train"
+    },
+    {
+      "mapId": 20,
+      "name": "Train"
+    },
+    {
+      "mapId": 21,
+      "name": "Train"
+    },
+    {
+      "mapId": 22,
+      "name": "Train"
+    },
+    {
+      "mapId": 23,
+      "name": "Train"
+    },
+    {
+      "mapId": 24,
+      "name": "Train"
+    },
+    {
+      "mapId": 25,
+      "name": "Train"
+    },
+    {
+      "mapId": 26,
+      "name": "Train"
+    },
+    {
+      "mapId": 27,
+      "name": "Train"
+    },
+    {
+      "mapId": 28,
+      "name": "Train"
+    },
+    {
+      "mapId": 29,
+      "name": "Train"
+    },
+    {
+      "mapId": 18,
+      "name": "Train Tracks"
+    },
+    {
+      "mapId": 220,
+      "name": "Transport module"
+    },
+    {
+      "mapId": 222,
+      "name": "Transport module"
+    },
+    {
+      "mapId": 202,
+      "name": "Underwater"
+    },
+    {
+      "mapId": 3,
+      "name": "Unreal Nexus"
+    },
+    {
+      "mapId": 127,
+      "name": "Weird Creatures Maze"
+    },
+    {
+      "mapId": 301,
+      "name": "Whimsical Plan Institute"
+    }
+  ]
+}

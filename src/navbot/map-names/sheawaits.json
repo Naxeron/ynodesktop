@@ -1,0 +1,527 @@
+{
+  "version": 1,
+  "game": "sheawaits",
+  "source": "ynolocations/sheawaits/config.json",
+  "entries": [
+    {
+      "mapId": 63,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 64,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 65,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 66,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 67,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 68,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 69,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 70,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 71,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 72,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 73,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 74,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 75,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 76,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 77,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 78,
+      "name": "Alesandre's Manor"
+    },
+    {
+      "mapId": 81,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 82,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 83,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 84,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 85,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 86,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 87,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 88,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 89,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 90,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 91,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 92,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 93,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 94,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 95,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 96,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 97,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 98,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 99,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 100,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 101,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 102,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 103,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 104,
+      "name": "Alesandre's Manor: The Play"
+    },
+    {
+      "mapId": 56,
+      "name": "Anatomical Desert"
+    },
+    {
+      "mapId": 31,
+      "name": "Chapel"
+    },
+    {
+      "mapId": 33,
+      "name": "Chapel"
+    },
+    {
+      "mapId": 36,
+      "name": "Chapel"
+    },
+    {
+      "mapId": 37,
+      "name": "Chapel"
+    },
+    {
+      "mapId": 39,
+      "name": "Chapel"
+    },
+    {
+      "mapId": 28,
+      "name": "Chapel: Confessional"
+    },
+    {
+      "mapId": 32,
+      "name": "Chapel: Confessional"
+    },
+    {
+      "mapId": 34,
+      "name": "Chapel: Confessional"
+    },
+    {
+      "mapId": 41,
+      "name": "Chapel: Rave Path"
+    },
+    {
+      "mapId": 9,
+      "name": "Constellation World"
+    },
+    {
+      "mapId": 13,
+      "name": "Constellation World: Planetarium"
+    },
+    {
+      "mapId": 106,
+      "name": "Crystal Cave A"
+    },
+    {
+      "mapId": 118,
+      "name": "Crystal Cave A"
+    },
+    {
+      "mapId": 119,
+      "name": "Crystal Cave B"
+    },
+    {
+      "mapId": 120,
+      "name": "Crystal Cave B"
+    },
+    {
+      "mapId": 16,
+      "name": "Day Palace"
+    },
+    {
+      "mapId": 21,
+      "name": "Day Palace"
+    },
+    {
+      "mapId": 22,
+      "name": "Day Palace"
+    },
+    {
+      "mapId": 43,
+      "name": "Ethereal Plane"
+    },
+    {
+      "mapId": 45,
+      "name": "Ethereal Plane"
+    },
+    {
+      "mapId": 44,
+      "name": "Ethereal Plane: Waterfall"
+    },
+    {
+      "mapId": 17,
+      "name": "Flooded Garden"
+    },
+    {
+      "mapId": 10,
+      "name": "Funeral Tiles Path"
+    },
+    {
+      "mapId": 133,
+      "name": "Garden of Costanza"
+    },
+    {
+      "mapId": 52,
+      "name": "Hand Portal"
+    },
+    {
+      "mapId": 53,
+      "name": "Hand Portal"
+    },
+    {
+      "mapId": 54,
+      "name": "Hand Portal"
+    },
+    {
+      "mapId": 23,
+      "name": "Hedge Maze"
+    },
+    {
+      "mapId": 61,
+      "name": "Hedge Maze"
+    },
+    {
+      "mapId": 62,
+      "name": "Hedge Maze: Manor Exterior"
+    },
+    {
+      "mapId": 79,
+      "name": "Hedge Maze: Manor Exterior"
+    },
+    {
+      "mapId": 80,
+      "name": "Hedge Maze: Manor Exterior"
+    },
+    {
+      "mapId": 108,
+      "name": "Hermit's House"
+    },
+    {
+      "mapId": 58,
+      "name": "Inferno"
+    },
+    {
+      "mapId": 59,
+      "name": "Inferno: Infernal Cliffside"
+    },
+    {
+      "mapId": 60,
+      "name": "Inferno: Infernal Cliffside"
+    },
+    {
+      "mapId": 107,
+      "name": "Inferno: Infernal Cliffside"
+    },
+    {
+      "mapId": 122,
+      "name": "Jester's Path"
+    },
+    {
+      "mapId": 137,
+      "name": "Lantern Piers"
+    },
+    {
+      "mapId": 57,
+      "name": "Magician's Bedroom"
+    },
+    {
+      "mapId": 29,
+      "name": "Magician's Room"
+    },
+    {
+      "mapId": 123,
+      "name": "Mourning Field"
+    },
+    {
+      "mapId": 132,
+      "name": "Mourning Field"
+    },
+    {
+      "mapId": 24,
+      "name": "Mushroom Cave"
+    },
+    {
+      "mapId": 105,
+      "name": "Mushroom Cave"
+    },
+    {
+      "mapId": 14,
+      "name": "Night Palace"
+    },
+    {
+      "mapId": 15,
+      "name": "Night Palace"
+    },
+    {
+      "mapId": 20,
+      "name": "Night Palace"
+    },
+    {
+      "mapId": 19,
+      "name": "Nocturnal Forest"
+    },
+    {
+      "mapId": 25,
+      "name": "Nocturnal Forest"
+    },
+    {
+      "mapId": 35,
+      "name": "Nocturnal Forest: Dark Path"
+    },
+    {
+      "mapId": 51,
+      "name": "Nocturnal Forest: Hermit's House Entrance"
+    },
+    {
+      "mapId": 3,
+      "name": "Noelia's Balcony"
+    },
+    {
+      "mapId": 5,
+      "name": "Noelia's Dream Balcony"
+    },
+    {
+      "mapId": 30,
+      "name": "Noelia's Dream Balcony"
+    },
+    {
+      "mapId": 4,
+      "name": "Noelia's Dream Room"
+    },
+    {
+      "mapId": 136,
+      "name": "Noelia's Dream Room"
+    },
+    {
+      "mapId": 2,
+      "name": "Noelia's Room"
+    },
+    {
+      "mapId": 18,
+      "name": "Noelia's Room"
+    },
+    {
+      "mapId": 26,
+      "name": "Pentacle Field"
+    },
+    {
+      "mapId": 38,
+      "name": "Pentacle Room"
+    },
+    {
+      "mapId": 42,
+      "name": "Rave Hall"
+    },
+    {
+      "mapId": 46,
+      "name": "Rave Hall"
+    },
+    {
+      "mapId": 47,
+      "name": "Rave Hall"
+    },
+    {
+      "mapId": 48,
+      "name": "Rave Hall"
+    },
+    {
+      "mapId": 49,
+      "name": "Rave Hall"
+    },
+    {
+      "mapId": 50,
+      "name": "Rave Hall"
+    },
+    {
+      "mapId": 11,
+      "name": "Rose Garden"
+    },
+    {
+      "mapId": 12,
+      "name": "Rusted Sword Field"
+    },
+    {
+      "mapId": 27,
+      "name": "Rusted Sword Field"
+    },
+    {
+      "mapId": 126,
+      "name": "Sky Fortress"
+    },
+    {
+      "mapId": 127,
+      "name": "Sky Fortress"
+    },
+    {
+      "mapId": 128,
+      "name": "Sky Fortress"
+    },
+    {
+      "mapId": 129,
+      "name": "Sky Fortress"
+    },
+    {
+      "mapId": 130,
+      "name": "Sky Fortress"
+    },
+    {
+      "mapId": 6,
+      "name": "The Nexus"
+    },
+    {
+      "mapId": 125,
+      "name": "Unicorn Lake"
+    },
+    {
+      "mapId": 109,
+      "name": "Village"
+    },
+    {
+      "mapId": 110,
+      "name": "Village"
+    },
+    {
+      "mapId": 114,
+      "name": "Village"
+    },
+    {
+      "mapId": 115,
+      "name": "Village: Dungeon"
+    },
+    {
+      "mapId": 116,
+      "name": "Village: Dungeon"
+    },
+    {
+      "mapId": 117,
+      "name": "Village: Fortune Teller's Tent"
+    },
+    {
+      "mapId": 134,
+      "name": "Village: Tapestry Shop"
+    },
+    {
+      "mapId": 135,
+      "name": "Village: Tapestry Shop"
+    },
+    {
+      "mapId": 111,
+      "name": "Village: Tavern"
+    },
+    {
+      "mapId": 112,
+      "name": "Village: Tavern"
+    },
+    {
+      "mapId": 113,
+      "name": "Village: Tavern"
+    },
+    {
+      "mapId": 124,
+      "name": "Wild Forest Path"
+    }
+  ]
+}

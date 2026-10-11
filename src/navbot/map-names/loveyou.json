@@ -1,0 +1,555 @@
+{
+  "version": 1,
+  "game": "loveyou",
+  "source": "ynolocations/loveyou/config.json",
+  "entries": [
+    {
+      "mapId": 12,
+      "name": "-30"
+    },
+    {
+      "mapId": 77,
+      "name": "-30"
+    },
+    {
+      "mapId": 16,
+      "name": "Aitsuki's Computer"
+    },
+    {
+      "mapId": 17,
+      "name": "Aitsuki's Computer"
+    },
+    {
+      "mapId": 72,
+      "name": "Aitsuki's Computer"
+    },
+    {
+      "mapId": 73,
+      "name": "Aitsuki's Computer"
+    },
+    {
+      "mapId": 11,
+      "name": "Aitsuki's Dream Room"
+    },
+    {
+      "mapId": 1,
+      "name": "Aitsuki's Home"
+    },
+    {
+      "mapId": 33,
+      "name": "Atlantic Temple"
+    },
+    {
+      "mapId": 95,
+      "name": "Bathhouse"
+    },
+    {
+      "mapId": 99,
+      "name": "Bathroom"
+    },
+    {
+      "mapId": 8,
+      "name": "Bioluminescent Ocean"
+    },
+    {
+      "mapId": 36,
+      "name": "Bioluminescent Ocean"
+    },
+    {
+      "mapId": 100,
+      "name": "Bioluminescent Ocean"
+    },
+    {
+      "mapId": 28,
+      "name": "Black Lake"
+    },
+    {
+      "mapId": 29,
+      "name": "Black Lake"
+    },
+    {
+      "mapId": 89,
+      "name": "Black Lake"
+    },
+    {
+      "mapId": 74,
+      "name": "Black Market"
+    },
+    {
+      "mapId": 107,
+      "name": "Black Market"
+    },
+    {
+      "mapId": 130,
+      "name": "Black Market"
+    },
+    {
+      "mapId": 109,
+      "name": "Black Streets"
+    },
+    {
+      "mapId": 13,
+      "name": "Bloody Forest"
+    },
+    {
+      "mapId": 105,
+      "name": "Blooming Passage"
+    },
+    {
+      "mapId": 106,
+      "name": "Blooming Passage"
+    },
+    {
+      "mapId": 34,
+      "name": "Cannabis Plains"
+    },
+    {
+      "mapId": 15,
+      "name": "Cherry Bar"
+    },
+    {
+      "mapId": 104,
+      "name": "Convenience Store"
+    },
+    {
+      "mapId": 19,
+      "name": "Copper Pipe Maze"
+    },
+    {
+      "mapId": 10,
+      "name": "Copper World"
+    },
+    {
+      "mapId": 21,
+      "name": "Copper World"
+    },
+    {
+      "mapId": 26,
+      "name": "Copper Zoo"
+    },
+    {
+      "mapId": 6,
+      "name": "Coral Reef"
+    },
+    {
+      "mapId": 27,
+      "name": "Coral Reef"
+    },
+    {
+      "mapId": 91,
+      "name": "Coral Reef"
+    },
+    {
+      "mapId": 7,
+      "name": "Coral Reef: Ruin Passage"
+    },
+    {
+      "mapId": 67,
+      "name": "Corrupted Nexus"
+    },
+    {
+      "mapId": 66,
+      "name": "Corrupted Room"
+    },
+    {
+      "mapId": 25,
+      "name": "Crimson Dunes"
+    },
+    {
+      "mapId": 58,
+      "name": "Death World"
+    },
+    {
+      "mapId": 31,
+      "name": "Discomfort Bath"
+    },
+    {
+      "mapId": 64,
+      "name": "Ending"
+    },
+    {
+      "mapId": 4,
+      "name": "Foam World"
+    },
+    {
+      "mapId": 5,
+      "name": "Foam World"
+    },
+    {
+      "mapId": 93,
+      "name": "Foam World"
+    },
+    {
+      "mapId": 60,
+      "name": "Garage Alley"
+    },
+    {
+      "mapId": 103,
+      "name": "Golden Resin World"
+    },
+    {
+      "mapId": 108,
+      "name": "Gothic Purple Abyss"
+    },
+    {
+      "mapId": 112,
+      "name": "Gothic Purple Abyss: Midnight View"
+    },
+    {
+      "mapId": 32,
+      "name": "Greasy Town"
+    },
+    {
+      "mapId": 61,
+      "name": "Greasy Town"
+    },
+    {
+      "mapId": 70,
+      "name": "Greasy Town"
+    },
+    {
+      "mapId": 71,
+      "name": "Greasy Town"
+    },
+    {
+      "mapId": 43,
+      "name": "Health Town"
+    },
+    {
+      "mapId": 136,
+      "name": "Her Decomposing Remains"
+    },
+    {
+      "mapId": 90,
+      "name": "Hometown"
+    },
+    {
+      "mapId": 3,
+      "name": "Illusion World"
+    },
+    {
+      "mapId": 20,
+      "name": "Infected Veins"
+    },
+    {
+      "mapId": 42,
+      "name": "Infected Veins: Mouth"
+    },
+    {
+      "mapId": 23,
+      "name": "Kodoko's Room"
+    },
+    {
+      "mapId": 46,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 47,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 48,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 49,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 50,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 51,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 52,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 53,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 54,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 55,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 56,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 57,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 79,
+      "name": "Love Complex"
+    },
+    {
+      "mapId": 82,
+      "name": "Love Complex: Underground Passage"
+    },
+    {
+      "mapId": 14,
+      "name": "Love Drains"
+    },
+    {
+      "mapId": 97,
+      "name": "Macabre Forest"
+    },
+    {
+      "mapId": 75,
+      "name": "Market Passage"
+    },
+    {
+      "mapId": 127,
+      "name": "Midnight Cattail Bog"
+    },
+    {
+      "mapId": 98,
+      "name": "Milky Red Trails"
+    },
+    {
+      "mapId": 101,
+      "name": "Milky Red Trench"
+    },
+    {
+      "mapId": 155,
+      "name": "Neon Bear Disco"
+    },
+    {
+      "mapId": 2,
+      "name": "Nexus"
+    },
+    {
+      "mapId": 94,
+      "name": "Night Field"
+    },
+    {
+      "mapId": 92,
+      "name": "Night Road"
+    },
+    {
+      "mapId": 44,
+      "name": "Noir Cafe"
+    },
+    {
+      "mapId": 68,
+      "name": "Noir Garden"
+    },
+    {
+      "mapId": 118,
+      "name": "Noir Hotel"
+    },
+    {
+      "mapId": 119,
+      "name": "Noir Hotel"
+    },
+    {
+      "mapId": 120,
+      "name": "Noir Hotel"
+    },
+    {
+      "mapId": 121,
+      "name": "Noir Hotel"
+    },
+    {
+      "mapId": 122,
+      "name": "Noir Hotel"
+    },
+    {
+      "mapId": 45,
+      "name": "Noir Seaside"
+    },
+    {
+      "mapId": 24,
+      "name": "Noir Walk"
+    },
+    {
+      "mapId": 143,
+      "name": "Nostalgic House"
+    },
+    {
+      "mapId": 144,
+      "name": "Nostalgic House"
+    },
+    {
+      "mapId": 145,
+      "name": "Nostalgic House"
+    },
+    {
+      "mapId": 146,
+      "name": "Nostalgic House"
+    },
+    {
+      "mapId": 147,
+      "name": "Nostalgic House"
+    },
+    {
+      "mapId": 22,
+      "name": "Orange Railroad Crossing"
+    },
+    {
+      "mapId": 138,
+      "name": "Orange Railroad Crossing"
+    },
+    {
+      "mapId": 139,
+      "name": "Orange Railroad Crossing: Smoking Motorman"
+    },
+    {
+      "mapId": 102,
+      "name": "Ovule Ocean"
+    },
+    {
+      "mapId": 76,
+      "name": "Oxidized Passage"
+    },
+    {
+      "mapId": 96,
+      "name": "Palliative Ward"
+    },
+    {
+      "mapId": 123,
+      "name": "Palliative Ward"
+    },
+    {
+      "mapId": 126,
+      "name": "Palliative Ward"
+    },
+    {
+      "mapId": 38,
+      "name": "Paper Purgatory"
+    },
+    {
+      "mapId": 39,
+      "name": "Paper Purgatory"
+    },
+    {
+      "mapId": 40,
+      "name": "Paper Purgatory"
+    },
+    {
+      "mapId": 41,
+      "name": "Paper Purgatory"
+    },
+    {
+      "mapId": 18,
+      "name": "Railroad Forest"
+    },
+    {
+      "mapId": 35,
+      "name": "Red Corridors"
+    },
+    {
+      "mapId": 140,
+      "name": "Red Railroad Crossing"
+    },
+    {
+      "mapId": 83,
+      "name": "Rosehip Garden"
+    },
+    {
+      "mapId": 84,
+      "name": "Rosehip Garden"
+    },
+    {
+      "mapId": 88,
+      "name": "Rosehip Garden"
+    },
+    {
+      "mapId": 59,
+      "name": "Sacrificial Ground"
+    },
+    {
+      "mapId": 65,
+      "name": "Sacrificial Ground"
+    },
+    {
+      "mapId": 78,
+      "name": "Sala Desert"
+    },
+    {
+      "mapId": 37,
+      "name": "Sculpture Park"
+    },
+    {
+      "mapId": 131,
+      "name": "Sorrowful Abyss"
+    },
+    {
+      "mapId": 132,
+      "name": "Sorrowful Abyss"
+    },
+    {
+      "mapId": 69,
+      "name": "Spring Cemetery"
+    },
+    {
+      "mapId": 135,
+      "name": "Summer House"
+    },
+    {
+      "mapId": 124,
+      "name": "Sunset Fields"
+    },
+    {
+      "mapId": 85,
+      "name": "Sunset Skyscrapers"
+    },
+    {
+      "mapId": 86,
+      "name": "Sunset Skyscrapers"
+    },
+    {
+      "mapId": 110,
+      "name": "Sunset Skyscrapers: Aquarium"
+    },
+    {
+      "mapId": 111,
+      "name": "Sunset Skyscrapers: Smile Dog Room"
+    },
+    {
+      "mapId": 87,
+      "name": "Theatre"
+    },
+    {
+      "mapId": 113,
+      "name": "Theatre"
+    },
+    {
+      "mapId": 114,
+      "name": "Theatre"
+    },
+    {
+      "mapId": 115,
+      "name": "Theatre"
+    },
+    {
+      "mapId": 116,
+      "name": "Theatre"
+    },
+    {
+      "mapId": 117,
+      "name": "Theatre"
+    },
+    {
+      "mapId": 129,
+      "name": "Theatre"
+    },
+    {
+      "mapId": 62,
+      "name": "Yearning"
+    },
+    {
+      "mapId": 63,
+      "name": "Yearning"
+    }
+  ]
+}

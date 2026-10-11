@@ -5,6 +5,9 @@ contextBridge.exposeInMainWorld("electronAPI", {
   maximize: () => ipcRenderer.send("maximize"),
   toggleDiscordRpc: () => ipcRenderer.invoke("toggleDiscordRpc"),
   getDiscordRpcEnabled: () => ipcRenderer.invoke("getDiscordRpcEnabled"),
+  navbotState: () => ipcRenderer.invoke("navbot:state"),
+  navbotCommand: (command) => ipcRenderer.invoke("navbot:command", command),
+  navbotMaps: () => ipcRenderer.invoke("navbot:maps"),
 });
 
 ipcRenderer.on("zoomin", () => {

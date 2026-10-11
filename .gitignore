@@ -132,5 +132,19 @@ dist
 # Electron pack and dist output
 dist/
 dist-nodrpc/
-package-lock.json
 yarn.lock
+
+# Navbot profiles, captures, downloaded maps and generated inspection output
+/.navbot/
+/page.html
+/Map*.lmu
+/scratch/*.wasm
+/scratch/dump_*.js
+/scratch/find_bed*.js
+/scratch/lmu_parser*.js
+/scratch/map2_codes.js
+/scratch/test_event.js
+/scratch/**/*.lmu
+/scratch/**/*.ldb
+/scratch/**/*.json
+/scratch/**/*.txt
