@@ -28,6 +28,8 @@ function uiCommand(command) {
   if (!command || typeof command !== 'object' || Array.isArray(command)) throw new Error('Expected a command object');
   let clean;
   switch (command.op) {
+    // Read-only: chooses the destination for the loaded game's current expedition.
+    case 'expedition': return { op: command.op };
     case 'state':
     case 'stop': clean = { op: command.op }; break;
     case 'goto': clean = { op: command.op, x: command.x, y: command.y }; break;

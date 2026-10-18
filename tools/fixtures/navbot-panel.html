@@ -38,6 +38,8 @@
       mapsCalls: 0, mapsError: null, deferMaps: false, pendingMaps: null,
       lookupCalls: [], deferLookup: false, pendingLookup: null,
       lookupResponse: { title: 'Chocolate World', mapIds: ['0036', '0037'] },
+      expedition: { title: 'Nexus', type: 'Daily', kind: null, map: 10, x: 3, y: 4, hops: 3, route: [5, 4, 10], mapIds: [10] },
+      expeditionCalls: 0, expeditionError: null, deferExpedition: false, pendingExpedition: null,
       maps: { game: '2kki', entries: [
         { mapId: 2, name: "Urotsuki's Room" },
         { mapId: 10, name: 'Nexus' },
@@ -81,6 +83,13 @@
         return next;
       },
       async navbotCommand(command) {
+        if (command.op === 'expedition') {
+          fixture.expeditionCalls++;
+          if (fixture.expeditionError) throw new Error(fixture.expeditionError);
+          const next = { ...structuredClone(fixture.snapshot), expedition: structuredClone(fixture.expedition) };
+          if (fixture.deferExpedition) return new Promise(resolve => { fixture.pendingExpedition = () => resolve(next); });
+          return next;
+        }
         fixture.commands.push(structuredClone(command));
         if (fixture.commandError) throw new Error(fixture.commandError);
         if (command.op === 'stop') {

@@ -40,7 +40,7 @@ test('normal sessions report disabled and reject all movement without touching t
       enabled: false, game: null, ready: false, message: 'Start a Navbot session to use navigation.',
     });
   }
-  for (const command of [{ op: 'stop' }, { op: 'goto', x: 1, y: 2 }, { op: 'goto-map', map: 10, x: 1, y: 2 }]) {
+  for (const command of [{ op: 'stop' }, { op: 'expedition' }, { op: 'goto', x: 1, y: 2 }, { op: 'goto-map', map: 10, x: 1, y: 2 }]) {
     await assert.rejects(h.controller.command(h.event, command), /requires a Navbot session/);
   }
   assert.deepEqual(h.calls, []);
@@ -86,7 +86,7 @@ test('authorization requires official HTTPS origin and the selected game on both
   assert.deepEqual(h.calls, []);
 });
 
-test('UI exposes only state, Stop and bounded tile/map navigation', async () => {
+test('UI exposes only state, Stop, the expedition lookup and bounded tile/map navigation', async () => {
   const h = harness();
   for (const command of [
     null, [], 'stop', {}, { op: 'eval', code: 'alert(1)' }, { op: 'capture' },
@@ -99,7 +99,8 @@ test('UI exposes only state, Stop and bounded tile/map navigation', async () => 
   await h.controller.command(h.event, { op: 'goto', x: 0, y: 9999, code: 'ignored' });
   await h.controller.command(h.event, { op: 'goto-map', map: 10, x: 3, y: 4 });
   await h.controller.command(h.event, { op: 'stop' });
-  assert.deepEqual(h.calls, [{ op: 'goto', x: 0, y: 9999 }, { op: 'goto-map', map: 10, x: 3, y: 4 }, { op: 'stop' }]);
+  await h.controller.command(h.event, { op: 'expedition', map: 1, title: 'ignored' });
+  assert.deepEqual(h.calls, [{ op: 'goto', x: 0, y: 9999 }, { op: 'goto-map', map: 10, x: 3, y: 4 }, { op: 'stop' }, { op: 'expedition' }]);
 });
 
 test('UI Stop cancels queued CLI movement and CLI Stop cancels queued UI movement', async () => {

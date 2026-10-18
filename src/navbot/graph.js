@@ -5,7 +5,9 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const startRoute = require('./overlays/2kki-start-route.json');
 const reflectionsRoute = require('./overlays/2kki-reflections-route.json');
-const corrections = [startRoute, reflectionsRoute];
+const zodiacRoute = require('./overlays/2kki-zodiac-route.json');
+const corrections = [startRoute, reflectionsRoute, zodiacRoute];
+const overlayNames = ['2kki-start-route.json', '2kki-reflections-route.json', '2kki-zodiac-route.json'];
 const edgeFields = ['targetMapId', 'startX', 'startY', 'targetX', 'targetY'];
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 
@@ -27,10 +29,10 @@ function applyGraphOverlay(source, game) {
       correction.edges, `Reviewed exit at (${correction.startX},${correction.startY})`);
   }
   for (const removal of corrections.flatMap(overlay => overlay.removeEdges)) {
-    update(removal.mapId, edge => edge && edgeFields.every(field => edge[field] === removal[field]), [], 'Remove fabricated Nexus edge');
+    update(removal.mapId, edge => edge && edgeFields.every(field => edge[field] === removal[field]), [], removal.reason || 'Remove fabricated Nexus edge');
   }
   for (const pruning of corrections.flatMap(overlay => overlay.pruneDestinations)) {
-    update(pruning.mapId, edge => edge && pruning.targetMapIds.includes(edge.targetMapId), [], 'Remove debug destinations');
+    update(pruning.mapId, edge => edge && pruning.targetMapIds.includes(edge.targetMapId), [], pruning.reason || 'Remove debug destinations');
   }
   return { graph, overlay: {
     id: '2kki-reviewed-routes-v1', game,
@@ -49,7 +51,7 @@ function prepareDebugGraph(options) {
   const output = JSON.stringify(graph);
   const graphPath = path.join(options.runDir, 'map_graph.json');
   const graphProvenancePath = path.join(options.runDir, 'graph-provenance.json');
-  const overlayFiles = ['2kki-start-route.json', '2kki-reflections-route.json'].map(name => {
+  const overlayFiles = overlayNames.map(name => {
     const file = path.join(__dirname, 'overlays', name);
     return { path: file, sha256: hash(fs.readFileSync(file)) };
   });

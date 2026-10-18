@@ -7,6 +7,14 @@ const { createOfficialController } = require('./official-controller');
 const { createOfficialAssets } = require('./official-assets');
 const { createOfficialMemory } = require('./official-memory');
 
+// Exclusions for one command; the 2kki dream bedroom door has one reviewed destination.
+function routeOptions(game, observed = [], blocked = []) {
+  return {
+    preferredExits: game === '2kki' ? new Map([['4:15,7', 10]]) : new Map(),
+    observedExits: new Map(observed), blockedExits: new Set(blocked),
+  };
+}
+
 async function setupOfficialNavbot(win, options, record) {
   const graph = JSON.parse(fs.readFileSync(options.graphPath, 'utf8'));
   const planner = createPlanner();
@@ -50,10 +58,6 @@ async function setupOfficialNavbot(win, options, record) {
   win.webContents.on('did-start-navigation', (_event, _url, inPlace, mainFrame) => {
     if (mainFrame && !inPlace) { ++generation; installed = null; assets.reset(); }
   });
-  const routeOptions = (observed = [], blocked = []) => ({
-    preferredExits: options.game === '2kki' ? new Map([['4:15,7', 10]]) : new Map(),
-    observedExits: new Map(observed), blockedExits: new Set(blocked),
-  });
   // Answers the page controller's replanning request after an unexpected map
   // or an unreachable departure, excluding what it observed for this command.
   async function reroute(request) {
@@ -64,10 +68,11 @@ async function setupOfficialNavbot(win, options, record) {
     if (!valid) return;
     let edges = null, message = null;
     try {
-      edges = planner.findMapRoute(graph, request.map, request.target_map, routeOptions(request.observed, request.blocked));
+      edges = planner.findMapRoute(graph, request.map, request.target_map, routeOptions(options.game, request.observed, request.blocked));
       if (!edges) message = `No unambiguous route remains from map ${request.map} after excluding observed departures.`;
     } catch (error) { message = error.message; }
     record('reroute', { id: request.id, from: request.map, to: request.target_map,
+      ...(typeof request.reason === 'string' ? { reason: request.reason.slice(0, 300) } : {}),
       route: edges ? edges.map(edge => edge.targetMapId) : null, message });
     // A failed reply is retried on the next refresh; the page times out on its own.
     await win.webContents.executeJavaScript(
@@ -113,7 +118,7 @@ async function setupOfficialNavbot(win, options, record) {
     if (options.game === '2kki' && [567, 568].includes(map) && state.map_id !== map) {
       throw new Error(`The Planetarium recipe requires verified official-engine state (${state.engine_state_error || 'unavailable'}).`);
     }
-    const edges = planner.findMapRoute(graph, state.map_id, map, routeOptions());
+    const edges = planner.findMapRoute(graph, state.map_id, map, routeOptions(options.game));
     if (!edges) throw new Error('No unambiguous map route is available. Choose a nearer destination.');
     return [call[0], call[1], edges];
   }
@@ -123,4 +128,4 @@ async function setupOfficialNavbot(win, options, record) {
   } };
 }
 
-module.exports = { setupOfficialNavbot };
+module.exports = { setupOfficialNavbot, routeOptions };

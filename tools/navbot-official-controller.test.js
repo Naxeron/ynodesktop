@@ -897,6 +897,131 @@ test('a live-only blockage waits up to five seconds, then falls back to static p
   assert.equal(state.capabilities.live_collision, false);
 });
 
+test('tiles occupied throughout a live blockage stay blocked and the departure is resolved around them', () => {
+  // An invisible same-layer wall at (1,0) occupies the statically nearest side
+  // of the occupied door at (2,0); the door can still be entered from below.
+  const live = { ...map(3, 3), obstacles: [1, 2], events: [] };
+  live.passages[1] = live.passages[2] = 0;
+  const p = fixture({ memory: {}, navigation: map(3, 3), live,
+    exitInteractions: [{ eventId: 4, startX: 2, startY: 0, pages: [{ trigger: 1, layer: 1, targetMapIds: [11], unsupported: false }] }],
+    canMove: (_state, _direction, x, y) => y !== 0 || x === 0,
+    onHold(key, state) {
+      if (key !== 'up' || state.player_x !== 2 || state.player_y !== 1) return;
+      Object.assign(state, { map_id: 11, player_x: 0, player_y: 0,
+        teleport_map_id: 11, teleport_x: 0, teleport_y: 0, held_key: null, hold_remaining: 0 });
+      ++state.teleport_sequence;
+    } });
+  p.controller.configure({ reroute: true });
+  p.controller.execute(['_Navbot_GoToMap', [11, 0, 0], [{ mapId: 10, startX: 2, startY: 0, targetMapId: 11, targetX: 0, targetY: 0 }]]);
+  p.tick(290);
+  assert.deepEqual(p.commands, [], 'waits while live collision blocks the statically chosen approach');
+  p.tick(200);
+  const state = p.controller.read();
+  assert.deepEqual(p.commands.map(command => command.key), ['down', 'right', 'right', 'up']);
+  assert.equal(state.stationary_obstacles, 2);
+  assert.equal(state.capabilities.live_collision, true, 'the other side is reachable with live collision');
+  assert.equal(state.status, 'loading_map');
+  assert.deepEqual(plain(state.unreachable_departures), []);
+});
+
+test('a departure walled in by stationary obstacles is excluded and rerouted', () => {
+  const live = { ...map(3, 1), obstacles: [1, 2], events: [] };
+  live.passages[1] = live.passages[2] = 0;
+  const p = fixture({ memory: {}, navigation: map(3, 1), live,
+    exitInteractions: [{ eventId: 4, startX: 2, startY: 0, pages: [{ trigger: 1, layer: 1, targetMapIds: [11], unsupported: false }] }],
+    canMove: (_state, _direction, x) => x === 0 });
+  p.controller.configure({ reroute: true });
+  p.controller.execute(['_Navbot_GoToMap', [11, 0, 0], [{ mapId: 10, startX: 2, startY: 0, targetMapId: 11, targetX: 0, targetY: 0 }]]);
+  p.tick(320);
+  const state = p.controller.read();
+  assert.deepEqual(p.commands, [], 'never walks into the invisible wall');
+  assert.equal(state.status, 'rerouting');
+  assert.deepEqual(plain(state.reroute_request.blocked), ['10:2,0']);
+  assert.match(state.last_reroute_reason, /no reachable interaction approach/);
+});
+
+test('tiles freed at any point during a live blockage are not kept as stationary obstacles', () => {
+  // A character pacing between two tiles blocks the corridor the whole time.
+  const p = fixture({ memory: {}, navigation: map(5, 1), live: state => {
+    const nav = { ...map(5, 1), events: [] }, tile = Math.floor(state.time_ms / 1000) % 2 ? 2 : 1;
+    nav.passages[tile] = 0; nav.obstacles = [tile];
+    return nav;
+  } });
+  p.controller.start(10, 4, 0);
+  p.tick(290);
+  assert.deepEqual(p.commands, []);
+  p.tick(200);
+  const state = p.controller.read();
+  assert.equal(state.status, 'arrived');
+  assert.equal(p.state.player_x, 4);
+  assert.equal(state.stationary_obstacles, 0);
+});
+
+test('a directional below-player exit keeps its approach after a live blockage', () => {
+  // A character paces in the corridor for seven seconds, then leaves.
+  const npc = state => state.time_ms < 7000 ? (Math.floor(state.time_ms / 1000) % 2 ? 2 : 1) : -1;
+  const p = fixture({ memory: {}, navigation: map(5, 1),
+    live: state => { const nav = { ...map(5, 1), events: [], obstacles: [] }, tile = npc(state); if (tile >= 0) { nav.passages[tile] = 0; nav.obstacles = [tile]; } return nav; },
+    exitInteractions: [{ eventId: 4, startX: 4, startY: 0, pages: [{ trigger: 1, layer: 0, direction: 1, targetMapIds: [11], unsupported: false }] }],
+    canMove: (state, _direction, x) => x !== npc(state) });
+  p.controller.configure({ reroute: true });
+  p.controller.execute(['_Navbot_GoToMap', [11, 0, 0], [{ mapId: 10, startX: 4, startY: 0, targetMapId: 11, targetX: 0, targetY: 0 }]]);
+  p.tick(700);
+  const state = p.controller.read();
+  assert.deepEqual(plain(state.unreachable_departures), []);
+  assert.equal(state.last_reroute_reason, '');
+  assert.equal(p.state.player_x, 4, 'walks onto the exit from the required side');
+});
+
+test('a character idle in a corridor for longer than the live wait does not become a permanent wall', () => {
+  const present = state => state.time_ms < 6000;
+  const p = fixture({ memory: {}, navigation: map(5, 1),
+    live: state => { const nav = { ...map(5, 1), events: [], obstacles: [] }; if (present(state)) { nav.passages[2] = 0; nav.obstacles = [2]; } return nav; },
+    canMove: (state, _direction, x) => x !== 2 || !present(state) });
+  p.controller.start(10, 4, 0);
+  p.tick(700);
+  const state = p.controller.read();
+  assert.equal(state.status, 'arrived');
+  assert.equal(p.state.player_x, 4);
+  assert.equal(state.stationary_obstacles, 0);
+});
+
+test('a destination blocked by a tile that never clears fails after fifteen seconds', () => {
+  const live = { ...map(3, 1), events: [], obstacles: [1] };
+  live.passages[1] = 0;
+  const p = fixture({ memory: {}, navigation: map(3, 1), live, canMove: (_state, _direction, x) => x !== 1 });
+  p.controller.start(10, 2, 0);
+  p.tick(600);
+  assert.equal(p.controller.read().active, true, 'still waiting after ten seconds');
+  assert.deepEqual(p.commands, []);
+  p.tick(300);
+  const state = p.controller.read();
+  assert.equal(state.status, 'error');
+  assert.match(state.last_error, /kept every route to the destination blocked/);
+  assert.deepEqual(p.commands, [], 'never walks into the occupied tile');
+});
+
+test('the navigation deadline restarts after each completed exit', () => {
+  const p = fixture();
+  p.controller.start(12, 2, 0, [{ mapId: 10, startX: 1, startY: 0, targetMapId: 11, targetX: 0, targetY: 0, action: false },
+    { mapId: 11, startX: 1, startY: 0, targetMapId: 12, targetX: 0, targetY: 0, action: false }]);
+  p.state.player_x = p.state.player_y = null;
+  p.tick(170, 1000);
+  assert.equal(p.controller.read().active, true);
+  p.state.player_x = p.state.player_y = 0;
+  p.tick(8);
+  assert.equal(p.state.player_x, 1);
+  p.teleport(11, 0, 0);
+  p.tick(40);
+  assert.equal(p.controller.read().status, 'loading_map');
+  p.install();
+  p.state.player_x = p.state.player_y = null;
+  p.tick(170, 1000);
+  assert.equal(p.controller.read().active, true, 'the next map has its own deadline');
+  p.tick(11, 1000);
+  assert.match(p.controller.read().last_error, /Navigation timed out/);
+});
+
 test('live active pages select the event page used to resolve a graph exit', () => {
   const action = { trigger: 0, layer: 1, targetMapIds: [11], unsupported: false };
   const touch = { trigger: 1, layer: 0, targetMapIds: [11], unsupported: false };
@@ -957,7 +1082,8 @@ test('an unexpected landing on another map publishes a reroute request and a fre
   assert.equal(p.state.held_key, null);
   assert.match(state.last_error, /^$/);
   assert.deepEqual(plain(state.reroute_request),
-    { id: 1, map: 12, target_map: 11, observed: [['10:1,0', 12]], blocked: [] });
+    { id: 1, map: 12, target_map: 11, reason: 'Unexpected map 12 or landing (3,1) while taking an exit.', observed: [['10:1,0', 12]], blocked: [] });
+  assert.equal(state.last_reroute_reason, 'Unexpected map 12 or landing (3,1) while taking an exit.');
   assert.deepEqual(plain(state.observed_departures), [{ departure: '10:1,0', map: 12 }]);
   const commands = p.commands.length;
   p.tick(100);
@@ -1151,7 +1277,8 @@ test('an unreachable or unresolvable departure is blocked and requests a reroute
       }
       assert.equal(state.status, 'rerouting', key);
       assert.equal(state.active, true);
-      assert.deepEqual(plain(state.reroute_request), { id: 1, map: 10, target_map: 11, observed: [], blocked: [key] });
+      assert.deepEqual(plain(state.reroute_request), { id: 1, map: 10, target_map: 11, reason: state.last_reroute_reason, observed: [], blocked: [key] });
+      assert.match(state.last_reroute_reason, reason);
       assert.deepEqual(plain(state.unreachable_departures), [key]);
     }
   }

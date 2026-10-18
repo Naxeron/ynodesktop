@@ -1,0 +1,94 @@
+{
+  "id": "2kki-zodiac-route-v1",
+  "game": "2kki",
+  "reviewedAt": "2026-10-18",
+  "basis": "Current RPG Maker event pages decoded with liblcf, checked against static passages with unconditional same-layer events treated as walls, and a live official-engine run that excluded the same Toy World exits.",
+  "sources": [
+    {
+      "mapId": 615,
+      "url": "https://ynoproject.net/data/2kki/Map0615.lmu",
+      "sha256": "78e23f0b813964dd1586fd85d8c0b3347bdddd3cec0f5a20f32b72b83719d18d",
+      "events": "Event 61 at (21,86) only travels to map 376 while switch 1445 (block confinement) is on."
+    },
+    {
+      "mapId": 617,
+      "url": "https://ynoproject.net/data/2kki/Map0617.lmu",
+      "sha256": "19bfff21536c63f5b570c8015b3940402340e4e7f10bcb7ddda134e2cf4368b6",
+      "events": "Event 82 at (42,173) also needs switch 1445. Doors 102 at (47,200) to map 375 and 61 at (19,211) to map 146 lie behind empty same-layer wall events (for example 106 at (32,218) and 112 at (19,212)); no map 617 entrance reaches them."
+    },
+    {
+      "mapId": 300,
+      "url": "https://ynoproject.net/data/2kki/Map0300.lmu",
+      "sha256": "57597800fba6465d3bb87c30dbc5d6ec2d4af3b84885fe0f9f76c7fbdab18ffb",
+      "events": "Event 40 at (7,7) teleports to map 1 only with debug switch 11."
+    },
+    {
+      "mapId": 230,
+      "url": "https://ynoproject.net/data/2kki/Map0230.lmu",
+      "sha256": "5df5bfa74bee0913efbf56494d9884b69bf9d6264430897fb0fe79eb67e727c7",
+      "events": "Developer Room; event 24 asks to return to the debug room only inside a switch 11 branch."
+    },
+    {
+      "mapId": 191,
+      "url": "https://ynoproject.net/data/2kki/Map0191.lmu",
+      "sha256": "b777272fde5ee1b9f7816433279d409a22286f7b236a2a81ad69e997440ec314",
+      "events": "Debug warp menu entered from map 1 and Symbolon's Game of Life room; it has no location name."
+    },
+    {
+      "mapId": 619,
+      "url": "https://ynoproject.net/data/2kki/Map0619.lmu",
+      "sha256": "5a3b15802dd7d748ca1c8cf2589cf9be9b9a6975979b55d8438387edffb074f3",
+      "events": "Event 2 at (3,2): page 1 is a dummy page; page 2, the menu that leads to map 191, needs debug switch 11."
+    },
+    {
+      "mapId": 651,
+      "url": "https://ynoproject.net/data/2kki/Map0651.lmu",
+      "sha256": "16b32373bd38b8bebad149cff1bf8c81c2856036719709a2154a65fd169139b9",
+      "events": "Unnamed map without inbound graph edges; event 1 enters map 1."
+    },
+    {
+      "mapId": 2231,
+      "url": "https://ynoproject.net/data/2kki/Map2231.lmu",
+      "sha256": "a24b7bf591e4210715fad209731bb149c2dba7f3cba4088e7d7ff8201f41813a",
+      "events": "Unnamed map without inbound graph edges; event 96 enters map 1."
+    },
+    {
+      "mapId": 146,
+      "url": "https://ynoproject.net/data/2kki/Map0146.lmu",
+      "sha256": "0e7095233742db62962990368df84d9e0acfe0c86a7c4e824b90a18d9ed0ce60",
+      "events": "Symbolon event 28 at (21,9) is an unconditional touch door to Zodiac Fortress map 143 (22,44)."
+    },
+    {
+      "mapIds": [3241, 2701, 2704, 3371, 3372],
+      "url": "https://ynoproject.net/data/2kki/",
+      "sha256": {
+        "Map3241.lmu": "c31d4f0d2096d6225675340eade8b9c2e0261db262b523162e752449970e9925",
+        "Map2701.lmu": "889c4bff186e57a0e3a7f86a9878d74db2410d01644d0bd3a8cb9ed7bb0952e6",
+        "Map2704.lmu": "937382743933dafbe736ae880dcc23f95b185572a5cb36e2bb563df9fe154264",
+        "Map3371.lmu": "92b67b6bd5ccbdbd0d34c9aa7186498176c46085c23476d4768990e501ea6eb5",
+        "Map3372.lmu": "5643153f1a88d66a1fd140fa16a917f00e405c28b6ebf78f9990ab309186e331"
+      },
+      "events": "Night World, Lavender Office, Magic Nexus, Azure Arm Land and Demoscene Tapestry Club: each next exit has one unconditional page reachable from the previous landing."
+    }
+  ],
+  "limitations": [
+    "Removed Toy World exits can be usable on saves with switch 1445 on or with an effect that passes the wall events; Navbot does not use those.",
+    "Edges into debug map 1 and its warp menu 191 are pruned, so neither is reachable; both remain in the source graph.",
+    "Source hashes document the inspected map versions; future event changes require another review."
+  ],
+  "replaceExits": [],
+  "removeEdges": [
+    { "mapId": 615, "targetMapId": 376, "startX": 21, "startY": 86, "targetX": 9, "targetY": 10, "reason": "Requires switch 1445" },
+    { "mapId": 617, "targetMapId": 376, "startX": 42, "startY": 173, "targetX": 9, "targetY": 10, "reason": "Requires switch 1445" },
+    { "mapId": 617, "targetMapId": 375, "startX": 47, "startY": 200, "targetX": 94, "targetY": 403, "reason": "Behind invisible wall events" },
+    { "mapId": 617, "targetMapId": 146, "startX": 19, "startY": 211, "targetX": 21, "targetY": 5, "reason": "Approach occupied by an invisible wall event" }
+  ],
+  "pruneDestinations": [
+    { "mapId": 191, "targetMapIds": [1], "reason": "Remove debug destinations" },
+    { "mapId": 230, "targetMapIds": [1], "reason": "Remove debug destinations" },
+    { "mapId": 300, "targetMapIds": [1], "reason": "Remove debug destinations" },
+    { "mapId": 651, "targetMapIds": [1], "reason": "Remove debug destinations" },
+    { "mapId": 2231, "targetMapIds": [1], "reason": "Remove debug destinations" },
+    { "mapId": 619, "targetMapIds": [191], "reason": "Remove debug destinations" }
+  ]
+}

@@ -22,6 +22,9 @@ async function runScenario(send, options, clock = {}) {
   let readyMapSince = null;
   let outcome = 'timeout';
   let error = null;
+  // Expedition runs choose their target once the player is on a map.
+  let target = options.target || null;
+  let expedition = null;
   try {
     while (now() - started < timeoutMs) {
       if (options.signal?.aborted) { outcome = 'interrupted'; break; }
@@ -55,12 +58,18 @@ async function runScenario(send, options, clock = {}) {
           if (readyMap !== state.map_id || readyMapSince === null) { readyMap = state.map_id; readyMapSince = now(); }
           // Map loading can expose one idle frame before autorun events start.
           if (now() - readyMapSince < 1000) { await sleep(500); continue; }
-          if (!options.target) { outcome = 'map-ready'; break; }
-          if (state.graph_loaded === false && state.map_id !== options.target.map) {
+          if (!target && options.expedition) {
+            const planned = (await send({ op: 'expedition' })).expedition;
+            if (!Number.isInteger(planned?.x) || !Number.isInteger(planned?.y)) throw new Error(`The route to ${planned?.title || 'the expedition'} enters map ${planned?.map} at an unknown tile.`);
+            target = { map: planned.map, x: planned.x, y: planned.y };
+            expedition = { title: planned.title, type: planned.type, kind: planned.kind, map: planned.map, x: planned.x, y: planned.y, route: planned.route, complete: false, replaced: false };
+          }
+          if (!target) { outcome = 'map-ready'; break; }
+          if (state.graph_loaded === false && state.map_id !== target.map) {
             if (state.graph_error) { outcome = 'graph-unavailable'; break; }
             await sleep(500); continue;
           }
-          await send({ op: 'goto-map', ...options.target });
+          await send({ op: 'goto-map', ...target });
           startState = state;
           targetSent = true;
           phase = 'navigate';
@@ -81,8 +90,8 @@ async function runScenario(send, options, clock = {}) {
       } else {
         const recipeActive = ['navigating', 'confirming'].includes(state.recipe?.status);
         const recipeFinished = !state.recipe || state.recipe.status === 'arrived';
-        const atMap = onMap && state.map_id === options.target.map;
-        const atDestination = atMap && (options.arrival === 'map' || (state.player_x === options.target.x && state.player_y === options.target.y));
+        const atMap = onMap && state.map_id === target.map;
+        const atDestination = atMap && (options.arrival === 'map' || (state.player_x === target.x && state.player_y === target.y));
         // Do not pass on a transient teleport frame or before the arrival event
         // relinquishes control. A stopped bot can still be settling at its goal.
         if (atDestination && recipeFinished && stationary) {
@@ -98,12 +107,30 @@ async function runScenario(send, options, clock = {}) {
       }
       await sleep(500);
     }
+    // Arriving in the map lets the page claim the expedition; wait for the
+    // server's completion flag (a finished free expedition is replaced). Another
+    // map of the same location can also complete it, so always read it once.
+    if (expedition && outcome !== 'interrupted') {
+      const until = now() + (visitedMaps.includes(expedition.map) ? options.confirmMs ?? 30000 : 0);
+      for (;;) {
+        const result = await send({ op: 'state' });
+        const list = result.page?.expeditions;
+        const entry = Array.isArray(list) ? list.find(item => item.title === expedition.title) : undefined;
+        expedition.complete = entry?.complete === true;
+        expedition.replaced = expedition.kind === 'free' && Array.isArray(list) && list.length > 0 && !entry;
+        if (expedition.complete || expedition.replaced || now() >= until || options.signal?.aborted) break;
+        await sleep(500);
+      }
+    }
   } catch (cause) { outcome = 'error'; error = cause.message; }
   // Always release held input and stop navigation, including timeout/error paths.
   const cleanupErrors = [];
   const stopped = await send({ op: 'stop' }).catch(cause => { cleanupErrors.push(cause.message); return null; });
   const capture = await send({ op: 'capture' }).catch(cause => { cleanupErrors.push(cause.message); return null; });
-  return { ok: ['arrived', 'map-ready'].includes(outcome) && cleanupErrors.length === 0, outcome, phase, elapsedMs: now() - started, target: options.target || null, targetSent, arrival: options.arrival || 'tile', startState, visitedMaps, lastState, finalState: stopped?.state || null, error, cleanupErrors, screenshot: capture?.path || null };
+  const expeditionDone = !expedition || expedition.complete || expedition.replaced;
+  return { ok: (['arrived', 'map-ready'].includes(outcome) || (!!expedition && outcome !== 'error' && outcome !== 'interrupted' && expeditionDone))
+    && expeditionDone && cleanupErrors.length === 0, outcome, phase, elapsedMs: now() - started, target, targetSent, arrival: options.arrival || 'tile',
+    ...(options.expedition ? { expedition } : {}), startState, visitedMaps, lastState, finalState: stopped?.state || null, error, cleanupErrors, screenshot: capture?.path || null };
 }
 
 module.exports = { runScenario };

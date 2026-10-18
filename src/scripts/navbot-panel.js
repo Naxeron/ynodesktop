@@ -95,7 +95,7 @@ function mountNavbotPanel() {
         <div id="unavailable" hidden><p>From the project folder, start a Navbot session, then open this panel:</p><code>./test_navbot.sh 2kki</code><p class="hint">The session uses its own local saves and settings.</p></div>
         <form id="form" novalidate>
           <label for="mode">Destination</label>
-          <select id="mode"><option value="local">Walk within this map</option><option value="map">Travel to another map</option></select>
+          <select id="mode"><option value="map" selected>Travel to another map</option><option value="local">Walk within this map</option></select>
           <div id="map-field" hidden>
             <label for="map">Map name</label>
             <input id="map" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="map-results" aria-describedby="map-selection map-search-status" autocomplete="off" spellcheck="false" placeholder="Search map names…" required>
@@ -108,7 +108,7 @@ function mountNavbotPanel() {
             <div><label for="x">X coordinate</label><input id="x" type="number" inputmode="numeric" min="0" max="9999" step="1" placeholder="0" required></div>
             <div><label for="y">Y coordinate</label><input id="y" type="number" inputmode="numeric" min="0" max="9999" step="1" placeholder="0" required></div>
           </div>
-          <div class="shortcuts"><button id="current" type="button">Use current position</button><button id="nexus" type="button" hidden>Nexus · 2kki</button><button id="planetarium" type="button" hidden>Planetarium · 2kki</button></div>
+          <div class="shortcuts"><button id="current" type="button">Use current position</button><button id="expedition" type="button">Current expedition</button></div>
           <p id="target-hint" class="hint">Coordinates start at 0.</p>
           <p id="feedback" role="alert" hidden></p>
           <div class="route-box"><div class="eyebrow">Route</div><div id="route">Choose a destination to begin.</div><div id="route-detail">Navbot walks using normal game controls.</div></div>
@@ -131,6 +131,14 @@ function mountNavbotPanel() {
   const mapMode = () => $('mode').value === 'map';
   let mapSelection = null, mapEntries = [], catalogGame = null, catalogState = 'idle';
   let catalogRequest = 0, selectionRequest = 0, suggestions = [], activeSuggestion = -1, dismissEscape = false, resolvingMap = false;
+  // The expedition the selected destination was chosen for, and the one the
+  // submitted movement is travelling to, to report its completion.
+  let expeditionTitle = null, expeditionKind = null, expeditionRequest = 0, expeditionGoal = null;
+  // undefined while the page has not loaded any expeditions (or is signed out).
+  const pendingExpedition = () => Array.isArray(snapshot.page?.expeditions) && snapshot.page.expeditions.length && snapshot.page.loggedIn !== false
+    ? snapshot.page.expeditions.find(entry => typeof entry?.title === 'string' && entry.complete === false) || null : undefined;
+  // Electron prefixes errors that cross IPC; show only the original message.
+  const messageOf = (error, fallback) => String(error?.message || '').replace(/^Error invoking remote method '[^']*': (?:Error: )?/, '') || fallback;
   const differentMap = () => mapMode() && mapSelection?.mapId !== snapshot.state?.map_id;
   const normalize = value => String(value).normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase().trim();
   const mapNumber = id => String(id).padStart(4, '0');
@@ -149,7 +157,7 @@ function mountNavbotPanel() {
   }
   function selectMap(entry) {
     if (!entry.mapId) { void resolveMap(entry); return; }
-    ++selectionRequest; resolvingMap = false;
+    ++selectionRequest; resolvingMap = false; expeditionTitle = expeditionKind = null;
     mapSelection = entry;
     $('map').value = entry.name;
     $('map').setCustomValidity('');
@@ -227,7 +235,7 @@ function mountNavbotPanel() {
       if (stopped || request !== selectionRequest || snapshot.game !== game) return;
       resolvingMap = false;
       text('map-selection', 'Choose a map from the suggestions.');
-      feedback(error.message || 'Map lookup failed. Try again.');
+      feedback(messageOf(error, 'Map lookup failed. Try again.'));
     }
     updateControls();
   }
@@ -300,14 +308,15 @@ function mountNavbotPanel() {
     $('map').disabled = !mapMode() || !snapshot.enabled;
     for (const id of ['mode', 'x', 'y']) $(id).disabled = !snapshot.enabled;
     $('current').disabled = !mapScene();
-    $('nexus').hidden = snapshot.game !== '2kki';
-    $('nexus').disabled = !snapshot.enabled;
-    $('planetarium').hidden = snapshot.game !== '2kki';
-    $('planetarium').disabled = !snapshot.enabled;
+    const pending = pendingExpedition();
+    $('expedition').disabled = !mapScene() || resolvingMap || pending === null;
+    $('expedition').title = pending ? `Choose ${pending.title}${pending.type ? ` (${pending.type})` : ''}`
+      : pending === null ? 'Every expedition for this game is complete.' : 'Choose the first unfinished expedition.';
     const planetarium = snapshot.game === '2kki' && mapMode() && mapSelection?.mapId === 568;
     const unsupported = planetarium && snapshot.state?.backend === 'official' && snapshot.state.capabilities?.recipes !== true;
     const graphMissing = differentMap() && !snapshot.state?.graph_loaded && !(planetarium && snapshot.state?.map_id === 10);
     $('start').disabled = busy || resolvingMap || !mapScene() || graphMissing || unsupported || (mapMode() && !mapSelection);
+    text('expedition', resolvingMap && expeditionRequest === selectionRequest ? 'Finding expedition…' : 'Current expedition');
     // Stop stays available during pending requests and communication failures.
     $('stop').disabled = !snapshot.enabled;
     text('start', busy ? 'Starting…' : snapshot.state?.active ? 'Update destination' : 'Start navigation');
@@ -360,7 +369,14 @@ function mountNavbotPanel() {
       error: ['Navigation stopped', readable(s.last_error) || 'The route could not be completed.'],
     };
     let status = statuses[s.status] || ['Ready', 'Choose a destination below.'];
+    // Only an arrival in the submitted expedition's map counts; the server
+    // replaces a finished free expedition instead of marking it complete.
+    const list = Array.isArray(next.page?.expeditions) ? next.page.expeditions : null;
+    const atGoal = !!expeditionGoal && s.map_id === expeditionGoal.map && !!list;
+    const goalEntry = atGoal ? list.find(entry => entry.title === expeditionGoal.title) : undefined;
+    const goalDone = atGoal && (goalEntry?.complete === true || (expeditionGoal.kind === 'free' && list.length > 0 && !goalEntry));
     if (s.status === 'arrived' && s.recipe?.expeditionComplete === true) status = ['Weekly expedition complete', 'Planetarium visit and expedition completion confirmed.'];
+    else if (s.status === 'arrived' && goalDone) status = ['Expedition complete', `${expeditionGoal.title} was confirmed by the server.`];
     if (!next.enabled) status = ['Navbot session required', 'Start a Navbot session to use navigation.'];
     else if (!next.ready) status = ['Waiting for the engine', next.message || 'Load the game to connect Navbot.'];
     else if (!mapScene() && !s.active) status = ['Waiting for a map', 'Continue or start a game to choose a destination.'];
@@ -464,7 +480,11 @@ function mountNavbotPanel() {
     }
   });
   $('map-retry').addEventListener('click', () => { if (snapshot.enabled && snapshot.game) void loadMapNames(snapshot.game); });
-  $('mode').addEventListener('input', () => { ++selectionRequest; resolvingMap = false; if (!mapMode()) closeSuggestions(); });
+  $('mode').addEventListener('input', () => {
+    if (resolvingMap) text('map-selection', 'Choose a map from the suggestions.');
+    ++selectionRequest; resolvingMap = false; expeditionTitle = expeditionKind = null;
+    if (!mapMode()) closeSuggestions();
+  });
   for (const id of ['mode', 'x', 'y']) $(id).addEventListener('input', () => { destinationEdited = true; feedback(); updateControls(); });
   $('current').addEventListener('click', () => {
     if (!mapScene()) return;
@@ -472,22 +492,47 @@ function mountNavbotPanel() {
     $('mode').value = 'local';
     const current = mapEntries.filter(entry => entry.mapId === snapshot.state.map_id);
     if (current.length === 1) selectMap(current[0]);
-    else { ++selectionRequest; resolvingMap = false; mapSelection = null; $('map').value = ''; closeSuggestions(); }
+    else { ++selectionRequest; resolvingMap = false; mapSelection = null; expeditionTitle = expeditionKind = null; $('map').value = ''; closeSuggestions(); }
     $('x').value = snapshot.state.player_x;
     $('y').value = snapshot.state.player_y;
     feedback(); updateControls();
   });
-  $('nexus').addEventListener('click', () => {
-    if (snapshot.game !== '2kki') return;
+  // Fills the form with the first unfinished expedition's map and entrance tile;
+  // like any destination, it needs Start navigation to move.
+  $('expedition').addEventListener('click', async () => {
+    if (!mapScene()) return;
     destinationEdited = true;
-    $('mode').value = 'map'; selectMap(mapEntries.find(entry => entry.mapId === 10 && entry.name === 'Nexus') || { mapId: 10, name: 'Nexus' }); $('x').value = 3; $('y').value = 4;
-    feedback(); updateControls();
-  });
-  $('planetarium').addEventListener('click', () => {
-    if (snapshot.game !== '2kki') return;
-    destinationEdited = true;
-    $('mode').value = 'map'; selectMap({ mapId: 568, name: 'Planetarium' }); $('x').value = 3; $('y').value = 75;
-    feedback(); updateControls();
+    const request = expeditionRequest = ++selectionRequest;
+    const game = snapshot.game;
+    // A failed lookup puts the previous destination back.
+    const previous = { mode: $('mode').value, selection: mapSelection, name: $('map').value, hint: $('map-selection').textContent,
+      title: expeditionTitle, kind: expeditionKind };
+    resolvingMap = true; mapSelection = null; expeditionTitle = expeditionKind = null;
+    $('mode').value = 'map'; closeSuggestions(); feedback();
+    text('map-selection', 'Finding the current expedition…');
+    updateControls();
+    try {
+      const result = await window.electronAPI.navbotCommand({ op: 'expedition' });
+      if (stopped || request !== selectionRequest || snapshot.game !== game) return;
+      const target = result?.expedition;
+      if (!target || !Number.isInteger(target.map) || target.map < 1 || target.map > 9999 || typeof target.title !== 'string') {
+        throw new Error('The current expedition could not be resolved.');
+      }
+      selectMap(mapEntries.find(entry => entry.mapId === target.map && entry.name === target.title) || { mapId: target.map, name: target.title });
+      expeditionTitle = target.title; expeditionKind = target.kind === 'free' || target.kind === 'weekly' ? target.kind : null;
+      const known = Number.isInteger(target.x) && Number.isInteger(target.y);
+      if (known) { $('x').value = target.x; $('y').value = target.y; }
+      text('map-selection', `Current expedition${target.type ? ` · ${target.type}` : ''} · Map ${mapNumber(target.map)}${target.hops ? ` · ${target.hops} map ${target.hops === 1 ? 'hop' : 'hops'}` : ''}`);
+      feedback(known ? '' : 'The entrance tile is unknown. Enter the tile to walk to on this map.');
+    } catch (error) {
+      if (stopped || request !== selectionRequest || snapshot.game !== game) return;
+      resolvingMap = false;
+      $('mode').value = previous.mode; mapSelection = previous.selection; $('map').value = previous.name;
+      expeditionTitle = previous.title; expeditionKind = previous.kind;
+      text('map-selection', previous.hint);
+      feedback(messageOf(error, 'The current expedition could not be resolved.'));
+    }
+    updateControls();
   });
   async function command(payload) {
     const requestEpoch = ++epoch;
@@ -499,7 +544,7 @@ function mountNavbotPanel() {
       const next = await window.electronAPI.navbotCommand(payload);
       if (!stopped && requestEpoch === epoch) render(next);
     } catch (error) {
-      if (!stopped && requestEpoch === epoch) feedback(error.message || 'Navbot could not complete the command.');
+      if (!stopped && requestEpoch === epoch) feedback(messageOf(error, 'Navbot could not complete the command.'));
     } finally {
       if (!stopped && requestEpoch === epoch) {
         ++epoch; // Ignore status reads begun before this command finished.
@@ -514,9 +559,10 @@ function mountNavbotPanel() {
     if (!$('form').checkValidity()) { feedback('Enter whole numbers within the map and coordinate limits.'); $('form').reportValidity(); return; }
     const payload = { op: mapMode() ? 'goto-map' : 'goto', x: Number($('x').value), y: Number($('y').value) };
     if (mapMode()) payload.map = mapSelection.mapId;
+    expeditionGoal = payload.op === 'goto-map' && expeditionTitle ? { title: expeditionTitle, kind: expeditionKind, map: payload.map } : null;
     void command(payload);
   });
-  $('stop').addEventListener('click', () => { if (snapshot.enabled) void command({ op: 'stop' }); });
+  $('stop').addEventListener('click', () => { if (snapshot.enabled) { expeditionGoal = null; void command({ op: 'stop' }); } });
   window.addEventListener('pagehide', () => {
     stopped = true; clearTimeout(timer); window.removeEventListener('ynod-navbot-toggle', toggle);
   }, { once: true });

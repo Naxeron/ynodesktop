@@ -6,6 +6,10 @@ const path = require('node:path');
 const { createCommandQueue } = require('./command-queue');
 const { runRoute, at, settled } = require('./route-runner');
 const { ensureBike } = require('./bike');
+const { currentExpedition, catalogMaps, chooseDestination, planetariumStarts } = require('./expedition');
+const { loadMapCatalog } = require('./map-catalog');
+const { createPlanner } = require('./official-path');
+const { routeOptions } = require('./official');
 
 const BUTTONS = Object.freeze({ up: 0, down: 1, left: 2, right: 3, decision: 4, cancel: 5, shift: 6 });
 function integer(value, name, min, max) {
@@ -56,6 +60,7 @@ function rendererScript(call, game, expiresAt = Date.now() + 4500, generation = 
     page.expeditions = expeditionList ? [] : null;
     let expeditionType = null;
     const weeklyLabel = typeof localizedMessages !== 'undefined' ? localizedMessages?.events?.types?.[1] : 'Weekly';
+    const freeLabel = typeof localizedMessages !== 'undefined' ? localizedMessages?.events?.types?.['-1'] : 'Free Expedition';
     for (const element of Array.from(expeditionList?.children || []).slice(0, 100)) {
       if (!element.classList.contains('eventLocationListEntry')) {
         expeditionType = text(element.querySelector('h3')) || expeditionType;
@@ -65,7 +70,7 @@ function rendererScript(call, game, expiresAt = Date.now() + 4500, generation = 
       page.expeditions.push({
         title: text(nameElement?.querySelector('.wikiLink')) || text(nameElement),
         type: expeditionType,
-        kind: expeditionType === weeklyLabel ? 'weekly' : null,
+        kind: expeditionType === weeklyLabel ? 'weekly' : expeditionType && expeditionType === freeLabel ? 'free' : null,
         complete: element.classList.contains('complete'),
       });
       if (page.expeditions.length >= 40) break;
@@ -76,7 +81,7 @@ function rendererScript(call, game, expiresAt = Date.now() + 4500, generation = 
       page.expeditions = eventsCache.locations.filter(entry => typeof entry?.title === 'string' && (entry.game || currentGame) === currentGame).slice(0, 40).map(entry => ({
         title: entry.title.slice(0, 300),
         type: typeof localizedMessages !== 'undefined' ? String(localizedMessages?.events?.types?.[entry.type] || '').slice(0, 300) : null,
-        kind: entry.type === 1 ? 'weekly' : null,
+        kind: entry.type === 1 ? 'weekly' : entry.type === -1 ? 'free' : null,
         complete: entry.complete === true,
       }));
     }
@@ -130,6 +135,65 @@ function rendererScript(call, game, expiresAt = Date.now() + 4500, generation = 
     }
     return { ready: true, page, exports, state, ...(call?.[0] === 'reconnect' ? { reconnectClicked } : {}) };
   })()`;
+}
+
+// Map IDs for an expedition title from the page's location cache and, for 2kki,
+// the Explorer lookup the page itself uses when nothing else knows the title.
+// Only validated map IDs leave the page. The Explorer wait stays short so the
+// reply fits inside the control socket's 10-second idle timeout.
+function expeditionLookupScript(title, game, explorerAllowed = true) {
+  return `(async () => {
+    const title = ${JSON.stringify(title)}, game = ${JSON.stringify(game)}, explorerAllowed = ${explorerAllowed === true};
+    if (location.hostname !== 'ynoproject.net' || location.pathname.split('/')[1] !== game) throw new Error('The current page does not match the debug session game');
+    const valid = id => /^\\d{1,4}$/.test(String(id)) && Number(id) >= 1 && Number(id) <= 9999;
+    const cached = new Set();
+    if (typeof locationCache === 'object' && locationCache) {
+      for (const [key, locations] of Object.entries(locationCache)) {
+        const match = /^\\d{4}_(\\d{4})$/.exec(key);
+        if (match && valid(match[1]) && Array.isArray(locations) && locations.some(entry => entry?.title === title)) cached.add(Number(match[1]));
+      }
+    }
+    let explorer = null, error = null;
+    if (explorerAllowed && !cached.size && game === '2kki' && typeof send2kkiApiRequest === 'function') {
+      try {
+        const response = await new Promise((resolve, reject) => {
+          const timeout = setTimeout(() => reject(new Error('Explorer lookup timed out')), 4000);
+          send2kkiApiRequest('https://explorer.yume.wiki/getLocationInfo?locationName=' + encodeURIComponent(title), result => { clearTimeout(timeout); resolve(result); });
+        });
+        if (response?.title === title && Array.isArray(response.mapIds)) explorer = response.mapIds.filter(valid).map(Number).slice(0, 64);
+        else error = 'Explorer lookup failed';
+      } catch (cause) { error = cause.message; }
+    }
+    return { cached: [...cached].slice(0, 64), explorer, error };
+  })()`;
+}
+
+// Resolves the loaded game's first unfinished expedition to a destination.
+async function planExpedition({ read, lookup, game, catalog = loadMapCatalog(game), graph, planner = createPlanner() }) {
+  const current = await read();
+  const s = current?.state;
+  if (!current?.ready || !s || !Number.isInteger(s.map_id) || s.map_id < 1 || s.map_known === false
+    || !Number.isInteger(s.player_x) || !Number.isInteger(s.player_y)) {
+    throw new Error('Load a game map before choosing the current expedition.');
+  }
+  const list = current.page?.expeditions;
+  const entry = currentExpedition(current.page);
+  if (!entry) {
+    // The page's list markup exists before the session sends any expeditions.
+    throw new Error(current.page?.loggedIn === false ? 'Sign in to load expeditions.'
+      : Array.isArray(list) && list.length ? 'Every expedition for this game is complete.'
+      : 'No expeditions are listed for this game yet. Let the game page load them, then try again.');
+  }
+  const named = catalogMaps(catalog, entry.title);
+  const found = await lookup(entry.title, { explorer: !named.length });
+  const mapIds = [...named.map(item => item.mapId), ...(found?.cached || []), ...(found?.explorer || [])];
+  if (!mapIds.length) throw new Error(`No map is known for ${entry.title}${found?.error ? ` (${found.error})` : ''}.`);
+  // Region restrictions apply only to maps that no unrestricted source names.
+  const others = new Set([...(found?.cached || []), ...(found?.explorer || [])]);
+  const regions = new Map(named.filter(item => item.regions && !others.has(item.mapId)).map(item => [item.mapId, item.regions]));
+  const destination = chooseDestination({ graph: graph(), planner, routeOptions: () => routeOptions(game), game, title: entry.title, mapIds, state: s,
+    regions, locationNames: Array.isArray(current.page?.cachedLocationNames) ? current.page.cachedLocationNames : null });
+  return { current, expedition: { title: entry.title, type: entry.type || null, kind: entry.kind || null, ...destination } };
 }
 
 function createEngineSender(evaluate, { game, generation = () => 0, snapshot = result => result,
@@ -195,7 +259,7 @@ function createRouteController(send, { game, run = runRoute, load = name => requ
     return running;
   }
   async function start(command, control) {
-    if (command.map === 567) throw new Error('Use the Planetarium preset (map 568) for the supported route.');
+    if (command.map === 567) throw new Error('Choose Planetarium map 568 for the supported route.');
     const route = { abort: new AbortController(), command, status: 'navigating', error: '', step: 0, total: 0, label: 'Preparing route', expeditionComplete: null };
     current = route;
     let interrupts;
@@ -216,7 +280,7 @@ function createRouteController(send, { game, run = runRoute, load = name => requ
         throw new Error(`The Planetarium recipe requires verified official-engine state (${s.engine_state_error || 'unavailable'}).`);
       }
       if (!initial.ready || !s || !settled(s)) throw new Error('Wait until the player is standing on the map before starting the Planetarium route.');
-      if (![2, 4, 5, 10, 568].includes(s.map_id)) throw new Error('Start the Planetarium route from the Nexus or the starting room.');
+      if (![...planetariumStarts, 568].includes(s.map_id)) throw new Error('Start the Planetarium route from the Nexus or the starting room.');
       const weekly = page => page?.expeditions?.find(entry => entry.title === 'Planetarium' && entry.kind === 'weekly');
       const needsExpedition = weekly(initial.page)?.complete === false;
       route.expeditionComplete = needsExpedition ? false : null;
@@ -329,6 +393,31 @@ async function startBridge(win, options, quit) {
   const sendEngine = createEngineSender(evaluate, { game: options.game, generation: () => rendererGeneration,
     record, snapshot: result => routes.snapshot(result) });
   const routes = createRouteController(sendEngine, { game: options.game, record });
+  let routeGraph;
+  const graph = () => {
+    if (routeGraph === undefined) {
+      try { routeGraph = JSON.parse(fs.readFileSync(options.graphPath, 'utf8')); } catch { routeGraph = null; }
+    }
+    return routeGraph;
+  };
+  // Read-only, so it neither waits behind nor cancels queued movement.
+  async function expedition() {
+    const { current, expedition } = await planExpedition({
+      read: async () => routes.snapshot(await evaluate(null)),
+      lookup: async (title, { explorer }) => {
+        let timer;
+        try {
+          return await Promise.race([
+            win.webContents.executeJavaScript(expeditionLookupScript(title, options.game, explorer), true),
+            new Promise((_, reject) => { timer = setTimeout(() => reject(new Error('Expedition lookup did not respond')), 4500); }),
+          ]);
+        } finally { clearTimeout(timer); }
+      },
+      game: options.game, graph,
+    });
+    record('expedition', { expedition });
+    return { ...current, expedition };
+  }
   const interruptsRoute = command => ['stop', 'goto', 'goto-map', 'hold', 'reload', 'close'].includes(command?.op);
   async function dispatch(command, control) {
     if (!command || typeof command !== 'object' || Array.isArray(command)) throw new Error('Expected a command object');
@@ -357,6 +446,7 @@ async function startBridge(win, options, quit) {
   }
   const queue = createCommandQueue(dispatch);
   const schedule = (command, control) => {
+    if (command?.op === 'expedition') return expedition();
     if (interruptsRoute(command)) {
       if (!['reload', 'close'].includes(command.op)) engineCommand(command);
       const interrupted = routes.cancel() || sendEngine.preparing;
@@ -450,4 +540,4 @@ async function startBridge(win, options, quit) {
   };
 }
 
-module.exports = { startBridge, engineCommand, rendererScript, createEngineSender, createRouteController, BUTTONS };
+module.exports = { startBridge, engineCommand, rendererScript, createEngineSender, createRouteController, planExpedition, expeditionLookupScript, BUTTONS };

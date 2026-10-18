@@ -245,10 +245,10 @@ const fieldText = id => evaluate(`return ${field(id)}.textContent;`);
 const startDisabled = () => evaluate(`return ${field('start')}.disabled;`);
 
 async function testPlanetariumRoute() {
-  await freshPanel('panelFixture.snapshot.state.map_id = 10; panelFixture.snapshot.state.graph_loaded = false;');
-  await click('planetarium');
-  assert.equal(await evaluate('return panelFixture.commands.length;'), 0, 'Planetarium preset only chooses the destination');
-  assert.equal(await evaluate(`return ${field('map')}.value;`), 'Planetarium');
+  await freshPanel('panelFixture.snapshot.state.map_id = 10; panelFixture.snapshot.state.graph_loaded = false; panelFixture.expedition = { title: "Planetarium", type: "Weekly", kind: "weekly", map: 568, x: 3, y: 75, hops: 12, route: [], mapIds: [568] };');
+  await click('expedition');
+  await waitFor(`${field('map')}.value === 'Planetarium'`, 'Planetarium expedition chosen');
+  assert.equal(await evaluate('return panelFixture.commands.length;'), 0, 'Current expedition only chooses the destination');
   assert.equal(await evaluate(`return ${field('start')}.disabled;`), false, 'Nexus recipe does not require the legacy graph');
   await click('start');
   await waitFor('panelFixture.commands.length === 1', 'Planetarium movement submitted');
@@ -261,13 +261,95 @@ async function testPlanetariumRoute() {
   await updateSnapshot('panelFixture.snapshot.state.recipe.expeditionComplete = true;');
   assert.equal(await evaluate(`return ${field('status')}.textContent;`), 'Weekly expedition complete');
   assert.equal(await evaluate(`return ${field('route-detail')}.textContent;`), 'Weekly expedition complete.');
-  await updateSnapshot('panelFixture.snapshot.game = "yume";');
-  assert.equal(await evaluate(`return ${field('planetarium')}.hidden;`), true, 'Planetarium preset is scoped to 2kki');
-  console.log('PASS: Planetarium preset, exact target, recipe progress, completion and game scope');
+  console.log('PASS: Planetarium expedition, exact target, recipe progress and completion');
 }
 
 const OFFICIAL_RECIPE_HINT = 'The Planetarium route needs verified official-engine state. Load the game and try again.';
 const PLANETARIUM_HINT = 'Planetarium route starts from the Nexus or starting room.';
+
+async function testCurrentExpedition() {
+  // A late answer cannot replace a destination edited while it was pending.
+  await freshPanel('panelFixture.deferExpedition = true;');
+  await click('expedition');
+  await waitFor('panelFixture.pendingExpedition !== null', 'expedition request is pending');
+  assert.equal(await fieldText('expedition'), 'Finding expedition…');
+  assert.equal(await evaluate(`return ${field('expedition')}.disabled;`), true, 'one expedition request at a time');
+  assert.equal(await startDisabled(), true, 'an unresolved expedition cannot start movement');
+  await searchMaps('Geo');
+  await evaluate('panelFixture.deferExpedition = false; panelFixture.pendingExpedition(); panelFixture.pendingExpedition = null;');
+  await sleep(60);
+  assert.equal(await evaluate(`return ${field('map')}.value;`), 'Geo', 'stale expedition answer is ignored');
+  assert.equal(await fieldText('expedition'), 'Current expedition');
+
+  // Mode changes cancel a pending lookup and its hint.
+  await freshPanel('panelFixture.deferExpedition = true;');
+  await click('expedition');
+  await waitFor('panelFixture.pendingExpedition !== null', 'second expedition request is pending');
+  await setValue('mode', 'local');
+  assert.equal(await fieldText('map-selection'), 'Choose a map from the suggestions.');
+  await evaluate('panelFixture.deferExpedition = false; panelFixture.pendingExpedition(); panelFixture.pendingExpedition = null;');
+  await sleep(60);
+  assert.equal(await evaluate(`return ${field('mode')}.value;`), 'local', 'a cancelled lookup cannot switch the mode back');
+
+  // Electron wraps errors that cross IPC; a failure keeps the previous destination.
+  await freshPanel(`panelFixture.expeditionError = "Error invoking remote method 'navbot:command': Error: Every expedition for this game is complete.";`);
+  await setValue('x', 6);
+  await click('expedition');
+  await waitFor(`${field('feedback')}.textContent === 'Every expedition for this game is complete.'`, 'expedition errors are readable');
+  assert.equal(await evaluate(`return ${field('map')}.value;`), "Urotsuki's Room", 'a failed lookup restores the previous map');
+  assert.equal(await fieldText('map-selection'), 'Map 0002');
+  assert.equal(await evaluate(`return ${field('x')}.value;`), '6');
+  assert.equal(await startDisabled(), false, 'the previous destination can still be used');
+  assert.equal(await evaluate('return panelFixture.commands.length;'), 0);
+
+  await freshPanel('panelFixture.snapshot.page = { expeditions: [{ title: "Nexus", type: "Daily", kind: null, complete: true }, { title: "Zodiac Fortress", type: "Daily", kind: null, complete: false }] };');
+  assert.equal(await evaluate(`return ${field('expedition')}.title;`), 'Choose Zodiac Fortress (Daily)', 'the first unfinished expedition is named');
+  await updateSnapshot('panelFixture.snapshot.page.expeditions[1].complete = true;');
+  assert.equal(await evaluate(`return ${field('expedition')}.disabled;`), true, 'nothing to choose once every expedition is complete');
+  assert.equal(await evaluate(`return ${field('expedition')}.title;`), 'Every expedition for this game is complete.');
+  // An empty list (not loaded yet, or signed out) is not "all complete".
+  for (const page of ['{ expeditions: [] }', '{ loggedIn: false, expeditions: [{ title: "Nexus", complete: true }] }']) {
+    await updateSnapshot(`panelFixture.snapshot.page = ${page};`);
+    assert.equal(await evaluate(`return ${field('expedition')}.disabled;`), false, page);
+    assert.equal(await evaluate(`return ${field('expedition')}.title;`), 'Choose the first unfinished expedition.');
+  }
+
+  await freshPanel('panelFixture.expedition = { title: "Zodiac Fortress", type: "Daily", kind: null, map: 143, x: null, y: null, hops: 7, route: [], mapIds: [143] };');
+  await setValue('x', 6);
+  await click('expedition');
+  await waitFor(`${field('map')}.value === 'Zodiac Fortress'`, 'expedition with an unknown entrance');
+  assert.equal(await evaluate(`return ${field('x')}.value;`), '6', 'an unknown entrance leaves the tile for the player');
+  assert.match(await fieldText('feedback'), /entrance tile is unknown/);
+
+  await freshPanel('panelFixture.expedition = { title: "Zodiac Fortress", type: "Daily", kind: null, map: 143, x: 22, y: 44, hops: 7, route: [], mapIds: [143] }; panelFixture.snapshot.page = { expeditions: [{ title: "Zodiac Fortress", type: "Daily", kind: null, complete: false }] };');
+  await click('expedition');
+  await waitFor(`!${field('start')}.disabled && ${field('map')}.value === 'Zodiac Fortress'`, 'expedition destination ready');
+  await click('start');
+  await waitFor('panelFixture.commands.length === 1', 'expedition movement submitted');
+  assert.deepEqual(await evaluate('return panelFixture.commands[0];'), { op: 'goto-map', map: 143, x: 22, y: 44 });
+  await updateSnapshot('Object.assign(panelFixture.snapshot.state, { active: false, status: "arrived", map_id: 143, player_x: 22, player_y: 44, map_width: 50, map_height: 50 });');
+  assert.equal(await fieldText('status'), 'Destination reached', 'arrival alone does not claim the expedition');
+  await updateSnapshot('panelFixture.snapshot.page.expeditions[0].complete = true;');
+  assert.equal(await fieldText('status'), 'Expedition complete');
+  assert.equal(await fieldText('status-detail'), 'Zodiac Fortress was confirmed by the server.');
+  // A later walk is not the expedition, even though its title stays complete.
+  await setValue('mode', 'local');
+  await setValue('x', 20);
+  await click('start');
+  await waitFor('panelFixture.commands.length === 2', 'local movement after the expedition');
+  await updateSnapshot('Object.assign(panelFixture.snapshot.state, { active: false, status: "arrived", player_x: 20 });');
+  assert.equal(await fieldText('status'), 'Destination reached', 'later arrivals are not labelled as the expedition');
+
+  // The server replaces a finished free expedition instead of marking it complete.
+  await freshPanel('panelFixture.expedition = { title: "Zodiac Fortress", type: "Free Expedition", kind: "free", map: 143, x: 22, y: 44, hops: 7, route: [], mapIds: [143] }; panelFixture.snapshot.page = { expeditions: [{ title: "Zodiac Fortress", kind: "free", complete: false }] };');
+  await click('expedition');
+  await waitFor(`!${field('start')}.disabled && ${field('map')}.value === 'Zodiac Fortress'`, 'free expedition destination ready');
+  await click('start');
+  await waitFor('panelFixture.commands.length === 1', 'free expedition movement submitted');
+  await updateSnapshot('Object.assign(panelFixture.snapshot.state, { active: false, status: "arrived", map_id: 143, player_x: 22, player_y: 44, map_width: 50, map_height: 50 }); panelFixture.snapshot.page.expeditions = [{ title: "Toy World", kind: "free", complete: false }];');
+  assert.equal(await fieldText('status'), 'Expedition complete');
+  console.log('PASS: current expedition requests, stale answers, errors, completion state and unknown entrances');
+}
 
 async function testOfficialEngine() {
   // Without verified memory reads the official backend reports no scene.
@@ -311,8 +393,9 @@ async function testOfficialEngine() {
   console.log('PASS: official engine scene label and Map-scene gating');
 
   // Planetarium is gated on the reported recipe capability, not on the backend.
-  await click('planetarium');
-  assert.equal(await evaluate(`return ${field('planetarium')}.hidden;`), false, 'Planetarium preset is offered in official 2kki sessions');
+  await evaluate('panelFixture.expedition = { title: "Planetarium", type: "Weekly", kind: "weekly", map: 568, x: 3, y: 75, hops: 12, route: [], mapIds: [568] };');
+  await click('expedition');
+  await waitFor(`${field('map')}.value === 'Planetarium'`, 'official Planetarium expedition chosen');
   assert.equal(await startDisabled(), true, 'official session without capabilities cannot run the recipe');
   assert.equal(await fieldText('target-hint'), OFFICIAL_RECIPE_HINT);
   await updateSnapshot('panelFixture.snapshot.state.capabilities = { scene: true, memory: true, recipes: false };');
@@ -397,6 +480,9 @@ async function run() {
   await waitFor(`${field('panel')}.getBoundingClientRect().height > 0`, 'panel opens');
   await waitFor('panelFixture.stateCalls > 0', 'initial state requested');
   await sleep(60);
+  assert.equal(await evaluate(`return ${field('mode')}.value;`), 'map', 'travelling to another map is the default mode');
+  assert.equal(await evaluate(`return ${field('map-field')}.hidden;`), false, 'the map picker is shown by default');
+  assert.equal(await evaluate(`return ${field('map')}.value;`), "Urotsuki's Room", 'the current map is preselected');
 
   await click('current');
   assert.equal(await evaluate(`return ${field('x')}.value;`), '8');
@@ -412,11 +498,15 @@ async function run() {
   await waitFor('panelFixture.commands.at(-1)?.op === "stop"', 'stop submitted');
   await waitFor(`!${field('start')}.disabled`, 'movement controls enabled after stop');
 
-  await click('nexus');
-  assert.equal(await evaluate('return panelFixture.commands.length;'), 2, 'Nexus preset does not move automatically');
-  assert.equal(await evaluate(`return ${field('map')}.value;`), 'Nexus');
+  await setValue('mode', 'local');
+  await click('expedition');
+  await waitFor(`${field('map')}.value === 'Nexus'`, 'current expedition fills the destination');
+  assert.equal(await evaluate('return panelFixture.commands.length;'), 2, 'Current expedition does not move automatically');
+  assert.equal(await evaluate('return panelFixture.expeditionCalls;'), 1);
+  assert.equal(await evaluate(`return ${field('mode')}.value;`), 'map', 'an expedition destination switches to map travel');
   assert.equal(await evaluate(`return ${field('x')}.value;`), '3');
   assert.equal(await evaluate(`return ${field('y')}.value;`), '4');
+  assert.equal(await fieldText('map-selection'), 'Current expedition · Daily · Map 0010 · 3 map hops');
   await click('start');
   await waitFor('panelFixture.commands.length === 3', 'map movement submitted');
   assert.deepEqual(await evaluate('return panelFixture.commands.at(-1);'), { op: 'goto-map', map: 10, x: 3, y: 4 });
@@ -424,7 +514,7 @@ async function run() {
   await screenshot('navbot-desktop');
   await click('stop');
   await waitFor(`!${field('start')}.disabled`, 'movement completed');
-  console.log('PASS: mount, current position, local movement, Nexus preset, route, and Stop');
+  console.log('PASS: mount, default map mode, current position, local movement, current expedition, route, and Stop');
 
   const commandsBeforeInvalid = await evaluate('return panelFixture.commands.length;');
   await setValue('map', 0);
@@ -437,7 +527,8 @@ async function run() {
   await sleep(80);
   assert.equal(await evaluate('return panelFixture.commands.length;'), commandsBeforeInvalid, 'out-of-bounds local tile cannot issue a command');
   await setValue('x', 3);
-  await click('nexus');
+  await click('expedition');
+  await waitFor(`${field('map')}.value === 'Nexus' && !${field('start')}.disabled`, 'expedition destination selected again');
   await updateSnapshot('panelFixture.snapshot.state.graph_loaded = false;');
   assert.equal(await evaluate(`return ${field('start')}.disabled;`), true, 'cross-map movement needs a graph');
   await setValue('mode', 'local');
@@ -459,7 +550,8 @@ async function run() {
   assert.equal(await evaluate(`return ${field('unavailable')}.querySelector('code').textContent;`), './test_navbot.sh 2kki');
   await screenshot('navbot-unavailable');
   await updateSnapshot('panelFixture.snapshot.enabled = true; panelFixture.snapshot.ready = true; panelFixture.snapshot.game = "yume";');
-  assert.equal(await evaluate(`return ${field('nexus')}.hidden;`), true, '2kki Nexus preset is hidden in another game');
+  assert.equal(await evaluate(`return ${field('expedition')}.hidden;`), false, 'Current expedition is offered in every game');
+  assert.equal(await evaluate(`return ${field('nexus')} ?? ${field('planetarium')};`), null, 'the fixed 2kki presets are gone');
   await updateSnapshot('panelFixture.snapshot.game = "2kki";');
   console.log('PASS: invalid coordinates, graph availability, engine readiness, and title scene');
 
@@ -511,6 +603,7 @@ async function run() {
   console.log('PASS: small-window layout');
   await testMapAutocomplete();
   await testPlanetariumRoute();
+  await testCurrentExpedition();
   await testOfficialEngine();
 }
 

@@ -47,13 +47,13 @@ Click the Discord icon in the title bar to toggle Rich Presence on or off at any
 
 Click **Navbot** in the title bar to open the navigation panel. In a Navbot session you can:
 
-- Walk to a tile in the current map, or search for a destination by map name and enter its coordinates.
+- Travel to another map (the default): search for a destination by map name and enter its coordinates. Choose **Walk within this map** for a tile in the current map.
 - Choose autocomplete results with the mouse or ↑/↓ and Enter. Names shared by several maps show their map numbers so you can choose the intended one. Enter selects a name; it does not start navigation.
-- Fill the current position or the **Nexus · 2kki** preset, then click **Start navigation**.
+- Fill the current position, or click **Current expedition** to fill the first unfinished expedition of the loaded game: the map with the shortest known route and the tile where that route enters it. Then click **Start navigation**.
 - See the current map, position, route, and reasons navigation is waiting.
 - Click **Stop** at any time, including while a command is pending. This also stops navigation started from the CLI.
 
-Coordinates start at zero. Editing a selected name clears its selection until you choose another result. Other-map navigation requires that game's map graph; routes can still depend on in-game events and conditions. Closing the panel leaves navigation running, with an indicator in the title bar.
+Coordinates start at zero. Editing a selected name clears its selection until you choose another result. Expedition records name locations, not maps: Navbot looks the name up in the bundled names, the page's location cache and, for 2kki, the Explorer, and never uses an expedition record ID as a map. After arriving in that map, the panel reports **Expedition complete** once the server marks it complete. Other-map navigation requires that game's map graph; routes can still depend on in-game events and conditions. Closing the panel leaves navigation running, with an indicator in the title bar.
 
 Map names are bundled from `ynolocations` for each game. For 2kki, the panel also searches names already loaded by the game page and looks up unknown map mappings when selected. Those lookups need a working connection; failed lookups cannot start navigation. A name may identify a region or depend on the entrance, so selecting it does not choose a walkable tile for you. Regenerate the bundled names after updating the location configs with `npm run build:navbot-maps`.
 

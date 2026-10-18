@@ -34,11 +34,14 @@ async function main() {
   goto-map --map ID --x X --y Y
   boot [--timeout 120]
   run --map ID --x X --y Y [--arrival tile|map] [--timeout 120] [--stall 20]
+  run --expedition [--arrival tile|map] [--timeout 120] [--stall 20] [--confirm 30]
+  expedition   (print the destination chosen for the first unfinished expedition)
 Commands use .navbot/latest.json; select another with --session FILE.
 launch runs Electron until close. run/boot save result JSON, trace, and screenshot.
 The default official engine uses the server's engine. --engine local requires a Navbot build.
 reconnect clicks the official Reconnect button once when it is available.
-Map IDs are engine map IDs, never expedition location IDs.`);
+Map IDs are engine map IDs, never expedition location IDs. run --expedition picks
+the destination after boot and succeeds once the server marks the expedition complete.`);
     return;
   }
   if (operation === 'launch') {
@@ -67,18 +70,21 @@ Map IDs are engine map IDs, never expedition location IDs.`);
   const session = readSession(flag('session'));
   const send = command => request(session, command);
   if (operation === 'boot' || operation === 'run') {
-    const target = operation === 'run' ? { map: number('map'), x: number('x'), y: number('y') } : null;
+    const expedition = operation === 'run' && args.includes('--expedition');
+    const target = operation === 'run' && !expedition ? { map: number('map'), x: number('x'), y: number('y') } : null;
     if (target) engineCommand({ op: 'goto-map', ...target });
     const timeout = number('timeout', 120);
     const stall = number('stall', 20);
+    const confirm = number('confirm', 30);
     const arrival = flag('arrival', 'tile');
     if (timeout < 1 || timeout > 3600 || stall < 1 || stall > 3600) throw new Error('Timeout/stall must be 1..3600 seconds');
+    if (confirm < 1 || confirm > 300) throw new Error('--confirm must be 1..300 seconds');
     if (!['tile', 'map'].includes(arrival)) throw new Error('--arrival must be tile or map');
     const controller = new AbortController();
     const interrupt = () => controller.abort();
     process.on('SIGINT', interrupt);
     process.on('SIGTERM', interrupt);
-    const result = await runScenario(send, { target, timeoutMs: timeout * 1000, stallMs: stall * 1000, arrival, signal: controller.signal });
+    const result = await runScenario(send, { target, expedition, confirmMs: confirm * 1000, timeoutMs: timeout * 1000, stallMs: stall * 1000, arrival, signal: controller.signal });
     process.removeListener('SIGINT', interrupt);
     process.removeListener('SIGTERM', interrupt);
     const output = path.join(session.runDir, `result-${Date.now()}.json`);
@@ -94,7 +100,7 @@ Map IDs are engine map IDs, never expedition location IDs.`);
     Object.assign(command, { x: number('x'), y: number('y') });
     if (operation === 'goto-map') command.map = number('map');
   }
-  if (!['events', 'capture', 'reload', 'close'].includes(operation)) engineCommand(command);
+  if (!['events', 'capture', 'reload', 'close', 'expedition'].includes(operation)) engineCommand(command);
   print(await send(command));
 }
 

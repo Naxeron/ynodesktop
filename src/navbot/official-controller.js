@@ -7,11 +7,14 @@
 function createOfficialController(input, planner) {
   let grid = null, gridMap = null, target = null, route = [], path = [], step = null, lastStep = null, lastSeen = null;
   let status = 'idle', error = '', started = 0, transition = null, blocked = new Set();
-  let failures = 0, interrupts = 0, lastTick = null, liveUsed = false, liveNear = [], liveMismatch = null, liveDisabled = false, liveBlockedSince = null;
+  let failures = 0, interrupts = 0, lastTick = null, liveUsed = false, liveNear = [], liveMismatch = null, liveDisabled = false, liveBlocked = null;
+  // Tiles that stayed occupied while live collision blocked the route (for
+  // example invisible event walls); kept when falling back to static passages.
+  let stationary = new Set(), fallback = null;
   let destination = null, transfers = [], interactions = [], teleportSequence = 0, facing = null;
   // Global replanning, as in the local engine: the desktop process owns the map
   // graph, so the page publishes a request and waits for reroute().
-  let rerouteEnabled = false, rerouteRequest = null, rerouteSequence = 0, reroutes = 0, globalCommand = false;
+  let rerouteEnabled = false, rerouteRequest = null, rerouteSequence = 0, reroutes = 0, globalCommand = false, rerouteReason = '';
   const observedExits = new Map(), blockedExits = new Set(), transitionCounts = new Map();
   // Unexplained failures of steps that live collision reports as open.
   const stepFailures = new Map();
@@ -40,6 +43,7 @@ function createOfficialController(input, planner) {
     if (!rerouteEnabled || !globalCommand || !engineOf(s) || ++reroutes > 16) return fail(reason);
     input.stop(); route = []; path = []; step = null; transition = null; facing = null;
     rerouteRequest = { id: ++rerouteSequence, map: s.map_id, since: s.time_ms, reason };
+    rerouteReason = reason;
     status = 'rerouting';
   }
   // A departure that cannot be reached or resolved is excluded for this command.
@@ -72,7 +76,8 @@ function createOfficialController(input, planner) {
     planner.validateInteractions(exitInteractions, navigation);
     if (input.read().map_id !== mapId) return;
     grid = navigation; gridMap = mapId; transfers = localTransfers; interactions = exitInteractions;
-    path = []; step = null; facing = null; blocked.clear(); stepFailures.clear(); liveMismatch = null; liveDisabled = false; liveBlockedSince = null;
+    path = []; step = null; facing = null; blocked.clear(); stepFailures.clear(); liveMismatch = null; liveDisabled = false; liveBlocked = null;
+    stationary = new Set(); fallback = null;
   }
   // Live engine state for the installed map: CheckWay passability (unless this
   // map fell back to static passages) and active event pages.
@@ -86,8 +91,18 @@ function createOfficialController(input, planner) {
     }
     return nav;
   }
+  // Static passages without the tiles live collision showed as permanently occupied.
+  function geometry() {
+    if (!stationary.size) return grid;
+    if (fallback?.source !== grid) {
+      const passages = grid.passages.slice();
+      for (const tile of stationary) if (tile >= 0 && tile < passages.length) passages[tile] = 0;
+      fallback = { source: grid, map: { ...grid, passages } };
+    }
+    return fallback.map;
+  }
   const planningGrid = nav => nav ? { width: nav.width, height: nav.height, loopHorizontal: nav.loopHorizontal,
-    loopVertical: nav.loopVertical, passages: nav.passages } : grid;
+    loopVertical: nav.loopVertical, passages: nav.passages } : geometry();
   // Event ID -> active page index, or -1 when no page is active or the event was erased.
   const activePages = nav => Array.isArray(nav?.events)
     ? new Map(nav.events.filter(event => Number.isInteger(event.page)).map(event => [event.id, event.active === false ? -1 : event.page])) : null;
@@ -98,7 +113,7 @@ function createOfficialController(input, planner) {
     if (map === s.map_id && gridMap === map && (x >= grid.width || y >= grid.height)) throw new Error('Destination is outside the map');
     stop(); blocked.clear(); stepFailures.clear(); warpSteps.clear(); failures = 0; reroutes = 0;
     observedExits.clear(); blockedExits.clear(); transitionCounts.clear();
-    liveDisabled = false; liveBlockedSince = null; lastStep = null;
+    liveDisabled = false; liveBlocked = null; stationary = new Set(); fallback = null; lastStep = null; rerouteReason = '';
     target = destination = { map, x, y }; route = edges.slice(); started = s.time_ms; lastTick = s.time_ms;
     globalCommand = map !== s.map_id;
     teleportSequence = s.teleport_sequence; status = 'navigating';
@@ -150,7 +165,7 @@ function createOfficialController(input, planner) {
   }
   function onTeleport(s, m, prior, trigger) {
     // A teleport while settling completes the previous edge first.
-    if (transition?.phase === 'settling') { route.shift(); transition = null; }
+    if (transition?.phase === 'settling') { route.shift(); transition = null; started = s.time_ms; }
     // Further teleports of one event chain are judged once the chain ends.
     if (transition?.phase === 'landing') return;
     const expected = transition?.edge || route[0] || null;
@@ -225,7 +240,8 @@ function createOfficialController(input, planner) {
         if (!engineSettled(m)) return;
         if (!Number.isInteger(s.player_x) || !Number.isInteger(s.player_y)
           || !quiet(s) || s.time_ms - t.arrived < Math.max(500, t.edge.settleMs || 0)) return;
-        route.shift(); transition = null; status = 'navigating';
+        // Each completed exit restarts the walking deadline for the next map.
+        route.shift(); transition = null; status = 'navigating'; started = s.time_ms;
         return;
       }
       if (s.map_id !== t.edge.mapId) {
@@ -256,6 +272,11 @@ function createOfficialController(input, planner) {
     if (gridMap !== s.map_id || !grid) { input.stop(); status = 'loading_map'; return; }
     if (!Number.isInteger(s.player_x) || !Number.isInteger(s.player_y) || s.player_x < 0 || s.player_y < 0) { input.stop(); return; }
     const state = liveState();
+    // A tile stays a stationary obstacle only while live collision still shows it occupied.
+    if (stationary.size && Array.isArray(state?.obstacles)) {
+      const occupied = new Set(state.obstacles);
+      for (const tile of [...stationary]) if (!occupied.has(tile)) { stationary.delete(tile); fallback = null; path = []; }
+    }
     const nav = liveDisabled ? null : state;
     liveUsed = !!nav;
     // Diagnostics: live obstacles within five tiles of the player.
@@ -268,7 +289,9 @@ function createOfficialController(input, planner) {
     if (route.length && typeof route[0].action !== 'boolean') {
       // Exits are resolved on the map geometry; characters only affect walking.
       try {
-        route[0] = planner.resolveExit(grid, { x: s.player_x, y: s.player_y }, route[0], interactions, blocked, usable, activePages(state));
+        // Kept so a departure can be resolved again once stationary obstacles are known.
+        const source = route[0];
+        route[0] = { ...planner.resolveExit(geometry(), { x: s.player_x, y: s.player_y }, source, interactions, blocked, usable, activePages(state)), source };
       } catch (cause) { return departureFailed(s, route[0], cause.message); }
     }
     for (const blockedStep of route[0]?.blockedApproachSteps || []) blocked.add(blockedStep);
@@ -332,13 +355,33 @@ function createOfficialController(input, planner) {
       // door, as the local engine allows a blocked terminal tile.
       const goalOccupied = !path && nav && !onTile && !Number.isInteger(edge?.approachX)
         && nav.passages[walkGoal.y * nav.width + walkGoal.x] === 0 && grid.passages[walkGoal.y * grid.width + walkGoal.x] !== 0;
-      if (path) liveBlockedSince = null;
+      if (path) liveBlocked = null;
       else if (nav && !goalOccupied && planner.findPath(grid, { x: s.player_x, y: s.player_y }, walkGoal, blocked, usable)) {
         // Characters can block every route for a moment. Wait for them, then
         // fall back to static passages and observed blockers for this map.
-        liveBlockedSince ??= s.time_ms;
-        if (s.time_ms - liveBlockedSince < 5000) { path = []; status = 'navigating'; return; }
-        liveDisabled = true; liveBlockedSince = null; path = []; return;
+        // Tiles occupied throughout the wait, such as invisible event walls,
+        // stay blocked, and the departure is resolved again around them.
+        const occupied = new Set(Array.isArray(nav.obstacles) ? nav.obstacles : []);
+        if (!liveBlocked) liveBlocked = { since: s.time_ms, tiles: occupied };
+        else for (const tile of liveBlocked.tiles) if (!occupied.has(tile)) liveBlocked.tiles.delete(tile);
+        const waited = s.time_ms - liveBlocked.since;
+        if (waited < 5000) { path = []; status = 'navigating'; return; }
+        if (liveBlocked.tiles.size) { for (const tile of liveBlocked.tiles) stationary.add(tile); fallback = null; }
+        // Try the departure's other sides once, around the tiles that stayed occupied.
+        if (edge?.source && !edge.retried) {
+          for (const key of edge.blockedApproachSteps || []) blocked.delete(key);
+          route[0] = { ...edge.source, retried: true }; liveBlocked = null; path = [];
+          return;
+        }
+        // Static passages still reach the goal around them: use those for this map.
+        if (planner.findPath(geometry(), { x: s.player_x, y: s.player_y }, walkGoal, blocked, usable)) {
+          liveDisabled = true; liveBlocked = null; path = []; return;
+        }
+        // Nothing passes even then; occupied tiles get a little longer to clear.
+        if (waited < 15000) { path = []; status = 'navigating'; return; }
+        liveBlocked = null;
+        return route.length ? departureFailed(s, edge, 'Characters or events kept every route to the next exit blocked.')
+          : fail('Characters or events kept every route to the destination blocked.');
       }
       if (!path) {
         const localRoute = planner.findLocalRoute(map, { x: s.player_x, y: s.player_y }, walkGoal, usable, blocked);
@@ -401,9 +444,11 @@ function createOfficialController(input, planner) {
       global_target_x: destination?.x ?? -1, global_target_y: destination?.y ?? -1,
       global_active: !!target && (route.length > 0 || !!rerouteRequest), route_length: route.length,
       reroute_request: rerouteRequest && target ? { id: rerouteRequest.id, map: rerouteRequest.map, target_map: target.map,
+        reason: String(rerouteRequest.reason || '').slice(0, 300),
         observed: [...observedExits].slice(0, 128), blocked: [...blockedExits].slice(0, 128) } : null,
       observed_departures: [...observedExits].slice(0, 32).map(([key, map]) => ({ departure: key, map })),
-      unreachable_departures: [...blockedExits].slice(0, 32), reroutes,
+      unreachable_departures: [...blockedExits].slice(0, 32), reroutes, last_reroute_reason: rerouteReason,
+      stationary_obstacles: stationary.size,
       route: route.map(edge => edge.targetMapId),
       held_keys: s.held_key ? [{ button: keys.indexOf(s.held_key), frames: s.hold_remaining }] : [],
       capabilities,

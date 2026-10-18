@@ -227,7 +227,7 @@ test('safe starting maps reach Nexus first, while unsupported maps fail clearly'
   await assert.rejects(unknown.start(), /Start.*Nexus or the starting room/);
   assert.equal(unknown.runs.length, 0);
   assert.deepEqual(unknown.controller.snapshot(unknown.engine), unknown.engine);
-  await assert.rejects(unknown.controller.start({ op: 'goto-map', map: 567 }, {}), /preset.*568/);
+  await assert.rejects(unknown.controller.start({ op: 'goto-map', map: 567 }, {}), /Planetarium map 568/);
   unknown.engine.state.map_id = 10;
   unknown.engine.state.event_running = true;
   await assert.rejects(unknown.start(), /standing on the map/);
