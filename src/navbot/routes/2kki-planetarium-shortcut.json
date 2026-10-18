@@ -1,0 +1,23 @@
+[
+  {"map":10,"walk":[15,22]},
+  {"map":10,"key":"up","frames":1},
+  {"map":10,"key":"decision","frames":1,"expect":[171,14,7]},
+  {"map":171,"walk":[15,7],"expect":[171,29,10]},
+  {"map":171,"walk":[46,12]},
+  {"map":171,"key":"right","until":[171,48,14]},
+  {"map":171,"key":"right","until":[171,29,33]},
+  {"map":171,"key":"right","until":[171,31,35]},
+  {"map":171,"walk":[24,39]},
+  {"map":171,"key":"left","until":[171,23,40]},
+  {"map":171,"key":"left","until":[171,90,7]},
+  {"map":171,"key":"left","until":[171,88,9]},
+  {"map":171,"walk":[78,10],"label":"Use the unlocked Forest Pier passage"},
+  {"map":171,"key":"left","until":[171,77,11]},
+  {"map":171,"key":"left","until":[171,66,43]},
+  {"map":171,"key":"left","until":[171,64,45]},
+  {"map":171,"walk":[60,45]},
+  {"map":171,"key":"up","frames":1},
+  {"map":171,"key":"decision","frames":1,"expect":[563,9,14]},
+  {"map":563,"walk":[8,8]},
+  {"map":563,"key":"up","until":[524,66,54]}
+]

@@ -1,0 +1,174 @@
+{
+  "id": "2kki-reflections-route-v1",
+  "game": "2kki",
+  "reviewedAt": "2026-10-11",
+  "basis": "Fresh RPG Maker event pages decoded with liblcf. These are reviewed connections, not a complete automated expedition recipe.",
+  "sources": [
+    {
+      "mapId": 10,
+      "url": "https://ynoproject.net/data/2kki/Map0010.lmu",
+      "sha256": "1d921b3fd95fa384ff4bc4a51ad425c9ebdb2dd5b95b3508e3b9948221412e0b",
+      "events": "Event 10 action from below enters Toy World via direction-dependent variable teleport."
+    },
+    {
+      "mapId": 615,
+      "url": "https://ynoproject.net/data/2kki/Map0615.lmu",
+      "sha256": "78e23f0b813964dd1586fd85d8c0b3347bdddd3cec0f5a20f32b72b83719d18d",
+      "events": "Event 29 cheese is an action on the player tile, facing up; shrinks into map 617."
+    },
+    {
+      "mapId": 1624,
+      "url": "https://ynoproject.net/data/2kki/Map1624.lmu",
+      "sha256": "50c8cb0146b924ea159e23904653832bb16d18391b1ebbcf72d8678f6ea087db",
+      "events": "Event 11 chicken action enters Chicken World."
+    },
+    {
+      "mapId": 1700,
+      "url": "https://ynoproject.net/data/2kki/Map1700.lmu",
+      "sha256": "cb45f7125dc5fafef480a596201a8f0c64f179e13f9a4e3c64f509033b9cbfc0",
+      "events": "Event 96 chicken transfers within map 1700 from Chicken World to Nazca Valley; event 95 enters map 1807."
+    },
+    {
+      "mapId": 1807,
+      "url": "https://ynoproject.net/data/2kki/Map1807.lmu",
+      "sha256": "0c31f4058df30850f70dd5f81360416e08b97a4e48e919bd0e6973688d8bd4bd",
+      "events": "Event at (181,64) enters Forest of Reflections."
+    },
+    {
+      "mapId": 617,
+      "url": "https://ynoproject.net/data/2kki/Map0617.lmu",
+      "sha256": "19bfff21536c63f5b570c8015b3940402340e4e7f10bcb7ddda134e2cf4368b6",
+      "events": "Event 26 at (208,222) boards the train via common event 289. Its stop selection requires supervised ordinary input."
+    },
+    {
+      "file": "RPG_RT.ldb",
+      "url": "https://ynoproject.net/data/2kki/RPG_RT.ldb",
+      "sha256": "30992f66785c083b89e9ac6747b6d88b53a3046d93749b71700d641eb1f7c08d",
+      "events": "Current engine-loaded database: common event 289 train ride and chipset 1215 passages checked against this revision."
+    }
+  ],
+  "limitations": [
+    "The train from map 617 to Wooden Block World requires normal stop selection and is not a graph edge.",
+    "Map 1807 changes chipset on this route; default static passages may need observed collision feedback.",
+    "Variable-based Toy World landings depend on approach direction; only the reviewed approach is represented.",
+    "Source hashes document the inspected map versions; future event changes require another review."
+  ],
+  "replaceExits": [
+    {
+      "mapId": 10,
+      "startX": 9,
+      "startY": 21,
+      "edges": [
+        {
+          "startX": 9,
+          "startY": 21,
+          "targetMapId": 615,
+          "targetX": 36,
+          "targetY": 35,
+          "approachX": 9,
+          "approachY": 22,
+          "direction": 0,
+          "action": true,
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "mapId": 615,
+      "startX": 64,
+      "startY": 59,
+      "edges": [
+        {
+          "startX": 64,
+          "startY": 59,
+          "targetMapId": 617,
+          "targetX": 129,
+          "targetY": 119,
+          "approachX": 64,
+          "approachY": 59,
+          "direction": 0,
+          "action": true,
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "mapId": 1624,
+      "startX": 61,
+      "startY": 22,
+      "edges": [
+        {
+          "startX": 61,
+          "startY": 22,
+          "targetMapId": 1700,
+          "targetX": 24,
+          "targetY": 113,
+          "approachX": 61,
+          "approachY": 23,
+          "direction": 0,
+          "action": true,
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "mapId": 1700,
+      "startX": 58,
+      "startY": 126,
+      "edges": [
+        {
+          "startX": 58,
+          "startY": 126,
+          "targetMapId": 1700,
+          "targetX": 266,
+          "targetY": 115,
+          "approachX": 58,
+          "approachY": 127,
+          "direction": 0,
+          "action": true,
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "mapId": 1700,
+      "startX": 252,
+      "startY": 127,
+      "edges": [
+        {
+          "startX": 252,
+          "startY": 127,
+          "targetMapId": 1807,
+          "targetX": 234,
+          "targetY": 84,
+          "approachX": 252,
+          "approachY": 128,
+          "direction": 0,
+          "action": true,
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "mapId": 1807,
+      "startX": 181,
+      "startY": 64,
+      "edges": [
+        {
+          "startX": 181,
+          "startY": 64,
+          "targetMapId": 1803,
+          "targetX": 32,
+          "targetY": 186,
+          "approachX": 181,
+          "approachY": 65,
+          "direction": 0,
+          "action": true,
+          "reviewed": true
+        }
+      ]
+    }
+  ],
+  "removeEdges": [],
+  "pruneDestinations": []
+}

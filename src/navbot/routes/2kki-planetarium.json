@@ -1,0 +1,2038 @@
+[
+  {
+    "map": 10,
+    "walk": [
+      3,
+      26
+    ]
+  },
+  {
+    "map": 10,
+    "key": "down"
+  },
+  {
+    "map": 10,
+    "key": "decision",
+    "expect": [
+      14,
+      16,
+      5
+    ]
+  },
+  {
+    "map": 14,
+    "walk": [
+      82,
+      10
+    ]
+  },
+  {
+    "map": 14,
+    "key": "up"
+  },
+  {
+    "map": 14,
+    "key": "decision",
+    "expect": [
+      18,
+      149,
+      93
+    ]
+  },
+  {
+    "map": 18,
+    "walk": [
+      104,
+      68
+    ]
+  },
+  {
+    "map": 18,
+    "key": "left",
+    "until": [
+      354,
+      36,
+      0
+    ]
+  },
+  {
+    "map": 354,
+    "key": "left",
+    "until": [
+      354,
+      28,
+      8
+    ]
+  },
+  {
+    "map": 354,
+    "walk": [
+      23,
+      8
+    ],
+    "expect": [
+      354,
+      6,
+      7
+    ]
+  },
+  {
+    "map": 354,
+    "walk": [
+      16,
+      8
+    ],
+    "expect": [
+      351,
+      0,
+      7
+    ]
+  },
+  {
+    "map": 351,
+    "walk": [
+      29,
+      7
+    ],
+    "expect": [
+      352,
+      4,
+      7
+    ]
+  },
+  {
+    "map": 352,
+    "walk": [
+      69,
+      7
+    ],
+    "expect": [
+      353,
+      28,
+      35
+    ]
+  },
+  {
+    "map": 353,
+    "walk": [
+      109,
+      26
+    ]
+  },
+  {
+    "map": 353,
+    "key": "left",
+    "until": [
+      352,
+      14,
+      58
+    ]
+  },
+  {
+    "map": 352,
+    "walk": [
+      97,
+      58
+    ],
+    "expect": [
+      360,
+      31,
+      71
+    ]
+  },
+  {
+    "map": 360,
+    "walk": [
+      66,
+      55
+    ]
+  },
+  {
+    "map": 360,
+    "key": "up"
+  },
+  {
+    "map": 360,
+    "key": "decision",
+    "expect": [
+      359,
+      130,
+      91
+    ]
+  },
+  {
+    "map": 359,
+    "walk": [
+      126,
+      93
+    ],
+    "label": "Enter first-floor hall"
+  },
+  {
+    "map": 359,
+    "key": "down",
+    "frames": 1,
+    "expect": [
+      359,
+      126,
+      93
+    ]
+  },
+  {
+    "map": 359,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      359,
+      18,
+      80
+    ]
+  },
+  {
+    "map": 359,
+    "walk": [
+      38,
+      80
+    ],
+    "label": "Enter elevator at floor 1"
+  },
+  {
+    "map": 359,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      359,
+      38,
+      80
+    ]
+  },
+  {
+    "map": 359,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      359,
+      157,
+      70
+    ]
+  },
+  {
+    "map": 359,
+    "walk": [
+      156,
+      70
+    ],
+    "label": "Elevator floor menu"
+  },
+  {
+    "map": 359,
+    "key": "down",
+    "frames": 1,
+    "expect": [
+      359,
+      156,
+      70
+    ]
+  },
+  {
+    "map": 359,
+    "key": "decision",
+    "frames": 1,
+    "settle": false,
+    "waitFrames": 120
+  },
+  {
+    "map": 359,
+    "key": "down",
+    "frames": 1,
+    "settle": false,
+    "label": "Wrap selection from floor 1 to floor 4"
+  },
+  {
+    "map": 359,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      359,
+      156,
+      70
+    ],
+    "waitFrames": 600
+  },
+  {
+    "map": 359,
+    "walk": [
+      157,
+      70
+    ],
+    "label": "Exit elevator at floor 4"
+  },
+  {
+    "map": 359,
+    "key": "down",
+    "frames": 1,
+    "expect": [
+      359,
+      157,
+      70
+    ]
+  },
+  {
+    "map": 359,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      359,
+      38,
+      32
+    ]
+  },
+  {
+    "map": 359,
+    "walk": [
+      22,
+      32
+    ],
+    "label": "Enter floor 4 room"
+  },
+  {
+    "map": 359,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      359,
+      22,
+      32
+    ]
+  },
+  {
+    "map": 359,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      359,
+      130,
+      19
+    ]
+  },
+  {
+    "map": 359,
+    "walk": [
+      129,
+      16
+    ],
+    "label": "Enter Screw World"
+  },
+  {
+    "map": 359,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      359,
+      129,
+      16
+    ]
+  },
+  {
+    "map": 359,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      358,
+      6,
+      5
+    ]
+  },
+  {
+    "map": 358,
+    "walk": [
+      12,
+      5
+    ],
+    "label": "First screw"
+  },
+  {
+    "map": 358,
+    "key": "right",
+    "frames": 1,
+    "expect": [
+      358,
+      12,
+      5
+    ]
+  },
+  {
+    "map": 358,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      358,
+      20,
+      20
+    ]
+  },
+  {
+    "map": 358,
+    "walk": [
+      23,
+      16
+    ],
+    "label": "Second screw"
+  },
+  {
+    "map": 358,
+    "key": "right",
+    "frames": 1,
+    "expect": [
+      358,
+      23,
+      16
+    ]
+  },
+  {
+    "map": 358,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      358,
+      34,
+      9
+    ]
+  },
+  {
+    "map": 358,
+    "walk": [
+      35,
+      9
+    ],
+    "label": "Third screw"
+  },
+  {
+    "map": 358,
+    "key": "right",
+    "frames": 1,
+    "expect": [
+      358,
+      35,
+      9
+    ]
+  },
+  {
+    "map": 358,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      358,
+      10,
+      28
+    ]
+  },
+  {
+    "map": 358,
+    "walk": [
+      4,
+      34
+    ],
+    "label": "Fourth screw"
+  },
+  {
+    "map": 358,
+    "key": "left",
+    "frames": 1,
+    "expect": [
+      358,
+      4,
+      34
+    ]
+  },
+  {
+    "map": 358,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      358,
+      8,
+      54
+    ]
+  },
+  {
+    "map": 358,
+    "walk": [
+      13,
+      54
+    ],
+    "label": "Leave Screw World"
+  },
+  {
+    "map": 358,
+    "key": "right",
+    "frames": 1,
+    "expect": [
+      358,
+      13,
+      54
+    ]
+  },
+  {
+    "map": 358,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      516,
+      27,
+      22
+    ]
+  },
+  {
+    "map": 516,
+    "walk": [
+      32,
+      17
+    ],
+    "label": "Forest Pier arrival"
+  },
+  {
+    "map": 516,
+    "key": "right",
+    "frames": 1,
+    "expect": [
+      516,
+      32,
+      17
+    ]
+  },
+  {
+    "map": 516,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      512,
+      87,
+      27
+    ]
+  },
+  {
+    "map": 512,
+    "walk": [
+      0,
+      105
+    ],
+    "expect": [
+      524,
+      98,
+      105
+    ],
+    "label": "Western exit"
+  },
+  {
+    "map": 524,
+    "walk": [
+      6,
+      47
+    ],
+    "label": "Board wood boat"
+  },
+  {
+    "map": 524,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      524,
+      6,
+      47
+    ]
+  },
+  {
+    "map": 524,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      524,
+      6,
+      46
+    ]
+  },
+  {
+    "map": 524,
+    "walk": [
+      0,
+      13
+    ],
+    "expect": [
+      521,
+      145,
+      1
+    ],
+    "label": "Water exit"
+  },
+  {
+    "map": 521,
+    "walk": [
+      120,
+      5
+    ],
+    "expect": [
+      514,
+      92,
+      184
+    ],
+    "label": "Cross Forest Pier"
+  },
+  {
+    "map": 514,
+    "walk": [
+      92,
+      167
+    ],
+    "label": "Disembark boat"
+  },
+  {
+    "map": 514,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      514,
+      92,
+      167
+    ]
+  },
+  {
+    "map": 514,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      514,
+      92,
+      166
+    ]
+  },
+  {
+    "map": 514,
+    "walk": [
+      74,
+      83
+    ],
+    "expect": [
+      514,
+      99,
+      19
+    ],
+    "label": "First internal transfer"
+  },
+  {
+    "map": 514,
+    "walk": [
+      0,
+      23
+    ],
+    "expect": [
+      514,
+      117,
+      38
+    ],
+    "label": "Upper region"
+  },
+  {
+    "map": 514,
+    "walk": [
+      75,
+      37
+    ],
+    "label": "Approach scripted crossing"
+  },
+  {
+    "map": 514,
+    "key": "down",
+    "frames": 1,
+    "until": [
+      514,
+      75,
+      39
+    ]
+  },
+  {
+    "map": 514,
+    "walk": [
+      74,
+      40
+    ],
+    "label": "First stair"
+  },
+  {
+    "map": 514,
+    "key": "left",
+    "frames": 1,
+    "until": [
+      514,
+      64,
+      50
+    ]
+  },
+  {
+    "map": 514,
+    "walk": [
+      47,
+      51
+    ],
+    "label": "Second stair"
+  },
+  {
+    "map": 514,
+    "key": "right",
+    "frames": 1,
+    "until": [
+      514,
+      51,
+      55
+    ]
+  },
+  {
+    "map": 514,
+    "walk": [
+      71,
+      56
+    ],
+    "label": "Third stair"
+  },
+  {
+    "map": 514,
+    "key": "left",
+    "frames": 1,
+    "until": [
+      514,
+      58,
+      69
+    ]
+  },
+  {
+    "map": 514,
+    "walk": [
+      47,
+      69
+    ],
+    "label": "First ladder"
+  },
+  {
+    "map": 514,
+    "key": "down",
+    "frames": 1,
+    "until": [
+      514,
+      47,
+      79
+    ]
+  },
+  {
+    "map": 514,
+    "walk": [
+      52,
+      80
+    ],
+    "label": "Second ladder"
+  },
+  {
+    "map": 514,
+    "key": "down",
+    "frames": 1,
+    "until": [
+      514,
+      52,
+      109
+    ]
+  },
+  {
+    "map": 514,
+    "walk": [
+      13,
+      108
+    ],
+    "expect": [
+      514,
+      5,
+      135
+    ],
+    "label": "Lower region"
+  },
+  {
+    "map": 514,
+    "walk": [
+      66,
+      142
+    ],
+    "label": "Approach direction-gated transfer"
+  },
+  {
+    "map": 514,
+    "key": "down",
+    "frames": 1,
+    "expect": [
+      514,
+      95,
+      48
+    ]
+  },
+  {
+    "map": 514,
+    "walk": [
+      114,
+      51
+    ],
+    "expect": [
+      514,
+      66,
+      154
+    ],
+    "label": "Final lower region"
+  },
+  {
+    "map": 514,
+    "walk": [
+      75,
+      182
+    ],
+    "label": "Approach right-facing transfer"
+  },
+  {
+    "map": 514,
+    "key": "right",
+    "frames": 1,
+    "expect": [
+      514,
+      1,
+      86
+    ]
+  },
+  {
+    "map": 514,
+    "walk": [
+      26,
+      89
+    ],
+    "label": "Final exit"
+  },
+  {
+    "map": 514,
+    "key": "right",
+    "frames": 1,
+    "expect": [
+      518,
+      28,
+      82
+    ],
+    "label": "Scripted transient map 517"
+  },
+  {
+    "map": 518,
+    "walk": [
+      75,
+      73
+    ],
+    "label": "Leave the factory"
+  },
+  {
+    "map": 518,
+    "key": "right",
+    "frames": 1,
+    "expect": [
+      518,
+      75,
+      73
+    ]
+  },
+  {
+    "map": 518,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      513,
+      11,
+      125
+    ]
+  },
+  {
+    "map": 513,
+    "walk": [
+      12,
+      19
+    ],
+    "label": "Enter Deserted Town"
+  },
+  {
+    "map": 513,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      513,
+      12,
+      19
+    ]
+  },
+  {
+    "map": 513,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      530,
+      190,
+      259
+    ]
+  },
+  {
+    "map": 530,
+    "walk": [
+      112,
+      201
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      530,
+      112,
+      201
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 530,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      530,
+      112,
+      200
+    ],
+    "label": "Board wooden boat"
+  },
+  {
+    "map": 530,
+    "walk": [
+      149,
+      160
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      530,
+      149,
+      160
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 530,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      530,
+      149,
+      159
+    ],
+    "label": "Disembark"
+  },
+  {
+    "map": 530,
+    "walk": [
+      156,
+      145
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      530,
+      156,
+      141
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 530,
+    "walk": [
+      147,
+      141
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      530,
+      147,
+      129
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 530,
+    "walk": [
+      152,
+      129
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      530,
+      152,
+      123
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 530,
+    "walk": [
+      158,
+      122
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      530,
+      158,
+      110
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 530,
+    "walk": [
+      159,
+      110
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      530,
+      159,
+      103
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 530,
+    "walk": [
+      147,
+      103
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      530,
+      147,
+      97
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 530,
+    "walk": [
+      150,
+      97
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      530,
+      150,
+      77
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 530,
+    "walk": [
+      149,
+      77
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      530,
+      149,
+      70
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 530,
+    "walk": [
+      150,
+      70
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      530,
+      150,
+      70
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 530,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      530,
+      129,
+      144
+    ],
+    "label": "Door"
+  },
+  {
+    "map": 530,
+    "walk": [
+      21,
+      138
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      530,
+      21,
+      121
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 530,
+    "walk": [
+      52,
+      108
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      530,
+      52,
+      92
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 530,
+    "walk": [
+      19,
+      44
+    ],
+    "label": "Approach the connecting tunnel"
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      513,
+      45,
+      160
+    ],
+    "label": "Enter the connecting tunnel"
+  },
+  {
+    "map": 513,
+    "walk": [
+      45,
+      119
+    ],
+    "label": "Cross the connecting tunnel"
+  },
+  {
+    "map": 513,
+    "key": "up",
+    "until": [
+      530,
+      19,
+      41
+    ],
+    "label": "Leave the connecting tunnel"
+  },
+  {
+    "map": 530,
+    "walk": [
+      153,
+      4
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      530,
+      153,
+      4
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 530,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      530,
+      153,
+      3
+    ],
+    "label": "Board boat"
+  },
+  {
+    "map": 530,
+    "walk": [
+      153,
+      2
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "until": [
+      530,
+      163,
+      214
+    ],
+    "label": "Boat tunnel"
+  },
+  {
+    "map": 530,
+    "walk": [
+      194,
+      162
+    ]
+  },
+  {
+    "map": 530,
+    "key": "left",
+    "frames": 1,
+    "expect": [
+      530,
+      194,
+      162
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 530,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      530,
+      193,
+      162
+    ],
+    "label": "Disembark"
+  },
+  {
+    "map": 530,
+    "walk": [
+      189,
+      158
+    ]
+  },
+  {
+    "map": 530,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      530,
+      189,
+      158
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 530,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      566,
+      40,
+      149
+    ],
+    "label": "Door"
+  },
+  {
+    "map": 566,
+    "walk": [
+      53,
+      113
+    ],
+    "label": "Touch",
+    "expect": [
+      566,
+      28,
+      112
+    ]
+  },
+  {
+    "map": 566,
+    "walk": [
+      5,
+      112
+    ]
+  },
+  {
+    "map": 566,
+    "key": "left",
+    "until": [
+      566,
+      5,
+      148
+    ],
+    "label": "Hallway"
+  },
+  {
+    "map": 566,
+    "walk": [
+      14,
+      127
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      566,
+      78,
+      148
+    ],
+    "label": "Hallway"
+  },
+  {
+    "map": 566,
+    "walk": [
+      102,
+      148
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      566,
+      146,
+      143
+    ],
+    "label": "Hallway"
+  },
+  {
+    "map": 566,
+    "walk": [
+      118,
+      87
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      566,
+      91,
+      77
+    ],
+    "label": "Hallway"
+  },
+  {
+    "map": 566,
+    "walk": [
+      96,
+      77
+    ]
+  },
+  {
+    "map": 566,
+    "key": "down",
+    "until": [
+      566,
+      96,
+      96
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 566,
+    "walk": [
+      99,
+      96
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      566,
+      145,
+      93
+    ],
+    "label": "Hallway, transient map 514"
+  },
+  {
+    "map": 566,
+    "walk": [
+      145,
+      90
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      566,
+      145,
+      80
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 566,
+    "walk": [
+      137,
+      70
+    ]
+  },
+  {
+    "map": 566,
+    "key": "left",
+    "frames": 1,
+    "expect": [
+      566,
+      137,
+      70
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 566,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      566,
+      136,
+      70
+    ],
+    "label": "Board swan boat"
+  },
+  {
+    "map": 566,
+    "walk": [
+      117,
+      71
+    ]
+  },
+  {
+    "map": 566,
+    "key": "left",
+    "until": [
+      569,
+      34,
+      6
+    ],
+    "label": "Boat passage"
+  },
+  {
+    "map": 569,
+    "walk": [
+      0,
+      8
+    ],
+    "label": "Apartment passage",
+    "expect": [
+      566,
+      63,
+      95
+    ]
+  },
+  {
+    "map": 566,
+    "walk": [
+      26,
+      94
+    ]
+  },
+  {
+    "map": 566,
+    "key": "left",
+    "frames": 1,
+    "expect": [
+      566,
+      26,
+      94
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 566,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      566,
+      25,
+      94
+    ],
+    "label": "Disembark swan boat"
+  },
+  {
+    "map": 566,
+    "walk": [
+      29,
+      82
+    ]
+  },
+  {
+    "map": 566,
+    "key": "right",
+    "until": [
+      566,
+      37,
+      74
+    ],
+    "label": "Ascend northeast stairs"
+  },
+  {
+    "map": 566,
+    "walk": [
+      12,
+      72
+    ]
+  },
+  {
+    "map": 566,
+    "key": "right",
+    "until": [
+      566,
+      20,
+      64
+    ],
+    "label": "Ascend northeast stairs"
+  },
+  {
+    "map": 566,
+    "walk": [
+      29,
+      63
+    ]
+  },
+  {
+    "map": 566,
+    "key": "right",
+    "until": [
+      566,
+      37,
+      55
+    ],
+    "label": "Ascend northeast stairs"
+  },
+  {
+    "map": 566,
+    "walk": [
+      143,
+      42
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      566,
+      143,
+      31
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 566,
+    "walk": [
+      136,
+      33
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      566,
+      136,
+      25
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 566,
+    "walk": [
+      138,
+      24
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      566,
+      138,
+      20
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 566,
+    "walk": [
+      129,
+      17
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      566,
+      129,
+      5
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 566,
+    "walk": [
+      135,
+      4
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      564,
+      66,
+      90
+    ],
+    "label": "Apartment passage"
+  },
+  {
+    "map": 564,
+    "walk": [
+      80,
+      90
+    ]
+  },
+  {
+    "map": 564,
+    "key": "right",
+    "until": [
+      564,
+      97,
+      73
+    ],
+    "label": "Ascend 17 northeast stairs"
+  },
+  {
+    "map": 564,
+    "walk": [
+      98,
+      73
+    ]
+  },
+  {
+    "map": 564,
+    "key": "up",
+    "until": [
+      564,
+      98,
+      58
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 564,
+    "walk": [
+      96,
+      57
+    ]
+  },
+  {
+    "map": 564,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      564,
+      96,
+      57
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 564,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      564,
+      96,
+      57
+    ],
+    "label": "Activate switch puzzle"
+  },
+  {
+    "map": 564,
+    "walk": [
+      93,
+      56
+    ]
+  },
+  {
+    "map": 564,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      564,
+      93,
+      56
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 564,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      566,
+      8,
+      44
+    ],
+    "label": "Opened apartment door"
+  },
+  {
+    "map": 566,
+    "walk": [
+      44,
+      38
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      566,
+      44,
+      38
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 566,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      566,
+      44,
+      37
+    ],
+    "label": "Board second swan boat"
+  },
+  {
+    "map": 566,
+    "walk": [
+      67,
+      32
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      564,
+      43,
+      173
+    ],
+    "label": "Boat apartment passage"
+  },
+  {
+    "map": 564,
+    "walk": [
+      66,
+      178
+    ]
+  },
+  {
+    "map": 564,
+    "key": "up",
+    "frames": 1,
+    "expect": [
+      564,
+      66,
+      178
+    ],
+    "label": "Face the action event"
+  },
+  {
+    "map": 564,
+    "key": "decision",
+    "frames": 1,
+    "expect": [
+      564,
+      66,
+      177
+    ],
+    "label": "Disembark"
+  },
+  {
+    "map": 564,
+    "walk": [
+      69,
+      176
+    ]
+  },
+  {
+    "map": 564,
+    "key": "up",
+    "until": [
+      564,
+      69,
+      161
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 564,
+    "walk": [
+      61,
+      161
+    ]
+  },
+  {
+    "map": 564,
+    "key": "up",
+    "until": [
+      564,
+      61,
+      152
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 564,
+    "walk": [
+      51,
+      152
+    ]
+  },
+  {
+    "map": 564,
+    "key": "up",
+    "until": [
+      564,
+      51,
+      144
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 564,
+    "walk": [
+      51,
+      144
+    ]
+  },
+  {
+    "map": 564,
+    "key": "up",
+    "until": [
+      566,
+      95,
+      13
+    ],
+    "label": "Apartment"
+  },
+  {
+    "map": 566,
+    "walk": [
+      7,
+      25
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      566,
+      7,
+      15
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 566,
+    "walk": [
+      10,
+      13
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      566,
+      10,
+      10
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 566,
+    "walk": [
+      16,
+      8
+    ]
+  },
+  {
+    "map": 566,
+    "key": "up",
+    "until": [
+      565,
+      1,
+      42
+    ],
+    "label": "Enter Starry Cave"
+  },
+  {
+    "map": 565,
+    "walk": [
+      41,
+      42
+    ]
+  },
+  {
+    "map": 565,
+    "key": "up",
+    "until": [
+      565,
+      41,
+      20
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 565,
+    "walk": [
+      21,
+      20
+    ]
+  },
+  {
+    "map": 565,
+    "key": "up",
+    "until": [
+      565,
+      21,
+      14
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 565,
+    "walk": [
+      25,
+      14
+    ]
+  },
+  {
+    "map": 565,
+    "key": "up",
+    "until": [
+      565,
+      25,
+      8
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 565,
+    "walk": [
+      33,
+      8
+    ]
+  },
+  {
+    "map": 565,
+    "key": "up",
+    "until": [
+      565,
+      33,
+      3
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 565,
+    "walk": [
+      37,
+      3
+    ]
+  },
+  {
+    "map": 565,
+    "key": "up",
+    "until": [
+      565,
+      37,
+      1
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 565,
+    "walk": [
+      53,
+      1
+    ]
+  },
+  {
+    "map": 565,
+    "key": "down",
+    "until": [
+      565,
+      53,
+      11
+    ],
+    "label": "Climb ladder"
+  },
+  {
+    "map": 565,
+    "walk": [
+      48,
+      11
+    ]
+  },
+  {
+    "map": 565,
+    "key": "up",
+    "until": [
+      568,
+      3,
+      75
+    ],
+    "label": "Planetarium"
+  }
+]

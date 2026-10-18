@@ -42,7 +42,7 @@ function createNavbotUiController({ getWindow, getOptions, getBridge, getMapCata
   async function maps(event) {
     const options = getOptions();
     if (!authorized(event, getWindow(), options)) throw new Error('Navbot is only available in the main game window');
-    if (!options.enabled) throw new Error('Navbot requires a local debug session');
+    if (!options.enabled) throw new Error('Navbot requires a Navbot session');
     return getMapCatalog(options.game);
   }
   async function command(event, input) {
@@ -51,8 +51,8 @@ function createNavbotUiController({ getWindow, getOptions, getBridge, getMapCata
     if (!authorized(event, win, options)) throw new Error('Navbot is only available in the main game window');
     const request = uiCommand(input);
     if (!options.enabled) {
-      if (request.op !== 'state') throw new Error('Navbot requires a local debug session');
-      return { enabled: false, game: null, ready: false, message: 'Navbot requires a local debug session.' };
+      if (request.op !== 'state') throw new Error('Navbot requires a Navbot session');
+      return { enabled: false, game: null, ready: false, message: 'Start a Navbot session to use navigation.' };
     }
     const bridge = getBridge(win);
     if (!bridge) {

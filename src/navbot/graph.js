@@ -4,6 +4,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const startRoute = require('./overlays/2kki-start-route.json');
+const reflectionsRoute = require('./overlays/2kki-reflections-route.json');
+const corrections = [startRoute, reflectionsRoute];
 const edgeFields = ['targetMapId', 'startX', 'startY', 'targetX', 'targetY'];
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 
@@ -19,18 +21,22 @@ function applyGraphOverlay(source, game) {
     graph[mapId] = [...kept, ...additions.map(edge => ({ ...edge }))];
     changes.push({ mapId, reason, removed: before.length - kept.length, added: additions.length });
   };
-  for (const correction of startRoute.replaceExits) {
+  for (const correction of corrections.flatMap(overlay => overlay.replaceExits)) {
     update(correction.mapId,
       edge => edge && edge.startX === correction.startX && edge.startY === correction.startY,
       correction.edges, `Reviewed exit at (${correction.startX},${correction.startY})`);
   }
-  for (const removal of startRoute.removeEdges) {
+  for (const removal of corrections.flatMap(overlay => overlay.removeEdges)) {
     update(removal.mapId, edge => edge && edgeFields.every(field => edge[field] === removal[field]), [], 'Remove fabricated Nexus edge');
   }
-  for (const pruning of startRoute.pruneDestinations) {
+  for (const pruning of corrections.flatMap(overlay => overlay.pruneDestinations)) {
     update(pruning.mapId, edge => edge && pruning.targetMapIds.includes(edge.targetMapId), [], 'Remove debug destinations');
   }
-  return { graph, overlay: { ...startRoute, changes } };
+  return { graph, overlay: {
+    id: '2kki-reviewed-routes-v1', game,
+    sources: corrections.flatMap(overlay => overlay.sources),
+    limitations: corrections.flatMap(overlay => overlay.limitations), changes,
+  } };
 }
 
 // Keep the downloaded/generated graph intact. Each debug run records exactly what
@@ -43,7 +49,10 @@ function prepareDebugGraph(options) {
   const output = JSON.stringify(graph);
   const graphPath = path.join(options.runDir, 'map_graph.json');
   const graphProvenancePath = path.join(options.runDir, 'graph-provenance.json');
-  const graphOverlayPath = path.join(__dirname, 'overlays', '2kki-start-route.json');
+  const overlayFiles = ['2kki-start-route.json', '2kki-reflections-route.json'].map(name => {
+    const file = path.join(__dirname, 'overlays', name);
+    return { path: file, sha256: hash(fs.readFileSync(file)) };
+  });
   if (path.resolve(sourceGraphPath) === path.resolve(graphPath)) {
     throw new Error('Debug graph output would overwrite its source; select a fresh run directory');
   }
@@ -53,7 +62,7 @@ function prepareDebugGraph(options) {
     game: options.game,
     source: { path: sourceGraphPath, sha256: hash(sourceBytes), bytes: sourceBytes.length },
     served: { path: graphPath, sha256: hash(output), bytes: Buffer.byteLength(output) },
-    overlay: { ...overlay, path: graphOverlayPath, sha256: hash(fs.readFileSync(graphOverlayPath)) },
+    overlay: { ...overlay, files: overlayFiles },
   }, null, 2), { mode: 0o600 });
   return { ...options, sourceGraphPath, graphPath, graphProvenancePath };
 }

@@ -37,11 +37,11 @@ test('normal sessions report disabled and reject all movement without touching t
   for (const url of ['https://ynoproject.net/', 'https://ynoproject.net/yume/']) {
     h.frame.url = url;
     assert.deepEqual(await h.controller.state(h.event), {
-      enabled: false, game: null, ready: false, message: 'Navbot requires a local debug session.',
+      enabled: false, game: null, ready: false, message: 'Start a Navbot session to use navigation.',
     });
   }
   for (const command of [{ op: 'stop' }, { op: 'goto', x: 1, y: 2 }, { op: 'goto-map', map: 10, x: 1, y: 2 }]) {
-    await assert.rejects(h.controller.command(h.event, command), /requires a local debug session/);
+    await assert.rejects(h.controller.command(h.event, command), /requires a Navbot session/);
   }
   assert.deepEqual(h.calls, []);
 });
@@ -175,6 +175,6 @@ test('catalog IPC is scoped to the authorized selected game and independent of e
 test('normal sessions cannot load a Navbot catalog', async () => {
   let loaded = false;
   const h = harness({ enabled: false, getMapCatalog: () => { loaded = true; } });
-  await assert.rejects(h.controller.maps(h.event), /requires a local debug session/);
+  await assert.rejects(h.controller.maps(h.event), /requires a Navbot session/);
   assert.equal(loaded, false);
 });

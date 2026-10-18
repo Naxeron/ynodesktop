@@ -11,8 +11,10 @@ function readOptions(argv = process.argv, env = process.env) {
   const root = path.resolve(__dirname, '../..');
   const game = value('--navbot-game', value('--test-navbot', '2kki'));
   if (!/^[a-z0-9_-]+$/.test(game)) throw new Error('Invalid game ID');
+  const engine = value('--navbot-engine', 'official');
+  if (!['local', 'official'].includes(engine)) throw new Error('--navbot-engine must be local or official');
   return {
-    enabled, game,
+    enabled, game, engine,
     runDir: path.resolve(value('--navbot-run-dir', path.join(root, '.navbot/runs', `${Date.now()}-${process.pid}`))),
     profileDir: path.resolve(value('--navbot-profile', path.join(root, '.navbot/profiles', game))),
     engineDir: path.resolve(value('--navbot-engine-dir', env.NAVBOT_ENGINE_DIR || path.join(root, '../ynoengine/build'))),

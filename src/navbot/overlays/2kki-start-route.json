@@ -33,7 +33,7 @@
     {
       "mapId": 2, "startX": 7, "startY": 5,
       "edges": [
-        { "targetMapId": 5, "startX": 7, "startY": 5, "targetX": 9, "targetY": 12, "approachX": 8, "approachY": 5, "direction": 3, "action": true }
+        { "targetMapId": 5, "startX": 7, "startY": 5, "targetX": 9, "targetY": 12, "approachX": 8, "approachY": 5, "direction": 3, "action": true, "transientMapIds": [900] }
       ]
     },
     {

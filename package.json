@@ -10,7 +10,7 @@
     "dist-linux": "electron-builder --linux",
     "dist-mac": "electron-builder --mac",
     "navbot": "node tools/navbot-cli.js",
-    "test:navbot": "node --test tools/navbot.test.js tools/navbot-command-queue.test.js tools/navbot-ui-controller.test.js tools/navbot-map-catalog.test.js ../tools/check-map-graph.test.js",
+    "test:navbot": "node --test tools/navbot.test.js tools/navbot-command-queue.test.js tools/navbot-ui-controller.test.js tools/navbot-map-catalog.test.js ../tools/check-map-graph.test.js tools/navbot-route.test.js tools/navbot-route-controller.test.js tools/navbot-bike.test.js tools/navbot-official*.test.js",
     "build:navbot-maps": "node tools/build-navbot-map-catalog.js",
     "test:navbot-ui": "node tools/navbot-panel.test.js"
   },

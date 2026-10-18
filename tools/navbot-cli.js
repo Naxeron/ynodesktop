@@ -27,8 +27,8 @@ function print(result) { console.log(JSON.stringify(result, null, 2)); }
 async function main() {
   if (!operation || ['help', '--help', '-h'].includes(operation)) {
     console.log(`Navbot control (run from any directory):
-  launch [--game 2kki] [--engine-dir DIR] [--graph FILE] [--profile DIR]
-  state | events [--after SEQ] | capture | stop | reload | close
+  launch [--game 2kki] [--engine official|local] [--engine-dir DIR] [--graph FILE] [--profile DIR]
+  state | events [--after SEQ] | capture | stop | reconnect | reload | close
   hold --key up|down|left|right|decision|cancel|shift [--frames 1]
   goto --x X --y Y
   goto-map --map ID --x X --y Y
@@ -36,17 +36,22 @@ async function main() {
   run --map ID --x X --y Y [--arrival tile|map] [--timeout 120] [--stall 20]
 Commands use .navbot/latest.json; select another with --session FILE.
 launch runs Electron until close. run/boot save result JSON, trace, and screenshot.
+The default official engine uses the server's engine. --engine local requires a Navbot build.
+reconnect clicks the official Reconnect button once when it is available.
 Map IDs are engine map IDs, never expedition location IDs.`);
     return;
   }
   if (operation === 'launch') {
+    const engine = flag('engine', 'official');
+    if (!['local', 'official'].includes(engine)) throw new Error('--engine must be local or official');
     const defaultBuild = ['js', 'wasm'].every(ext => fs.existsSync(path.join(root, `../ynoengine/build-debug/ynoengine-simd.${ext}`))) ? '../ynoengine/build-debug' : '../ynoengine/build';
     const engineDir = path.resolve(flag('engine-dir', process.env.NAVBOT_ENGINE_DIR || path.join(root, defaultBuild)));
     const game = flag('game', '2kki');
     if (!/^[a-z0-9_-]+$/.test(game)) throw new Error('Invalid game ID');
     const electron = require('electron');
     fs.accessSync(electron, fs.constants.X_OK);
-    const electronArgs = [root, '--navbot-debug', '--navbot-game', game, '--navbot-engine-dir', engineDir];
+    const electronArgs = [root, '--navbot-debug', '--navbot-game', game, '--navbot-engine', engine];
+    if (engine === 'local') electronArgs.push('--navbot-engine-dir', engineDir);
     for (const name of ['graph', 'profile', 'run-dir']) {
       const value = flag(name);
       if (value) electronArgs.push(`--navbot-${name}`, path.resolve(value));

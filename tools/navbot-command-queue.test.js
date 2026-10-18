@@ -27,6 +27,8 @@ test('Stop bypasses a blocked renderer, cancels older queued movement, and order
   await Promise.resolve();
   const oldMovement = schedule({ op: 'goto', x: 1, y: 1 });
   const cancelled = assert.rejects(oldMovement, /cancelled by Stop/);
+  const oldReconnect = schedule({ op: 'reconnect' });
+  const reconnectCancelled = assert.rejects(oldReconnect, /cancelled by Stop/);
   time = 20000;
   const stop = schedule({ op: 'stop' }, { receivedAt: 0, disconnected: () => true });
   const newMovement = schedule({ op: 'hold', key: 'up', frames: 1 });
@@ -35,6 +37,7 @@ test('Stop bypasses a blocked renderer, cancels older queued movement, and order
   blocked.resolve();
   await state;
   await cancelled;
+  await reconnectCancelled;
   assert.deepEqual(calls.map(call => call.op), ['state', 'stop']);
   stopping.resolve();
   assert.equal(await stop, 'stop');
@@ -57,7 +60,7 @@ test('queued mutations expire from receipt, and an expired request does not pois
   blocked.resolve();
   await state;
   await expired;
-  for (const op of ['reload', 'close']) {
+  for (const op of ['reload', 'close', 'reconnect']) {
     await assert.rejects(schedule({ op }, { receivedAt: 0 }), /expired while waiting/);
   }
   await schedule({ op: 'goto', x: 1, y: 1 });
@@ -79,11 +82,12 @@ test('renderer rejects an old movement evaluation that executes after Stop', () 
     document: { title: '2kki', getElementById: () => null },
     location: { hostname: 'ynoproject.net', pathname: '/2kki/' },
   };
-  const run = (call, expiry, generation) => vm.runInNewContext(rendererScript(call, '2kki', expiry, generation), context);
+  const run = (call, expiry, generation) => vm.runInNewContext(rendererScript(call, '2kki', expiry, generation, 'local'), context);
   run(['_Navbot_Stop', []], 0, 1);
   assert.throws(() => run(['_Navbot_GoTo', [1, 1]], 9999, 0), /cancelled by Stop/);
   assert.throws(() => run(['_Navbot_HoldKey', [0, 1]], 9999, 0), /cancelled by Stop/);
   run(['_Navbot_GoTo', [2, 2]], 9999, 1);
   run(['_Navbot_Stop', []], 0, 2);
+  assert.throws(() => run(['_Navbot_Stop', []], 0, 1), /cancelled by Stop/);
   assert.deepEqual(calls, ['stop', 'goto', 'stop']);
 });

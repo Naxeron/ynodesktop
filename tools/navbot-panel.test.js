@@ -234,10 +234,132 @@ async function testMapAutocomplete() {
 }
 
 async function updateSnapshot(source) {
-  const calls = await evaluate(`return panelFixture.stateCalls;`);
-  await evaluate(source);
+  // Read the call count in the same renderer task as the change, so a poll that
+  // cloned the old snapshot cannot satisfy the wait.
+  const calls = await evaluate(`${source}; return panelFixture.stateCalls;`);
   await waitFor(`panelFixture.stateCalls > ${calls}`, 'updated game state polled');
   await sleep(40);
+}
+
+const fieldText = id => evaluate(`return ${field(id)}.textContent;`);
+const startDisabled = () => evaluate(`return ${field('start')}.disabled;`);
+
+async function testPlanetariumRoute() {
+  await freshPanel('panelFixture.snapshot.state.map_id = 10; panelFixture.snapshot.state.graph_loaded = false;');
+  await click('planetarium');
+  assert.equal(await evaluate('return panelFixture.commands.length;'), 0, 'Planetarium preset only chooses the destination');
+  assert.equal(await evaluate(`return ${field('map')}.value;`), 'Planetarium');
+  assert.equal(await evaluate(`return ${field('start')}.disabled;`), false, 'Nexus recipe does not require the legacy graph');
+  await click('start');
+  await waitFor('panelFixture.commands.length === 1', 'Planetarium movement submitted');
+  assert.deepEqual(await evaluate('return panelFixture.commands[0];'), { op: 'goto-map', map: 568, x: 3, y: 75 });
+  await updateSnapshot(`panelFixture.snapshot.state.recipe = { name: 'Planetarium', step: 8, total: 42, label: 'Board the boat', status: 'navigating', map: 568, x: 3, y: 75 };`);
+  assert.equal(await evaluate(`return ${field('route')}.textContent;`), 'Planetarium · (3, 75)');
+  assert.equal(await evaluate(`return ${field('route-detail')}.textContent;`), 'Step 8 of 42 · Board the boat');
+  await updateSnapshot(`panelFixture.snapshot.state.active = false; panelFixture.snapshot.state.status = 'arrived'; panelFixture.snapshot.state.recipe.status = 'arrived';`);
+  assert.equal(await evaluate(`return ${field('route-detail')}.textContent;`), 'Route complete.');
+  await updateSnapshot('panelFixture.snapshot.state.recipe.expeditionComplete = true;');
+  assert.equal(await evaluate(`return ${field('status')}.textContent;`), 'Weekly expedition complete');
+  assert.equal(await evaluate(`return ${field('route-detail')}.textContent;`), 'Weekly expedition complete.');
+  await updateSnapshot('panelFixture.snapshot.game = "yume";');
+  assert.equal(await evaluate(`return ${field('planetarium')}.hidden;`), true, 'Planetarium preset is scoped to 2kki');
+  console.log('PASS: Planetarium preset, exact target, recipe progress, completion and game scope');
+}
+
+const OFFICIAL_RECIPE_HINT = 'The Planetarium route needs verified official-engine state. Load the game and try again.';
+const PLANETARIUM_HINT = 'Planetarium route starts from the Nexus or starting room.';
+
+async function testOfficialEngine() {
+  // Without verified memory reads the official backend reports no scene.
+  await freshPanel('Object.assign(panelFixture.snapshot.state, { backend: "official", scene: null, map_known: true });');
+  await click('current');
+  assert.equal(await fieldText('scene'), 'Official engine', 'official session without a reported scene names only the backend');
+  assert.equal(await startDisabled(), false, 'official map navigation does not require a fabricated scene');
+  await setValue('x', 7);
+  await click('start');
+  await waitFor('panelFixture.commands.length === 1', 'official movement submitted');
+  assert.deepEqual(await evaluate('return panelFixture.commands[0];'), { op: 'goto', x: 7, y: 5 });
+  await click('stop');
+  await updateSnapshot('panelFixture.snapshot.state.map_known = false;');
+  assert.equal(await startDisabled(), true, 'unknown official map cannot navigate');
+  assert.equal(await fieldText('status'), 'Waiting for a map');
+  await updateSnapshot('panelFixture.snapshot.state.map_known = true; panelFixture.snapshot.state.player_x = 20;');
+  assert.equal(await startDisabled(), true, 'stale out-of-bounds coordinates cannot navigate');
+  await updateSnapshot('panelFixture.snapshot.state.player_x = 8;');
+  assert.equal(await startDisabled(), false, 'in-bounds official position can navigate again');
+  console.log('PASS: official engine without scene: map state, movement and invalid coordinates');
+
+  // Memory-backed sessions report the engine scene, and only Map allows movement.
+  await updateSnapshot('panelFixture.snapshot.state.scene = "Map";');
+  assert.equal(await fieldText('scene'), 'Official · Map', 'memory-backed official session labels the engine scene');
+  assert.equal(await startDisabled(), false, 'official Map scene can navigate');
+  assert.equal(await fieldText('position-map'), '0002');
+  assert.equal(await fieldText('position-xy'), '8, 5');
+  await updateSnapshot('panelFixture.snapshot.state.scene = "Title";');
+  assert.equal(await fieldText('scene'), 'Official · Title');
+  assert.equal(await startDisabled(), true, 'a reported non-Map scene blocks navigation even with a known map');
+  assert.equal(await evaluate(`return ${field('current')}.disabled;`), true, 'current position is unavailable outside the Map scene');
+  assert.equal(await fieldText('position-map'), '—', 'map identity is hidden outside the Map scene');
+  assert.equal(await fieldText('status'), 'Waiting for a map');
+  await updateSnapshot('panelFixture.snapshot.state.scene = "Menu";');
+  assert.equal(await fieldText('scene'), 'Official · Menu');
+  assert.equal(await startDisabled(), true, 'official menu scene cannot navigate');
+  await updateSnapshot('panelFixture.snapshot.state.scene = "Map"; panelFixture.snapshot.state.map_known = false;');
+  assert.equal(await startDisabled(), true, 'official Map scene still needs a known map');
+  await updateSnapshot('panelFixture.snapshot.state.map_known = true;');
+  assert.equal(await startDisabled(), false, 'official Map scene with a known map can navigate');
+  console.log('PASS: official engine scene label and Map-scene gating');
+
+  // Planetarium is gated on the reported recipe capability, not on the backend.
+  await click('planetarium');
+  assert.equal(await evaluate(`return ${field('planetarium')}.hidden;`), false, 'Planetarium preset is offered in official 2kki sessions');
+  assert.equal(await startDisabled(), true, 'official session without capabilities cannot run the recipe');
+  assert.equal(await fieldText('target-hint'), OFFICIAL_RECIPE_HINT);
+  await updateSnapshot('panelFixture.snapshot.state.capabilities = { scene: true, memory: true, recipes: false };');
+  assert.equal(await startDisabled(), true, 'official session without the recipe capability cannot run the recipe');
+  assert.equal(await fieldText('target-hint'), OFFICIAL_RECIPE_HINT);
+  await updateSnapshot('panelFixture.snapshot.state.capabilities.recipes = "true";');
+  assert.equal(await startDisabled(), true, 'only a boolean recipe capability enables the recipe');
+  await updateSnapshot('panelFixture.snapshot.state.capabilities.recipes = true;');
+  assert.equal(await startDisabled(), false, 'official session with the recipe capability can run the recipe');
+  assert.equal(await fieldText('target-hint'), PLANETARIUM_HINT);
+  await updateSnapshot('panelFixture.snapshot.state.scene = "Title";');
+  assert.equal(await startDisabled(), true, 'recipe capability does not bypass the Map scene requirement');
+  assert.equal(await fieldText('target-hint'), PLANETARIUM_HINT, 'outside the map the hint is not the capability warning');
+  await updateSnapshot('panelFixture.snapshot.state.scene = "Map";');
+  await click('start');
+  await waitFor('panelFixture.commands.length === 3', 'official Planetarium movement submitted');
+  assert.deepEqual(await evaluate('return panelFixture.commands.at(-1);'), { op: 'goto-map', map: 568, x: 3, y: 75 });
+  await click('stop');
+  await waitFor('panelFixture.commands.at(-1)?.op === "stop"', 'stop after official Planetarium movement');
+  await updateSnapshot('panelFixture.snapshot.state.capabilities.recipes = false;');
+  assert.equal(await startDisabled(), true, 'losing the recipe capability disables the recipe again');
+  assert.equal(await fieldText('target-hint'), OFFICIAL_RECIPE_HINT);
+  console.log('PASS: official engine Planetarium capability gating');
+
+  // Status labels reported by the official controller.
+  const labels = [
+    ['settling_after_teleport', 'Changing maps', 'Waiting for the new map to settle.'],
+    ['loading_map', 'Reading the map', 'Loading this map\'s passages before walking.'],
+    ['rerouting', 'Finding another way', 'Choosing a different route to the destination.'],
+    ['paused_message', 'Waiting for dialogue', 'Close the game dialogue to continue.'],
+    ['paused_event', 'Waiting for an event', 'Navigation resumes when the event finishes.'],
+  ];
+  for (const [status, title, detail] of labels) {
+    await updateSnapshot(`Object.assign(panelFixture.snapshot.state, { active: true, status: ${JSON.stringify(status)} });`);
+    assert.equal(await fieldText('status'), title, `${status} title`);
+    assert.equal(await fieldText('status-detail'), detail, `${status} detail`);
+    assert.equal(await evaluate(`return ${field('live')}.dataset.tone;`), 'active', `${status} is an active state`);
+  }
+  // A paused scene is active outside the map and must not read as "Waiting for a map".
+  await updateSnapshot('Object.assign(panelFixture.snapshot.state, { active: true, status: "paused_scene", scene: "Menu" });');
+  assert.equal(await fieldText('status'), 'Waiting for the game', 'active paused_scene keeps its own label outside the map');
+  assert.equal(await fieldText('status-detail'), 'Navigation resumes when you return to the map.');
+  assert.equal(await fieldText('scene'), 'Official · Menu');
+  assert.equal(await evaluate(`return ${field('stop')}.disabled;`), false, 'Stop stays usable while paused outside the map');
+  await click('stop');
+  await waitFor(`${field('status')}.textContent === 'Waiting for a map'`, 'stopped official session outside the map waits for a map');
+  console.log('PASS: official engine settling, loading, rerouting and paused status labels');
 }
 
 async function screenshot(name) {
@@ -279,6 +401,7 @@ async function run() {
   await click('current');
   assert.equal(await evaluate(`return ${field('x')}.value;`), '8');
   assert.equal(await evaluate(`return ${field('y')}.value;`), '5');
+  assert.equal(await fieldText('scene'), 'Map', 'local engine shows its raw scene name');
   await setValue('mode', 'local');
   await setValue('x', 6);
   await setValue('y', 7);
@@ -333,6 +456,7 @@ async function run() {
   assert.equal(await evaluate(`return ${field('start')}.disabled;`), true, 'unavailable engine cannot start movement');
   assert.equal(await evaluate(`return ${field('stop')}.disabled;`), true, 'unavailable engine cannot issue Stop');
   assert.equal(await evaluate(`return ${field('unavailable')}.hidden;`), false, 'unavailable engine has setup instructions');
+  assert.equal(await evaluate(`return ${field('unavailable')}.querySelector('code').textContent;`), './test_navbot.sh 2kki');
   await screenshot('navbot-unavailable');
   await updateSnapshot('panelFixture.snapshot.enabled = true; panelFixture.snapshot.ready = true; panelFixture.snapshot.game = "yume";');
   assert.equal(await evaluate(`return ${field('nexus')}.hidden;`), true, '2kki Nexus preset is hidden in another game');
@@ -386,6 +510,8 @@ async function run() {
   await screenshot('navbot-small-window');
   console.log('PASS: small-window layout');
   await testMapAutocomplete();
+  await testPlanetariumRoute();
+  await testOfficialEngine();
 }
 
 function finish(code) {

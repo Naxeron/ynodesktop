@@ -92,7 +92,7 @@ function mountNavbotPanel() {
           <p id="status-detail">Reading the game state.</p>
           <dl class="position"><div><dt>Current map</dt><dd id="position-map">—</dd></div><div><dt>Position · X, Y</dt><dd id="position-xy">—</dd></div><div><dt>Scene</dt><dd id="scene">—</dd></div></dl>
         </div>
-        <div id="unavailable" hidden><p>Navbot needs the local engine. From the project folder, start a Navbot session, then open this panel:</p><code>./test_navbot.sh 2kki</code><p class="hint">The session uses its own local saves and settings.</p></div>
+        <div id="unavailable" hidden><p>From the project folder, start a Navbot session, then open this panel:</p><code>./test_navbot.sh 2kki</code><p class="hint">The session uses its own local saves and settings.</p></div>
         <form id="form" novalidate>
           <label for="mode">Destination</label>
           <select id="mode"><option value="local">Walk within this map</option><option value="map">Travel to another map</option></select>
@@ -108,7 +108,7 @@ function mountNavbotPanel() {
             <div><label for="x">X coordinate</label><input id="x" type="number" inputmode="numeric" min="0" max="9999" step="1" placeholder="0" required></div>
             <div><label for="y">Y coordinate</label><input id="y" type="number" inputmode="numeric" min="0" max="9999" step="1" placeholder="0" required></div>
           </div>
-          <div class="shortcuts"><button id="current" type="button">Use current position</button><button id="nexus" type="button" hidden>Nexus · 2kki</button></div>
+          <div class="shortcuts"><button id="current" type="button">Use current position</button><button id="nexus" type="button" hidden>Nexus · 2kki</button><button id="planetarium" type="button" hidden>Planetarium · 2kki</button></div>
           <p id="target-hint" class="hint">Coordinates start at 0.</p>
           <p id="feedback" role="alert" hidden></p>
           <div class="route-box"><div class="eyebrow">Route</div><div id="route">Choose a destination to begin.</div><div id="route-detail">Navbot walks using normal game controls.</div></div>
@@ -121,7 +121,13 @@ function mountNavbotPanel() {
   let snapshot = { enabled: false, ready: false };
   let open = false, previousFocus = null, polling = false, busy = false;
   let epoch = 0, initializedPosition = false, destinationEdited = false, commandPending = false, stopped = false, timer;
-  const mapScene = () => snapshot.ready && snapshot.state?.scene === 'Map' && snapshot.state.map_width > 0 && snapshot.state.map_height > 0 && snapshot.state.player_x >= 0 && snapshot.state.player_y >= 0;
+  const mapScene = () => {
+    const s = snapshot.state;
+    // Official sessions report the scene only while engine memory reads are verified.
+    return snapshot.ready && s && (s.backend === 'official' ? s.map_known === true && (typeof s.scene !== 'string' || s.scene === 'Map') : s.scene === 'Map')
+      && s.map_width > 0 && s.map_height > 0 && Number.isInteger(s.player_x) && Number.isInteger(s.player_y)
+      && s.player_x >= 0 && s.player_y >= 0 && s.player_x < s.map_width && s.player_y < s.map_height;
+  };
   const mapMode = () => $('mode').value === 'map';
   let mapSelection = null, mapEntries = [], catalogGame = null, catalogState = 'idle';
   let catalogRequest = 0, selectionRequest = 0, suggestions = [], activeSuggestion = -1, dismissEscape = false, resolvingMap = false;
@@ -296,15 +302,21 @@ function mountNavbotPanel() {
     $('current').disabled = !mapScene();
     $('nexus').hidden = snapshot.game !== '2kki';
     $('nexus').disabled = !snapshot.enabled;
-    const graphMissing = differentMap() && !snapshot.state?.graph_loaded;
-    $('start').disabled = busy || resolvingMap || !mapScene() || graphMissing || (mapMode() && !mapSelection);
+    $('planetarium').hidden = snapshot.game !== '2kki';
+    $('planetarium').disabled = !snapshot.enabled;
+    const planetarium = snapshot.game === '2kki' && mapMode() && mapSelection?.mapId === 568;
+    const unsupported = planetarium && snapshot.state?.backend === 'official' && snapshot.state.capabilities?.recipes !== true;
+    const graphMissing = differentMap() && !snapshot.state?.graph_loaded && !(planetarium && snapshot.state?.map_id === 10);
+    $('start').disabled = busy || resolvingMap || !mapScene() || graphMissing || unsupported || (mapMode() && !mapSelection);
     // Stop stays available during pending requests and communication failures.
     $('stop').disabled = !snapshot.enabled;
     text('start', busy ? 'Starting…' : snapshot.state?.active ? 'Update destination' : 'Start navigation');
     const localBounds = mapScene() && !differentMap();
     $('x').max = localBounds ? snapshot.state.map_width - 1 : 9999;
     $('y').max = localBounds ? snapshot.state.map_height - 1 : 9999;
-    text('target-hint', graphMissing ? 'Map routing is unavailable. You can still walk within this map.' :
+    text('target-hint', unsupported ? 'The Planetarium route needs verified official-engine state. Load the game and try again.' :
+      graphMissing ? 'Map routing is unavailable. You can still walk within this map.' :
+      planetarium ? 'Planetarium route starts from the Nexus or starting room.' :
       localBounds ? `This map: X 0–${$('x').max} · Y 0–${$('y').max}.` : 'Coordinates start at 0. Choose the tile to walk to on the selected map.');
   }
   function render(next) {
@@ -329,7 +341,7 @@ function mountNavbotPanel() {
     $('footer').hidden = !next.enabled;
     text('position-map', mapScene() ? String(s.map_id).padStart(4, '0') : '—');
     text('position-xy', mapScene() ? `${s.player_x}, ${s.player_y}` : '—');
-    text('scene', s.scene || '—');
+    text('scene', s.backend === 'official' ? (typeof s.scene === 'string' ? `Official · ${s.scene}` : 'Official engine') : s.scene || '—');
     const statuses = {
       idle: ['Ready to explore', 'Choose a destination below.'],
       stopped: ['Stopped', 'Navbot has released its controls.'],
@@ -340,19 +352,27 @@ function mountNavbotPanel() {
       facing_departure: ['At the exit', 'Turning to face the next passage.'],
       interacting: ['Opening the way', 'Interacting with the next passage.'],
       waiting_for_teleport: ['Changing maps', 'Waiting for the map transition to finish.'],
+      settling_after_teleport: ['Changing maps', 'Waiting for the new map to settle.'],
+      loading_map: ['Reading the map', 'Loading this map\'s passages before walking.'],
+      rerouting: ['Finding another way', 'Choosing a different route to the destination.'],
       interaction_ready: ['Next to the destination', 'The target tile is blocked. Interact in the game to continue.'],
       arrived: ['Destination reached', 'You have arrived at the requested tile.'],
       error: ['Navigation stopped', readable(s.last_error) || 'The route could not be completed.'],
     };
     let status = statuses[s.status] || ['Ready', 'Choose a destination below.'];
-    if (!next.enabled) status = ['Local engine required', 'Start a Navbot session to use navigation.'];
+    if (s.status === 'arrived' && s.recipe?.expeditionComplete === true) status = ['Weekly expedition complete', 'Planetarium visit and expedition completion confirmed.'];
+    if (!next.enabled) status = ['Navbot session required', 'Start a Navbot session to use navigation.'];
     else if (!next.ready) status = ['Waiting for the engine', next.message || 'Load the game to connect Navbot.'];
     else if (!mapScene() && !s.active) status = ['Waiting for a map', 'Continue or start a game to choose a destination.'];
     text('status', status[0]); text('status-detail', status[1]);
     $('live').dataset.tone = s.status === 'error' ? 'error' : s.active ? 'active' : s.status === 'arrived' ? 'success' : 'idle';
     const route = Array.isArray(s.route) ? s.route : [];
     const navigating = s.active || s.status === 'arrived' || s.status === 'interaction_ready';
-    if (next.ready && navigating) {
+    if (next.ready && s.recipe) {
+      text('route', `${s.recipe.name} · (${s.recipe.x}, ${s.recipe.y})`);
+      text('route-detail', s.recipe.status === 'arrived' ? (s.recipe.expeditionComplete === true ? 'Weekly expedition complete.' : 'Route complete.') :
+        `Step ${s.recipe.step} of ${s.recipe.total} · ${s.recipe.label}`);
+    } else if (next.ready && navigating) {
       const global = s.target_map_id > 0;
       const destination = global ? `Map ${s.target_map_id} · (${s.global_target_x}, ${s.global_target_y})` : `Map ${s.map_id} · (${s.target_x}, ${s.target_y})`;
       text('route', destination);
@@ -461,6 +481,12 @@ function mountNavbotPanel() {
     if (snapshot.game !== '2kki') return;
     destinationEdited = true;
     $('mode').value = 'map'; selectMap(mapEntries.find(entry => entry.mapId === 10 && entry.name === 'Nexus') || { mapId: 10, name: 'Nexus' }); $('x').value = 3; $('y').value = 4;
+    feedback(); updateControls();
+  });
+  $('planetarium').addEventListener('click', () => {
+    if (snapshot.game !== '2kki') return;
+    destinationEdited = true;
+    $('mode').value = 'map'; selectMap({ mapId: 568, name: 'Planetarium' }); $('x').value = 3; $('y').value = 75;
     feedback(); updateControls();
   });
   async function command(payload) {

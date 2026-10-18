@@ -45,7 +45,7 @@ Click the Discord icon in the title bar to toggle Rich Presence on or off at any
 
 ## Navbot panel
 
-Click **Navbot** in the title bar to open the navigation panel. In a local Navbot session you can:
+Click **Navbot** in the title bar to open the navigation panel. In a Navbot session you can:
 
 - Walk to a tile in the current map, or search for a destination by map name and enter its coordinates.
 - Choose autocomplete results with the mouse or ↑/↓ and Enter. Names shared by several maps show their map numbers so you can choose the intended one. Enter selects a name; it does not start navigation.
@@ -57,13 +57,40 @@ Coordinates start at zero. Editing a selected name clears its selection until yo
 
 Map names are bundled from `ynolocations` for each game. For 2kki, the panel also searches names already loaded by the game page and looks up unknown map mappings when selected. Those lookups need a working connection; failed lookups cannot start navigation. A name may identify a region or depend on the entrance, so selecting it does not choose a walkable tile for you. Regenerate the bundled names after updating the location configs with `npm run build:navbot-maps`.
 
-Navbot requires the local engine. From the project root run `./test_navbot.sh 2kki` (or add `--skip-build` to reuse a build). Normal desktop sessions show setup instructions in the panel and continue using the official engine. Debug sessions use a separate profile with its own local saves and settings.
+From the project root run `./test_navbot.sh 2kki`. Navbot now uses the **official
+engine by default**. `npm run navbot -- boot` can continue the newest save or start
+a new game from the title screen; in-game menus such as the 2kki computer still
+need deliberate input. Normal `npm start` sessions show setup instructions in the
+panel; the Navbot control interface remains opt-in. Navbot sessions use a separate
+profile with its own local saves and settings.
+
+### Navbot engine modes
+
+| Behavior | Official engine (default) | Custom local engine (`--engine local`) |
+| --- | --- | --- |
+| Engine and build | Uses the server's engine; builds the liblcf map parser when needed | Builds the modified engine incrementally in `ynoengine/build-debug/` |
+| Official-server multiplayer | Normal engine networking; movement delivery and map changes verified without forced reconnects | Current builds lack packet-signing configuration; the map-change reconnect workaround does not fix outgoing movement or visibility |
+| Available state | Scene, movement, event, message, menu, inventory, switch and room state read from the engine's memory without modifying it; checked against `getPlayerCoords()` and C++ class information. Falls back to coordinates and teleport callbacks if those checks fail | Detailed scene, movement, event and inventory state from Navbot exports |
+| Navigation | Live collision (chipset, tile substitutions, events and vehicles) and active event pages; pauses for menus, messages and events; `goto-map` replans after unexpected maps or unreachable exits; reviewed intermediate maps and same-map transfers | Runtime collision data; graph/event limitations still apply |
+| Boot, Bike and Planetarium | `boot` from the title screen and automatic Bike preparation; the checked Planetarium recipe runs but has not yet completed end to end in official mode. Real keyboard input on the game canvas cancels them, except while the game shows a menu, message or event | Same, for the checked 2kki routes and preconditions; recipe verified end to end |
+| Input timing | Logical engine frames, pressed only after a scene update; overshoots when one callback runs several frames. Nominal 60 Hz durations without engine state | Logical engine-frame holds |
+
+Use `./test_navbot.sh 2kki --engine local` for custom engine development, or add
+`--skip-build` to reuse that engine build. `--official` remains an explicit alias
+for the default. Direct `npm run navbot -- launch` also defaults to official;
+use `npm run navbot -- launch --engine local` to select local artifacts.
+
+Both Navbot modes currently require the developer checkout, a game-specific
+graph and a graphical display. Official mode also needs the generated liblcf
+parser; the launch helper builds it with the bundled Emscripten toolchain. It
+does not yet ship as a feature of the packaged release. See
+[Navbot debugging](../NAVBOT_DEBUGGING.md) for setup, limits and live test evidence.
 
 Run `npm run test:navbot` for controller/graph checks and `npm run test:navbot-ui` for the offline Electron panel checks. The latter requires a graphical display; `NAVBOT_PANEL_SCREENSHOTS=/tmp/navbot-panel-ui npm run test:navbot-ui` also saves layout screenshots.
 
 ## Development Setup
 
-For local engine development and autonomous navbot control, see [NAVBOT_DEBUGGING.md](../NAVBOT_DEBUGGING.md). Start a persistent 2kki debug session with `../test_navbot.sh 2kki`; control it with `npm run navbot -- state`, `capture`, `stop`, or `run --map ID --x X --y Y`. Normal launches use the official server engine.
+For engine development and Navbot control, see [NAVBOT_DEBUGGING.md](../NAVBOT_DEBUGGING.md). Start a persistent official-engine 2kki session with `../test_navbot.sh 2kki`; control it with `npm run navbot -- state`, `capture`, `stop`, or `run --map ID --x X --y Y`. Add `--engine local` to the launch helper for custom engine development.
 
 Requires [Node.js](https://nodejs.org/) 22.12.0 or newer. From this workspace's root:
 

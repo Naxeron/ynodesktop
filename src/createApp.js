@@ -176,6 +176,7 @@ function createWindow() {
   });
 
   mainWindow.webContents.on('did-finish-load', () => {
+    if (win.webContents.getURL() === 'about:blank') return;
     titlebar(win);
     navbotPanel(win);
     promptInjection(win);
@@ -272,6 +273,7 @@ function setupInterceptors() {
   // Normal desktop sessions use the official engine. Local replacement is opt-in.
   if (!debugOptions.enabled) return;
   debugOptions = prepareDebugGraph(debugOptions);
+  if (debugOptions.engine === 'official') return;
   const allowed = new Map([
     ['ynoengine-simd.js', path.join(debugOptions.engineDir, 'ynoengine-simd.js')],
     ['ynoengine-simd.wasm', path.join(debugOptions.engineDir, 'ynoengine-simd.wasm')],
