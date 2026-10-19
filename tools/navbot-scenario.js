@@ -17,6 +17,8 @@ async function runScenario(send, options, clock = {}) {
   let lastScene = '';
   let lastInput = -Infinity;
   let inputs = 0;
+  // Cancel inputs sent to close a 2kki save's computer desktop.
+  let desktopInputs = 0;
   let targetSent = false;
   let readyMap = null;
   let readyMapSince = null;
@@ -86,12 +88,28 @@ async function runScenario(send, options, clock = {}) {
             lastInput = now();
             inputs++;
           }
+          // A 2kki save made at the computer reopens its desktop: map 2's PC event
+          // runs with the player on the PC tile and waits for keys. Cancel closes
+          // its windows and then the desktop; a Cancel that reached the map
+          // instead opened the main menu, which one more Cancel closes.
+          const desktop = options.game === '2kki' && state.scene === 'Map' && state.map_id === 2 && state.player_x === 12
+            && state.player_y === 5 && state.event_running === true && state.message_active === false && !state.async_pending
+            && state.observed_stationary !== false;
+          const strayMenu = options.game === '2kki' && desktopInputs > 0 && state.scene === 'Menu' && state.map_id === 2;
+          if ((desktop || strayMenu) && now() - lastInput >= 1500 && desktopInputs < 5) {
+            await send({ op: 'hold', key: 'cancel', frames: 1 });
+            lastInput = now();
+            desktopInputs++;
+          }
         }
       } else {
         const recipeActive = ['navigating', 'confirming'].includes(state.recipe?.status);
         const recipeFinished = !state.recipe || state.recipe.status === 'arrived';
         const atMap = onMap && state.map_id === target.map;
-        const atDestination = atMap && (options.arrival === 'map' || (state.player_x === target.x && state.player_y === target.y));
+        // The controller also completes an arrival through the requested landing
+        // when the game's arrival script moves the player on from it.
+        const atDestination = atMap && (options.arrival === 'map' || (state.player_x === target.x && state.player_y === target.y)
+          || (state.status === 'arrived' && state.arrival === 'landing'));
         // Do not pass on a transient teleport frame or before the arrival event
         // relinquishes control. A stopped bot can still be settling at its goal.
         if (atDestination && recipeFinished && stationary) {
@@ -130,6 +148,8 @@ async function runScenario(send, options, clock = {}) {
   const expeditionDone = !expedition || expedition.complete || expedition.replaced;
   return { ok: (['arrived', 'map-ready'].includes(outcome) || (!!expedition && outcome !== 'error' && outcome !== 'interrupted' && expeditionDone))
     && expeditionDone && cleanupErrors.length === 0, outcome, phase, elapsedMs: now() - started, target, targetSent, arrival: options.arrival || 'tile',
+    // The controller completed the arrival through the requested landing tile.
+    ...(outcome === 'arrived' && lastState?.arrival === 'landing' ? { arrivedBy: 'landing' } : {}),
     ...(options.expedition ? { expedition } : {}), startState, visitedMaps, lastState, finalState: stopped?.state || null, error, cleanupErrors, screenshot: capture?.path || null };
 }
 

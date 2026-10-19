@@ -6,6 +6,7 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const { EventEmitter } = require('node:events');
 const { createRequire } = require('node:module');
+const { effectTable } = require('../src/navbot/effects');
 
 const navigation = { width: 2, height: 1, loopHorizontal: false, loopVertical: false, passages: [4, 2] };
 const exitInteractions = [{ eventId: 1, startX: 1, startY: 0,
@@ -171,7 +172,9 @@ test('the injected page script enables controller rerouting and counts only trus
   };
   vm.runInNewContext(scriptSource(h), { window, document, performance: { now: () => 0 },
     location: { origin: 'https://ynoproject.net', pathname: '/2kki/' } });
-  assert.deepEqual(configured, [{ reroute: true }]);
+  // 2kki also hands the controller its effect table for item-menu preparations.
+  assert.deepEqual(configured, [{ reroute: true, preparation: plain(effectTable('2kki')) }]);
+  assert.equal(controller.read().capabilities.preparation, false, 'preparations still need verified engine state');
   const keydown = listeners.filter(entry => entry.type === 'keydown');
   assert.equal(keydown.length, 1);
   assert.equal(keydown[0].capture, true, 'capture phase sees keys before the page can stop propagation');
@@ -283,4 +286,52 @@ test('route requires a loaded game before recipe checks, and route and reroute s
   yume.state.reroute_request = rerouteRequest({ map: 4 });
   await yume.api.refresh();
   assert.deepEqual(yume.reroutes, [[4, null, 'No unambiguous route remains from map 4 after excluding observed departures.']]);
+});
+
+// Map 2's only way on needs Spring (27) or Bat (38).
+const gatedGraph = { 2: [{ ...exit(5, 1), approachX: 1, approachY: 0, direction: 0, action: true, reviewed: true, requiresEffects: [27, 38] }],
+  5: [exit(10, 0)] };
+
+test('route and reroute use an effect-gated exit only with an owned effect, and name the missing one', async () => {
+  const h = await harness(gatedGraph);
+  assert.throws(() => h.api.route(['_Navbot_GoToMap', [10, 0, 0]], { map_known: true, map_id: 2, owned_effects: [12] }),
+    /This route needs the Spring or Bat effect, which this save does not have/);
+  assert.throws(() => h.api.route(['_Navbot_GoToMap', [10, 0, 0]], { map_known: true, map_id: 2, owned_effects: null }),
+    /This route needs the Spring or Bat effect, but the save's effects could not be read/);
+  assert.deepEqual(plain(h.api.route(['_Navbot_GoToMap', [10, 0, 0]], { map_known: true, map_id: 2, owned_effects: [38] })[2])
+    .map(item => item.targetMapId), [5, 10]);
+
+  for (const [effects, route, message] of [[undefined, null, /could not be read/], [null, null, /could not be read/],
+    [[45], null, /which this save does not have/], [[27], [5, 10], null]]) {
+    const r = await harness(gatedGraph);
+    r.state.reroute_request = rerouteRequest(effects === undefined ? {} : { effects });
+    await r.api.refresh();
+    assert.equal(r.reroutes.length, 1, JSON.stringify(effects));
+    assert.deepEqual(r.reroutes[0][1]?.map(item => item.targetMapId) ?? null, route);
+    if (message) assert.match(r.reroutes[0][2], message);
+    const event = plain(r.events.find(([type]) => type === 'reroute'))[1];
+    assert.deepEqual(event.effects, Array.isArray(effects) ? effects : undefined);
+  }
+  for (const effects of ['27', [0], [1.5], [10000], Array(65).fill(27)]) {
+    const bad = await harness(gatedGraph);
+    bad.state.reroute_request = rerouteRequest({ effects });
+    await bad.api.refresh();
+    assert.deepEqual(bad.reroutes, [], JSON.stringify(effects).slice(0, 40));
+  }
+  // After an exclusion, the missing effect is not why the route ended.
+  const blocked = await harness({ 2: [...gatedGraph[2], exit(7, 3)], 5: [exit(10, 0)], 7: [exit(10, 0)] });
+  blocked.state.reroute_request = rerouteRequest({ effects: [12], blocked: ['2:3,0'] });
+  await blocked.api.refresh();
+  assert.deepEqual(blocked.reroutes, [[4, null, 'No unambiguous route remains from map 2 after excluding observed departures.']]);
+  // Other games have no effect table, so nothing is suggested.
+  const yume = await harness(gatedGraph, { game: 'yume' });
+  assert.throws(() => yume.api.route(['_Navbot_GoToMap', [10, 0, 0]], { map_known: true, map_id: 2 }), /unambiguous map route/);
+});
+
+test('map installation never offers effect-gated or cross-map exits as local transfers', async () => {
+  const pipe = { ...exit(2, 4), targetX: 0, targetY: 0, approachX: 3, approachY: 0, direction: 1, action: false, teleport: false, reviewed: true };
+  const h = await harness({ 2: [...gatedGraph[2], pipe] });
+  await h.api.refresh();
+  assert.equal(h.installs.length, 1);
+  assert.deepEqual(plain(h.installs[0][2]), [{ ...pipe, mapId: 2 }]);
 });

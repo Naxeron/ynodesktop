@@ -364,8 +364,12 @@ function mountNavbotPanel() {
       settling_after_teleport: ['Changing maps', 'Waiting for the new map to settle.'],
       loading_map: ['Reading the map', 'Loading this map\'s passages before walking.'],
       rerouting: ['Finding another way', 'Choosing a different route to the destination.'],
+      preparing: s.preparation_request?.kind === 'effect'
+        ? ['Equipping an effect', 'The next passage needs it. Using the item menu, then continuing.']
+        : ['Equipping the Bike', 'Using the item menu, then continuing the route.'],
       interaction_ready: ['Next to the destination', 'The target tile is blocked. Interact in the game to continue.'],
-      arrived: ['Destination reached', 'You have arrived at the requested tile.'],
+      arrived: s.arrival === 'landing' ? ['Destination reached', 'You arrived through the requested entrance; the game moved you on from it.']
+        : ['Destination reached', 'You have arrived at the requested tile.'],
       error: ['Navigation stopped', readable(s.last_error) || 'The route could not be completed.'],
     };
     let status = statuses[s.status] || ['Ready', 'Choose a destination below.'];

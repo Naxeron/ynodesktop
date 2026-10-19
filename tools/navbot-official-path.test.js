@@ -4,7 +4,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const { createPlanner } = require('../src/navbot/official-path');
-const { applyGraphOverlay } = require('../src/navbot/graph');
+const { applyGraphOverlay, localEngineGraph } = require('../src/navbot/graph');
 const planner = createPlanner();
 const grid = (width, height, patch = {}) => ({ width, height,
   loopHorizontal: false, loopVertical: false, passages: Array(width * height).fill(15), ...patch });
@@ -274,4 +274,83 @@ test('the injected planner honours active pages from another realm', () => {
   const event = interaction({ pages: [{ trigger: 0, layer: 1, targetMapIds: [12], unsupported: false }, interaction().pages[0]] });
   assert.equal(isolated.resolveExit(map, { x: 0, y: 1 }, raw, [event], new Set(), [], new Map([[17, 1]])).action, true);
   assert.throws(() => isolated.resolveExit(map, { x: 0, y: 1 }, raw, [event], new Set(), [], new Map([[17, -1]])), /not active/);
+});
+
+const gated = (targetMapId, patch = {}) => ({ ...edge(targetMapId), approachX: 0, approachY: 0, direction: 0, action: true,
+  reviewed: true, requiresEffects: [27, 38], ...patch });
+
+test('effect-gated exits are usable only with an owned effect and must be reviewed standing exits', () => {
+  const graph = { 1: [gated(2)], 2: [edge(3)] };
+  assert.equal(planner.findMapRoute(graph, 1, 3), null, 'no owned effects: the gate is closed');
+  assert.equal(planner.findMapRoute(graph, 1, 3, { ownedEffects: new Set([12]) }), null);
+  assert.deepEqual(planner.findMapRoute(graph, 1, 3, { ownedEffects: new Set([38]) }).map(item => item.targetMapId), [2, 3]);
+  assert.deepEqual(planner.usableExits(graph, 1), []);
+  for (const patch of [{ requiresEffects: [] }, { requiresEffects: [0] }, { requiresEffects: ['27'] }, { requiresEffects: [10000] },
+    { requiresEffects: Array(9).fill(27) }, { requiresEffects: 27 }, { reviewed: undefined }, { action: undefined },
+    { approachX: undefined, approachY: undefined }, { direction: undefined }]) {
+    assert.throws(() => planner.usableExits({ 1: [gated(2, patch)] }, 1), /graph edge/, JSON.stringify(patch));
+  }
+  assert.throws(() => planner.usableExits({ 1: [{ ...gated(1), targetX: 1, targetY: 1 }] }, 1), /graph edge/, 'gated same-map moves');
+  // continueEffects: the owned effects with which a route may continue past the target.
+  const terminal = { 1: [gated(2, { continueEffects: [27] })], 2: [edge(3)] };
+  assert.equal(planner.findMapRoute(terminal, 1, 2, { ownedEffects: new Set([38]) }).length, 1, 'Bat may end the route in map 2');
+  assert.equal(planner.findMapRoute(terminal, 1, 3, { ownedEffects: new Set([38]) }), null, 'but not continue past it');
+  assert.equal(planner.findMapRoute(terminal, 1, 3, { ownedEffects: new Set([27]) }).length, 2);
+  for (const continueEffects of [[], [45], 27]) {
+    assert.throws(() => planner.usableExits({ 1: [gated(2, { continueEffects })] }, 1), /graph edge/, JSON.stringify(continueEffects));
+  }
+  assert.throws(() => planner.usableExits({ 1: [{ ...edge(2), continueEffects: [27] }] }, 1), /graph edge/, 'continueEffects needs requiresEffects');
+  // The desktop planner runs in Node, the page planner in another realm.
+  const injected = vm.runInNewContext(`(${createPlanner})()`);
+  assert.equal(injected.findMapRoute(graph, 1, 3, { ownedEffects: new Set([27]) }).length, 2);
+});
+
+test('reviewed moves without a teleport stay on their map and need an approach', () => {
+  const pipe = transfer(1, 4, { approachX: 0, approachY: 0, direction: 1, action: false, teleport: false, targetY: 0 });
+  assert.deepEqual(planner.findLocalRoute(grid(5, 1, { passages: [4, 0, 0, 0, 15] }), { x: 0, y: 0 }, { x: 4, y: 0 }, [pipe]), [pipe]);
+  for (const patch of [{ teleport: 0 }, { reviewed: undefined }, { approachX: undefined, approachY: undefined }, { direction: undefined }]) {
+    assert.throws(() => planner.usableExits({ 7: [{ ...pipe, ...patch }] }, 7), /graph edge/, JSON.stringify(patch));
+  }
+  assert.throws(() => planner.usableExits({ 7: [{ ...edge(8), teleport: false, reviewed: true, approachX: 0, approachY: 0 }] }, 7), /graph edge/);
+  assert.equal(planner.usableExits({ 7: [{ ...edge(8), teleport: true }] }, 7).length, 1);
+});
+
+test('the reviewed Jigsaw Puzzle World route needs Spring or Bat and crosses map 420 by its pipes', () => {
+  const { graph } = applyGraphOverlay(require('../map_graph.json'), '2kki');
+  const options = owned => ({ preferredExits: new Map([['4:15,7', 10]]), ownedEffects: new Set(owned) });
+  for (const owned of [[], [12], [36, 45]]) assert.equal(planner.findMapRoute(graph, 10, 413, options(owned)), null, JSON.stringify(owned));
+  // Bat opens the exit only for routes that end in map 413: its onward exits do nothing while Bat is active.
+  for (const destination of [415, 418, 419]) {
+    assert.equal(planner.findMapRoute(graph, 10, destination, options([38])), null, `Bat only, map ${destination}`);
+    assert.ok(planner.findMapRoute(graph, 10, destination, options([27]))?.some(item => item.mapId === 420), `Spring, map ${destination}`);
+  }
+  for (const owned of [[27], [38], [12, 27, 38]]) {
+    const route = planner.findMapRoute(graph, 2, 413, options(owned));
+    assert.deepEqual(route.map(item => item.targetMapId), [5, 4, 10, 71, 72, 411, 420, 413], JSON.stringify(owned));
+    const gate = route.at(-1);
+    assert.deepEqual([gate.mapId, gate.startX, gate.startY, gate.approachX, gate.approachY, gate.direction, gate.action],
+      [420, 50, 30, 50, 30, 0, true]);
+    assert.deepEqual(gate.requiresEffects, [27, 38]);
+    assert.deepEqual(gate.transientMapIds, [900]);
+  }
+  // Map 420's rooms are joined only by its pipes, which the installed transfers chain.
+  const pipes = planner.usableExits(graph, 420).filter(item => item.reviewed && item.targetMapId === 420).map(item => ({ ...item, mapId: 420 }));
+  assert.equal(pipes.length, 3);
+  assert.ok(pipes.every(item => item.teleport === false && item.action === false));
+  // Removed: Treetops needs a previous visit, and the old detour's exits need story switches or other effects.
+  assert.equal(planner.usableExits(graph, 1067).some(item => item.targetMapId === 419), false);
+  assert.equal(planner.usableExits(graph, 21).some(item => item.targetMapId === 363), false);
+  assert.equal(planner.usableExits(graph, 1612).some(item => [1066, 1067, 1287, 1290].includes(item.targetMapId)), false);
+  assert.equal(planner.findMapRoute(graph, 10, 419, options([27])).at(-1).targetMapId, 419, 'map 419 via Jigsaw itself');
+  // Fairy Tale Woods' Bat exit sits behind walls only Bat passes, where the menu is locked.
+  assert.equal(planner.usableExits(graph, 414, options([38])).some(item => item.targetMapId === 419), false);
+});
+
+test('the local engine graph omits exits its planner cannot execute', () => {
+  const { graph } = applyGraphOverlay(require('../map_graph.json'), '2kki');
+  const local = localEngineGraph(graph);
+  assert.equal(local[420].some(item => item.startX === 50 && item.startY === 30), false, 'the Spring/Bat exit');
+  assert.equal(local[420].some(item => item.teleport === false), false, 'the jump pipes');
+  assert.deepEqual(local[10], graph[10], 'other exits are kept');
+  assert.ok(graph[420].some(item => Array.isArray(item.requiresEffects)), 'the served official graph is unchanged');
 });

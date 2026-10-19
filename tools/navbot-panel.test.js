@@ -427,6 +427,7 @@ async function testOfficialEngine() {
     ['rerouting', 'Finding another way', 'Choosing a different route to the destination.'],
     ['paused_message', 'Waiting for dialogue', 'Close the game dialogue to continue.'],
     ['paused_event', 'Waiting for an event', 'Navigation resumes when the event finishes.'],
+    ['preparing', 'Equipping the Bike', 'Using the item menu, then continuing the route.'],
   ];
   for (const [status, title, detail] of labels) {
     await updateSnapshot(`Object.assign(panelFixture.snapshot.state, { active: true, status: ${JSON.stringify(status)} });`);
@@ -434,6 +435,11 @@ async function testOfficialEngine() {
     assert.equal(await fieldText('status-detail'), detail, `${status} detail`);
     assert.equal(await evaluate(`return ${field('live')}.dataset.tone;`), 'active', `${status} is an active state`);
   }
+  // A preparation for an effect-gated exit names its purpose, including while the menu is open.
+  await updateSnapshot('Object.assign(panelFixture.snapshot.state, { active: true, status: "preparing", scene: "Item", preparation_request: { id: 2, kind: "effect", item_id: 38, accepted: true } });');
+  assert.equal(await fieldText('status'), 'Equipping an effect');
+  assert.equal(await fieldText('status-detail'), 'The next passage needs it. Using the item menu, then continuing.');
+  await updateSnapshot('Object.assign(panelFixture.snapshot.state, { scene: "Map", preparation_request: null });');
   // A paused scene is active outside the map and must not read as "Waiting for a map".
   await updateSnapshot('Object.assign(panelFixture.snapshot.state, { active: true, status: "paused_scene", scene: "Menu" });');
   assert.equal(await fieldText('status'), 'Waiting for the game', 'active paused_scene keeps its own label outside the map');

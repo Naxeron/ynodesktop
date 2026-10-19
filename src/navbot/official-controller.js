@@ -20,6 +20,13 @@ function createOfficialController(input, planner) {
   const stepFailures = new Map();
   // Steps that warped the player within the destination map, per command.
   const warpSteps = new Set();
+  // Item-menu preparations the desktop performs on request, like reroutes: the
+  // Bike after arriving in a map, an effect before an effect-gated exit. The
+  // route, observations and exclusions stay intact meanwhile.
+  let preparationConfig = null, preparation = null, preparationSequence = 0, prepareCheck = false, bikeFailures = 0;
+  // 'landing' when an arrival script moved the player on from the requested landing.
+  let arrival = '';
+  const preparationAttempts = new Map();
   const exitKey = (mapId, edge) => `${mapId}:${edge.startX},${edge.startY}`;
   const keys = ['up', 'down', 'left', 'right', 'decision', 'cancel', 'shift'];
   const offsets = { down: [0, 1], left: [-1, 0], right: [1, 0], up: [0, -1] };
@@ -33,7 +40,7 @@ function createOfficialController(input, planner) {
   const engineSettled = m => !m || (!engineBusy(m) && !m.moving && !m.move_route_overwritten && !m.player_paused);
   function stop(next = 'stopped', reason = '') {
     input.stop(); target = null; route = []; path = []; step = null; transition = null; facing = null;
-    rerouteRequest = null; status = next; error = reason;
+    rerouteRequest = null; preparation = null; prepareCheck = false; arrival = ''; status = next; error = reason;
   }
   function fail(reason) { stop('error', reason); }
   // Like the local engine, only travel to another map replans, and only with
@@ -41,7 +48,7 @@ function createOfficialController(input, planner) {
   // (recipes rely on that for scripted transfers).
   function requestReroute(s, reason) {
     if (!rerouteEnabled || !globalCommand || !engineOf(s) || ++reroutes > 16) return fail(reason);
-    input.stop(); route = []; path = []; step = null; transition = null; facing = null;
+    input.stop(); route = []; path = []; step = null; transition = null; facing = null; preparation = null;
     rerouteRequest = { id: ++rerouteSequence, map: s.map_id, since: s.time_ms, reason };
     rerouteReason = reason;
     status = 'rerouting';
@@ -51,6 +58,106 @@ function createOfficialController(input, planner) {
     if (!edge || !route.length || !rerouteEnabled || !globalCommand || !engineOf(s)) return fail(reason);
     blockedExits.add(exitKey(edge.mapId, edge));
     return requestReroute(s, reason);
+  }
+  // One verified read of the configured effects: menu index of the usable item
+  // (-1 when not held), ownership (the item or, while awake, its dummy) and
+  // whether it is active, plus the switches that leave the Bike alone.
+  function effectInfo() {
+    if (!preparationConfig || typeof input.query !== 'function') return null;
+    const { effects, bike } = preparationConfig;
+    const q = input.query({ items: effects.flatMap(effect => [effect.item, effect.dummy]),
+      switches: [...effects.map(effect => effect.active), ...bike.blocked] });
+    if (!q) return null;
+    const on = id => q.switches?.[id] === 1 ? true : q.switches?.[id] === 0 ? false : null;
+    const info = new Map();
+    for (const effect of effects) {
+      const index = q.items?.[effect.item], dummy = q.items?.[effect.dummy], active = on(effect.active);
+      if (!Number.isInteger(index) || !Number.isInteger(dummy) || active === null) return null;
+      info.set(effect.item, { index, owned: index >= 0 || dummy >= 0, active });
+    }
+    // Unknown blockers leave the Bike alone but not the other effects.
+    const blocked = bike.blocked.map(on);
+    return { effects: info, bikeBlocked: blocked.includes(true) || blocked.includes(null) };
+  }
+  const effectName = item => preparationConfig?.effects.find(effect => effect.item === item)?.name || `effect ${item}`;
+  // Whether to equip the Bike now: a multi-map command, a settled player who
+  // can open the menu, and an owned Bike that is neither active nor blocked.
+  function bikeWanted(s, m, info) {
+    const bike = preparationConfig?.bike;
+    if (!bike || !info || !rerouteEnabled || !globalCommand || !m || m.event_running === null || m.message_active === null) return false;
+    if (!engineSettled(m) || m.menu_allowed !== true || m.vehicle_type !== 0 || s.held_key) return false;
+    if (bikeFailures >= 2 || (preparationAttempts.get(`${s.map_id}:${bike.item}`) || 0) >= 2) return false;
+    if (!route.length && at(s, target)) return false;
+    // The next exit needs another effect, which would replace the Bike.
+    if (Array.isArray(route[0]?.requiresEffects) && !route[0].requiresEffects.includes(bike.item)) return false;
+    const state = info.effects.get(bike.item);
+    return !!state && state.index >= 0 && !state.active && !info.bikeBlocked;
+  }
+  function requestPreparation(s, kind, item, key, reason) {
+    input.stop(); path = []; step = null; facing = null;
+    preparation = { id: ++preparationSequence, kind, item, key, map: s.map_id, reason, since: s.time_ms, accepted: null, result: null };
+    status = 'preparing';
+  }
+  // The desktop holds menu keys meanwhile, so input is left alone until it
+  // answers or the request expires. Deadlines pause.
+  function preparationTick(s, m, elapsed) {
+    const p = preparation;
+    started += elapsed;
+    let outcome = p.result?.outcome || null;
+    if (!outcome && p.accepted === null && s.time_ms - p.since > 4000) outcome = 'unanswered';
+    if (!outcome && !p.closing && p.accepted !== null && s.time_ms - p.accepted > 25000) {
+      input.stop();
+      // The desktop stopped answering with its menu open; close it here, or the
+      // route would wait in that scene without a deadline.
+      if (['Menu', 'Item'].includes(m?.scene)) {
+        p.closing = { since: s.time_ms, last: -Infinity, presses: 0 };
+        return closeMenu(s, m, p);
+      }
+      outcome = 'timeout';
+    }
+    if (p.closing) {
+      if (m?.scene !== 'Map') return closeMenu(s, m, p);
+      outcome = 'timeout';
+    }
+    if (!outcome) return;
+    preparation = null; path = []; step = null; status = 'navigating';
+    // Each map or exit is asked again only after a successful equip.
+    preparationAttempts.set(p.key, (preparationAttempts.get(p.key) || 0) + (outcome === 'equipped' ? 1 : 2));
+    if (p.kind === 'bike') {
+      if (outcome !== 'equipped' && outcome !== 'skipped') ++bikeFailures;
+      return;
+    }
+    // The exit is checked again before departing.
+    if (outcome !== 'equipped') {
+      const detail = p.result?.message ? `: ${p.result.message}` : ` (${outcome})`;
+      return departureFailed(s, route[0], `${p.reason} failed${detail}.`);
+    }
+  }
+  function closeMenu(s, m, p) {
+    if (s.time_ms - p.closing.since > 5000) return fail('The item menu stayed open after an unfinished preparation.');
+    if (!s.held_key && p.closing.presses < 4 && s.time_ms - p.closing.last >= 300) {
+      input.hold('cancel', 1);
+      p.closing.last = s.time_ms; ++p.closing.presses;
+    }
+  }
+  // An effect-gated exit departs only while one of its effects is active;
+  // otherwise the desktop first equips the first owned one from the item menu.
+  function effectReady(s, m, edge) {
+    const info = effectInfo();
+    const label = `The exit at (${edge.startX},${edge.startY})`;
+    // A route that continues past the target map may need a narrower choice.
+    const effects = route.length > 1 && Array.isArray(edge.continueEffects) ? edge.continueEffects : edge.requiresEffects;
+    const names = effects.map(effectName).join(' or ');
+    if (!info) { departureFailed(s, edge, `${label} needs the ${names} effect, but effect state is unavailable.`); return false; }
+    if (effects.some(id => info.effects.get(id)?.active)) return true;
+    const item = effects.find(id => (info.effects.get(id)?.index ?? -1) >= 0
+      && !preparationAttempts.has(`${exitKey(edge.mapId, edge)}:${id}`));
+    if (item === undefined || !m || m.menu_allowed !== true || m.vehicle_type !== 0) {
+      departureFailed(s, edge, `${label} needs the ${names} effect, which cannot be equipped here.`);
+      return false;
+    }
+    requestPreparation(s, 'effect', item, `${exitKey(edge.mapId, edge)}:${item}`, `Equipping ${effectName(item)} for the exit at (${edge.startX},${edge.startY})`);
+    return false;
   }
   // A teleport that did not match the expected exit. Only an armed departure is
   // recorded as observed, as in the local engine; the final map is judged.
@@ -116,6 +223,7 @@ function createOfficialController(input, planner) {
     liveDisabled = false; liveBlocked = null; stationary = new Set(); fallback = null; lastStep = null; rerouteReason = '';
     target = destination = { map, x, y }; route = edges.slice(); started = s.time_ms; lastTick = s.time_ms;
     globalCommand = map !== s.map_id;
+    preparationAttempts.clear(); bikeFailures = 0; prepareCheck = globalCommand;
     teleportSequence = s.teleport_sequence; status = 'navigating';
   }
   function routeGoal(s) {
@@ -159,8 +267,9 @@ function createOfficialController(input, planner) {
     return s.map_id === edge.targetMapId && Number.isInteger(x) && x >= 0 && Number.isInteger(y) && y >= 0
       && (edge.mapId !== edge.targetMapId || (x === edge.targetX && y === edge.targetY));
   }
-  function settle(s, edge) {
-    transition = { ...(transition || {}), edge, since: transition?.since ?? s.time_ms, phase: 'settling', arrived: s.time_ms };
+  // landing: the tile the teleport callback reported, when it matched the edge.
+  function settle(s, edge, landing = null) {
+    transition = { ...(transition || {}), edge, since: transition?.since ?? s.time_ms, phase: 'settling', arrived: s.time_ms, landing };
     status = 'settling_after_teleport';
   }
   function onTeleport(s, m, prior, trigger) {
@@ -169,7 +278,9 @@ function createOfficialController(input, planner) {
     // Further teleports of one event chain are judged once the chain ends.
     if (transition?.phase === 'landing') return;
     const expected = transition?.edge || route[0] || null;
-    if (expected && s.map_id === s.teleport_map_id && landed(s, expected, s.teleport_x, s.teleport_y)) return settle(s, expected);
+    if (expected && s.map_id === s.teleport_map_id && landed(s, expected, s.teleport_x, s.teleport_y)) {
+      return settle(s, expected, { x: s.teleport_x, y: s.teleport_y });
+    }
     // Only an exit being taken, or a step onto the next exit tile, is armed.
     const armed = transition?.edge || (expected && prior?.map === expected.mapId
       && ((prior.x === expected.startX && prior.y === expected.startY)
@@ -205,11 +316,14 @@ function createOfficialController(input, planner) {
       teleportSequence = s.teleport_sequence;
       const trigger = step || lastStep;
       input.stop(); path = []; step = null; facing = null; blocked.clear(); stepFailures.clear();
+      // A teleport ends a preparation; it is not asked again for that map or exit.
+      if (preparation) { preparationAttempts.set(preparation.key, 2); preparation = null; status = 'navigating'; }
       if (rerouteRequest) { rerouteRequest = { ...rerouteRequest, id: ++rerouteSequence, map: s.map_id }; return; }
       onTeleport(s, m, prior, trigger);
       // Unexpected landings resume walking from the next callback.
       if (!target || !transition) return;
     }
+    if (preparation) return preparationTick(s, m, elapsed);
     if (rerouteRequest) {
       input.stop();
       if (s.time_ms - rerouteRequest.since > 15000) return fail(`${rerouteRequest.reason} No new route was planned.`);
@@ -222,12 +336,22 @@ function createOfficialController(input, planner) {
       // input, and that time does not count toward the exit or command deadlines.
       if (m && engineBusy(m)) {
         input.stop();
+        // An arrival event may move the player after landing; fades and loads do not.
+        if (t.phase === 'settling' && m.event_running === true) { t.scripted = true; t.idle = null; }
         t.since += elapsed; started += elapsed;
         if (m.message_active === true) status = 'paused_message';
         return;
       }
       if (status === 'paused_message') status = t.phase === 'settling' ? 'settling_after_teleport' : 'waiting_for_teleport';
-      if (s.time_ms - t.since > 20000) return fail(`The exit did not reach map ${t.edge?.targetMapId ?? target.map} (current map ${s.map_id}).`);
+      if (s.time_ms - t.since > 20000) {
+        const reason = `The exit did not reach map ${t.edge?.targetMapId ?? target.map} (current map ${s.map_id}).`;
+        // An exit that never fired, for example because of an unmet event
+        // condition, is excluded and replanned like an unreachable one.
+        if (t.edge && t.edge === route[0] && s.map_id === t.edge.mapId && ['face', 'activate', 'waiting'].includes(t.phase)) {
+          return departureFailed(s, t.edge, reason);
+        }
+        return fail(reason);
+      }
       if (t.phase === 'landing') {
         input.stop();
         if (!quiet(s) || !engineSettled(m)) return;
@@ -237,17 +361,42 @@ function createOfficialController(input, planner) {
       }
       if (t.phase === 'settling') {
         input.stop();
+        // Movement while the game runs no script (for example a key the player
+        // pressed) is not part of the arrival.
+        if (m?.move_route_overwritten || m?.player_paused) { t.scripted = true; t.idle = null; }
+        else if (!t.idle) {
+          t.idle = { x: s.player_x, y: s.player_y };
+          // A step without a move route, already under way, is the player's own.
+          if (m?.moving === true) t.unscripted = true;
+        } else if (!at(s, t.idle)) t.unscripted = true;
         if (!engineSettled(m)) return;
         if (!Number.isInteger(s.player_x) || !Number.isInteger(s.player_y)
           || !quiet(s) || s.time_ms - t.arrived < Math.max(500, t.edge.settleMs || 0)) return;
         // Each completed exit restarts the walking deadline for the next map.
-        route.shift(); transition = null; status = 'navigating'; started = s.time_ms;
+        route.shift(); transition = null; status = 'navigating'; started = s.time_ms; prepareCheck = true;
+        // The destination was this entrance's landing (as expeditions choose), and an
+        // arrival script moved the player on without a teleport, for example Jigsaw
+        // Puzzle World's Spring jump-down: the arrival through that entrance is
+        // complete. Other moves walk back.
+        if (!route.length && t.landing && s.map_id === target.map && t.landing.x === target.x && t.landing.y === target.y
+          && !at(s, target) && t.scripted && !t.unscripted) {
+          stop('arrived');
+          arrival = 'landing';
+          return;
+        }
         return;
       }
       if (s.map_id !== t.edge.mapId) {
         input.stop();
         if (!t.edge.transientMapIds?.includes(s.map_id)) return fail(`Unexpected map ${s.map_id} while taking an exit.`);
         return;
+      }
+      // Reviewed moves without a teleport, such as jump pipes, complete by position.
+      if (t.edge.teleport === false) {
+        if (at(s, { x: t.edge.targetX, y: t.edge.targetY })) { input.stop(); return settle(s, t.edge); }
+        if (!at(s, { x: t.edge.approachX, y: t.edge.approachY }) && quiet(s) && engineSettled(m)) {
+          return departureFailed(s, t.edge, `The move at (${t.edge.startX},${t.edge.startY}) ended at an unexpected tile.`);
+        }
       }
       if (t.phase === 'face' && !s.hold_remaining) {
         t.phase = 'activate';
@@ -267,10 +416,17 @@ function createOfficialController(input, planner) {
         if (engineBusy(m)) started += elapsed;
         return;
       }
+      // Events can remove effects, so the Bike is checked again afterwards.
+      if (status === 'paused_event') prepareCheck = true;
       if (status.startsWith('paused_')) status = 'navigating';
     }
     if (gridMap !== s.map_id || !grid) { input.stop(); status = 'loading_map'; return; }
     if (!Number.isInteger(s.player_x) || !Number.isInteger(s.player_y) || s.player_x < 0 || s.player_y < 0) { input.stop(); return; }
+    if (prepareCheck && !step && quiet(s) && engineSettled(m)) {
+      prepareCheck = false;
+      const bike = preparationConfig?.bike.item;
+      if (bikeWanted(s, m, effectInfo())) return requestPreparation(s, 'bike', bike, `${s.map_id}:${bike}`, 'Equipping the Bike');
+    }
     const state = liveState();
     // A tile stays a stationary obstacle only while live collision still shows it occupied.
     if (stationary.size && Array.isArray(state?.obstacles)) {
@@ -328,6 +484,7 @@ function createOfficialController(input, planner) {
       input.stop();
       if (!quiet(s) || !engineSettled(m)) return;
       if (!route.length) return stop('arrived');
+      if (Array.isArray(edge.requiresEffects) && !effectReady(s, m, edge)) return;
       if (edge.action || Number.isInteger(edge.approachX)) return depart(s, directions[edge.direction], onTile);
       // Touch exits normally trigger on the final step. If they have not,
       // wait without pressing unrelated action buttons.
@@ -413,6 +570,22 @@ function createOfficialController(input, planner) {
     input.hold(next.direction, 120);
   }
   input.subscribe(() => { try { tick(); } catch (cause) { fail(cause.message); } });
+  function pendingPreparation() {
+    return preparation && target ? { id: preparation.id, kind: preparation.kind, item_id: preparation.item, map: preparation.map,
+      accepted: preparation.accepted !== null, reason: preparation.reason } : null;
+  }
+  const preparing = id => !!target && Number.isSafeInteger(id) && preparation?.id === id && preparation.result === null && !preparation.closing;
+  // Only plain integers and short names cross from the desktop's table.
+  function preparationTable(value) {
+    const id = n => Number.isInteger(n) && n >= 1 && n <= 9999;
+    const effects = Array.isArray(value?.effects) && value.effects.length <= 64 ? value.effects.map(effect => effect
+      && id(effect.item) && id(effect.active) && id(effect.dummy) && typeof effect.name === 'string' && effect.name.length <= 40
+      ? { item: effect.item, active: effect.active, dummy: effect.dummy, name: effect.name } : null) : null;
+    const blocked = value?.bike?.blocked;
+    if (!effects?.length || effects.includes(null) || !effects.some(effect => effect.item === value.bike?.item)
+      || !Array.isArray(blocked) || blocked.length > 8 || !blocked.every(id)) return null;
+    return { effects, bike: { item: value.bike.item, blocked: blocked.slice() } };
+  }
   function read() {
     const s = input.read();
     const m = engineOf(s);
@@ -420,7 +593,10 @@ function createOfficialController(input, planner) {
     const events = !!m && m.event_running !== null && m.message_active !== null;
     // Recipes and Bike preparation also need known event and message state.
     const capabilities = { scene: !!m, events, bike: events, recipes: events, memory: !!m,
-      logical_frames: s.input_timing === 'logical-frames', live_collision: !!m && liveUsed };
+      logical_frames: s.input_timing === 'logical-frames', live_collision: !!m && liveUsed,
+      preparation: events && !!preparationConfig && rerouteEnabled };
+    const info = m ? effectInfo() : null;
+    const owned = info ? [...info.effects].filter(([, effect]) => effect.owned).map(([item]) => item) : null;
     return { ...base, backend: 'official',
       scene: m ? m.scene : null, moving: m ? m.moving : null, event_running: m ? m.event_running : null,
       message_active: m ? m.message_active : null, async_pending: m ? m.async_pending : null,
@@ -437,7 +613,7 @@ function createOfficialController(input, planner) {
       engine_state_error: memory && !m ? memory.error : null, live_collision_mismatch: liveMismatch,
       live_obstacles_near: liveNear,
       observed_stationary: s.map_known && quiet(s), user_interrupts: interrupts,
-      active: !!target, status, last_error: error,
+      active: !!target, status, last_error: error, arrival,
       map_width: grid && gridMap === s.map_id ? grid.width : 0, map_height: grid && gridMap === s.map_id ? grid.height : 0,
       graph_loaded: true, path_length: path.length, path: path.slice(0, 100),
       target_map_id: destination?.map ?? -1, target_x: destination?.x ?? -1, target_y: destination?.y ?? -1,
@@ -445,7 +621,10 @@ function createOfficialController(input, planner) {
       global_active: !!target && (route.length > 0 || !!rerouteRequest), route_length: route.length,
       reroute_request: rerouteRequest && target ? { id: rerouteRequest.id, map: rerouteRequest.map, target_map: target.map,
         reason: String(rerouteRequest.reason || '').slice(0, 300),
-        observed: [...observedExits].slice(0, 128), blocked: [...blockedExits].slice(0, 128) } : null,
+        observed: [...observedExits].slice(0, 128), blocked: [...blockedExits].slice(0, 128), effects: owned } : null,
+      preparation_request: pendingPreparation(),
+      effects: info ? Object.fromEntries([...info.effects].map(([item, effect]) => [item, { ...effect }])) : null,
+      owned_effects: owned,
       observed_departures: [...observedExits].slice(0, 32).map(([key, map]) => ({ departure: key, map })),
       unreachable_departures: [...blockedExits].slice(0, 32), reroutes, last_reroute_reason: rerouteReason,
       stationary_obstacles: stationary.size,
@@ -460,21 +639,31 @@ function createOfficialController(input, planner) {
     // paused or the game is busy, keys answer the game (for example to close a
     // dialogue) and navigation resumes afterwards, as in the local engine.
     interrupt() {
+      // The menu is open for a preparation, but the player chose to take over.
+      if (preparation) { ++interrupts; stop('stopped', 'Stopped by keyboard input'); return true; }
       const m = engineOf(input.read());
+      // The desktop prepares the Bike in the item menu before a route starts; a
+      // key there is the player taking over, and Navbot lets go.
+      if (!target && (m?.scene === 'Menu' || m?.scene === 'Item')) { ++interrupts; input.stop(); return true; }
       if (status.startsWith('paused_') || ['settling', 'landing'].includes(transition?.phase) || engineBusy(m)) return false;
       ++interrupts;
       if (target) stop('stopped', 'Stopped by keyboard input'); else input.stop();
       return true;
     },
     // Enabled by the desktop process, which answers reroute requests.
-    configure(options) { rerouteEnabled = options?.reroute === true; },
+    configure(options) {
+      rerouteEnabled = options?.reroute === true;
+      preparationConfig = preparationTable(options?.preparation);
+    },
     reroute(id, edges, message) {
       if (!target || rerouteRequest?.id !== id) return false;
       rerouteRequest = null;
       if (!Array.isArray(edges)) { fail(message || 'No route remains from this map.'); return true; }
-      route = edges.slice(); path = []; step = null; status = 'navigating';
+      // A reroute can follow an unexpected landing that never settled.
+      route = edges.slice(); path = []; step = null; status = 'navigating'; prepareCheck = true;
       return true;
     },
+    pendingPreparation,
     query(request) { return typeof input.query === 'function' ? input.query(request) : null; },
     execute(call) {
       const [name, args, edges] = call;
@@ -482,7 +671,24 @@ function createOfficialController(input, planner) {
       else if (name === '_Navbot_HoldKey') { stop(); input.hold(keys[args[0]], args[1]); }
       else if (name === '_Navbot_GoTo') start(input.read().map_id, ...args);
       else if (name === '_Navbot_GoToMap') start(...args, edges);
-      else throw new Error('Unsupported official-engine command');
+      // Desktop-only preparation calls; they never stop the current route.
+      else if (name === '_Navbot_PrepareAccept') {
+        if (!preparing(args[0]) || preparation.accepted !== null) throw new Error('No preparation is pending');
+        preparation.accepted = input.read().time_ms;
+      } else if (name === '_Navbot_PrepareKey') {
+        const [id, button, frames] = args;
+        if (!preparing(id) || preparation.accepted === null) throw new Error('No preparation is pending');
+        if (!Number.isInteger(button) || !keys[button] || !Number.isInteger(frames) || frames < 1 || frames > 30) throw new Error('Invalid preparation input');
+        input.hold(keys[button], frames);
+      } else if (name === '_Navbot_PrepareRelease') {
+        if (preparing(args[0])) input.stop();
+      } else if (name === '_Navbot_PrepareDone') {
+        const [id, outcome, message] = args;
+        if (preparing(id) && ['equipped', 'skipped', 'failed'].includes(outcome)) {
+          input.stop();
+          preparation.result = { outcome, message: String(message || '').slice(0, 300) };
+        }
+      } else throw new Error('Unsupported official-engine command');
     },
   };
 }

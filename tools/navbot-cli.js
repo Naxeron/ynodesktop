@@ -84,7 +84,8 @@ the destination after boot and succeeds once the server marks the expedition com
     const interrupt = () => controller.abort();
     process.on('SIGINT', interrupt);
     process.on('SIGTERM', interrupt);
-    const result = await runScenario(send, { target, expedition, confirmMs: confirm * 1000, timeoutMs: timeout * 1000, stallMs: stall * 1000, arrival, signal: controller.signal });
+    const result = await runScenario(send, { game: session.game, target, expedition, confirmMs: confirm * 1000, timeoutMs: timeout * 1000,
+      stallMs: stall * 1000, arrival, signal: controller.signal });
     process.removeListener('SIGINT', interrupt);
     process.removeListener('SIGTERM', interrupt);
     const output = path.join(session.runDir, `result-${Date.now()}.json`);

@@ -1,0 +1,353 @@
+{
+  "id": "2kki-jigsaw-route-v1",
+  "game": "2kki",
+  "reviewedAt": "2026-10-19",
+  "basis": "Current RPG Maker event pages and the RPG_RT.ldb effect common events decoded with liblcf; map 420 room-to-room movement checked against static passages with same-layer events as walls and the pipe events' jump move routes; the landing name checked with the Explorer endpoint the game page uses.",
+  "sources": [
+    {
+      "mapId": 10,
+      "url": "https://ynoproject.net/data/2kki/Map0010.lmu",
+      "sha256": "1d921b3fd95fa384ff4bc4a51ad425c9ebdb2dd5b95b3508e3b9948221412e0b",
+      "events": "Event 8 at (21,9): unconditional action door to Forest World map 71 (48,37)."
+    },
+    {
+      "mapId": 71,
+      "url": "https://ynoproject.net/data/2kki/Map0071.lmu",
+      "sha256": "88cfe76a2b2c57a4729649d311936bb766a5f353d15b3cf8b7ec06e34b0d1bea",
+      "events": "Event 44 at (17,6): unconditional same-layer touch exit to map 72 (4,5), reached from (17,7). Event 54 at (82,61) teleports to map 72 only on page 5 (switch 704, event touch)."
+    },
+    {
+      "mapId": 72,
+      "url": "https://ynoproject.net/data/2kki/Map0072.lmu",
+      "sha256": "30ef59bdd096e243cd522e5cccc0195c3cb2f469214fbb1528a547150ee837c7",
+      "events": "Event 29 at (95,9): below-layer touch exit to map 411 (1,9); ends early only while switch 23 (decision long-press) is on."
+    },
+    {
+      "mapId": 411,
+      "url": "https://ynoproject.net/data/2kki/Map0411.lmu",
+      "sha256": "f9a80d3e660492d2519d951d3ce60ad563586dd175d462f7033b107129d1ccf2",
+      "events": "Event 7 at (19,9): unconditional same-layer touch exit to map 420 (3,5)."
+    },
+    {
+      "mapId": 420,
+      "url": "https://ynoproject.net/data/2kki/Map0420.lmu",
+      "sha256": "3020b0a71d7806746847030b789a7a711024700e6fee6c19910ab3ee2023a8e2",
+      "events": "Rooms are joined only by touch pipes that jump the player with move routes, without teleports: event 118 (5,3) and 98 (50,35) call handler 98 (jump 5 forward), event 56 (2,37) calls handler 9 (facing left: jump 5 left). Event 2 at (50,30) toPF: below-layer action, no page conditions, ends unless switch 137 (Spring active) or 150 (Bat active) is on, then teleports through map 900 to map 413 (32,2); with Bat it then moves the player down one tile."
+    },
+    {
+      "mapId": 413,
+      "url": "https://ynoproject.net/data/2kki/Map0413.lmu",
+      "sha256": "7d0779e5f0076375cbf0a0513633eb23e4888e46e2a4246cc4075aa4bf593cfc",
+      "events": "Landing (32,2); Explorer getMapLocationNames(0413, prev 0420) returns exactly Jigsaw Puzzle World. Autostart event 4 moves a Spring arrival down to (32,12). Parallel event 17 disables the menu and event 12 sends Cancel presses to map 412, so no menu preparation runs here. With Bat (switch 150) the exits 2 (47,11) and 3 (3,11) switch to empty pages; Bat leaves through events 13 (47,12) and 15 (3,12) instead."
+    },
+    {
+      "mapId": 414,
+      "url": "https://ynoproject.net/data/2kki/Map0414.lmu",
+      "sha256": "d587eefa812820e4c3b406bbe7587f8a8a6c5c11ce7cedc39545da51cc77f03b",
+      "events": "Event 1 at (4,2): below-layer action whose only page requires switch 150 (Bat active); teleports to map 419 (3,12). Same-layer events 5, 6 and 9-28 wall it off unless Bat is active (their below-layer page 2), and event 3 page 2 disables the menu beyond that line."
+    },
+    {
+      "mapId": 21,
+      "url": "https://ynoproject.net/data/2kki/Map0021.lmu",
+      "sha256": "30694b78502b4fca577cc1200cb7f5555439324ce525f7aee6f4933dae9f54da",
+      "events": "Event 87 at (21,46) is an above-layer action page on an impassable tile, used only through CallEvent [1,87,1] from 39 pages that require switch 201 (A_襲われるフラグ)."
+    },
+    {
+      "mapId": 363,
+      "url": "https://ynoproject.net/data/2kki/Map0363.lmu",
+      "sha256": "70d34605670c23dca8af6abc512cd06ef8335f43ff547315b3da579a9d6e35c1",
+      "events": "Event 44 at (10,6) teleports to map 1061 only on page 6 (switches 147 Child active and 648)."
+    },
+    {
+      "mapId": 1067,
+      "url": "https://ynoproject.net/data/2kki/Map1067.lmu",
+      "sha256": "3c40277d9e65edd30dceba89864681207280b6b9179c63dd8a9314af9aac1c42",
+      "events": "Event 146 at (11,1): single page requires variable 3989 (map 419 visit counter) >= 1."
+    },
+    {
+      "mapId": 1612,
+      "url": "https://ynoproject.net/data/2kki/Map1612.lmu",
+      "sha256": "98f4f6eb94e432dbf4349e8bc8e42ea52b1793479d553f7de562b71c362258df",
+      "events": "Floating-panel exits to maps 1067, 1287 and 1290 require switch 3913 and variables 3568, 2464 or 2465 >= 1; events 56 and 188 to map 1066 require switches 47 and 127 (Spacesuit)."
+    },
+    {
+      "file": "RPG_RT.ldb",
+      "url": "https://ynoproject.net/data/2kki/RPG_RT.ldb",
+      "sha256": "d12927da8b70bddb08a82e8ac9fe02dd5a65c3b21bf6998ae4f202a50a1df71f",
+      "events": "Effect items 27 Spring, 36 Red Riding Hood, 38 Bat, 45 Bunny Ears and 12 Bike; their active switches 137, 148, 150, 157 and 132 (判 X, set after common event 99 clears 121..200). While awake, common event 16 swaps each item N for dummy item N+41. Variable 3989 counts visits to map 419."
+    }
+  ],
+  "limitations": [
+    "The 420 to 413 exit needs Spring or Bat; Navbot equips the first owned one from the item menu at the exit. Bat suits only routes that end in map 413, whose onward exits do nothing while Bat is active (continueEffects: Spring). Saves without either effect have no route.",
+    "Map 420's pipes move the player with jump move routes, not teleports; their reviewed same-map edges complete by position (teleport: false). Only the three pipes on the route to the exit are described.",
+    "Map 413's arrival event moves a Spring user from the reported landing (32,2) down to (32,12); with Bat the player lands one tile lower, at (32,3).",
+    "The Fairy Tale Woods exit to map 419 needs Bat both to pass the walls before it and to open it, while the menu is locked there; it is removed.",
+    "Removed exits can work on saves with the listed switches, visited-map variables or effects; Navbot does not use them.",
+    "Source hashes document the inspected map versions; future event changes require another review."
+  ],
+  "replaceExits": [
+    {
+      "mapId": 420,
+      "startX": 50,
+      "startY": 30,
+      "edges": [
+        {
+          "targetMapId": 413,
+          "startX": 50,
+          "startY": 30,
+          "targetX": 32,
+          "targetY": 2,
+          "approachX": 50,
+          "approachY": 30,
+          "direction": 0,
+          "action": true,
+          "transientMapIds": [
+            900
+          ],
+          "requiresEffects": [
+            27,
+            38
+          ],
+          "reviewed": true,
+          "continueEffects": [
+            27
+          ]
+        }
+      ]
+    },
+    {
+      "mapId": 420,
+      "startX": 5,
+      "startY": 3,
+      "edges": [
+        {
+          "targetMapId": 420,
+          "startX": 5,
+          "startY": 3,
+          "targetX": 5,
+          "targetY": 39,
+          "approachX": 5,
+          "approachY": 4,
+          "direction": 0,
+          "action": false,
+          "teleport": false,
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "mapId": 420,
+      "startX": 2,
+      "startY": 37,
+      "edges": [
+        {
+          "targetMapId": 420,
+          "startX": 2,
+          "startY": 37,
+          "targetX": 52,
+          "targetY": 37,
+          "approachX": 3,
+          "approachY": 37,
+          "direction": 3,
+          "action": false,
+          "teleport": false,
+          "reviewed": true
+        }
+      ]
+    },
+    {
+      "mapId": 420,
+      "startX": 50,
+      "startY": 35,
+      "edges": [
+        {
+          "targetMapId": 420,
+          "startX": 50,
+          "startY": 35,
+          "targetX": 50,
+          "targetY": 31,
+          "approachX": 50,
+          "approachY": 36,
+          "direction": 0,
+          "action": false,
+          "teleport": false,
+          "reviewed": true
+        }
+      ]
+    }
+  ],
+  "removeEdges": [
+    {
+      "mapId": 21,
+      "targetMapId": 363,
+      "startX": 21,
+      "startY": 46,
+      "targetX": 10,
+      "targetY": 5,
+      "reason": "CallEvent-only capture event; callers require switch 201"
+    },
+    {
+      "mapId": 363,
+      "targetMapId": 1061,
+      "startX": 10,
+      "startY": 6,
+      "targetX": 69,
+      "targetY": 48,
+      "reason": "Requires switches 147 (Child active) and 648"
+    },
+    {
+      "mapId": 1067,
+      "targetMapId": 419,
+      "startX": 11,
+      "startY": 1,
+      "targetX": 44,
+      "targetY": 2,
+      "reason": "Requires variable 3989 >= 1 (map 419 visited)"
+    },
+    {
+      "mapId": 71,
+      "targetMapId": 72,
+      "startX": 82,
+      "startY": 61,
+      "targetX": 70,
+      "targetY": 37,
+      "reason": "Only page 5 (switch 704 trap) teleports"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1067,
+      "startX": 86,
+      "startY": 54,
+      "targetX": 17,
+      "targetY": 13,
+      "reason": "Requires switch 3913 and variable 3568 >= 1"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1067,
+      "startX": 87,
+      "startY": 54,
+      "targetX": 17,
+      "targetY": 13,
+      "reason": "Requires switch 3913 and variable 3568 >= 1"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1067,
+      "startX": 88,
+      "startY": 54,
+      "targetX": 17,
+      "targetY": 13,
+      "reason": "Requires switch 3913 and variable 3568 >= 1"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1067,
+      "startX": 86,
+      "startY": 55,
+      "targetX": 17,
+      "targetY": 13,
+      "reason": "Requires switch 3913 and variable 3568 >= 1"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1067,
+      "startX": 87,
+      "startY": 55,
+      "targetX": 17,
+      "targetY": 13,
+      "reason": "Requires switch 3913 and variable 3568 >= 1"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1067,
+      "startX": 88,
+      "startY": 55,
+      "targetX": 17,
+      "targetY": 13,
+      "reason": "Requires switch 3913 and variable 3568 >= 1"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1066,
+      "startX": 8,
+      "startY": 5,
+      "targetX": 110,
+      "targetY": 43,
+      "reason": "Requires switches 47 and 127 (Spacesuit)"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1066,
+      "startX": 10,
+      "startY": 9,
+      "targetX": 92,
+      "targetY": 59,
+      "reason": "Requires switches 47 and 127 (Spacesuit)"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1287,
+      "startX": 90,
+      "startY": 50,
+      "targetX": 12,
+      "targetY": 6,
+      "reason": "Requires switch 3913 and variable 2464 >= 1"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1287,
+      "startX": 91,
+      "startY": 50,
+      "targetX": 12,
+      "targetY": 6,
+      "reason": "Requires switch 3913 and variable 2464 >= 1"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1287,
+      "startX": 92,
+      "startY": 50,
+      "targetX": 12,
+      "targetY": 6,
+      "reason": "Requires switch 3913 and variable 2464 >= 1"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1290,
+      "startX": 106,
+      "startY": 50,
+      "targetX": 10,
+      "targetY": 15,
+      "reason": "Requires switch 3913 and variable 2465 >= 1"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1290,
+      "startX": 107,
+      "startY": 50,
+      "targetX": 10,
+      "targetY": 15,
+      "reason": "Requires switch 3913 and variable 2465 >= 1"
+    },
+    {
+      "mapId": 1612,
+      "targetMapId": 1290,
+      "startX": 108,
+      "startY": 50,
+      "targetX": 10,
+      "targetY": 15,
+      "reason": "Requires switch 3913 and variable 2465 >= 1"
+    },
+    {
+      "mapId": 414,
+      "targetMapId": 419,
+      "startX": 4,
+      "startY": 2,
+      "targetX": 3,
+      "targetY": 12,
+      "reason": "Bat-only exit behind same-layer walls that only Bat passes; the menu is locked beyond them"
+    }
+  ],
+  "pruneDestinations": []
+}

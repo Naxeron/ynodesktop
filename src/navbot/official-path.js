@@ -112,7 +112,18 @@ function createPlanner() {
       || (edge.reviewed && edge.targetMapId === mapId && (!integer(edge.targetX) || !integer(edge.targetY)))
       || ('settleMs' in edge && (!integer(edge.settleMs) || edge.settleMs > 10000))
       || ('transientMapIds' in edge && (!Array.isArray(edge.transientMapIds) || edge.transientMapIds.length > 16
-        || edge.transientMapIds.some(id => !integer(id, 1))))) {
+        || edge.transientMapIds.some(id => !integer(id, 1))))
+      // Reviewed same-map moves that complete by position, without a teleport.
+      || ('teleport' in edge && (typeof edge.teleport !== 'boolean'
+        || (!edge.teleport && (edge.reviewed !== true || edge.targetMapId !== mapId || !integer(edge.approachX) || !integer(edge.direction)))))
+      // Any one of these effect items must be active; checked on a reviewed standing tile.
+      || ('requiresEffects' in edge && (!Array.isArray(edge.requiresEffects) || !edge.requiresEffects.length
+        || edge.requiresEffects.length > 8 || edge.requiresEffects.some(id => !integer(id, 1) || id > 9999)
+        || edge.reviewed !== true || typeof edge.action !== 'boolean' || !integer(edge.approachX)
+        || !integer(edge.direction) || edge.targetMapId === mapId))
+      // The subset of those effects with which a route may continue past the target map.
+      || ('continueEffects' in edge && (!Array.isArray(edge.requiresEffects) || !Array.isArray(edge.continueEffects)
+        || !edge.continueEffects.length || edge.continueEffects.some(id => !edge.requiresEffects.includes(id))))) {
       throw new Error('Invalid map graph edge');
     }
   }
@@ -186,7 +197,9 @@ function createPlanner() {
     return null;
   }
 
-  function usableExits(graph, mapId, { blockedExits = new Set(), observedExits = new Map(), preferredExits = new Map() } = {}) {
+  // ownedEffects: effect item IDs the save owns; without it, effect-gated exits are unusable.
+  function usableExits(graph, mapId, { blockedExits = new Set(), observedExits = new Map(), preferredExits = new Map(),
+    ownedEffects = null } = {}) {
     if (!graph || typeof graph !== 'object' || Array.isArray(graph) || !integer(mapId, 1)) throw new Error('Invalid map graph');
     const edges = Object.hasOwn(graph, mapId) ? graph[mapId] : [];
     if (!Array.isArray(edges)) throw new Error('Invalid map graph edges');
@@ -200,6 +213,7 @@ function createPlanner() {
     return edges.filter(edge => {
       const key = exitKey(mapId, edge);
       if (blockedExits.has(key)) return false;
+      if (Array.isArray(edge.requiresEffects) && !edge.requiresEffects.some(id => ownedEffects?.has(id))) return false;
       if (observedExits.has(key)) return observedExits.get(key) === edge.targetMapId;
       if (preferredExits.has(key)) return preferredExits.get(key) === edge.targetMapId;
       // shortcut: the graph lacks event conditions, replace ambiguity filtering when live page state is available.
@@ -215,6 +229,9 @@ function createPlanner() {
       const mapId = queue[cursor];
       for (const edge of usableExits(graph, mapId, options)) {
         if (parents.has(edge.targetMapId)) continue;
+        // Some effects open an exit only for routes that end in its target map.
+        if (edge.targetMapId !== end && Array.isArray(edge.continueEffects)
+          && !edge.continueEffects.some(id => options?.ownedEffects?.has(id))) continue;
         parents.set(edge.targetMapId, { ...edge, mapId });
         if (edge.targetMapId === end) {
           const result = [];

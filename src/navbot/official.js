@@ -6,13 +6,33 @@ const { createPlanner } = require('./official-path');
 const { createOfficialController } = require('./official-controller');
 const { createOfficialAssets } = require('./official-assets');
 const { createOfficialMemory } = require('./official-memory');
+const { effectTable, effectNames } = require('./effects');
+
+const validEffects = effects => Array.isArray(effects) && effects.length <= 64
+  && effects.every(id => Number.isInteger(id) && id >= 1 && id <= 9999);
 
 // Exclusions for one command; the 2kki dream bedroom door has one reviewed destination.
-function routeOptions(game, observed = [], blocked = []) {
+// ownedEffects are the save's effect items; effect-gated exits need one of them.
+function routeOptions(game, observed = [], blocked = [], ownedEffects = null) {
   return {
     preferredExits: game === '2kki' ? new Map([['4:15,7', 10]]) : new Map(),
     observedExits: new Map(observed), blockedExits: new Set(blocked),
+    ownedEffects: new Set(validEffects(ownedEffects) ? ownedEffects : []), effectsKnown: validEffects(ownedEffects),
   };
+}
+
+// Names the effects a route would need when the save's own effects leave none.
+function missingEffects(planner, graph, from, to, options, game) {
+  const table = effectTable(game);
+  if (!table) return null;
+  const owned = options.ownedEffects;
+  const edges = planner.findMapRoute(graph, from, to, { ...options, ownedEffects: new Set(table.effects.map(effect => effect.item)) });
+  const needs = edge => edge.targetMapId !== to && Array.isArray(edge.continueEffects) ? edge.continueEffects : edge.requiresEffects;
+  const gate = edges?.find(edge => Array.isArray(edge.requiresEffects) && !needs(edge).some(id => owned.has(id)));
+  if (!gate) return null;
+  const effects = `the ${effectNames(game, needs(gate)).join(' or ')} effect`;
+  return options.effectsKnown ? `This route needs ${effects}, which this save does not have.`
+    : `This route needs ${effects}, but the save's effects could not be read.`;
 }
 
 async function setupOfficialNavbot(win, options, record) {
@@ -23,7 +43,7 @@ async function setupOfficialNavbot(win, options, record) {
     if (location.origin !== 'https://ynoproject.net' || location.pathname.split('/')[1] !== ${JSON.stringify(options.game)}) return;
     (${installOfficialInput.toString()})(${JSON.stringify(options.game)}, (${createOfficialMemory.toString()})());
     window.__ynoOfficialController = (${createOfficialController.toString()})(window.__ynoOfficialInput, (${createPlanner.toString()})());
-    window.__ynoOfficialController.configure({ reroute: true });
+    window.__ynoOfficialController.configure({ reroute: true, preparation: ${JSON.stringify(effectTable(options.game))} });
     document.addEventListener('keydown', event => {
       if (event.isTrusted && event.target === document.getElementById('canvas')) window.__ynoOfficialController.interrupt();
     }, true);
@@ -64,15 +84,21 @@ async function setupOfficialNavbot(win, options, record) {
     const valid = Number.isSafeInteger(request?.id) && [request.map, request.target_map].every(id => Number.isInteger(id) && id >= 1 && id <= 9999)
       && Array.isArray(request.observed) && request.observed.length <= 128
       && request.observed.every(entry => Array.isArray(entry) && typeof entry[0] === 'string' && entry[0].length <= 32 && Number.isInteger(entry[1]))
-      && Array.isArray(request.blocked) && request.blocked.length <= 128 && request.blocked.every(key => typeof key === 'string' && key.length <= 32);
+      && Array.isArray(request.blocked) && request.blocked.length <= 128 && request.blocked.every(key => typeof key === 'string' && key.length <= 32)
+      && (request.effects === undefined || request.effects === null || validEffects(request.effects));
     if (!valid) return;
     let edges = null, message = null;
     try {
-      edges = planner.findMapRoute(graph, request.map, request.target_map, routeOptions(options.game, request.observed, request.blocked));
-      if (!edges) message = `No unambiguous route remains from map ${request.map} after excluding observed departures.`;
+      const routing = routeOptions(options.game, request.observed, request.blocked, request.effects);
+      edges = planner.findMapRoute(graph, request.map, request.target_map, routing);
+      // After exclusions, a missing effect is not the reason this route ended.
+      const fresh = !request.blocked.length && !request.observed.length;
+      if (!edges) message = (fresh && missingEffects(planner, graph, request.map, request.target_map, routing, options.game))
+        || `No unambiguous route remains from map ${request.map} after excluding observed departures.`;
     } catch (error) { message = error.message; }
     record('reroute', { id: request.id, from: request.map, to: request.target_map,
       ...(typeof request.reason === 'string' ? { reason: request.reason.slice(0, 300) } : {}),
+      ...(Array.isArray(request.effects) ? { effects: request.effects } : {}),
       route: edges ? edges.map(edge => edge.targetMapId) : null, message });
     // A failed reply is retried on the next refresh; the page times out on its own.
     await win.webContents.executeJavaScript(
@@ -118,8 +144,10 @@ async function setupOfficialNavbot(win, options, record) {
     if (options.game === '2kki' && [567, 568].includes(map) && state.map_id !== map) {
       throw new Error(`The Planetarium recipe requires verified official-engine state (${state.engine_state_error || 'unavailable'}).`);
     }
-    const edges = planner.findMapRoute(graph, state.map_id, map, routeOptions(options.game));
-    if (!edges) throw new Error('No unambiguous map route is available. Choose a nearer destination.');
+    const routing = routeOptions(options.game, [], [], state.owned_effects);
+    const edges = planner.findMapRoute(graph, state.map_id, map, routing);
+    if (!edges) throw new Error(missingEffects(planner, graph, state.map_id, map, routing, options.game)
+      || 'No unambiguous map route is available. Choose a nearer destination.');
     return [call[0], call[1], edges];
   }
   return { refresh, route, snapshot(result) {
@@ -128,4 +156,4 @@ async function setupOfficialNavbot(win, options, record) {
   } };
 }
 
-module.exports = { setupOfficialNavbot, routeOptions };
+module.exports = { setupOfficialNavbot, routeOptions, missingEffects };

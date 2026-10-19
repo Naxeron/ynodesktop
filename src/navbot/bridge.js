@@ -5,11 +5,12 @@ const os = require('node:os');
 const path = require('node:path');
 const { createCommandQueue } = require('./command-queue');
 const { runRoute, at, settled } = require('./route-runner');
-const { ensureBike } = require('./bike');
+const { ensureBike, ensureEffect, effectState } = require('./bike');
 const { currentExpedition, catalogMaps, chooseDestination, planetariumStarts } = require('./expedition');
 const { loadMapCatalog } = require('./map-catalog');
 const { createPlanner } = require('./official-path');
-const { routeOptions } = require('./official');
+const { routeOptions, missingEffects } = require('./official');
+const { effectTable } = require('./effects');
 
 const BUTTONS = Object.freeze({ up: 0, down: 1, left: 2, right: 3, decision: 4, cancel: 5, shift: 6 });
 function integer(value, name, min, max) {
@@ -111,15 +112,16 @@ function rendererScript(call, game, expiresAt = Date.now() + 4500, generation = 
     const state = official ? m.read() : JSON.parse(m.UTF8ToString(m._Navbot_GetState()));
     if (official && expectedGame === '2kki' && typeof m.query === 'function') {
       // The same switch, inventory and visited-map reads, from verified engine memory.
-      const q = m.query({ switches: [132, 14, 39], items: [12], skills: [[2, 512]] });
+      const q = m.query({ switches: [132, 14, 39, 4103], items: [12], skills: [[2, 512]] });
       if (q) {
         const skill = q.skills?.['2:512'];
         state.forest_pier_visited = typeof skill === 'boolean' ? skill : null;
         state.bike_item_index = Number.isInteger(q.items?.[12]) ? q.items[12] : -1;
         const readSwitch = id => q.switches?.[id] === 0 ? false : q.switches?.[id] === 1 ? true : null;
         state.bike_active = readSwitch(132);
-        const ladder = readSwitch(14), boat = readSwitch(39);
-        state.bike_blocked = ladder === null || boat === null ? null : ladder || boat;
+        // Ladder, effect actions prohibited (as the game's own effect change checks) and boat.
+        const blockers = [14, 39, 4103].map(readSwitch);
+        state.bike_blocked = blockers.includes(null) ? null : blockers.includes(true);
       }
     }
     if (!official && expectedGame === '2kki') {
@@ -130,15 +132,15 @@ function rendererScript(call, game, expiresAt = Date.now() + 4500, generation = 
         return value === 0 ? false : value === 1 ? true : null;
       };
       state.bike_active = readSwitch(132);
-      const ladder = readSwitch(14), boat = readSwitch(39);
-      state.bike_blocked = ladder === null || boat === null ? null : ladder || boat;
+      const blockers = [14, 39, 4103].map(readSwitch);
+      state.bike_blocked = blockers.includes(null) ? null : blockers.includes(true);
     }
     return { ready: true, page, exports, state, ...(call?.[0] === 'reconnect' ? { reconnectClicked } : {}) };
   })()`;
 }
 
 // Map IDs for an expedition title from the page's location cache and, for 2kki,
-// the Explorer lookup the page itself uses when nothing else knows the title.
+// the Explorer lookup the page itself uses.
 // Only validated map IDs leave the page. The Explorer wait stays short so the
 // reply fits inside the control socket's 10-second idle timeout.
 function expeditionLookupScript(title, game, explorerAllowed = true) {
@@ -154,7 +156,8 @@ function expeditionLookupScript(title, game, explorerAllowed = true) {
       }
     }
     let explorer = null, error = null;
-    if (explorerAllowed && !cached.size && game === '2kki' && typeof send2kkiApiRequest === 'function') {
+    // The cache holds only locations this page has met, so 2kki still asks the Explorer.
+    if (explorerAllowed && game === '2kki' && typeof send2kkiApiRequest === 'function') {
       try {
         const response = await new Promise((resolve, reject) => {
           const timeout = setTimeout(() => reject(new Error('Explorer lookup timed out')), 4000);
@@ -185,20 +188,59 @@ async function planExpedition({ read, lookup, game, catalog = loadMapCatalog(gam
       : 'No expeditions are listed for this game yet. Let the game page load them, then try again.');
   }
   const named = catalogMaps(catalog, entry.title);
-  const found = await lookup(entry.title, { explorer: !named.length });
-  const mapIds = [...named.map(item => item.mapId), ...(found?.cached || []), ...(found?.explorer || [])];
+  // The 2kki catalog covers only special cases, so the Explorer names its maps
+  // (Jigsaw Puzzle World's reviewed entrance lands in map 413, which it lacks).
+  const found = await lookup(entry.title, { explorer: game === '2kki' || !named.length });
+  // Cached and Explorer IDs only add maps: where the catalog names a map, its
+  // regions still decide which entrances the page names after the title.
+  const catalogIds = new Set(named.map(item => item.mapId));
+  const others = new Set([...(found?.cached || []), ...(found?.explorer || [])].filter(id => !catalogIds.has(id)));
+  const mapIds = [...catalogIds, ...others];
   if (!mapIds.length) throw new Error(`No map is known for ${entry.title}${found?.error ? ` (${found.error})` : ''}.`);
-  // Region restrictions apply only to maps that no unrestricted source names.
-  const others = new Set([...(found?.cached || []), ...(found?.explorer || [])]);
   const regions = new Map(named.filter(item => item.regions && !others.has(item.mapId)).map(item => [item.mapId, item.regions]));
-  const destination = chooseDestination({ graph: graph(), planner, routeOptions: () => routeOptions(game), game, title: entry.title, mapIds, state: s,
-    regions, locationNames: Array.isArray(current.page?.cachedLocationNames) ? current.page.cachedLocationNames : null });
+  // Effect-gated exits count only with an effect the save owns.
+  const choose = owned => chooseDestination({ graph: graph(), planner, routeOptions: () => routeOptions(game, [], [], owned), game,
+    title: entry.title, mapIds, state: s, regions,
+    locationNames: Array.isArray(current.page?.cachedLocationNames) ? current.page.cachedLocationNames : null });
+  let destination;
+  try {
+    destination = choose(s.owned_effects);
+  } catch (error) {
+    // Name the effect that would open a route, if any would.
+    const table = effectTable(game);
+    let needed = null;
+    if (table && error.message.startsWith('No known route reaches')) {
+      try { needed = choose(table.effects.map(effect => effect.item)); } catch { needed = null; }
+    }
+    const message = needed && missingEffects(planner, graph(), s.map_id, needed.map, routeOptions(game, [], [], s.owned_effects), game);
+    if (message) throw new Error(`${entry.title}: ${message}`);
+    throw error;
+  }
   return { current, expedition: { title: entry.title, type: entry.type || null, kind: entry.kind || null, ...destination } };
 }
 
+// Closes an item menu Navbot opened before another command takes over: drops a
+// key not yet pressed, lets the last one take effect (the engine opens a menu
+// a frame after reading its key), then presses Cancel until the map shows.
+// `owned` says whether the menu is still Navbot's to close.
+async function closeOwnMenu({ read, release, cancel, owned, now, sleep }) {
+  await release();
+  let s = await read();
+  const frame = s?.frame, waitUntil = now() + 1000;
+  while (owned(s) && (s.held_keys?.length || !(s.frame >= frame + 2)) && now() < waitUntil) {
+    await sleep(20);
+    s = await read();
+  }
+  for (let attempt = 0; attempt < 2 && owned(s) && ['Menu', 'Item'].includes(s.scene); ++attempt) {
+    const scene = s.scene, until = now() + 2000;
+    await cancel();
+    do { await sleep(50); s = await read(); } while (owned(s) && s.scene === scene && now() < until);
+  }
+}
+
 function createEngineSender(evaluate, { game, generation = () => 0, snapshot = result => result,
-  record = () => {}, prepare = ensureBike, now = Date.now } = {}) {
-  let preparations = 0;
+  record = () => {}, prepare = ensureBike, now = Date.now, sleep = ms => new Promise(resolve => setTimeout(resolve, ms)) } = {}) {
+  let preparations = 0, job = null;
   const direct = async (command, control) => {
     const call = engineCommand(command);
     if (call) record('command', { command });
@@ -227,18 +269,140 @@ function createEngineSender(evaluate, { game, generation = () => 0, snapshot = r
       return result;
     };
     ++preparations;
+    let opened = false;
+    const current = job = { abort: new AbortController(), releasing: false };
+    current.done = new Promise(resolve => { current.finish = resolve; });
     try {
       await guarded({ op: 'stop' });
       const initial = await guarded({ op: 'state' });
       interrupts = initial?.state?.user_interrupts;
-      await prepare(guarded, { game, snapshot: initial, target: [command.map ?? initial.state?.map_id, command.x, command.y] });
+      opened = true;
+      await prepare(guarded, { game, snapshot: initial, target: [command.map ?? initial.state?.map_id, command.x, command.y],
+        signal: current.abort.signal });
+      if (current.abort.signal.aborted) throw new Error('Bike preparation cancelled');
       return await guarded(command);
+    } catch (error) {
+      // A new destination takes over: first close the menu this preparation
+      // opened, unless the player took over or a Stop came first.
+      if (current.releasing && opened && acceptedGeneration === generation()) {
+        const page = input => direct(input, { ...control, generation: acceptedGeneration, expiresAt: now() + 4500 });
+        await closeOwnMenu({ now, sleep,
+          read: async () => (await evaluate(null, {}))?.state,
+          release: () => page({ op: 'stop' }),
+          cancel: () => page({ op: 'hold', key: 'cancel', frames: 1 }),
+          owned: s => !!s && acceptedGeneration === generation() && (!Number.isInteger(interrupts) || s.user_interrupts === interrupts),
+        }).catch(cause => record('preparation-error', { message: cause.message }));
+      }
+      throw error;
     } finally {
       --preparations;
+      if (job === current) job = null;
+      current.finish();
     }
   };
   Object.defineProperty(send, 'preparing', { get: () => preparations > 0 });
+  // Ends a running preparation after closing the menu it opened.
+  send.release = async () => {
+    const current = job;
+    if (!current) return;
+    current.releasing = true;
+    current.abort.abort();
+    await current.done;
+  };
   return send;
+}
+
+// Answers the official page controller's preparation requests by driving the
+// ordinary item menu while the controller keeps its route paused. This runs
+// outside the command queue: every page call carries the Stop generation from
+// when the request was accepted, and must still find the request pending, so
+// Stop, new movement and real keyboard input end it without another input.
+function createPreparationRunner(evaluate, { game, generation = () => 0, record = () => {}, prepare = ensureEffect, now = Date.now,
+  sleep = ms => new Promise(resolve => setTimeout(resolve, ms)) } = {}) {
+  const table = effectTable(game);
+  let running = null;
+  // The generation is the one read before the request was polled, so a command
+  // dispatched meanwhile cancels the run before its first input.
+  async function run(request, job, accepted) {
+    const { signal } = job.abort;
+    const started = now();
+    let interrupts, cancelled = null;
+    // After a cancellation the menu belongs to whoever took over: no further page calls.
+    const cancel = message => { cancelled = new Error(message); throw cancelled; };
+    const call = async (command, pending = true) => {
+      if (cancelled) throw cancelled;
+      if (signal.aborted || accepted !== generation()) cancel('Preparation cancelled');
+      const result = await evaluate(command, { generation: accepted, expiresAt: now() + 4500 });
+      if (signal.aborted || accepted !== generation()) cancel('Preparation cancelled');
+      const s = result?.state;
+      if (Number.isInteger(interrupts) && Number.isInteger(s?.user_interrupts) && s.user_interrupts !== interrupts) {
+        cancel('Preparation cancelled by keyboard input');
+      }
+      if (pending && s?.preparation_request?.id !== request.id) cancel('Preparation cancelled: the route no longer waits for it');
+      return result;
+    };
+    const send = command => {
+      if (command.op === 'state') return call(null);
+      if (command.op === 'hold') return call(['_Navbot_PrepareKey', [request.id, BUTTONS[command.key], command.frames ?? 1]]);
+      if (command.op === 'stop') return call(['_Navbot_PrepareRelease', [request.id]]);
+      throw new Error(`Unsupported preparation input: ${command.op}`);
+    };
+    // Before a new destination, the menu this run opened is closed again while
+    // the request is still pending; keyboard input leaves it to the player.
+    const page = command => evaluate(command, { generation: accepted, expiresAt: now() + 4500 });
+    const backOut = () => closeOwnMenu({ now, sleep,
+      read: async () => (await evaluate(null, {}))?.state,
+      release: () => page(['_Navbot_PrepareRelease', [request.id]]),
+      cancel: () => page(['_Navbot_PrepareKey', [request.id, BUTTONS.cancel, 1]]),
+      owned: s => s?.preparation_request?.id === request.id && (!Number.isInteger(interrupts) || s.user_interrupts === interrupts),
+    });
+    const details = { id: request.id, kind: request.kind, item: request.item_id };
+    let outcome, message = '';
+    try {
+      const first = await call(['_Navbot_PrepareAccept', [request.id]]);
+      interrupts = first.state?.user_interrupts;
+      if (first.state?.preparation_request?.accepted !== true) throw new Error('Preparation was not accepted');
+      const result = await prepare(send, { game, item: request.item_id, snapshot: first, preparing: request.id, signal });
+      outcome = effectState(result?.state, request.item_id)?.active === true ? 'equipped' : 'skipped';
+    } catch (error) {
+      if (cancelled || signal.aborted || accepted !== generation()) {
+        if (job.releasing && interrupts !== undefined && accepted === generation()) {
+          await backOut().catch(cause => record('preparation-error', { id: request.id, message: cause.message }));
+        }
+        record('preparation', { ...details, outcome: 'cancelled', message: error.message, ms: now() - started });
+        return;
+      }
+      outcome = 'failed';
+      message = error.message;
+    }
+    record('preparation', { ...details, outcome, message, ms: now() - started });
+    await call(['_Navbot_PrepareDone', [request.id, outcome, message]], false)
+      .catch(error => record('preparation-error', { id: request.id, message: error.message }));
+  }
+  return {
+    // One request at a time; the controller publishes one at a time as well.
+    offer(request, polledGeneration = generation()) {
+      if (!table || running || !request || request.accepted !== false || !Number.isSafeInteger(request.id)
+        || !['bike', 'effect'].includes(request.kind) || !table.effects.some(effect => effect.item === request.item_id)) return null;
+      const job = { id: request.id, abort: new AbortController(), releasing: false };
+      running = job;
+      job.done = run(request, job, polledGeneration)
+        .catch(error => record('preparation-error', { id: request.id, message: error.message }))
+        .finally(() => { if (running === job) running = null; });
+      return job.done;
+    },
+    // Stop and page changes end the run at once.
+    cancel() { running?.abort.abort(); },
+    // A new destination ends the run after closing the menu it opened.
+    async release() {
+      const job = running;
+      if (!job) return;
+      job.releasing = true;
+      job.abort.abort();
+      await job.done;
+    },
+    get active() { return !!running; },
+  };
 }
 
 function createRouteController(send, { game, run = runRoute, load = name => require(`./routes/${name}.json`), record = () => {}, now = Date.now, sleep = ms => new Promise(resolve => setTimeout(resolve, ms)) } = {}) {
@@ -392,6 +556,21 @@ async function startBridge(win, options, quit) {
   // verified; ensureBike and the route controller check the reported fields.
   const sendEngine = createEngineSender(evaluate, { game: options.game, generation: () => rendererGeneration,
     record, snapshot: result => routes.snapshot(result) });
+  // The page controller asks for the Bike after arriving in a map and for an
+  // effect before an effect-gated exit; a short poll keeps that pause brief.
+  const preparations = official ? createPreparationRunner(evaluate, { game: options.game, generation: () => rendererGeneration, record }) : null;
+  let polling = false, preparationTimer = null;
+  const pollPreparations = async () => {
+    if (closed || polling || preparations.active || win.isDestroyed()) return;
+    polling = true;
+    try {
+      const polledGeneration = rendererGeneration;
+      const request = await win.webContents.executeJavaScript('window.__ynoOfficialController?.pendingPreparation?.() ?? null');
+      if (request && !closed) void preparations.offer(request, polledGeneration);
+    } catch (_) {
+      // The next poll retries; the controller continues on its own after a few seconds.
+    } finally { polling = false; }
+  };
   const routes = createRouteController(sendEngine, { game: options.game, record });
   let routeGraph;
   const graph = () => {
@@ -419,10 +598,31 @@ async function startBridge(win, options, quit) {
     return { ...current, expedition };
   }
   const interruptsRoute = command => ['stop', 'goto', 'goto-map', 'hold', 'reload', 'close'].includes(command?.op);
+  // Stops that schedule() queues ahead of a new destination (never client input),
+  // and the time spent closing menus on a destination's behalf.
+  const takeovers = new WeakMap(), delays = new WeakMap();
   async function dispatch(command, control) {
     if (!command || typeof command !== 'object' || Array.isArray(command)) throw new Error('Expected a command object');
     if (interruptsRoute(command)) {
+      // A new destination, or the Stop queued ahead of it, first closes the item
+      // menu of a running preparation; otherwise the new route would wait behind
+      // it. A Stop sent meanwhile still wins.
+      if (['goto', 'goto-map'].includes(command.op) || takeovers.has(command)) {
+        const before = rendererGeneration, started = Date.now();
+        await preparations?.release();
+        await sendEngine.release();
+        // A Stop always goes ahead; only a destination yields to a newer Stop.
+        if (rendererGeneration !== before && command.op !== 'stop') throw new Error('Command cancelled by Stop');
+        // Closing the menu is Navbot's own delay, not the destination's age, within
+        // the time a back-out normally takes.
+        const waited = Math.min(Date.now() - started, 3000);
+        const destination = command.op === 'stop' ? takeovers.get(command) : command;
+        delays.set(destination, (delays.get(destination) || 0) + waited);
+        if (command.op !== 'stop' && control?.disconnected?.()) throw new Error('Command client disconnected');
+      }
+      if (control?.expiresAt !== undefined && delays.has(command)) control = { ...control, expiresAt: control.expiresAt + delays.get(command) };
       control = { ...control, generation: ++rendererGeneration };
+      preparations?.cancel();
       if (routes.cancel() && command.op !== 'stop') await evaluate(['_Navbot_Stop', []], control);
     }
     // Manual reconnects share Stop's renderer guard without cancelling travel.
@@ -441,16 +641,26 @@ async function startBridge(win, options, quit) {
       return { closing: true };
     }
     engineCommand(command);
-    if (routes.accepts(command)) return routes.start(command, control);
+    if (routes.accepts(command)) {
+      // The recipe reads state first; end the old route now, so no stale
+      // preparation request can be taken under this command's generation.
+      await evaluate(['_Navbot_Stop', []], control);
+      return routes.start(command, control);
+    }
     return routes.snapshot(await sendEngine(command, control));
   }
-  const queue = createCommandQueue(dispatch);
+  const queue = createCommandQueue(dispatch, { extension: command => delays.get(command) || 0 });
   const schedule = (command, control) => {
     if (command?.op === 'expedition') return expedition();
     if (interruptsRoute(command)) {
       if (!['reload', 'close'].includes(command.op)) engineCommand(command);
       const interrupted = routes.cancel() || sendEngine.preparing;
-      if (interrupted && command.op !== 'stop') void queue({ op: 'stop' }, control).catch(error => record('error', { message: error.message }));
+      if (interrupted && command.op !== 'stop') {
+        const stop = { op: 'stop' };
+        // Only this Stop, ahead of a new destination, closes a preparation's menu.
+        if (['goto', 'goto-map'].includes(command.op)) takeovers.set(stop, command);
+        void queue(stop, control).catch(error => record('error', { message: error.message }));
+      }
     }
     return queue(command, control);
   };
@@ -487,13 +697,24 @@ async function startBridge(win, options, quit) {
     server.once('error', reject);
     server.listen(socketPath, resolve);
   });
-  fs.chmodSync(socketPath, 0o600);
   const session = { version: 1, pid: process.pid, game: options.game, engine, socketPath, runDir: options.runDir, profileDir: options.profileDir, engineDir: official ? null : options.engineDir, graphPath: options.graphPath, sourceGraphPath: options.sourceGraphPath, graphProvenancePath: options.graphProvenancePath, startedAt: new Date().toISOString() };
-  fs.writeFileSync(path.join(options.runDir, 'session.json'), JSON.stringify(session, null, 2), { mode: 0o600 });
-  const latest = path.resolve(__dirname, '../../.navbot/latest.json');
-  fs.mkdirSync(path.dirname(latest), { recursive: true, mode: 0o700 });
-  fs.writeFileSync(latest, JSON.stringify(session, null, 2), { mode: 0o600 });
+  try {
+    fs.chmodSync(socketPath, 0o600);
+    fs.writeFileSync(path.join(options.runDir, 'session.json'), JSON.stringify(session, null, 2), { mode: 0o600 });
+    const latest = options.latestPath || path.resolve(__dirname, '../../.navbot/latest.json');
+    fs.mkdirSync(path.dirname(latest), { recursive: true, mode: 0o700 });
+    fs.writeFileSync(latest, JSON.stringify(session, null, 2), { mode: 0o600 });
+  } catch (error) {
+    // A session that cannot be announced closes its control socket again.
+    closed = true;
+    server.close();
+    fs.rmSync(socketPath, { force: true });
+    fs.rmSync(socketDir, { recursive: true, force: true });
+    throw error;
+  }
   record('session', session);
+  // Started once the session exists, so a failed setup leaves no timer behind.
+  if (preparations) preparationTimer = setInterval(pollPreparations, 250);
   console.log(`[Navbot Debug] Control ready: ${socketPath}`);
   win.webContents.on('console-message', (event, ...args) => {
     const details = event.message !== undefined ? event : (typeof args[0] === 'object' ? args[0] : { level: args[0], message: args[1] });
@@ -505,7 +726,7 @@ async function startBridge(win, options, quit) {
   });
   win.webContents.on('render-process-gone', (_event, details) => record('renderer-gone', details));
   win.webContents.on('did-start-navigation', (_event, _url, inPlace, mainFrame) => {
-    if (mainFrame && !inPlace) routes.cancel();
+    if (mainFrame && !inPlace) { routes.cancel(); preparations?.cancel(); }
   });
   let sampling = false;
   const timer = setInterval(async () => {
@@ -522,7 +743,9 @@ async function startBridge(win, options, quit) {
     if (closed) return;
     closed = true;
     routes.cancel();
+    preparations?.cancel();
     clearInterval(timer);
+    clearInterval(preparationTimer);
     server.close();
     fs.rmSync(socketPath, { force: true });
     fs.rmdirSync(socketDir);
@@ -540,4 +763,4 @@ async function startBridge(win, options, quit) {
   };
 }
 
-module.exports = { startBridge, engineCommand, rendererScript, createEngineSender, createRouteController, planExpedition, expeditionLookupScript, BUTTONS };
+module.exports = { startBridge, engineCommand, rendererScript, createEngineSender, createPreparationRunner, createRouteController, planExpedition, expeditionLookupScript, BUTTONS };

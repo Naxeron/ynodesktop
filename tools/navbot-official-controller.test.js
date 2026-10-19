@@ -1082,7 +1082,7 @@ test('an unexpected landing on another map publishes a reroute request and a fre
   assert.equal(p.state.held_key, null);
   assert.match(state.last_error, /^$/);
   assert.deepEqual(plain(state.reroute_request),
-    { id: 1, map: 12, target_map: 11, reason: 'Unexpected map 12 or landing (3,1) while taking an exit.', observed: [['10:1,0', 12]], blocked: [] });
+    { id: 1, map: 12, target_map: 11, reason: 'Unexpected map 12 or landing (3,1) while taking an exit.', observed: [['10:1,0', 12]], blocked: [], effects: null });
   assert.equal(state.last_reroute_reason, 'Unexpected map 12 or landing (3,1) while taking an exit.');
   assert.deepEqual(plain(state.observed_departures), [{ departure: '10:1,0', map: 12 }]);
   const commands = p.commands.length;
@@ -1277,7 +1277,7 @@ test('an unreachable or unresolvable departure is blocked and requests a reroute
       }
       assert.equal(state.status, 'rerouting', key);
       assert.equal(state.active, true);
-      assert.deepEqual(plain(state.reroute_request), { id: 1, map: 10, target_map: 11, reason: state.last_reroute_reason, observed: [], blocked: [key] });
+      assert.deepEqual(plain(state.reroute_request), { id: 1, map: 10, target_map: 11, reason: state.last_reroute_reason, observed: [], blocked: [key], effects: null });
       assert.match(state.last_reroute_reason, reason);
       assert.deepEqual(plain(state.unreachable_departures), [key]);
     }
@@ -1371,7 +1371,7 @@ test('read reports capabilities, memory-derived fields and held keys as button/f
   let state = none.controller.read();
   assert.deepEqual(plain(state.held_keys), [{ button: 4, frames: 10 }]);
   assert.deepEqual(plain(state.capabilities), { scene: false, events: false, bike: false, recipes: false,
-    memory: false, logical_frames: false, live_collision: false });
+    memory: false, logical_frames: false, live_collision: false, preparation: false });
   for (const key of ['scene', 'direction', 'menu_allowed', 'vehicle_type', 'selected_item_id', 'move_speed', 'player_paused',
     'title_index', 'engine_state_error', 'live_collision_mismatch', 'bike_item_index', 'bike_active', 'forest_pier_visited']) {
     assert.equal(state[key], null, key);
@@ -1388,7 +1388,7 @@ test('read reports capabilities, memory-derived fields and held keys as button/f
   p.tick();
   state = p.controller.read();
   assert.deepEqual(plain(state.capabilities), { scene: true, events: true, bike: true, recipes: true,
-    memory: true, logical_frames: true, live_collision: true });
+    memory: true, logical_frames: true, live_collision: true, preparation: false });
   assert.deepEqual(plain(state.held_keys), [{ button: 3, frames: 120 }]);
   assert.equal(state.scene, 'Map');
   assert.equal(state.direction, 1);
@@ -1615,4 +1615,517 @@ test('a character on the goal tile is approached without waiting for it to move'
   const state = p.controller.read();
   assert.equal(state.status, 'interaction_ready');
   assert.deepEqual([p.state.player_x, p.state.player_y], [3, 0]);
+});
+
+// A save's inventory and switches for effect preparations: missing items are
+// not held (-1), missing switches are off.
+const { effectTable } = require('../src/navbot/effects');
+function inventory(items = {}, switches = {}) {
+  const save = { items: { ...items }, switches: { ...switches } };
+  save.query = request => ({ items: Object.fromEntries((request.items || []).map(id => [id, save.items[id] ?? -1])),
+    switches: Object.fromEntries((request.switches || []).map(id => [id, save.switches[id] ?? 0])), skills: {} });
+  return save;
+}
+const touchExit = { mapId: 10, startX: 2, startY: 0, targetMapId: 11, targetX: 0, targetY: 0, action: false };
+// Walks a two-map route from the bedroom-like map 10 into map 11, where the Bike is owned.
+function arrive(save, { configure = true, memory = {} } = {}) {
+  const p = fixture({ memory, query: save.query });
+  if (configure) p.controller.configure({ reroute: true, preparation: effectTable('2kki') });
+  p.controller.start(11, 4, 2, [touchExit]);
+  p.tick(100);
+  assert.equal(p.controller.read().status, 'waiting_for_teleport');
+  save.items[12] = 0;
+  p.teleport(11, 0, 0);
+  p.install([], []);
+  p.tick(40);
+  return p;
+}
+
+test('the Bike is requested after the first settled arrival where it is owned, and the route resumes after equipping', () => {
+  // As in 2kki's waking world, only the dummy Bike (53) is held at the start.
+  const save = inventory({ 53: 0 });
+  const p = arrive(save);
+  let state = p.controller.read();
+  assert.equal(state.status, 'preparing');
+  assert.equal(state.active, true);
+  assert.deepEqual(plain(state.preparation_request), { id: 1, kind: 'bike', item_id: 12, map: 11, accepted: false, reason: 'Equipping the Bike' });
+  assert.deepEqual(plain(p.controller.pendingPreparation()), plain(state.preparation_request));
+  assert.equal(p.state.held_key, null);
+  assert.deepEqual(plain(state.effects[12]), { index: 0, owned: true, active: false });
+  assert.deepEqual(plain(state.owned_effects), [12]);
+  // The route waits without input; its deadlines pause meanwhile.
+  const commands = p.commands.length;
+  p.tick(100);
+  assert.equal(p.commands.length, commands);
+  p.controller.execute(['_Navbot_PrepareAccept', [1]]);
+  assert.throws(() => p.controller.execute(['_Navbot_PrepareAccept', [1]]), /No preparation is pending/);
+  assert.equal(p.controller.read().preparation_request.accepted, true);
+  // The desktop drives the menu for up to 25 seconds; the controller leaves input alone meanwhile.
+  p.tick(24, 1000);
+  assert.equal(p.controller.read().status, 'preparing');
+  p.controller.execute(['_Navbot_PrepareKey', [1, 5, 1]]);
+  assert.equal(p.state.held_key, 'cancel');
+  state = p.controller.read();
+  assert.equal(state.active, true, 'menu input never stops the route');
+  assert.equal(state.target_map_id, 11);
+  p.controller.execute(['_Navbot_PrepareRelease', [1]]);
+  assert.equal(p.state.held_key, null);
+  save.switches[132] = 1;
+  p.controller.execute(['_Navbot_PrepareDone', [1, 'equipped', '']]);
+  p.tick(200);
+  state = p.controller.read();
+  assert.equal(state.status, 'arrived');
+  assert.deepEqual([p.state.player_x, p.state.player_y], [4, 2]);
+  assert.equal(state.preparation_request, null);
+});
+
+test('no Bike request without an owned, inactive and unblocked Bike, a menu, or a multi-map command', () => {
+  for (const [label, save, memory, configure] of [
+    ['unowned', inventory({ 53: 0 }), {}, true],
+    ['active', inventory({}, { 132: 1 }), {}, true],
+    ['ladder', inventory({}, { 14: 1 }), {}, true],
+    ['effect actions prohibited', inventory({}, { 39: 1 }), {}, true],
+    ['boat', inventory({}, { 4103: 1 }), {}, true],
+    ['menu disabled', inventory(), { menu_allowed: false }, true],
+    ['vehicle', inventory(), { vehicle_type: 1 }, true],
+    ['not configured', inventory(), {}, false],
+  ]) {
+    const p = fixture({ memory, query: save.query });
+    if (configure) p.controller.configure({ reroute: true, preparation: effectTable('2kki') });
+    p.controller.start(11, 4, 2, [touchExit]);
+    p.tick(100);
+    if (label !== 'unowned') save.items[12] = save.items[12] ?? 0;
+    p.teleport(11, 0, 0);
+    p.install([], []);
+    p.tick(200);
+    assert.equal(p.controller.read().preparation_request, null, label);
+    assert.equal(p.controller.read().status, 'arrived', label);
+  }
+  // Walking within one map never asks.
+  const local = fixture({ memory: {}, query: inventory({ 12: 0 }).query });
+  local.controller.configure({ reroute: true, preparation: effectTable('2kki') });
+  local.controller.start(10, 4, 2);
+  local.tick(200);
+  assert.equal(local.controller.read().status, 'arrived');
+  assert.equal(local.controller.read().preparation_request, null);
+});
+
+test('an accepted preparation that never answers times out, releases keys and resumes', () => {
+  const p = arrive(inventory({ 53: 0 }));
+  p.controller.execute(['_Navbot_PrepareAccept', [1]]);
+  p.controller.execute(['_Navbot_PrepareKey', [1, 5, 30]]);
+  p.tick(26, 1000);
+  assert.equal(p.controller.read().preparation_request, null);
+  p.tick(200);
+  assert.equal(p.controller.read().status, 'arrived');
+});
+
+test('an unanswered or failed Bike request resumes the route and is not repeated in that map', () => {
+  const save = inventory({ 53: 0 });
+  const p = arrive(save);
+  assert.equal(p.controller.read().status, 'preparing');
+  p.tick(260);
+  let state = p.controller.read();
+  assert.notEqual(state.status, 'preparing', 'four seconds without an answer');
+  assert.equal(state.preparation_request, null);
+  p.tick(200);
+  assert.equal(p.controller.read().status, 'arrived');
+
+  // An event that removes the Bike is followed by one more request, then none.
+  const q = arrive(inventory({ 53: 0 }));
+  q.controller.execute(['_Navbot_PrepareAccept', [1]]);
+  q.controller.execute(['_Navbot_PrepareDone', [1, 'failed', 'menu closed']]);
+  q.tick();
+  assert.equal(q.controller.read().status, 'navigating');
+  q.state.memory.event_running = true;
+  q.tick(5);
+  q.state.memory.event_running = false;
+  q.tick(60);
+  assert.equal(q.controller.read().preparation_request, null, 'a failed map is not asked again');
+});
+
+test('Stop, new commands, keyboard input and teleports end a preparation; stale calls are ignored', () => {
+  for (const end of ['stop', 'hold', 'start', 'interrupt', 'teleport']) {
+    const p = arrive(inventory({ 53: 0 }));
+    p.controller.execute(['_Navbot_PrepareAccept', [1]]);
+    p.controller.execute(['_Navbot_PrepareKey', [1, 4, 1]]);
+    if (end === 'stop') p.controller.execute(['_Navbot_Stop', []]);
+    if (end === 'hold') p.controller.execute(['_Navbot_HoldKey', [0, 1]]);
+    if (end === 'start') p.controller.execute(['_Navbot_GoTo', [3, 2]]);
+    if (end === 'interrupt') {
+      // The menu is open, which ordinarily lets keys answer the game instead.
+      p.state.memory.scene = 'Item';
+      assert.equal(p.controller.interrupt(), true);
+      assert.equal(p.controller.read().user_interrupts, 1);
+      assert.equal(p.controller.read().last_error, 'Stopped by keyboard input');
+    }
+    if (end === 'teleport') { p.teleport(12, 0, 0); p.tick(); }
+    const state = p.controller.read();
+    assert.equal(state.preparation_request, null, end);
+    assert.notEqual(state.status, 'preparing', end);
+    assert.throws(() => p.controller.execute(['_Navbot_PrepareKey', [1, 5, 1]]), /No preparation is pending/, end);
+    p.controller.execute(['_Navbot_PrepareDone', [1, 'equipped', '']]);
+    assert.notEqual(p.controller.read().status, 'preparing', end);
+  }
+  const p = arrive(inventory({ 53: 0 }));
+  assert.throws(() => p.controller.execute(['_Navbot_PrepareKey', [1, 5, 1]]), /No preparation is pending/, 'keys need acceptance');
+  p.controller.execute(['_Navbot_PrepareAccept', [1]]);
+  for (const args of [[1, 9, 1], [1, 5, 0], [1, 5, 31], [1, '5', 1]]) {
+    assert.throws(() => p.controller.execute(['_Navbot_PrepareKey', args]), /Invalid preparation input/);
+  }
+  assert.throws(() => p.controller.execute(['_Navbot_PrepareAccept', [2]]), /No preparation is pending/);
+  p.controller.execute(['_Navbot_PrepareDone', [1, 'maybe', '']]);
+  assert.equal(p.controller.read().status, 'preparing', 'unknown outcomes are ignored');
+});
+
+// An on-tile action exit that needs Spring (27) or Bat (38), as map 420's Jigsaw entrance.
+const gatedExit = { mapId: 10, startX: 2, startY: 0, approachX: 2, approachY: 0, direction: 1, action: true, reviewed: true,
+  requiresEffects: [27, 38], targetMapId: 11, targetX: 0, targetY: 0 };
+
+test('an effect-gated exit equips the first owned effect from the menu before departing', () => {
+  // Spring is not owned; Bat is the fourth usable item.
+  const save = inventory({ 12: 0, 38: 3 }, { 132: 1 });
+  const p = fixture({ memory: {}, query: save.query });
+  p.controller.configure({ reroute: true, preparation: effectTable('2kki') });
+  p.controller.start(11, 0, 0, [gatedExit]);
+  p.tick(80);
+  let state = p.controller.read();
+  assert.deepEqual([p.state.player_x, p.state.player_y], [2, 0]);
+  assert.equal(state.status, 'preparing');
+  assert.deepEqual(plain(state.preparation_request), { id: 1, kind: 'effect', item_id: 38, map: 10, accepted: false,
+    reason: 'Equipping Bat for the exit at (2,0)' });
+  assert.ok(p.commands.every(command => command.key !== 'decision'), 'no exit activation before the effect');
+  assert.deepEqual(plain(state.owned_effects), [12, 38]);
+  p.controller.execute(['_Navbot_PrepareAccept', [1]]);
+  save.switches[132] = 0;
+  save.switches[150] = 1;
+  p.controller.execute(['_Navbot_PrepareDone', [1, 'equipped', '']]);
+  p.tick(40);
+  state = p.controller.read();
+  assert.equal(state.status, 'waiting_for_teleport');
+  assert.equal(p.commands.at(-1).key, 'decision');
+  assert.ok(p.commands.at(-1).loops < 24, 'a short press never triggers Bat\'s long-press warp');
+  assert.equal(state.preparation_request, null);
+});
+
+test('an active effect departs at once, while an unowned or failed one excludes the exit', () => {
+  const active = fixture({ memory: {}, query: inventory({ 27: 1 }, { 137: 1 }).query });
+  active.controller.configure({ reroute: true, preparation: effectTable('2kki') });
+  active.controller.start(11, 0, 0, [gatedExit]);
+  active.tick(80);
+  assert.equal(active.controller.read().status, 'waiting_for_teleport');
+  assert.equal(active.commands.at(-1).key, 'decision');
+
+  for (const outcome of ['unowned', 'failed', 'unconfigured']) {
+    // Owned while awake only as a dummy: not usable here.
+    const save = inventory(outcome === 'unowned' ? { 79: 2 } : { 38: 2 });
+    const p = fixture({ memory: {}, query: save.query });
+    p.controller.configure({ reroute: true, ...(outcome === 'unconfigured' ? {} : { preparation: effectTable('2kki') }) });
+    p.controller.start(11, 0, 0, [gatedExit]);
+    p.tick(80);
+    if (outcome === 'failed') {
+      p.controller.execute(['_Navbot_PrepareAccept', [1]]);
+      p.controller.execute(['_Navbot_PrepareDone', [1, 'failed', 'selected item is not item 38']]);
+      p.tick();
+    }
+    const state = p.controller.read();
+    assert.equal(state.status, 'rerouting', outcome);
+    assert.deepEqual(plain(state.reroute_request.blocked), ['10:2,0'], outcome);
+    assert.deepEqual(plain(state.reroute_request.effects), outcome === 'unconfigured' ? null : [38], outcome);
+    assert.match(state.last_reroute_reason, outcome === 'failed' ? /Equipping Bat for the exit at \(2,0\) failed: selected item/
+      : outcome === 'unowned' ? /needs the Spring or Bat effect, which cannot be equipped here/ : /effect state is unavailable/, outcome);
+    assert.ok(p.commands.every(command => command.key !== 'decision'), outcome);
+  }
+});
+
+test('configure accepts only a well-formed effect table', () => {
+  const valid = effectTable('2kki');
+  for (const preparation of [null, {}, { effects: [] }, { ...valid, bike: { item: 99, blocked: [] } },
+    { ...valid, bike: { item: 12, blocked: Array(9).fill(14) } },
+    { ...valid, effects: [{ item: 12, active: 132, dummy: 53, name: 7 }] },
+    { ...valid, effects: [{ item: 0, active: 132, dummy: 53, name: 'Bike' }] }]) {
+    const p = fixture({ memory: {}, query: inventory().query });
+    p.controller.configure({ reroute: true, preparation });
+    assert.equal(p.controller.read().capabilities.preparation, false, JSON.stringify(preparation));
+    assert.equal(p.controller.read().effects, null);
+  }
+  const p = fixture({ memory: {}, query: inventory({ 68: 4, 12: 0 }).query });
+  p.controller.configure({ reroute: true, preparation: valid });
+  assert.equal(p.controller.read().capabilities.preparation, true);
+  // A dummy item (Spring 27 + 41) counts as owned while awake, but has no menu index.
+  assert.deepEqual(plain(p.controller.read().owned_effects), [12, 27]);
+  assert.equal(p.controller.read().effects[27].index, -1);
+  // Without verified memory reads, effects are unknown.
+  const unverified = fixture({ memory: { available: false }, query: () => null });
+  unverified.controller.configure({ reroute: true, preparation: valid });
+  assert.equal(unverified.controller.read().owned_effects, null);
+});
+
+// Map 420's pipes: a wall column separates two regions; a reviewed same-map move
+// from (1,0) facing right lands on (3,0) without a teleport.
+function pipeFixture({ landing = [3, 0], reroute = false } = {}) {
+  const navigation = map(5, 3);
+  for (const y of [0, 1, 2]) navigation.passages[y * 5 + 2] = 0;
+  const pipe = { mapId: 10, startX: 2, startY: 0, approachX: 1, approachY: 0, direction: 1, action: false, teleport: false,
+    reviewed: true, targetMapId: 10, targetX: 3, targetY: 0 };
+  let jumps = 0;
+  const p = fixture({ memory: {}, navigation, transfers: [pipe], canMove: (_s, _key, nx) => nx !== 2,
+    onHold: (key, s) => { if (key === 'right' && s.player_x === 1 && s.player_y === 0) ++jumps; } });
+  if (reroute) p.controller.configure({ reroute: true });
+  return { ...p, jumps: () => jumps, jump() {
+    // The touch event runs a jump move route, then ends.
+    p.state.memory.event_running = true;
+    p.tick(10);
+    Object.assign(p.state, { player_x: landing[0], player_y: landing[1], position_changed_ms: p.state.time_ms, position_changed_frame: p.state.frame });
+    p.state.memory.event_running = false;
+  } };
+}
+
+test('a reviewed move without a teleport completes on its landing tile and the route continues', () => {
+  const p = pipeFixture();
+  p.controller.start(10, 4, 2);
+  p.tick(80);
+  assert.ok(p.jumps() > 0);
+  assert.equal(p.controller.read().status, 'waiting_for_teleport');
+  p.jump();
+  p.tick();
+  assert.equal(p.controller.read().status, 'settling_after_teleport');
+  p.tick(200);
+  assert.equal(p.controller.read().status, 'arrived');
+  assert.deepEqual([p.state.player_x, p.state.player_y], [4, 2]);
+
+  const wrong = pipeFixture({ landing: [4, 1] });
+  wrong.controller.start(10, 4, 2);
+  wrong.tick(80);
+  wrong.jump();
+  wrong.tick(40);
+  assert.equal(wrong.controller.read().status, 'error');
+  assert.match(wrong.controller.read().last_error, /move at \(2,0\) ended at an unexpected tile/);
+});
+
+test('an exit that never fires is excluded and replanned when rerouting is available', () => {
+  const p = fixture({ memory: {} });
+  p.controller.configure({ reroute: true });
+  p.controller.start(11, 0, 0, [{ ...touchExit, approachX: 1, approachY: 0, direction: 1 }]);
+  p.tick(80);
+  assert.equal(p.controller.read().status, 'waiting_for_teleport');
+  p.state.time_ms += 20001;
+  p.tick();
+  const state = p.controller.read();
+  assert.equal(state.status, 'rerouting');
+  assert.deepEqual(plain(state.reroute_request.blocked), ['10:2,0']);
+  assert.match(state.last_reroute_reason, /exit did not reach map 11/);
+});
+
+test('an arrival script that moves the player off the requested landing completes the arrival', () => {
+  // Jigsaw Puzzle World: the callback lands on (32,2), then Spring's jump-down moves the player to (32,12).
+  for (const [x, y, expected] of [[0, 0, 'arrived'], [3, 2, 'navigating']]) {
+    const p = fixture({ memory: {} });
+    p.controller.configure({ reroute: true });
+    p.controller.start(11, x, y, [touchExit]);
+    p.tick(100);
+    p.teleport(11, 0, 0);
+    p.install([], []);
+    // The arrival event moves the player while it runs.
+    p.state.memory.event_running = true;
+    p.tick(5);
+    Object.assign(p.state, { player_x: 4, player_y: 2, position_changed_ms: p.state.time_ms });
+    p.tick(2);
+    p.state.memory.event_running = false;
+    p.tick(40);
+    const state = p.controller.read();
+    if (expected === 'arrived') {
+      assert.equal(state.status, 'arrived');
+      assert.equal(state.arrival, 'landing');
+      assert.deepEqual([p.state.player_x, p.state.player_y], [4, 2], 'no walk back to a tile the game moved the player off');
+    } else {
+      // Another requested tile is still walked to.
+      assert.notEqual(state.status, 'arrived');
+      p.tick(200);
+      assert.deepEqual([p.state.player_x, p.state.player_y], [3, 2]);
+    }
+  }
+});
+
+test('an accepted preparation that times out with the menu open closes the menu itself', () => {
+  const p = arrive(inventory({ 53: 0 }), { memory: {} });
+  p.controller.execute(['_Navbot_PrepareAccept', [1]]);
+  p.state.memory.scene = 'Item';
+  p.tick(26, 1000);
+  assert.equal(p.controller.read().status, 'preparing');
+  assert.equal(p.commands.at(-1).key, 'cancel');
+  assert.throws(() => p.controller.execute(['_Navbot_PrepareKey', [1, 5, 1]]), /No preparation is pending/, 'the late desktop no longer drives the menu');
+  p.state.memory.scene = 'Menu';
+  p.tick(20, 17);
+  assert.equal(p.commands.filter(command => command.key === 'cancel').length, 2);
+  p.state.memory.scene = 'Map';
+  p.tick(200);
+  assert.equal(p.controller.read().status, 'arrived');
+
+  // A menu that never closes ends navigation instead of waiting without a deadline.
+  const stuck = arrive(inventory({ 53: 0 }));
+  stuck.controller.execute(['_Navbot_PrepareAccept', [1]]);
+  stuck.state.memory.scene = 'Menu';
+  stuck.tick(26, 1000);
+  stuck.tick(400, 17);
+  assert.equal(stuck.controller.read().status, 'error');
+  assert.match(stuck.controller.read().last_error, /item menu stayed open/);
+  assert.equal(stuck.commands.filter(command => command.key === 'cancel').length, 4);
+});
+
+test('a route continuing past an exit uses only the effects it may continue with', () => {
+  // As map 420's exit: Spring or Bat to enter map 11, but only Spring to go on to map 12.
+  const exit = { ...gatedExit, continueEffects: [27] };
+  const onward = { mapId: 11, startX: 2, startY: 0, targetMapId: 12, targetX: 0, targetY: 0, action: false };
+  // Bat is already active and Spring is owned: Spring replaces it before departing.
+  const save = inventory({ 27: 1, 38: 3 }, { 150: 1 });
+  const p = fixture({ memory: {}, query: save.query });
+  p.controller.configure({ reroute: true, preparation: effectTable('2kki') });
+  p.controller.start(12, 0, 0, [exit, onward]);
+  p.tick(80);
+  assert.equal(p.controller.read().status, 'preparing');
+  assert.equal(p.controller.read().preparation_request.item_id, 27);
+
+  // Ending in map 11, the active Bat is enough.
+  const end = fixture({ memory: {}, query: inventory({ 27: 1, 38: 3 }, { 150: 1 }).query });
+  end.controller.configure({ reroute: true, preparation: effectTable('2kki') });
+  end.controller.start(11, 0, 0, [exit]);
+  end.tick(80);
+  assert.equal(end.controller.read().status, 'waiting_for_teleport');
+  assert.equal(end.commands.at(-1).key, 'decision');
+
+  // Continuing with only Bat owned cannot work: the exit is excluded.
+  const batOnly = fixture({ memory: {}, query: inventory({ 38: 3 }).query });
+  batOnly.controller.configure({ reroute: true, preparation: effectTable('2kki') });
+  batOnly.controller.start(12, 0, 0, [exit, onward]);
+  batOnly.tick(80);
+  assert.equal(batOnly.controller.read().status, 'rerouting');
+  assert.match(batOnly.controller.read().last_reroute_reason, /needs the Spring effect, which cannot be equipped here/);
+});
+
+test('a move the game did not make during settling is walked back instead of counted as arrival', () => {
+  const p = fixture({ memory: {} });
+  p.controller.configure({ reroute: true });
+  p.controller.start(11, 0, 0, [touchExit]);
+  p.tick(100);
+  p.teleport(11, 0, 0);
+  p.install([], []);
+  p.tick(3);
+  // For example a key the player pressed, which settling deliberately lets through.
+  Object.assign(p.state, { player_x: 3, player_y: 2, position_changed_ms: p.state.time_ms });
+  p.tick(300);
+  const state = p.controller.read();
+  assert.equal(state.status, 'arrived');
+  assert.equal(state.arrival, '');
+  assert.deepEqual([p.state.player_x, p.state.player_y], [0, 0]);
+});
+
+test('a landing arrival survives an arrival event that ends in the same update as its last step', () => {
+  const p = fixture({ memory: {} });
+  p.controller.configure({ reroute: true });
+  p.controller.start(11, 0, 0, [touchExit]);
+  p.tick(100);
+  p.teleport(11, 0, 0);
+  p.install([], []);
+  p.state.memory.event_running = true;
+  p.tick(5);
+  // The last step and the end of the event are sampled together.
+  Object.assign(p.state, { player_x: 4, player_y: 2, position_changed_ms: p.state.time_ms });
+  p.state.memory.event_running = false;
+  p.tick(40);
+  assert.equal(p.controller.read().arrival, 'landing');
+  // A key pressed after the event ended is still walked back.
+  const q = fixture({ memory: {} });
+  q.controller.configure({ reroute: true });
+  q.controller.start(11, 0, 0, [touchExit]);
+  q.tick(100);
+  q.teleport(11, 0, 0);
+  q.install([], []);
+  q.state.memory.event_running = true;
+  q.tick(5);
+  q.state.memory.event_running = false;
+  q.tick(3);
+  Object.assign(q.state, { player_x: 3, player_y: 2, position_changed_ms: q.state.time_ms });
+  q.tick(300);
+  assert.equal(q.controller.read().arrival, '');
+  assert.deepEqual([q.state.player_x, q.state.player_y], [0, 0]);
+});
+
+test('only an arrival event counts as moving the player off the landing', () => {
+  // A fade-in (asynchronous loading) is no arrival script.
+  const fade = fixture({ memory: {} });
+  fade.controller.configure({ reroute: true });
+  fade.controller.start(11, 0, 0, [touchExit]);
+  fade.tick(100);
+  fade.teleport(11, 0, 0);
+  fade.install([], []);
+  fade.state.memory.async_pending = true;
+  fade.tick(5);
+  Object.assign(fade.state, { player_x: 3, player_y: 2, position_changed_ms: fade.state.time_ms });
+  fade.state.memory.async_pending = false;
+  fade.tick(300);
+  assert.equal(fade.controller.read().arrival, '');
+  assert.deepEqual([fade.state.player_x, fade.state.player_y], [0, 0]);
+  // A step the player started as the arrival event ended is their own.
+  const step = fixture({ memory: {} });
+  step.controller.configure({ reroute: true });
+  step.controller.start(11, 0, 0, [touchExit]);
+  step.tick(100);
+  step.teleport(11, 0, 0);
+  step.install([], []);
+  step.state.memory.event_running = true;
+  step.tick(5);
+  Object.assign(step.state, { player_x: 1, player_y: 0, position_changed_ms: step.state.time_ms });
+  Object.assign(step.state.memory, { event_running: false, moving: true });
+  step.tick();
+  step.state.memory.moving = false;
+  step.tick(300);
+  assert.equal(step.controller.read().arrival, '');
+  assert.deepEqual([step.state.player_x, step.state.player_y], [0, 0]);
+});
+
+test('the Bike is checked again after an event, after a reroute, and not before an exit needing another effect', () => {
+  // An event removes the equipped Bike: one more request follows on that map.
+  const save = inventory({ 53: 0 });
+  const p = arrive(save);
+  p.controller.execute(['_Navbot_PrepareAccept', [1]]);
+  save.switches[132] = 1;
+  p.controller.execute(['_Navbot_PrepareDone', [1, 'equipped', '']]);
+  p.tick();
+  p.state.memory.event_running = true;
+  save.switches[132] = 0;
+  p.tick(5);
+  p.state.memory.event_running = false;
+  p.tick(40);
+  assert.equal(p.controller.read().preparation_request?.id, 2);
+
+  // A reroute answer asks again, as after an unexpected landing.
+  const q = fixture({ memory: {}, query: inventory({ 12: 0 }, { 132: 1 }).query });
+  q.controller.configure({ reroute: true, preparation: effectTable('2kki') });
+  // No interaction data for this exit: it is excluded and replanned.
+  q.controller.start(11, 4, 2, [{ mapId: 10, startX: 2, startY: 0, targetMapId: 11, targetX: 0, targetY: 0 }]);
+  q.tick();
+  assert.equal(q.controller.read().status, 'rerouting');
+  q.controller.reroute(1, []);
+  assert.equal(q.controller.read().preparation_request, null, 'an active Bike needs nothing');
+
+  // The next exit needs Spring or Bat: equipping the Bike first would be undone.
+  const r = fixture({ memory: {}, query: inventory({ 12: 0, 27: 1 }).query });
+  r.controller.configure({ reroute: true, preparation: effectTable('2kki') });
+  r.controller.start(11, 0, 0, [gatedExit]);
+  r.tick(80);
+  assert.equal(r.controller.read().preparation_request.kind, 'effect');
+  assert.equal(r.controller.read().preparation_request.item_id, 27);
+});
+
+test('keys on the item menu Navbot opened before a route count as the player taking over', () => {
+  const p = fixture({ memory: { scene: 'Item' } });
+  p.input.hold('down', 1);
+  assert.equal(p.controller.interrupt(), true);
+  assert.equal(p.controller.read().user_interrupts, 1);
+  assert.equal(p.state.held_key, null, 'Navbot lets go of its key');
+  // A message shown without a route is answered by the player, as before.
+  const q = fixture({ memory: { message_active: true } });
+  assert.equal(q.controller.interrupt(), false);
+  assert.equal(q.controller.read().user_interrupts, 0);
 });

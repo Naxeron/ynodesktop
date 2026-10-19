@@ -3,7 +3,9 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const vm = require('node:vm');
-const { createRouteController, createEngineSender, rendererScript, engineCommand } = require('../src/navbot/bridge');
+const { createRouteController, createEngineSender, createPreparationRunner, rendererScript, engineCommand } = require('../src/navbot/bridge');
+const { ensureEffect } = require('../src/navbot/bike');
+const plainObject = value => JSON.parse(JSON.stringify(value));
 const { createCommandQueue } = require('../src/navbot/command-queue');
 
 const flush = () => new Promise(resolve => setImmediate(resolve));
@@ -484,7 +486,7 @@ test('renderer reads only the fixed 2kki Forest Pier capability, with safe older
 
 test('renderer exposes fixed read-only Bike capability fields and preserves unknown state', () => {
   const calls = [];
-  const switches = { 132: 0, 14: 0, 39: 1 };
+  const switches = { 132: 0, 14: 0, 39: 1, 4103: 0 };
   const context = {
     window: { Module: {
       _Navbot_GetState: () => 1, UTF8ToString: () => '{}',
@@ -499,11 +501,13 @@ test('renderer exposes fixed read-only Bike capability fields and preserves unkn
   assert.equal(first.bike_item_index, 4);
   assert.equal(first.bike_active, false);
   assert.equal(first.bike_blocked, true);
-  assert.deepEqual(calls, [['item', 12], ['switch', 132], ['switch', 14], ['switch', 39]]);
+  assert.deepEqual(calls, [['item', 12], ['switch', 132], ['switch', 14], ['switch', 39], ['switch', 4103]]);
   switches[132] = 1;
   switches[39] = 0;
   assert.equal(read().bike_active, true);
   assert.equal(read().bike_blocked, false);
+  switches[4103] = 1;
+  assert.equal(read().bike_blocked, true, 'the boat blocks the Bike');
   delete context.window.Module._Navbot_GetItemIndex;
   delete context.window.Module._Navbot_GetSwitch;
   const older = read();
@@ -793,4 +797,217 @@ test('an interrupt counter change seen on any preparation read cancels before mo
   // Engines without counters (the local build) are never cancelled this way.
   const local = createEngineSender(async () => ({ ready: true, state: { map_id: 10 } }), { game: '2kki', prepare: async input => { await input({ op: 'state' }); } });
   assert.equal((await local({ op: 'goto', x: 1, y: 2 })).ready, true);
+});
+
+// The real page controller paused for a Bike preparation in map 11, with a
+// simulated item menu: each held key acts once on the next engine frame.
+// `defer`: like the engine, a menu opens on the frame after its key is read.
+// `framesPerCall`: frames the engine runs while each page call is answered.
+function preparingPage({ selected = 12, interruptOn = null, defer = false, framesPerCall = 2 } = {}) {
+  const { createOfficialController } = require('../src/navbot/official-controller');
+  const { createPlanner } = require('../src/navbot/official-path');
+  const { effectTable } = require('../src/navbot/effects');
+  const switches = {}, items = { 12: 0 };
+  const memory = { available: true, scene: 'Map', moving: false, event_running: false, message_active: false, async_pending: false,
+    move_route_overwritten: false, player_paused: false, menu_allowed: true, vehicle_type: 0, direction: 2, selected_item_id: 0 };
+  const state = { ready: true, map_known: true, map_id: 11, player_x: 0, player_y: 0, frame: 0, time_ms: 1000, position_changed_ms: 0,
+    teleport_sequence: 0, held_key: null, hold_remaining: 0, error: null, input_timing: 'logical-frames' };
+  const listeners = [], executed = [];
+  let controller, opening = null;
+  const press = {
+    cancel: () => {
+      if (defer && memory.scene === 'Map') { opening = 'Menu'; return; }
+      memory.scene = memory.scene === 'Item' ? 'Menu' : memory.scene === 'Menu' ? 'Map' : 'Menu';
+    },
+    decision: () => {
+      if (memory.scene === 'Menu') { memory.scene = 'Item'; memory.selected_item_id = selected; }
+      else if (memory.scene === 'Item' && memory.selected_item_id === 12) { memory.scene = 'Map'; switches[132] = 1; }
+    },
+  };
+  const input = {
+    read: () => ({ ...state, memory: { ...memory } }),
+    subscribe: listener => listeners.push(listener),
+    stop() { state.held_key = null; state.hold_remaining = 0; },
+    hold(key, frames) {
+      state.held_key = key; state.hold_remaining = frames;
+      if (key === interruptOn) controller.interrupt();
+    },
+    query: request => ({ items: Object.fromEntries((request.items || []).map(id => [id, items[id] ?? -1])),
+      switches: Object.fromEntries((request.switches || []).map(id => [id, switches[id] ?? 0])), skills: {} }),
+    navigation: () => null,
+  };
+  controller = createOfficialController(input, createPlanner());
+  const run = controller.execute;
+  controller.execute = call => { executed.push(JSON.parse(JSON.stringify(call))); return run(call); };
+  controller.configure({ reroute: true, preparation: effectTable('2kki') });
+  controller.installMap(11, { width: 4, height: 1, loopHorizontal: false, loopVertical: false, passages: [4, 6, 6, 2] }, [], []);
+  const frame = () => {
+    ++state.frame; state.time_ms += 17;
+    if (opening) { memory.scene = opening; opening = null; }
+    if (state.held_key) { press[state.held_key]?.(); state.held_key = null; state.hold_remaining = 0; }
+    for (const listener of listeners) listener();
+  };
+  // Start a route to map 12, whose departure is at (3,0): the arrival check runs first.
+  run(['_Navbot_GoToMap', [12, 0, 0], [{ mapId: 11, startX: 3, startY: 0, targetMapId: 12, targetX: 0, targetY: 0, action: false }]]);
+  frame();
+  const context = { window: { __ynoOfficialController: controller }, document: { title: '2kki', getElementById: () => null },
+    location: { hostname: 'ynoproject.net', pathname: '/2kki/' } };
+  const evaluate = async (call, control = {}) => {
+    const result = vm.runInNewContext(rendererScript(call, '2kki', control.expiresAt, control.generation, 'official'), context);
+    for (let i = 0; i < (call ? (typeof framesPerCall === 'function' ? framesPerCall(call) : framesPerCall) : 2); ++i) frame();
+    return result;
+  };
+  const keys = ['up', 'down', 'left', 'right', 'decision', 'cancel', 'shift'];
+  return { controller, evaluate, memory, switches, frame,
+    names: () => executed.map(([name, args]) => name === '_Navbot_PrepareKey' ? keys[args[1]] : name.replace('_Navbot_Prepare', '')) };
+}
+const fastPrepare = (send, options) => ensureEffect(send, { ...options, sleep: async () => {} });
+
+test('the preparation runner equips the Bike through menu keys that keep the route, then answers', async () => {
+  const page = preparingPage();
+  const request = page.controller.pendingPreparation();
+  assert.deepEqual(plainObject(request), { id: 1, kind: 'bike', item_id: 12, map: 11, accepted: false, reason: 'Equipping the Bike' });
+  const records = [];
+  const runner = createPreparationRunner(page.evaluate, { game: '2kki', record: (type, data) => records.push({ type, ...data }), prepare: fastPrepare });
+  const job = runner.offer(request);
+  assert.equal(runner.active, true);
+  assert.equal(runner.offer(request), null, 'one preparation at a time');
+  await job;
+  assert.equal(runner.active, false);
+  assert.deepEqual(page.names(), ['Accept', 'cancel', 'decision', 'decision', 'Done']);
+  assert.equal(page.switches[132], 1);
+  assert.deepEqual(records.map(entry => [entry.type, entry.outcome]), [['preparation', 'equipped']]);
+  page.frame();
+  const state = page.controller.read();
+  assert.equal(state.status, 'navigating');
+  assert.equal(state.active, true);
+  assert.equal(state.target_map_id, 12, 'the route survives the preparation');
+});
+
+test('the preparation runner ignores malformed requests and answers failures after closing the menu', async () => {
+  for (const request of [null, { id: 1, kind: 'bike', item_id: 12, accepted: true }, { id: 1.5, kind: 'bike', item_id: 12, accepted: false },
+    { id: 1, kind: 'warp', item_id: 12, accepted: false }, { id: 1, kind: 'effect', item_id: 99, accepted: false }]) {
+    assert.equal(createPreparationRunner(async () => assert.fail('unexpected call'), { game: '2kki' }).offer(request), null, JSON.stringify(request));
+  }
+  assert.equal(createPreparationRunner(async () => assert.fail('unexpected call'), { game: 'yume' })
+    .offer({ id: 1, kind: 'bike', item_id: 12, accepted: false }), null);
+
+  const page = preparingPage({ selected: 13 });
+  const records = [];
+  await createPreparationRunner(page.evaluate, { game: '2kki', record: (type, data) => records.push(data), prepare: fastPrepare })
+    .offer(page.controller.pendingPreparation());
+  assert.deepEqual(page.names(), ['Accept', 'cancel', 'decision', 'cancel', 'cancel', 'Release', 'Done']);
+  assert.equal(page.memory.scene, 'Map', 'the menu opened for the preparation is closed again');
+  assert.equal(records[0].outcome, 'failed');
+  assert.match(records[0].message, /selected item is not Bike/);
+  page.frame();
+  assert.equal(page.controller.read().status, 'navigating');
+});
+
+test('Stop and real keyboard input end the runner without another key or answer', async () => {
+  let generation = 3;
+  const page = preparingPage();
+  const evaluate = async (call, control) => {
+    const result = await page.evaluate(call, control);
+    if (call?.[1]?.[1] === 5) ++generation; // Stop arrives right after the menu opens.
+    return result;
+  };
+  const records = [];
+  await createPreparationRunner(evaluate, { game: '2kki', generation: () => generation, record: (type, data) => records.push(data), prepare: fastPrepare })
+    .offer(page.controller.pendingPreparation());
+  assert.deepEqual(page.names(), ['Accept', 'cancel']);
+  assert.equal(records[0].outcome, 'cancelled');
+
+  const interrupted = preparingPage({ interruptOn: 'cancel' });
+  const later = [];
+  await createPreparationRunner(interrupted.evaluate, { game: '2kki', record: (type, data) => later.push(data), prepare: fastPrepare })
+    .offer(interrupted.controller.pendingPreparation());
+  assert.deepEqual(interrupted.names(), ['Accept', 'cancel']);
+  assert.equal(later[0].outcome, 'cancelled');
+  assert.equal(interrupted.controller.read().status, 'stopped');
+});
+
+test('a new destination first closes the menu a running preparation opened', async () => {
+  const page = preparingPage();
+  let release = null, runner;
+  const evaluate = async (call, control) => {
+    const result = await page.evaluate(call, control);
+    // The panel submits another destination right after the menu opened.
+    if (call?.[0] === '_Navbot_PrepareKey' && call[1][1] === 5 && !release) release = new Promise(resolve => setImmediate(() => resolve(runner.release())));
+    return result;
+  };
+  const records = [];
+  // Polls yield to other tasks, as real timers do.
+  const tick = () => new Promise(resolve => setImmediate(resolve));
+  runner = createPreparationRunner(evaluate, { game: '2kki', record: (type, data) => records.push(data), sleep: tick,
+    prepare: (send, options) => ensureEffect(send, { ...options, sleep: tick }) });
+  const job = runner.offer(page.controller.pendingPreparation());
+  await job;
+  await release;
+  assert.equal(runner.active, false);
+  // A key not yet pressed is dropped first; the open menu is then closed.
+  assert.deepEqual(page.names(), ['Accept', 'cancel', 'Release', 'cancel']);
+  assert.equal(page.memory.scene, 'Map', 'the new route does not wait behind an open menu');
+  assert.equal(records.at(-1).outcome, 'cancelled');
+  // The request is left for the new command's Stop; nothing answered it.
+  assert.equal(page.controller.read().status, 'preparing');
+});
+
+test('a request polled before a newer command never starts', async () => {
+  let generation = 2;
+  const page = preparingPage();
+  const runner = createPreparationRunner(page.evaluate, { game: '2kki', generation: () => generation, prepare: fastPrepare });
+  const request = page.controller.pendingPreparation();
+  generation = 3;
+  await runner.offer(request, 2);
+  assert.deepEqual(page.names(), []);
+});
+
+test('closing a preparation menu waits for the key in flight: a late menu is closed, an unpressed key dropped', async () => {
+  const tick = () => new Promise(resolve => setImmediate(resolve));
+  // The menu opens a frame after the runner's Cancel is read, or the key is not pressed yet.
+  for (const [frames, expected] of [[1, ['Accept', 'cancel', 'Release', 'cancel']], [0, ['Accept', 'cancel', 'Release']]]) {
+    const page = preparingPage({ defer: true,
+      framesPerCall: call => call[0] === '_Navbot_PrepareKey' ? frames : call[0] === '_Navbot_PrepareRelease' ? 0 : 2 });
+    let release = null, runner;
+    const evaluate = async (call, control) => {
+      const result = await page.evaluate(call, control);
+      if (call?.[0] === '_Navbot_PrepareKey' && !release) release = new Promise(resolve => setImmediate(() => resolve(runner.release())));
+      return result;
+    };
+    runner = createPreparationRunner(evaluate, { game: '2kki', sleep: tick, prepare: (send, options) => ensureEffect(send, { ...options, sleep: tick }) });
+    await runner.offer(page.controller.pendingPreparation());
+    await release;
+    for (let i = 0; i < 4; ++i) page.frame();
+    assert.deepEqual(page.names(), expected, `${frames} frame(s) during the key`);
+    assert.equal(page.memory.scene, 'Map', `${frames} frame(s) during the key`);
+  }
+});
+
+test('the pre-route Bike preparation closes its menu for a new destination, also without keyboard telemetry', async () => {
+  // The local engine reports no user_interrupts.
+  const s = { scene: 'Map', map_id: 10, player_x: 3, player_y: 4, frame: 1, active: false, status: 'stopped', held_keys: [],
+    menu_allowed: true, vehicle_type: 0, bike_active: false, bike_item_index: 1, bike_blocked: false, selected_item_id: 0,
+    moving: false, event_running: false, message_active: false, async_pending: false, move_route_overwritten: false };
+  const keys = [];
+  let held = null;
+  const evaluate = async call => {
+    if (call?.[0] === '_Navbot_HoldKey') { held = ['up', 'down', 'left', 'right', 'decision', 'cancel', 'shift'][call[1][0]]; keys.push(`${held}@${s.scene}`); }
+    if (call?.[0] === '_Navbot_Stop') held = null;
+    const result = { ready: true, state: { ...s, held_keys: held ? [held] : [] } };
+    // One engine frame per call; the cursor never reaches the Bike.
+    ++s.frame;
+    if (held === 'cancel') s.scene = s.scene === 'Item' ? 'Menu' : s.scene === 'Menu' ? 'Map' : 'Menu';
+    else if (held === 'decision' && s.scene === 'Menu') { s.scene = 'Item'; s.selected_item_id = 30; }
+    held = null;
+    return result;
+  };
+  const tick = () => new Promise(resolve => setImmediate(resolve));
+  const send = createEngineSender(evaluate, { game: '2kki', sleep: tick, prepare: (input, options) => ensureEffect(input, { ...options, sleep: tick }) });
+  const first = send({ op: 'goto-map', map: 12, x: 0, y: 0 }, { generation: 0 }).then(() => 'started', error => error.message);
+  while (s.scene !== 'Item') await tick();
+  await send.release();
+  assert.match(await first, /cancelled/i);
+  assert.equal(s.scene, 'Map');
+  assert.deepEqual(keys.slice(-2), ['cancel@Item', 'cancel@Menu']);
 });

@@ -125,13 +125,13 @@ test('the page lookup returns validated cached and Explorer map IDs for the sess
     location: { hostname: 'ynoproject.net', pathname: '/2kki/' }, setTimeout, clearTimeout, encodeURIComponent, ...context });
   const explorer = (url, callback) => { requests.push(url); callback({ title: 'World', mapIds: ['0143', '0144', '99999', 'x'] }); };
   const cache = { '0002_0143': [{ title: 'World' }], '0143_0002': [{ title: 'Other' }], 'bad_0009': [{ title: 'World' }], '0001_0000': [{ title: 'World' }] };
-  assert.deepEqual(JSON.parse(JSON.stringify(await run({ locationCache: cache, send2kkiApiRequest: explorer }))), { cached: [143], explorer: null, error: null },
-    'cached maps answer without waiting for the Explorer');
-  assert.deepEqual(requests, []);
-  assert.deepEqual(JSON.parse(JSON.stringify(await run({ locationCache: {}, send2kkiApiRequest: explorer }))), { cached: [], explorer: [143, 144], error: null });
+  // The cache holds only locations the page has met, so the Explorer is asked as well.
+  assert.deepEqual(JSON.parse(JSON.stringify(await run({ locationCache: cache, send2kkiApiRequest: explorer }))), { cached: [143], explorer: [143, 144], error: null });
   assert.deepEqual(requests, ['https://explorer.yume.wiki/getLocationInfo?locationName=World']);
-  assert.equal((await run({ locationCache: {}, send2kkiApiRequest: explorer }, 'World', false)).explorer, null, 'catalog-known titles skip the Explorer');
-  assert.equal(requests.length, 1);
+  assert.deepEqual(JSON.parse(JSON.stringify(await run({ locationCache: {}, send2kkiApiRequest: explorer }))), { cached: [], explorer: [143, 144], error: null });
+  assert.equal(requests.length, 2);
+  assert.equal((await run({ locationCache: {}, send2kkiApiRequest: explorer }, 'World', false)).explorer, null, 'a disallowed lookup skips the Explorer');
+  assert.equal(requests.length, 2);
   const mismatch = await run({ send2kkiApiRequest: (_url, callback) => callback({ title: 'Different', mapIds: ['0143'] }) });
   assert.equal(mismatch.error, 'Explorer lookup failed');
   assert.equal(mismatch.explorer, null);
@@ -218,4 +218,52 @@ test('completion on another map of the same location is recognised even if navig
   assert.equal(result.outcome, 'navigation-stopped');
   assert.equal(result.expedition.complete, true);
   assert.equal(result.ok, true);
+});
+
+test('Current expedition plans Jigsaw Puzzle World through Spring or Bat, and names them when neither is owned', async () => {
+  const { graph: served } = applyGraphOverlay(require('../map_graph.json'), '2kki');
+  const page = { expeditions: [{ title: 'Jigsaw Puzzle World', type: 'Daily', kind: null, complete: false }], cachedLocationNames: ["Urotsuki's Room"] };
+  const plan = owned => planExpedition({
+    read: async () => ({ ready: true, page, state: { map_id: 2, map_known: true, player_x: 12, player_y: 6, owned_effects: owned } }),
+    // A fresh profile: no cached locations, so the Explorer's map IDs for the title
+    // (expedition record IDs are never used), as the page script returns them.
+    lookup: async (title, { explorer }) => ({ cached: [], explorer: explorer ? [412, 413, 415, 418, 419, 452, 1151, 1152] : null, error: null }),
+    game: '2kki', graph: () => served, planner,
+  });
+  for (const owned of [[27], [38], [12, 27, 38]]) {
+    const { expedition } = await plan(owned);
+    assert.deepEqual([expedition.map, expedition.x, expedition.y, expedition.hops], [413, 32, 2, 8], JSON.stringify(owned));
+    assert.deepEqual(expedition.route, [5, 4, 10, 71, 72, 411, 420, 413]);
+  }
+  for (const owned of [[], [12]]) {
+    await assert.rejects(plan(owned), /^Error: Jigsaw Puzzle World: This route needs the Spring or Bat effect, which this save does not have\.$/,
+      JSON.stringify(owned));
+  }
+  await assert.rejects(plan(null), /^Error: Jigsaw Puzzle World: This route needs the Spring or Bat effect, but the save's effects could not be read\.$/);
+});
+
+test('cached and Explorer map IDs add maps but keep the catalog regions of maps they also name', async () => {
+  // The catalog names map 20 only in its region x 0..3; entering it at (5,6) is named after another world.
+  const regionGraph = { 10: [edge(20, 1, 1, 5, 6), edge(50, 3, 1, 4, 4)], 50: [edge(20, 2, 2, 1, 1)] };
+  for (const found of [{ cached: [], explorer: [20, 30] }, { cached: [20], explorer: null }]) {
+    const result = await planExpedition({
+      read: async () => ({ ready: true, page: { expeditions: [{ title: 'World', complete: false }] }, state: { ...state, map_known: true } }),
+      lookup: async () => ({ ...found, error: null }),
+      game: '2kki', catalog: { entries: [{ mapId: 20, name: 'World', regions: [{ x1: 0, y1: 0, x2: 3, y2: 3 }] }] },
+      graph: () => regionGraph, planner,
+    });
+    assert.deepEqual([result.expedition.map, result.expedition.x, result.expedition.y, result.expedition.route], [20, 1, 1, [50, 20]], JSON.stringify(found));
+  }
+});
+
+test('a region entrance never continues past an exit some effects open only for routes ending there', () => {
+  // As map 420's exit: Bat may end a route in map 2, but only Spring leads on to map 3.
+  const gate = { ...edge(2, 1, 1, 0, 0), approachX: 1, approachY: 1, direction: 0, action: true, reviewed: true,
+    requiresEffects: [27, 38], continueEffects: [27] };
+  const gated = { 10: [gate], 2: [edge(3, 4, 4, 1, 1)] };
+  const regions = new Map([[3, [{ x1: 0, y1: 0, x2: 2, y2: 2 }]]]);
+  const choose = owned => chooseDestination({ graph: gated, planner, routeOptions: () => routeOptions('2kki', [], [], owned), game: '2kki',
+    title: 'World', mapIds: [3], state, regions });
+  assert.throws(() => choose([38]), /No known route reaches World/);
+  assert.deepEqual(choose([27]).route, [2, 3]);
 });

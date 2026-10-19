@@ -87,6 +87,9 @@ function chooseDestination({ graph, planner, routeOptions, game, title, mapIds, 
       for (const edge of planner.usableExits(graph, from, options)) {
         if (edge.targetMapId !== map || !knownTile(edge.targetX, edge.targetY) || !areas.some(area => inRegion(area, edge.targetX, edge.targetY))) continue;
         const before = from === state.map_id ? [] : planner.findMapRoute(graph, state.map_id, from, options);
+        // An exit some effects open only for routes ending in its map cannot lead on.
+        const gate = before?.at(-1);
+        if (gate && Array.isArray(gate.continueEffects) && !gate.continueEffects.some(id => options?.ownedEffects?.has(id))) continue;
         if (before) consider(map, [...before, { ...edge, mapId: from }]);
       }
     }

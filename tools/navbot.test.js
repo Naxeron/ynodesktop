@@ -27,7 +27,7 @@ test('desktop packaging retains runtime data and excludes local diagnostics and 
   const filter = new FileMatcher(root, root, value => value, require('../package.json').build.files).createFilter();
   for (const file of [
     'src/main.js', 'src/scripts/navbot-panel.js', 'src/navbot/map-names/2kki.json', 'src/navbot/overlays/2kki-reflections-route.json',
-    'src/navbot/overlays/2kki-start-route.json', 'src/navbot/routes/2kki-planetarium.json', 'src/navbot/routes/2kki-planetarium-shortcut.json', 'src/navbot/route-runner.js', 'src/navbot/bike.js', 'assets/logo.png', 'LICENSE', 'map_graph.json', 'graphs/yume/map_graph.json',
+    'src/navbot/overlays/2kki-start-route.json', 'src/navbot/overlays/2kki-jigsaw-route.json', 'src/navbot/effects.js', 'src/navbot/routes/2kki-planetarium.json', 'src/navbot/routes/2kki-planetarium-shortcut.json', 'src/navbot/route-runner.js', 'src/navbot/bike.js', 'assets/logo.png', 'LICENSE', 'map_graph.json', 'graphs/yume/map_graph.json',
     'node_modules/sweetalert2/dist/sweetalert2.all.min.js',
   ]) assert.equal(filter(path.join(root, file), { isDirectory: () => false }), true, file);
   for (const file of [
@@ -365,7 +365,7 @@ test('failed recipe confirmation is not successful tile arrival', async () => {
   assert.equal(result.ok, false);
 });
 
-const BIKE_QUERY = { switches: [132, 14, 39], items: [12], skills: [[2, 512]] };
+const BIKE_QUERY = { switches: [132, 14, 39, 4103], items: [12], skills: [[2, 512]] };
 function officialPage(controller, pathname = '/2kki/') {
   return { window: { __ynoOfficialController: controller }, document: { title: '2kki', getElementById: () => null },
     location: { hostname: 'ynoproject.net', pathname } };
@@ -376,7 +376,7 @@ const bikeFields = state => ({ forest_pier_visited: state.forest_pier_visited, b
 
 test('official 2kki renderer fills Forest Pier and Bike fields from verified controller queries', () => {
   const requests = [];
-  let answer = { switches: { 132: 1, 14: 0, 39: 0 }, items: { 12: 3 }, skills: { '2:512': true } };
+  let answer = { switches: { 132: 1, 14: 0, 39: 0, 4103: 0 }, items: { 12: 3 }, skills: { '2:512': true } };
   const controller = {
     read: () => ({ ready: true, backend: 'official', map_id: 10, ...unknownBike }),
     query: request => { requests.push(JSON.parse(JSON.stringify(request))); return answer; },
@@ -385,12 +385,13 @@ test('official 2kki renderer fills Forest Pier and Bike fields from verified con
   const read = (game = '2kki') => bikeFields(vm.runInNewContext(rendererScript(null, game), context).state);
   assert.deepEqual(read(), { forest_pier_visited: true, bike_item_index: 3, bike_active: true, bike_blocked: false });
   assert.deepEqual(requests, [BIKE_QUERY], 'only the fixed switches, Bike item and Forest Pier skill are read');
-  for (const [switches, blocked] of [[{ 132: 0, 14: 1, 39: 0 }, true], [{ 132: 0, 14: 0, 39: 1 }, true], [{ 132: 0, 14: 1, 39: 1 }, true]]) {
+  for (const [switches, blocked] of [[{ 132: 0, 14: 1, 39: 0, 4103: 0 }, true], [{ 132: 0, 14: 0, 39: 1, 4103: 0 }, true],
+    [{ 132: 0, 14: 1, 39: 1, 4103: 0 }, true], [{ 132: 0, 14: 0, 39: 0, 4103: 1 }, true], [{ 132: 0, 14: 0, 39: 0, 4103: 0 }, false]]) {
     answer = { switches, items: { 12: 0 }, skills: { '2:512': false } };
     assert.deepEqual(read(), { forest_pier_visited: false, bike_item_index: 0, bike_active: false, bike_blocked: blocked });
   }
   // Unreadable switches (null), out-of-range switches (-1), unowned or unreadable items and actors stay unknown.
-  answer = { switches: { 132: null, 14: -1, 39: 0 }, items: { 12: null }, skills: { '2:512': null } };
+  answer = { switches: { 132: null, 14: -1, 39: 0, 4103: 0 }, items: { 12: null }, skills: { '2:512': null } };
   assert.deepEqual(read(), { forest_pier_visited: null, bike_item_index: -1, bike_active: null, bike_blocked: null });
   answer = { switches: { 132: 2, 14: 0, 39: null }, items: { 12: -1 }, skills: { '2:512': 1 } };
   assert.deepEqual(read(), { forest_pier_visited: null, bike_item_index: -1, bike_active: null, bike_blocked: null });
@@ -418,7 +419,13 @@ test('official renderer turns the real controller query into Bike fields only wh
     read: () => ({ ready: true, map_known: true, map_id: 10, player_x: 3, player_y: 4, frame: 5, time_ms: 1000, position_changed_ms: 0,
       teleport_sequence: 0, held_key: null, hold_remaining: 0, error: null, input_timing: 'logical-frames', memory: { ...memory } }),
     subscribe() {}, stop() {},
-    query: request => { requests.push(request); return memory.available ? { switches: { 132: 0, 14: 0, 39: 0 }, items: { 12: 0 }, skills: { '2:512': true } } : null; },
+    query: request => {
+      requests.push(request);
+      if (!memory.available) return null;
+      // The controller's own effect reads come first; every effect and its dummy are unowned here.
+      return { switches: Object.fromEntries((request.switches || []).map(id => [id, 0])),
+        items: Object.fromEntries((request.items || []).map(id => [id, id === 12 ? 0 : -1])), skills: { '2:512': true } };
+    },
   };
   const context = officialPage(createOfficialController(input, createPlanner()));
   const verified = vm.runInNewContext(rendererScript(null, '2kki'), context).state;
@@ -426,7 +433,7 @@ test('official renderer turns the real controller query into Bike fields only wh
   assert.equal(verified.capabilities.recipes, true);
   assert.equal(verified.scene, 'Map');
   assert.equal(verified.menu_allowed, true);
-  assert.deepEqual(requests.map(request => JSON.parse(JSON.stringify(request))), [BIKE_QUERY]);
+  assert.deepEqual(requests.map(request => JSON.parse(JSON.stringify(request))).at(-1), BIKE_QUERY);
   memory = { available: false, error: 'Game_Player typeinfo not found' };
   const unverified = vm.runInNewContext(rendererScript(null, '2kki'), context).state;
   assert.deepEqual(bikeFields(unverified), unknownBike);
@@ -531,4 +538,51 @@ test('official startup without engine scenes reports the memory reader error', a
   const title = await harness([officialTitle({ title_index: 3 })], { timeoutMs: 1000 });
   assert.equal(title.result.outcome, 'timeout');
   assert.equal(title.result.error, null);
+});
+
+test('an arrival through the requested landing counts even where the game moved the player on', async () => {
+  // As in Jigsaw Puzzle World: the requested tile is the landing, and the arrival script moves the player on.
+  const moved = { map_id: 10, player_x: 3, player_y: 12 };
+  const { result } = await harness([
+    officialMap(), officialMap(), officialMap(),
+    officialMap({ ...moved, status: 'arrived', arrival: 'landing' }),
+    officialMap({ ...moved, status: 'arrived', arrival: 'landing' }),
+  ], { target, timeoutMs: 10000 });
+  assert.equal(result.outcome, 'arrived');
+  assert.equal(result.arrivedBy, 'landing');
+  // Without the controller's landing arrival, the same stop is not an arrival.
+  const plain = await harness([
+    officialMap(), officialMap(), officialMap(),
+    officialMap({ ...moved, status: 'arrived', arrival: '' }),
+    officialMap({ ...moved, status: 'arrived', arrival: '' }),
+  ], { target, timeoutMs: 10000 });
+  assert.equal(plain.result.outcome, 'navigation-stopped');
+});
+
+// The 2kki computer desktop that a save made at the PC reopens after loading.
+const desktop = (extra = {}) => state({ map_id: 2, player_x: 12, player_y: 5, event_running: true, message_active: false,
+  async_pending: false, observed_stationary: true, ...extra });
+
+test('2kki boot closes the computer desktop a loaded save reopens', async () => {
+  const closed = state({ map_id: 2, player_x: 12, player_y: 6, event_running: false });
+  const { result, commands } = await harness([...Array(8).fill(desktop()), closed, closed, closed, closed], { game: '2kki', timeoutMs: 20000 });
+  assert.equal(result.outcome, 'map-ready');
+  const keys = commands.filter(command => command.op === 'hold');
+  assert.ok(keys.length >= 1 && keys.length <= 3);
+  assert.ok(keys.every(command => command.key === 'cancel' && command.frames === 1));
+  // A Cancel that reached the map as the desktop closed opened the menu: one more closes it.
+  const stray = await harness([...Array(4).fill(desktop()), ...Array(4).fill(state({ map_id: 2, player_x: 12, player_y: 6, scene: 'Menu' })),
+    closed, closed, closed, closed], { game: '2kki', timeoutMs: 20000 });
+  assert.equal(stray.result.outcome, 'map-ready');
+  assert.equal(stray.commands.filter(command => command.op === 'hold').length, 2);
+});
+
+test('the desktop close is bounded and limited to the 2kki PC', async () => {
+  const stuck = await harness([desktop()], { game: '2kki', timeoutMs: 30000 });
+  assert.equal(stuck.result.outcome, 'timeout');
+  assert.equal(stuck.commands.filter(command => command.op === 'hold').length, 5);
+  for (const [game, extra] of [['yume', {}], ['2kki', { player_x: 9, player_y: 4 }], ['2kki', { message_active: true }], ['2kki', { map_id: 4 }]]) {
+    const other = await harness([desktop(extra)], { game, timeoutMs: 6000 });
+    assert.equal(other.commands.some(command => command.op === 'hold'), false, `${game} ${JSON.stringify(extra)}`);
+  }
 });
